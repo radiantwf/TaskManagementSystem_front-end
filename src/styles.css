@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+*{
+	padding:0px;
+	margin: 0px;
+}
+html, body{
+	width: 100%;
+	font-family: "微软雅黑";
+	color: #666666;
+}
+
+body{
+	background-image: url(./../img/background/bg.jpg);
+	background-size:cover; 
+}

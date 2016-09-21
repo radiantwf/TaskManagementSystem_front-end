@@ -6,16 +6,10 @@ import { routing } from './app.routing';
 import { AlertModule, DatepickerModule } from 'ng2-bootstrap/ng2-bootstrap';
 
 import { AppComponent } from './app.component';
-import { SignInComponent } from './sign-in/sign-in.component';
-import { HomeComponent } from './home/home.component';
-import { TextboxAutocompleteDirective } from './textbox-autocomplete.directive';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    SignInComponent,
-    HomeComponent,
-    TextboxAutocompleteDirective
+    AppComponent
   ],
   imports: [
     routing,

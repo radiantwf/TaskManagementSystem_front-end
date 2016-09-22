@@ -7,9 +7,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./sign-in.component.css']
 })
 export class SignInComponent implements OnInit {
-  private router: Router;
-
-  constructor() {
+  
+  constructor(private router: Router) {
   }
 
   ngOnInit() {
@@ -21,10 +20,7 @@ export class SignInComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-  }
-
-  onClick() {
-    this.router.navigate(['/home', '1``']);
+    this.router.navigate(['/home']);
   }
 
   // TODO: Remove this when we're done

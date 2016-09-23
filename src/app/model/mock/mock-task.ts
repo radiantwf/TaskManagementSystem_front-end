@@ -1,14 +1,14 @@
-import { Task } from '../Task';
+import { Task } from '../task';
 
 export const TASKS: Task[] = [
-  {id: 11, name: 'Mr. Nice'},
-  {id: 12, name: 'Narco'},
-  {id: 13, name: 'Bombasto'},
-  {id: 14, name: 'Celeritas'},
-  {id: 15, name: 'Magneta'},
-  {id: 16, name: 'RubberMan'},
-  {id: 17, name: 'Dynama'},
-  {id: 18, name: 'Dr IQ'},
-  {id: 19, name: 'Magma'},
-  {id: 20, name: 'Tornado'}
+    { id: 'T201606120001', name: '任务管理系统开发' },
+    { id: 'T201606120002', name: '任务管理系统开发2' },
+    { id: 'T201606120003', name: '任务管理系统开发3' },
+    { id: 'T201606120004', name: '任务管理系统开发4' },
+    { id: 'T201606120005', name: '任务管理系统开发5' },
+    { id: 'T201606120006', name: '任务管理系统开发6' },
+    { id: 'T201606120007', name: '任务管理系统开发7' },
+    { id: 'T201606120008', name: '任务管理系统开发8' },
+    { id: 'T201606120009', name: '任务管理系统开发9' },
+    { id: 'T201606120010', name: '任务管理系统开发10' }
 ];

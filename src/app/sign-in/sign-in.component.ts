@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { User } from './../model/User';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +15,7 @@ export class SignInComponent implements OnInit {
   ngOnInit() {
   }
 
-  model = new User('', '');
+  model = new User();
 
   submitted = false;
 
@@ -31,11 +32,4 @@ export class SignInComponent implements OnInit {
   // to be removed/re-added in a tick via NgIf
   // TODO: Workaround until NgForm has a reset method (#6822)
   active = true;
-}
-
-export class User {
-  constructor(
-    public name: string,
-    public pwd: string
-  ) { }
 }

@@ -1,5 +1,7 @@
 // 任务 类型
 export class Task {
+    constructor(
+    ) { }
     // 任务编号
     public num: string;
     // 任务名称

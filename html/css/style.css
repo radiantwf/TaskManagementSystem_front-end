@@ -106,23 +106,16 @@ i:before, .fc-icon, .glyph-icon:before, .ui-icon:before {
 	display: inline-block;
 	width: 100%;
 	border-bottom: 1px solid #fff;
-
 }
-.menu li{
+.menu li, .menu li:hover{
 	list-style-type: none;
 	height: 52px;
-	line-height: 52px;
+	line-height: 50px;
 	font-size: 14px;
 	color:#939393;
 	padding-left: 20px;
 }
 .menu li:hover{
-	list-style-type: none;
-	height: 52px;
-	line-height: 52px;
-	font-size: 14px;
-	color:#117ecc;
-	padding-left: 20px;
 	background-color: rgba(0,0,0,0.05);
 	cursor: pointer;
 }
@@ -132,6 +125,10 @@ i:before, .fc-icon, .glyph-icon:before, .ui-icon:before {
 	padding-right: 10px;
 }
 
+
+.menu li .glyph-icon{
+	font-size: 1.5rem;
+}
 
 
 .badge {
@@ -155,6 +152,11 @@ i:before, .fc-icon, .glyph-icon:before, .ui-icon:before {
 
 .badge-danger {
     background-color: #e9573f;
+}
+
+.badge-gray{
+	background-color: #dadada;
+	color: #7f7e7e;
 }
 
 

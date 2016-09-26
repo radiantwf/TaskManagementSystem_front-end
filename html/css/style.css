@@ -9,7 +9,7 @@ html, body{
 }
 
 body{
-	background-image: url(../img/background/bg.jpg);
+	background-image: url(../../img/background/bg.jpg);
 	background-size:cover; 
 }
 
@@ -73,7 +73,7 @@ i:before, .fc-icon, .glyph-icon:before, .ui-icon:before {
 .logo{
 	width: 280px;
 	height: 200px;
-	background-image: url(../img/logo.png);
+	background-image: url(../../img/logo.png);
 	position: absolute;
 	top:-60px;
 }
@@ -116,10 +116,45 @@ i:before, .fc-icon, .glyph-icon:before, .ui-icon:before {
 	color:#939393;
 	padding-left: 20px;
 }
+.menu li:hover{
+	list-style-type: none;
+	height: 52px;
+	line-height: 52px;
+	font-size: 14px;
+	color:#117ecc;
+	padding-left: 20px;
+	background-color: rgba(0,0,0,0.05);
+	cursor: pointer;
+}
 
 .menu li div, .menu li i{
 	float: left;
 	padding-right: 10px;
+}
+
+
+
+.badge {
+	position: absolute;
+    display: inline-block;
+    min-width: 10px;
+    padding: 3px 7px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #ffffff;
+    line-height: 1;
+    vertical-align: baseline;
+    white-space: nowrap;
+    text-align: center;
+    background-color: #777777;
+    border-radius: 10px;
+    margin-top: 18px;
+    right:10px
+}
+
+
+.badge-danger {
+    background-color: #e9573f;
 }
 
 

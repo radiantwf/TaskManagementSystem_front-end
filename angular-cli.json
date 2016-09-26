@@ -17,12 +17,7 @@
       "styles": [
         "styles.css",
         "../node_modules/bootstrap/dist/css/bootstrap.css",
-        "../icons/iconic/iconic.css",
-        "../icons/elusive/elusive.css",
-        "../icons/meteocons/meteocons.css",
-        "../icons/spinnericon/spinnericon.css",
-        "../icons/typicons/typicons.css",
-        "../icons/fontawesome/fontawesome.css"
+        "../icons/icons.css"
       ],
       "scripts": [],
       "environments": {

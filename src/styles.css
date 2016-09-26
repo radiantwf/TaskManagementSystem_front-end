@@ -11,6 +11,6 @@ html, body{
 }
 
 body{
-	background-image: url(./../img/background/bg.jpg);
+	background-image: url(./assets/img/background/bg.jpg);
 	background-size:cover; 
 }

@@ -161,6 +161,10 @@ i:before, .fc-icon, .ui-icon:before {
 	color: #7f7e7e;
 }
 
+.btn-add:hover{
+ color: #00BFA8;
+}
+
 
 /*右侧内容区*/
 .rightDiv{

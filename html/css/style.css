@@ -15,7 +15,7 @@ body{
 
 
 /*图标样式*/
-i:before, .fc-icon, .glyph-icon:before, .ui-icon:before {
+i:before, .fc-icon, .ui-icon:before {
     font-family: FontAwesome;
     font-weight: 400;
     font-style: normal;

@@ -1,5 +1,5 @@
 /*图标样式*/
-i:before, .fc-icon, .glyph-icon:before, .ui-icon:before {
+i:before, .fc-icon, .ui-icon:before {
     font-family: FontAwesome;
     font-weight: 400;
     font-style: normal;
@@ -455,3 +455,4 @@ i:before, .fc-icon, .glyph-icon:before, .ui-icon:before {
     font-weight: 600;
     padding-bottom: 5px;
 }
+

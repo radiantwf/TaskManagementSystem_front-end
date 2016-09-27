@@ -57,7 +57,7 @@ i:before, .fc-icon, .ui-icon:before {
 .logo{
 	width: 280px;
 	height: 200px;
-	background-image: url(./../../../assets/img/logo.png);
+	background-image: url(../../../assets/img/logo.png);
 	position: absolute;
 	top:-60px;
 }
@@ -143,6 +143,10 @@ i:before, .fc-icon, .ui-icon:before {
 .badge-gray{
 	background-color: #dadada;
 	color: #7f7e7e;
+}
+
+.btn-add:hover{
+ color: #00BFA8;
 }
 
 

@@ -9,13 +9,19 @@ import { AppComponent } from './component/app.component';
 import { SignInComponent } from './component/sign-in/sign-in.component';
 import { HomeComponent } from './component/home/home.component';
 import { TextboxAutocompleteDirective } from './directive/textbox-autocomplete.directive';
+import { ElementListComponent } from './component/element-list/element-list.component';
+import { ElementDetailComponent } from './component/element-detail/element-detail.component';
+import { NavigationBarComponent } from './component/navigation-bar/navigation-bar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SignInComponent,
     HomeComponent,
-    TextboxAutocompleteDirective
+    TextboxAutocompleteDirective,
+    ElementListComponent,
+    ElementDetailComponent,
+    NavigationBarComponent
   ],
   imports: [
     routing,

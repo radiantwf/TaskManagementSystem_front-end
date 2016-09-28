@@ -1,0 +1,26 @@
+/*系统logo*/
+.logo{
+	width: 280px;
+	height: 200px;
+	background-image: url(../../img/logo.png);
+	position: absolute;
+	top:-60px;
+}
+
+/*任务统计区块*/
+.stateDiv{
+	height:88px;
+	background-color: rgba(255,255,255,0.3);
+	border-bottom: 2px solid #d7d6db;
+	float: right;
+	margin-right: 20px;
+	margin-top: 40px;
+	margin-bottom: 20px;;
+}
+
+/*头部分割线*/
+.line{
+	height: 2px;
+	width: 100%;
+	background-color: #f8f1f3;
+}

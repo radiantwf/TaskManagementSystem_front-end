@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Demo</title>
+    <!-- HTML Imports -->
+    <link href="2.html" rel="import"  id="tmp"/>
+</head>
+<body>
+    <div id="container">
+    </div>
+    <p>
+        chrome 版本39.0.2171.95 m测试发现，他已经支持HTML Imports 特性了。（2014-12-29）
+        <br> HTML Imports 的演示demo不要在本地文件系统直接用浏览器打开，请部署到http服务器再用浏览器访问（比如nginx、apache等）。
+        <br> 本地访问，chrome会报错，因为这样import，chrome认为你跨域了。
+        <br> chrome报错信息为：
+        <br> Imported resource from origin 'file://' has been blocked from loading by Cross-Origin Resource Sharing policy: Received an invalid response. Origin 'null' is therefore not allowed access.
+    </p>
+</body>
+    <script>
+    // 在javascript中调用HTML Imports的内容：
+    var post = document.querySelector('link[id="tmp"]').import;
+    document.querySelector('#container').appendChild(post.querySelector('.header'));
+    </script>
+</html>

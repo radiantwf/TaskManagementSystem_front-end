@@ -11,7 +11,9 @@ import { HomeComponent } from './component/home/home.component';
 import { TextboxAutocompleteDirective } from './directive/textbox-autocomplete.directive';
 import { ElementListComponent } from './component/element-list/element-list.component';
 import { ElementDetailComponent } from './component/element-detail/element-detail.component';
-import { NavigationBarComponent } from './component/navigation-bar/navigation-bar.component';
+import { SigninUserInfoComponent } from './component/signin-user-info/signin-user-info.component';
+import { MainHeaderComponent } from './component/main-header/main-header.component';
+import { MainNavigationBarComponent } from './component/main-navigation-bar/main-navigation-bar.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { NavigationBarComponent } from './component/navigation-bar/navigation-ba
     TextboxAutocompleteDirective,
     ElementListComponent,
     ElementDetailComponent,
-    NavigationBarComponent
+    SigninUserInfoComponent,
+    MainHeaderComponent,
+    MainNavigationBarComponent
   ],
   imports: [
     routing,

@@ -1,5 +1,10 @@
 
 /*菜单*/
+.leftDiv {
+    background-color: rgba(255,255,255,0.3);
+    float: left;
+}
+
 .menu{
 	display: inline-block;
 	width: 100%;
@@ -66,4 +71,18 @@
 
 .btn-add:hover{
  color: #00BFA8;
+}
+
+/*图标*/
+i:before, .fc-icon, .ui-icon:before {
+    font-family: FontAwesome;
+    font-weight: 400;
+    font-style: normal;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    background: 0 0;
+    speak: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }

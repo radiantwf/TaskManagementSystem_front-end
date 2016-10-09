@@ -14,6 +14,8 @@ import { ElementDetailComponent } from './component/element-detail/element-detai
 import { SigninUserInfoComponent } from './component/signin-user-info/signin-user-info.component';
 import { MainHeaderComponent } from './component/main-header/main-header.component';
 import { MainNavigationBarComponent } from './component/main-navigation-bar/main-navigation-bar.component';
+import { CreateElementComponent } from './component/create-element/create-element.component';
+import { CreateElementTaskComponent } from './component/create-element-task/create-element-task.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { MainNavigationBarComponent } from './component/main-navigation-bar/main
     ElementDetailComponent,
     SigninUserInfoComponent,
     MainHeaderComponent,
-    MainNavigationBarComponent
+    MainNavigationBarComponent,
+    CreateElementComponent,
+    CreateElementTaskComponent
   ],
   imports: [
     routing,

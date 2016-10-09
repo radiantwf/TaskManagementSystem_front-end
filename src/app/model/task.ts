@@ -39,4 +39,48 @@ export class Task {
     public relevantProject: any;
     // 评论
     public comments: any;
+
+    createTask(
+        id: string,
+        name: string,
+        resume: string,
+        description: string,
+        customerContact: string,
+        creator: string,
+        primarySeller: string,
+        primaryOC: string,
+        primaryExecutor: string,
+        otherExecutors: string,
+        requiringBeginDate: Date,
+        requiringEndDate: Date,
+        planningBeginDate: Date,
+        planningEndDate: Date,
+        realBeginDate: Date,
+        realEndDate: Date,
+        status: string,
+        relevantProduct: any,
+        relevantProject: any,
+        comments: any
+    ) {
+        this.id = id;
+        this.name = name;
+        this.resume = resume;
+        this.description = description;
+        this.customerContact = customerContact;
+        this.creator = creator;
+        this.primarySeller = primarySeller;
+        this.primaryOC = primaryOC;
+        this.primaryExecutor = primaryExecutor;
+        this.otherExecutors = otherExecutors;
+        this.requiringBeginDate = requiringBeginDate;
+        this.requiringEndDate = requiringEndDate;
+        this.planningBeginDate = planningBeginDate;
+        this.planningEndDate = planningEndDate;
+        this.realBeginDate = realBeginDate;
+        this.realEndDate = realEndDate;
+        this.status = status;
+        this.relevantProduct = relevantProduct;
+        this.relevantProject = relevantProject;
+        this.comments = comments;
+    }
 }

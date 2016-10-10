@@ -16,6 +16,50 @@
 	margin-right: 20px;
 	margin-top: 40px;
 	margin-bottom: 20px;;
+	padding-top:18px;
+}
+
+/*任务状态图标*/
+.head-task-state{
+	float: left;
+	width:52px;
+	height:52px;
+	line-height: 50px;
+	border-radius: 3px;
+	text-align: center;
+	color:#fff;
+	font-size:2rem;
+	margin-right:10px;
+}
+
+.head-task-content{
+	display: block;
+
+}
+
+.head-task-content p {
+	margin: 0px;
+	font-size:1.5rem;
+}
+.head-task-content .title{
+	font-size:0.5rem;
+}
+
+.all{/*所有任务*/
+	background-color:#84c0eb;
+}
+
+
+.notstart{/*未开始*/
+	background-color:#cb93dd;
+}
+
+.ongoing{/*进行中*/
+	background-color: #64decf;
+}
+
+.overtime{/*超时*/
+	background-color: #f69679;
 }
 
 /*头部分割线*/

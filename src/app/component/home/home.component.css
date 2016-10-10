@@ -69,5 +69,9 @@ i:before, .fc-icon, .ui-icon:before {
 	float: left;
 }
 
+.container{
+    padding:0px;
+}
+
 
 

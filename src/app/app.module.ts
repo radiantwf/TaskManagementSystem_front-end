@@ -32,10 +32,11 @@ import { ModalEmployeesChoiceComponent } from './component/modal-employees-choic
     MainHeaderComponent,
     MainNavigationBarComponent,
     CreateElementComponent,
-    CreateElementTaskComponent, ModalHomeComponent, ModalEmployeesChoiceComponent, ModalDirective
+    CreateElementTaskComponent, ModalHomeComponent, ModalEmployeesChoiceComponent
   ],
   imports: [
     MaterialModule.forRoot(),
+    ModalModule,
     routing,
     AlertModule,
     DatepickerModule,

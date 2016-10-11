@@ -17,6 +17,8 @@ import { MainHeaderComponent } from './component/main-header/main-header.compone
 import { MainNavigationBarComponent } from './component/main-navigation-bar/main-navigation-bar.component';
 import { CreateElementComponent } from './component/create-element/create-element.component';
 import { CreateElementTaskComponent } from './component/create-element-task/create-element-task.component';
+import { ModalHomeComponent } from './component/modal-home/modal-home.component';
+import { ModalEmployeesChoiceComponent } from './component/modal-employees-choice/modal-employees-choice.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,7 @@ import { CreateElementTaskComponent } from './component/create-element-task/crea
     MainHeaderComponent,
     MainNavigationBarComponent,
     CreateElementComponent,
-    CreateElementTaskComponent
+    CreateElementTaskComponent, ModalHomeComponent, ModalEmployeesChoiceComponent
   ],
   imports: [
     MaterialModule.forRoot(),

@@ -20,14 +20,23 @@
  }
 
   ul li{
-    height:32px;
-    line-height:32px;
+    /*height:32px;
+    line-height:32px;*/
  }
 
+ ul li md-input{
+     width: 50%;
+ }
+/*
 .task_class_info span{
     display: inline-table;
     color: #e80202;
     padding: 0.5rem;
     font-size: 0.5rem;
     margin-top: 10px;
+}*/
+
+.fix{
+    position:fixed;
+    margin-left: 800px;
 }

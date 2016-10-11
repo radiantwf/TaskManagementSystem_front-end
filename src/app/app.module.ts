@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
-import { AlertModule, DatepickerModule,ModalModule,ModalDirective,ModalBackdropComponent } from 'ng2-bootstrap/ng2-bootstrap';
+import { AlertModule, DatepickerModule,ModalModule } from 'ng2-bootstrap/ng2-bootstrap';
 
 import { routing } from './app.routing';
 import { AppComponent } from './component/app.component';
@@ -36,9 +36,9 @@ import { ModalEmployeesChoiceComponent } from './component/modal-employees-choic
   ],
   imports: [
     MaterialModule.forRoot(),
-    ModalModule,
     routing,
     AlertModule,
+    ModalModule,
     DatepickerModule,
     BrowserModule,
     FormsModule,

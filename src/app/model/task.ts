@@ -14,8 +14,6 @@ export class Task {
     public customerContact: string;
     // 任务创建人
     public creator: string;
-    // 任务创建时间
-    public createdTime: Date;
     // 商务负责人
     public primarySeller: string;
     // OC负责人
@@ -23,7 +21,7 @@ export class Task {
     // 执行负责人
     public primaryExecutor: string;
     // 其他执行人
-    public otherExecutors: string[];
+    public otherExecutors: string;
     // 任务要求执行周期
     public requiringBeginDate: Date;
     public requiringEndDate: Date;
@@ -49,11 +47,10 @@ export class Task {
         description: string,
         customerContact: string,
         creator: string,
-        createdTime: Date,
         primarySeller: string,
         primaryOC: string,
         primaryExecutor: string,
-        otherExecutors: string[],
+        otherExecutors: string,
         requiringBeginDate: Date,
         requiringEndDate: Date,
         planningBeginDate: Date,
@@ -71,7 +68,6 @@ export class Task {
         this.description = description;
         this.customerContact = customerContact;
         this.creator = creator;
-        this.createdTime = createdTime;
         this.primarySeller = primarySeller;
         this.primaryOC = primaryOC;
         this.primaryExecutor = primaryExecutor;

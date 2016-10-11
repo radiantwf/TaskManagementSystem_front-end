@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { MaterialModule } from '@angular/material';
 import { AlertModule, DatepickerModule } from 'ng2-bootstrap/ng2-bootstrap';
 
 import { routing } from './app.routing';
@@ -32,6 +33,7 @@ import { CreateElementTaskComponent } from './component/create-element-task/crea
     CreateElementTaskComponent
   ],
   imports: [
+    MaterialModule.forRoot(),
     routing,
     AlertModule,
     DatepickerModule,

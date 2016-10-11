@@ -112,7 +112,14 @@
 												<ul>
 													<li class="title">要求任务周期</li>
 													<li>
-														<input type="text" class="form-control" id="" placeholder="无">	
+														<div class="row">
+															<div class="col-lg-6 col-md-12 col-xs-12 col-sm-12">
+															<input type="text" class="form-control" id="" placeholder="2016年10月10日">
+															<datepicker [(ngModel)]="dt" [minDate]="minDate" [showWeeks]="false"></datepicker>
+															<input type="text" class="form-control" id="" placeholder="2016年10月10日">
+															</div>
+															
+														</div>
 													</li>
 												</ul>
 											</div>

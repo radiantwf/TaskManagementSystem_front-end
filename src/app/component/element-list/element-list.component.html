@@ -1,3 +1,7 @@
-  <div class="row rightDiv">
-      <element-detail></element-detail>
-  </div>
+<div class="row rightDiv" *ngFor="let task of tasks">
+	<element-detail-header></element-detail-header>
+</div>
+
+<div class="row rightDiv">
+	<element-detail></element-detail>
+</div>

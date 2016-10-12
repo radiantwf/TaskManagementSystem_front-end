@@ -39,6 +39,7 @@
 .fix{
     position:fixed;
     margin-left: 800px;
+    z-index: 99;
 }
 
 

@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import 'http://cdn.bootcss.com/material-design-icons/3.0.1/iconfont/material-icons.min.css';
 @import '~@angular/material/core/theming/prebuilt/deeppurple-amber.css';
+@import '~@bootstrap/dist/css/bootstrap.css';
 
 *{
 	padding:0px;

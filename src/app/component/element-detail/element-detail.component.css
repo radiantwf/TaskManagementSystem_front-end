@@ -351,3 +351,25 @@
     font-weight: 600;
     padding-bottom: 5px;
 }
+
+
+
+/*进度条显示*/
+/*.progress {
+    display: block;
+    width: 100%;
+    height: 1rem;
+	margin-top:1rem;
+    margin-bottom:0rem; 
+}*/
+
+.Nvalue_start{
+	float: left;
+	font-size: 0.5rem;
+	border-left:1px solid #1584b;
+}
+.Nvalue_end{
+	float: right;
+	font-size: 0.5rem;
+	border-right:1px solid #1584b;
+}

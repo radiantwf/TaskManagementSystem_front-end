@@ -1,5 +1,5 @@
 <div class="row rightDiv" *ngFor="let task of tasks">
-	<element-detail-header></element-detail-header>
+	<element-detail-header [childProperty]="task"></element-detail-header>
 </div>
 
 <div class="row rightDiv">

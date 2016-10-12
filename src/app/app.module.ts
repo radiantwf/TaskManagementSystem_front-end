@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
 import { AlertModule, DatepickerModule, ModalModule } from 'ng2-bootstrap/ng2-bootstrap';
 
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { routing } from './app.routing';
 import { AppComponent } from './component/app.component';
 import { SignInComponent } from './component/sign-in/sign-in.component';
@@ -22,6 +23,7 @@ import { ModalHomeComponent } from './component/modal-home/modal-home.component'
 import { ModalEmployeesChoiceComponent } from './component/modal-employees-choice/modal-employees-choice.component';
 
 import { TaskService } from './service/task.service';
+import { InMemoryDataService } from './service/in-memory-data.service';
 
 @NgModule({
   declarations: [
@@ -48,6 +50,7 @@ import { TaskService } from './service/task.service';
     DatepickerModule,
     BrowserModule,
     FormsModule,
+    InMemoryWebApiModule.forRoot(InMemoryDataService),
     HttpModule
   ],
   providers: [TaskService],

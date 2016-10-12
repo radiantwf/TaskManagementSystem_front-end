@@ -15,11 +15,11 @@
 			<!--操作按钮-->
 			<div class="fix">
 				<button md-mini-fab>
-											<md-icon class="md-24">autorenew</md-icon>
-										</button>
+					<md-icon class="md-24">autorenew</md-icon>
+				</button>
 				<button md-mini-fab>
-											<md-icon class="md-24">done</md-icon>
-										</button>
+					<md-icon class="md-24">done</md-icon>
+				</button>
 				<!--<button type="button" class="btn btn-danger pull-xs-right m-r-1 m-t-1 m-b-1">取消</button>
                     					<button type="button" class="btn btn-success pull-xs-right m-r-1 m-t-1 m-b-1">保存</button>-->
 			</div>
@@ -44,24 +44,24 @@
 						</div>
 						<div class="task_class_info">
 							<!--<ul>
-													<li class="title">任务名称</li>
-													<li>
-														<input type="text" class="form-control" id="" placeholder="请输入任务名称">
-														<span>*任务名称为必填项。</span>
-													</li>
-												</ul>
-												<ul>
-													<li class="title">简述</li>
-													<li>
-														<input type="text" class="form-control" id="" placeholder="公安信息化产品中心任务管理系统开发">
-													</li>
-												</ul>
-												<ul>
-													<li class="title">详细描述</li>
-													<li>
-														<textarea name="" rows="3" class="form-control textarea-counter"></textarea>
-													</li>
-												</ul>-->
+									<li class="title">任务名称</li>
+									<li>
+										<input type="text" class="form-control" id="" placeholder="请输入任务名称">
+										<span>*任务名称为必填项。</span>
+									</li>
+								</ul>
+								<ul>
+									<li class="title">简述</li>
+									<li>
+										<input type="text" class="form-control" id="" placeholder="公安信息化产品中心任务管理系统开发">
+									</li>
+								</ul>
+								<ul>
+									<li class="title">详细描述</li>
+									<li>
+										<textarea name="" rows="3" class="form-control textarea-counter"></textarea>
+									</li>
+								</ul>-->
 							<ul>
 								<li>
 									<md-input placeholder="任务名称"></md-input>
@@ -90,39 +90,39 @@
 						</div>
 						<div class="task_class_info">
 							<!--<ul>
-													<li class="title">客户联络方式</li>
-													<li>
-														<textarea name="" rows="3" class="form-control textarea-counter"></textarea>
-													</li>
-												</ul>
-												<ul>
-													<li class="title">商务负责人</li>
-													<li>2016年6月1日 ~ 2016年6月30日</li>
-												</ul>
-												<ul>
-													<li class="title">创建人</li>
-													<li>谭继锋</li>
-												</ul>
-												<ul>
-													<li class="title">OC负责人</li>
-													<li>
-														<input type="text" class="form-control" id="" placeholder="OC-陈天博">
-														<span>*请指定OC负责人</span>
-													</li>
-												</ul>
-												<ul>
-													<li class="title">执行负责人</li>
-													<li>
-														<input type="text" class="form-control" id="" placeholder="OC-王峰">
-														<span>*请指定执行负责人</span>
-													</li>
-												</ul>
-												<ul>
-													<li class="title">其他相关负责人员</li>
-													<li>
-														<input type="text" class="form-control" id="" placeholder="无">
-													</li>
-												</ul>-->
+									<li class="title">客户联络方式</li>
+									<li>
+										<textarea name="" rows="3" class="form-control textarea-counter"></textarea>
+									</li>
+								</ul>
+								<ul>
+									<li class="title">商务负责人</li>
+									<li>2016年6月1日 ~ 2016年6月30日</li>
+								</ul>
+								<ul>
+									<li class="title">创建人</li>
+									<li>谭继锋</li>
+								</ul>
+								<ul>
+									<li class="title">OC负责人</li>
+									<li>
+										<input type="text" class="form-control" id="" placeholder="OC-陈天博">
+										<span>*请指定OC负责人</span>
+									</li>
+								</ul>
+								<ul>
+									<li class="title">执行负责人</li>
+									<li>
+										<input type="text" class="form-control" id="" placeholder="OC-王峰">
+										<span>*请指定执行负责人</span>
+									</li>
+								</ul>
+								<ul>
+									<li class="title">其他相关负责人员</li>
+									<li>
+										<input type="text" class="form-control" id="" placeholder="无">
+									</li>
+								</ul>-->
 							<ul>
 								<li>
 									<md-input placeholder="客户联络方式"></md-input>
@@ -138,17 +138,100 @@
 							</ul>
 							<ul>
 								<li>
-									<md-input placeholder="OC负责人" [md-menu-trigger-for]="menu">
-										<span md-suffix>
-																<md-icon >arrow_drop_down</md-icon>
-															</span>
-									</md-input>
-									<md-menu #menu="mdMenu">
-										<button md-menu-item> 负责人1 </button>
-										<button md-menu-item> 负责人2 </button>
-										<button md-menu-item> 负责人3 </button>
-										<button md-menu-item disabled> 负责人4 </button>
-									</md-menu>
+									<md-input placeholder="OC负责人" (click)="OCModal.show()"></md-input>
+
+
+									<!--OC负责人弹窗-->
+									<div bsModal #OCModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+										<div class="modal-dialog modal-lg">
+											<div class="modal-content">
+												<div class="modal-header">
+													<button type="button" class="close" (click)="OCModal.hide()" aria-label="Close">
+													<span aria-hidden="true">&times;</span>
+													</button>
+													<h4 class="modal-title">请选择OC负责人</h4>
+												</div>
+												<div class="modal-body">
+													<ul>
+														<li class="title">已选负责人</li>
+														<li>
+															<ul class="select">
+																<li>负责人1 <md-icon>clear</md-icon></li>
+																<li>负责人2 <md-icon>clear</md-icon></li>
+																<li>负责人3 <md-icon>clear</md-icon></li>
+																<li>负责人4 <md-icon>clear</md-icon></li>
+																<li>负责人5 <md-icon>clear</md-icon></li>
+															</ul>
+														</li>
+													</ul>
+													<div class="line"></div>
+													<ul>
+														<li class="title">一级部门</li>
+														<li>
+															<md-radio-group>
+																<md-radio-button checked="true" value="option_1">全部</md-radio-button>
+																<md-radio-button value="option_2">一级部门2</md-radio-button>
+																<md-radio-button value="option_2">一级部门3</md-radio-button>
+																<md-radio-button value="option_2">一级部门4</md-radio-button>
+																<md-radio-button value="option_2">一级部门5</md-radio-button>
+																<md-radio-button value="option_2">一级部门6</md-radio-button>
+																<md-radio-button value="option_2">一级部门7</md-radio-button>
+															</md-radio-group>
+														</li>
+													</ul>
+													<div class="line"></div>
+													<ul>
+														<li class="title">二级部门</li>
+														<li>
+															<md-radio-group>
+																<md-radio-button value="option_1">全部</md-radio-button>
+																<md-radio-button value="option_2">二级部门2</md-radio-button>
+																<md-radio-button value="option_2">二级部门3</md-radio-button>
+																<md-radio-button value="option_2">二级部门4</md-radio-button>
+																<md-radio-button value="option_2">二级部门5</md-radio-button>
+																<md-radio-button value="option_2">二级部门6</md-radio-button>
+																<md-radio-button value="option_2">二级部门7</md-radio-button>
+															</md-radio-group>
+														</li>
+													</ul>
+													<div class="line"></div>
+													<ul>
+														<li class="title">人员 </li>
+														<li>
+															<ul class="personnel">
+																<li class="selected">人员1</li>
+																<li class="selected">人员2</li>
+																<li>人员3</li>
+																<li>人员4</li>
+																<li>人员5</li>
+																<li>人员6</li>
+																<li>人员7</li>
+																<li>人员8</li>
+																<li>人员9</li>
+																<li>人员10</li>
+																<li>人员11</li>
+																<li>人员12</li>
+																<li>人员13</li>
+																<li>人员14</li>
+																<li>人员15</li>
+																<li>人员16</li>
+																<li>人员17</li>
+															</ul>
+														</li>
+													</ul>
+												</div>
+												<div class="modal-footer">
+													<button md-raised-button>关闭</button>
+													<button md-raised-button color="primary">提交</button>
+													<!--<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+													<button type="button" class="btn btn-primary">提交更改</button>-->
+												</div>
+											</div>
+										</div>
+									</div>
+									<!--OC负责人弹窗-->
+
+
 								</li>
 							</ul>
 							<ul>
@@ -200,25 +283,25 @@
 														<input type="text" class="form-control" id="" placeholder="无">	
 													</li>-->
 								<li>
-									<md-input placeholder="关联产品"></md-input>
-<!-- Large modal -->
-<button class="btn btn-primary" (click)="lgModal.show()">Large modal</button>
- 
-<div bsModal #lgModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" (click)="lgModal.hide()" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-        <h4 class="modal-title">Large modal</h4>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-    </div>
-  </div>
-</div>
+									<md-input placeholder="关联产品"  (click)="lgModal.show()"></md-input>
+										<!-- Large modal -->
+										<!--<button class="btn btn-primary" (click)="lgModal.show()">Large modal</button>-->
+										
+										<div bsModal #lgModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+										<div class="modal-dialog modal-lg">
+											<div class="modal-content">
+											<div class="modal-header">
+												<button type="button" class="close" (click)="lgModal.hide()" aria-label="Close">
+												<span aria-hidden="true">&times;</span>
+												</button>
+												<h4 class="modal-title">Large modal</h4>
+											</div>
+											<div class="modal-body">
+												...
+											</div>
+											</div>
+										</div>
+										</div>
  
 								</li>
 							</ul>

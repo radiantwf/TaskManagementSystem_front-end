@@ -15,7 +15,11 @@ const appRoutes: Routes = [
     component: SignInComponent
   },
   {
-    path: 'home',
+    path: 'task',
+    component: HomeComponent
+  },
+  {
+    path: 'task/:id',
     component: HomeComponent
   }
 ];

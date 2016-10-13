@@ -15,7 +15,8 @@ export class InMemoryDataService implements InMemoryDbService {
       new Task('T201606120009', '任务管理系统开发9'),
       new Task('T201606120010', '任务管理系统开发10')
     ];
-
+    tasks[0].id = 'T201606120001';
+    tasks[0].name = '任务管理系统开发';
     tasks[0].resume = '公安信息化产品中心任务管理系统开发';
 
     tasks[0].description = '公安信息化产品中心任务管理系统开发，公安信息化产品中心任务管理系统开发，公安信息化产品中心任务管理系统开发。';

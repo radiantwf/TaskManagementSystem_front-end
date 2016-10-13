@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'element-record',
   templateUrl: './element-record.component.html',
   styleUrls: ['./element-record.component.css'],
-  inputs: ['childProperty']
+  inputs: ['taskRecord']
 })
 export class ElementRecordComponent implements OnInit {
   private detailFlag = false;

@@ -18,19 +18,19 @@
 					<div class="task_class_info">
 						<ul>
 							<li class="title">任务编号</li>
-							<li>20160612001</li>
+							<li>{{taskRecord.id}}</li>
 						</ul>
 						<ul>
 							<li class="title">任务名称</li>
-							<li>任务管理系统开发</li>
+							<li>{{taskRecord.name}}</li>
 						</ul>
 						<ul>
 							<li class="title">简述</li>
-							<li>公安信息化产品中心任务管理系统开发</li>
+							<li>{{taskRecord.resume}}</li>
 						</ul>
 						<ul>
 							<li class="title">详细描述</li>
-							<li>公安信息化产品中心任务管理系统开发，公安信息化产品中心任务管理系统开发，公安信息化产品中心任务管理系统开发。</li>
+							<li>{{taskRecord.description}}</li>
 						</ul>
 					</div>
 				</div>
@@ -43,15 +43,15 @@
 					<div class="task_class_info">
 						<ul>
 							<li class="title">要求任务周期</li>
-							<li>2016年6月1日 ~ 2016年6月30日</li>
+							<li>{{taskRecord.requiringBeginDate}} ~ {{taskRecord.requiringEndDate}}</li>
 						</ul>
 						<ul>
 							<li class="title">计划任务周期</li>
-							<li>2016年6月1日 ~ 2016年6月30日</li>
+							<li>{{taskRecord.planningBeginDate}} ~ {{taskRecord.planningEndDate}}</li>
 						</ul>
 						<ul>
 							<li class="title">实际执行周期</li>
-							<li>2016年6月1日 ~ 未完</li>
+							<li>{{taskRecord.realBeginDate}} ~ {{taskRecord.realEndDate}}</li>
 						</ul>
 						<ul style="margin-bottom:100px;">
 							<li class="title">任务状态</li>
@@ -199,27 +199,27 @@
 					<div class="task_class_info">
 						<ul>
 							<li class="title">客户联系方式</li>
-							<li>客户1 电话：13810138000</li>
+							<li>{{taskRecord.customerContact}}</li>
 						</ul>
 						<ul>
 							<li class="title">创建人</li>
-							<li>谭继锋</li>
+							<li>{{taskRecord.creator}}</li>
 						</ul>
 						<ul>
 							<li class="title">商务负责人</li>
-							<li>销售1</li>
+							<li>{{taskRecord.primarySeller}}</li>
 						</ul>
 						<ul>
 							<li class="title">OC负责人</li>
-							<li>OC-陈天博</li>
+							<li>OC-{{taskRecord.primaryOC}}</li>
 						</ul>
 						<ul>
 							<li class="title">执行负责人</li>
-							<li>王峰</li>
+							<li>{{taskRecord.primaryExecutor}}</li>
 						</ul>
 						<ul>
 							<li class="title">其它相关人员</li>
-							<li>无</li>
+							<li>{{taskRecord.otherExecutors}}</li>
 						</ul>
 					</div>
 				</div>

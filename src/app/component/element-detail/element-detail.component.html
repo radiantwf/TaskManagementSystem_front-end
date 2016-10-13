@@ -14,19 +14,22 @@
 
 			<!--任务时间-->
 			<div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
-				<div class="task_info">
-					<ul>
-						<li class="title_date"><span>8</span>月<span>30</span>日</li>
-						<li>计划完成时间</li>
-					</ul>
-					<ul>
-						<li class="title_day"><span>120</span>天</li>
-						<li>计划用时</li>
-					</ul>
-					<ul>
-						<li class="title_overtime"><span>2</span>天</li>
-						<li>已超时</li>
-					</ul>
+				<div class="tool">
+					<button md-mini-fab color="primary">
+						<md-icon>assignment_ind</md-icon>
+					</button>
+					<button md-mini-fab color="accent">
+						<md-icon>play_arrow</md-icon>
+					</button>
+					<button md-mini-fab color="warn">
+						<md-icon>stop</md-icon>
+					</button>
+					<button md-mini-fab color="primary">
+						<md-icon>eject</md-icon>
+					</button>
+					<button md-mini-fab Disabled>
+						<md-icon>mode_edit</md-icon>
+					</button>
 				</div>
 			</div>
 		</div>
@@ -103,19 +106,17 @@
 								 <div class="progress_data">
 									<div class="Nvalue_start">6月1日</div>
 									<div class="Nvalue_position" style="width:55%">完成55%</div>
-									<div class="Nvalue_today tooltip-show" style="width:75%"  md-tooltip="some message" tooltip-position="below" md-visible="showTooltip" md-autohide="false">今日6月20日</div>
+									<div class="Nvalue_today tooltip-show" style="width:75%"  md-tooltip="some message" tooltip-position="below">今日6月20日</div>
 									<div class="Nvalue_end">6月30日</div>
 								 </div>
 							</li>
 						</ul>
 						<ul style="margin-bottom:100px;">
 							<li class="title">任务状态</li>
-							<button md-tooltip="some message" tooltip-position="below">Button</button>
 							<li>
 								<progress style="float: left; width: 12%;" class="progress progress-success" value="12" max="12">
 								<span>12%</span>
 								</progress>
-
 								<progress style="float: left; width: 14%;" class="progress progress-info" value="14" max="14">
 								<span>4%</span>
 								</progress>

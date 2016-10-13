@@ -68,27 +68,36 @@
 /*工具条*/
 .tool{
  display: block;
- height:40px;
+ text-align: center;
+ line-height: 40px;
+ /*height:40px;
  border: 1px solid #e3e3e5;
  border-right: 0px;
  border-bottom: 0px;
  background-color: rgba(255,255,255,0.5);
- margin-top:28px;
+ */
+}
+.tool button{
+	margin-top: 15px;
 }
 
+/*.tool ul{
+	text-align: center;
+}
 .tool ul li{
-	height:40px;
-	line-height: 40px;
+	line-height: 10px;
+	padding: 10px;
 	list-style-type: none;
-	float: left;
-	width:40px;
+	float:left;
+
 	text-align: center;
 }
 
 .tool ul li:hover{
+	border: 1px solid #117ecc;
 	color:#117ecc;
 	cursor:pointer;
-}
+}*/
 
 
 /*任务编号*/

@@ -7,7 +7,7 @@ import { AlertModule, DatepickerModule, ModalModule } from 'ng2-bootstrap/ng2-bo
 
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { routing } from './app.routing';
-import { AppComponent } from './component/app.component';
+import { AppComponent } from './app.component';
 import { SignInComponent } from './component/sign-in/sign-in.component';
 import { HomeComponent } from './component/home/home.component';
 import { TextboxAutocompleteDirective } from './directive/textbox-autocomplete.directive';

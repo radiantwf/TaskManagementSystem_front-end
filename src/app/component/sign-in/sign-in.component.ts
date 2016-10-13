@@ -21,7 +21,7 @@ export class SignInComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-    this.router.navigate(['/task']);
+    this.router.navigate(['/home']);
   }
 
   // TODO: Remove this when we're done

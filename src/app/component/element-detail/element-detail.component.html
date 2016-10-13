@@ -103,17 +103,19 @@
 								 <div class="progress_data">
 									<div class="Nvalue_start">6月1日</div>
 									<div class="Nvalue_position" style="width:55%">完成55%</div>
-									<div class="Nvalue_today" style="width:75%">今日6月20日</div>
+									<div class="Nvalue_today tooltip-show" style="width:75%"  md-tooltip="some message" tooltip-position="below" md-visible="showTooltip" md-autohide="false">今日6月20日</div>
 									<div class="Nvalue_end">6月30日</div>
 								 </div>
 							</li>
 						</ul>
 						<ul style="margin-bottom:100px;">
 							<li class="title">任务状态</li>
+							<button md-tooltip="some message" tooltip-position="below">Button</button>
 							<li>
 								<progress style="float: left; width: 12%;" class="progress progress-success" value="12" max="12">
 								<span>12%</span>
 								</progress>
+
 								<progress style="float: left; width: 14%;" class="progress progress-info" value="14" max="14">
 								<span>4%</span>
 								</progress>

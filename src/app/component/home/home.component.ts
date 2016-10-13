@@ -17,6 +17,6 @@ export class HomeComponent implements OnInit {
     private location: Location) { }
 
   ngOnInit() {
-    alert(this.route.firstChild.toString());
+    // alert(this.route.firstChild.toString());
   }
 }

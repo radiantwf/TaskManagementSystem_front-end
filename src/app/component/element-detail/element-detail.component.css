@@ -81,15 +81,15 @@
 	margin-top: 15px;
 }
 
-[md-mini-fab] {
+/*[md-mini-fab] {
     min-width: 0;
     border-radius: 50%;
     width: 28px;
     height: 28px;
     padding: 0;
-}
+}*/
 
-[md-mini-fab] md-icon {
+/*[md-mini-fab] md-icon {
     font-family: 'Material Icons';
     font-weight: 400;
     font-style: normal;
@@ -105,7 +105,7 @@
     text-rendering: optimizeLegibility;
     -moz-osx-font-smoothing: grayscale;
     font-feature-settings: 'liga';
-}
+}*/
 
 [md-menu-item] md-icon{
 	margin-right: 10px;

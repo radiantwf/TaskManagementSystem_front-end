@@ -49,8 +49,8 @@
 
 					<!---------------------------------------------------------------------------->
 					<!--任务1-->
-					<create-element></create-element>
-					<element-list></element-list>
+					<create-element *ngIf="active_create_element"></create-element>
+					<element-list *ngIf="active_browse_element">></element-list>
 					<!---------------------------------------------------------------------------->
 
 				</div>

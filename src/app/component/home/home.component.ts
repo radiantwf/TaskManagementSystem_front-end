@@ -10,4 +10,6 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
   }
+  active_create_element = false;
+  active_browse_element = true;
 }

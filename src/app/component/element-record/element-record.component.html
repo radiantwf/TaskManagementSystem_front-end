@@ -12,9 +12,9 @@
 
 			<!--任务时间-->
 			<div class="col-lg-4 col-md-12 col-xs-12 col-sm-12" *ngIf="!detailFlag">
-				<div class="task_info">
+				<div class="task_info" *ngIf="taskRecord.planningEndDate!=null">
 					<ul>
-						<li class="title_date"><span>8</span>月<span>30</span>日</li>
+						<li class="title_date"><span>{{taskRecord.planningEndDate | date:"MM"}}</span>月<span>{{taskRecord.planningEndDate | date:"dd"}}</span>日</li>
 						<li>计划完成时间</li>
 					</ul>
 					<ul>
@@ -36,7 +36,7 @@
 			<div class="col-lg-12 col-md-12 col-xs-12 col-sm-12 right_line">
 				<!--任务图标-->
 				<div class="task_ic">
-					<div class="glyph-icon icon-elusive-list ongoing" title=""></div>
+					<div class="glyph-icon icon-elusive-list overtime" title=""></div>
 				</div>
 				<!--任务名称-->
 				<div class="task_name">{{taskRecord.name}}</div>

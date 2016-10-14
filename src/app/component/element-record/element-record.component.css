@@ -254,6 +254,15 @@ md-icon.notstart{/*未开始*/
 	font-size: 0.5rem;
 }
 
+.task_class_info ul li p{
+	height:16px;
+	line-height: 16px;
+	color:#afafaf;
+	font-size: 0.5rem;
+	margin: 0px;
+}
+
+
 
 
 /*任务动态*/

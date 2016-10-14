@@ -16,7 +16,8 @@
 
  ul{
     display:table;
-
+	font-family: "微软雅黑";
+	color: #666666;
  }
 
   ul li{
@@ -45,9 +46,9 @@
 
 
 /*弹窗内容样式*/
-li{
+/*li{
     padding:10px;
-}
+}*/
 .select li{
     float: left;
     font-size: 0.8rem;

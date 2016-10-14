@@ -7,18 +7,18 @@
 		<div class="row">
 			<!--任务图标-->
 			<div class="task_ic">
-				<div class="glyph-icon icon-elusive-list ongoing" title=""></div>
+				<md-icon class="notstart">format_list_bulleted</md-icon>
 			</div>
 			<!--任务名称-->
 			<div class="task_name">新建任务</div>
 
 			<!--操作按钮-->
 			<div class="fix">
-				<button md-mini-fab>
-					<md-icon class="md-24">autorenew</md-icon>
+				<button md-mini-fab  color="accent" md-tooltip="清空" tooltip-position="below">
+					<md-icon>autorenew</md-icon>
 				</button>
-				<button md-mini-fab>
-					<md-icon class="md-24">done</md-icon>
+				<button md-mini-fab  color="primary" md-tooltip="确定" tooltip-position="below">
+					<md-icon>done</md-icon>
 				</button>
 				<!--<button type="button" class="btn btn-danger pull-xs-right m-r-1 m-t-1 m-b-1">取消</button>
                 <button type="button" class="btn btn-success pull-xs-right m-r-1 m-t-1 m-b-1">保存</button>-->
@@ -250,7 +250,7 @@
 					<!--要求任务周期-->
 					<div class="task_class">
 						<div class="task_class_ic">
-							<div class="glyph-icon icon-elusive-group" title=""></div>
+							<md-icon>date_range</md-icon>
 						</div>
 						<div class="task_class_info">
 							<ul>

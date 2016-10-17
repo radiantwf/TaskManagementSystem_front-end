@@ -55,13 +55,14 @@
 						<ul style="margin-bottom:100px;">
 							<li class="title">任务状态</li>
 							<li>
-								<progress-chart></progress-chart>
+								<progress-chart [planningBeginDate]="taskRecord.planningBeginDate" [planningEndDate]="taskRecord.planningBeginDate" [realBeginDate]="taskRecord.planningBeginDate"
+									[realEndDate]="taskRecord.planningBeginDate"></progress-chart>
 							</li>
 						</ul>
 					</div>
 				</div>
 
-				
+
 				<!--任务状态-->
 				<div class="task_class">
 					<div class="task_class_ic">
@@ -76,10 +77,10 @@
 						</ul>
 					</div>
 				</div>
-				
-				
-				
-				
+
+
+
+
 
 			</div>
 

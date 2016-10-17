@@ -21,6 +21,7 @@ import { CreateElementComponent } from './component/create-element/create-elemen
 import { CreateElementTaskComponent } from './component/create-element-task/create-element-task.component';
 import { ModalHomeComponent } from './component/modal-home/modal-home.component';
 import { ModalEmployeesChoiceComponent } from './component/modal-employees-choice/modal-employees-choice.component';
+import { ProgressChartComponent } from './component/progress-chart/progress-chart.component';
 
 import { TaskService } from './service/task.service';
 import { InMemoryDataService } from './service/in-memory-data.service';
@@ -40,7 +41,8 @@ import { InMemoryDataService } from './service/in-memory-data.service';
     CreateElementComponent,
     CreateElementTaskComponent, 
     ModalHomeComponent, 
-    ModalEmployeesChoiceComponent
+    ModalEmployeesChoiceComponent,
+    ProgressChartComponent
   ],
   imports: [
     MaterialModule.forRoot(),

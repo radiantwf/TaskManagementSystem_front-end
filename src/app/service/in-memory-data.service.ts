@@ -1,5 +1,6 @@
 import { InMemoryDbService } from 'angular-in-memory-web-api';
 import { Task } from '../model/task';
+import { Communication } from '../model/communication';
 
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
@@ -36,7 +37,18 @@ export class InMemoryDataService implements InMemoryDbService {
     tasks[0].status = '完成';
     tasks[0].relevantProduct = null;
     tasks[0].relevantProject = null;
-    tasks[0].comments = null;
+    tasks[0].communications = [
+      { personName: 'Mr. Nice', sendTime: new Date(2016, 4, 6, 12, 3, 4), content: 'test' },
+      { personName: 'Narco', sendTime: new Date(2016, 4, 6, 12, 3, 4), content: 'test' },
+      { personName: 'Bombasto', sendTime: new Date(2016, 4, 6, 12, 3, 4), content: 'test' },
+      { personName: 'Celeritas', sendTime: new Date(2016, 4, 6, 12, 3, 4), content: 'test' },
+      { personName: 'Magneta', sendTime: new Date(2016, 4, 6, 12, 3, 4), content: 'test' },
+      { personName: 'RubberMan', sendTime: new Date(2016, 4, 6, 12, 3, 4), content: 'test' },
+      { personName: 'Dynama', sendTime: new Date(2016, 4, 6, 12, 3, 4), content: 'test' },
+      { personName: 'Dr IQ', sendTime: new Date(2016, 4, 6, 12, 3, 4), content: 'test' },
+      { personName: 'Magma', sendTime: new Date(2016, 4, 6, 12, 3, 4), content: 'test' },
+      { personName: 'Tornado', sendTime: new Date(2016, 4, 6, 12, 3, 4), content: 'test' }
+    ];;
     return { tasks };
   }
 }

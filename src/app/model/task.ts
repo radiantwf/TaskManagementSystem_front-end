@@ -1,3 +1,5 @@
+import { Communication } from './communication';
+
 // 任务 类型
 export class Task {
     constructor(
@@ -40,7 +42,7 @@ export class Task {
     // 关联项目
     public relevantProject: any;
     // 评论
-    public comments: any;
+    public communications: Communication[];
 
     createTask(
         id: string,
@@ -63,7 +65,7 @@ export class Task {
         status: string,
         relevantProduct: any,
         relevantProject: any,
-        comments: any
+        communications: any
     ) {
         this.id = id;
         this.name = name;
@@ -85,6 +87,6 @@ export class Task {
         this.status = status;
         this.relevantProduct = relevantProduct;
         this.relevantProject = relevantProject;
-        this.comments = comments;
+        this.communications = communications;
     }
 }

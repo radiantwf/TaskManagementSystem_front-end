@@ -26,6 +26,7 @@ import { CommunicationsComponent } from './component/communications/communicatio
 
 import { TaskService } from './service/task.service';
 import { InMemoryDataService } from './service/in-memory-data.service';
+import { NullOrEmptyPipe } from './pipe/null-or-empty.pipe';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { InMemoryDataService } from './service/in-memory-data.service';
     SignInComponent,
     HomeComponent,
     TextboxAutocompleteDirective,
+    NullOrEmptyPipe,
     ElementListComponent,
     ElementRecordComponent,
     ElementRecordDetailComponent,

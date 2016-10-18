@@ -17,19 +17,19 @@
 					<div class="task_class_info">
 						<ul>
 							<li class="title">任务编号</li>
-							<li>{{taskRecord.id}}</li>
+							<li>{{taskRecord.id | null_or_empty:"无"}}</li>
 						</ul>
 						<ul>
 							<li class="title">任务名称</li>
-							<li>{{taskRecord.name}}</li>
+							<li>{{taskRecord.name | null_or_empty:"无"}}</li>
 						</ul>
 						<ul>
 							<li class="title">简述</li>
-							<li>{{taskRecord.resume}}</li>
+							<li>{{taskRecord.resume | null_or_empty:"无"}}</li>
 						</ul>
 						<ul>
 							<li class="title">详细描述</li>
-							<li>{{taskRecord.description}}</li>
+							<li>{{taskRecord.description | null_or_empty:"无"}}</li>
 						</ul>
 					</div>
 				</div>
@@ -42,15 +42,15 @@
 					<div class="task_class_info">
 						<ul>
 							<li class="title">要求任务周期</li>
-							<li>{{taskRecord.requiringBeginDate | date:"yyyy年MM月dd日"}} ~ {{taskRecord.requiringEndDate | date:"yyyy年MM月dd日"}}</li>
+							<li>{{taskRecord.requiringBeginDate | date:"yyyy年MM月dd日" | null_or_empty:"无"}} ~ {{taskRecord.requiringEndDate | date:"yyyy年MM月dd日" | null_or_empty:"无"}}</li>
 						</ul>
 						<ul>
 							<li class="title">计划任务周期</li>
-							<li>{{taskRecord.planningBeginDate | date:"yyyy年MM月dd日"}} ~ {{taskRecord.planningEndDate | date:"yyyy年MM月dd日"}}</li>
+							<li>{{taskRecord.planningBeginDate | date:"yyyy年MM月dd日" | null_or_empty:"无"}} ~ {{taskRecord.planningEndDate | date:"yyyy年MM月dd日" | null_or_empty:"无"}}</li>
 						</ul>
 						<ul>
 							<li class="title">实际执行周期</li>
-							<li>{{taskRecord.realBeginDate | date:"yyyy年MM月dd日"}} ~ {{taskRecord.realEndDate | date:"yyyy年MM月dd日"}}</li>
+							<li>{{taskRecord.realBeginDate | date:"yyyy年MM月dd日" | null_or_empty:"无"}} ~ {{taskRecord.realEndDate | date:"yyyy年MM月dd日" | null_or_empty:"无"}}</li>
 						</ul>
 						<ul style="margin-bottom:100px;">
 							<li class="title">任务状态</li>
@@ -97,27 +97,27 @@
 					<div class="task_class_info">
 						<ul>
 							<li class="title">客户联系方式</li>
-							<li>{{taskRecord.customerContact}}</li>
+							<li>{{taskRecord.customerContact | null_or_empty:"无"}}</li>
 						</ul>
 						<ul>
 							<li class="title">创建人</li>
-							<li>{{taskRecord.creator}}</li>
+							<li>{{taskRecord.creator | null_or_empty:"无"}}</li>
 						</ul>
 						<ul>
 							<li class="title">商务负责人</li>
-							<li>{{taskRecord.primarySeller}}</li>
+							<li>{{taskRecord.primarySeller | null_or_empty:"无"}}</li>
 						</ul>
 						<ul>
 							<li class="title">OC负责人</li>
-							<li>OC-{{taskRecord.primaryOC}}</li>
+							<li>OC-{{taskRecord.primaryOC | null_or_empty:"无"}}</li>
 						</ul>
 						<ul>
 							<li class="title">执行负责人</li>
-							<li>{{taskRecord.primaryExecutor}}</li>
+							<li>{{taskRecord.primaryExecutor | null_or_empty:"无"}}</li>
 						</ul>
 						<ul>
 							<li class="title">其它相关人员</li>
-							<li>{{taskRecord.otherExecutors}}</li>
+							<li>{{taskRecord.otherExecutors | null_or_empty:"无"}}</li>
 						</ul>
 					</div>
 				</div>

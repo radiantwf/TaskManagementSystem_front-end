@@ -38,18 +38,23 @@
 					<!--任务基本信息展开-->
 					<div class="task_class">
 						<div class="task_class_ic">
-							<!--<div class="glyph-icon icon-elusive-list" title=""></div>-->
 							<md-icon>library_books</md-icon>
 						</div>
 						<div class="task_class_info">
 							<ul>
 								<li>
-									<md-input [(ngModel)]="newTask.name" placeholder="任务名称"></md-input>
+									<md-input [(ngModel)]="newTask.name" #taskName="ngModel" placeholder="任务名称" required></md-input>
+									<div [hidden]="taskName.valid || taskName.pristine" class="alert alert-danger">
+										任务名称不能为空
+									</div>
 								</li>
 							</ul>
 							<ul>
 								<li>
-									<md-input [(ngModel)]="newTask.resume" placeholder="简述"></md-input>
+									<md-input [(ngModel)]="newTask.resume" #resume="ngModel" placeholder="简述" required></md-input>
+									<div [hidden]="resume.valid || resume.pristine" class="alert alert-danger">
+										简述不能为空
+									</div>
 								</li>
 							</ul>
 							<ul>

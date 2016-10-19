@@ -1,81 +1,24 @@
-<!--任务状态-->
 <ul>
-<li>
-	<div class="dynamic">
-		<div class="other">
-			<ul class="role">
-				<li class="title">谭继峰</li>
-				<li>2016-04-06<br>12:24:12</li>
-			</ul>
-			<ul>
-				<li>
-					<div class="message">其他工作什么时候能完成？要给销售一个比较确定的时间，给测试人员 预留的时间有多长？
-					</div>
-				</li>
-			</ul>
+	<li>
+		<div class="dynamic">
+			<template ngFor let-record [ngForOf]="list">
+				<div [person]="record.personName">
+					<ul class="role">
+						<li *ngIf="record.personName!=null" class="title">{{record.personName}}</li>
+						<li>{{record.sentTime | date:"yyyy-MM-dd"}}<br>{{record.sentTime | date:"HH:mm:ss"}}</li>
+					</ul>
+					<ul>
+						<li>
+							<div class="message">{{record.content}}
+							</div>
+						</li>
+					</ul>
+				</div>
+			</template>
 		</div>
-		<div class="me">
-			<ul class="role">
-				<li class="title">我</li>
-				<li>2016-04-06<br>12:24:12</li>
-			</ul>
-			<ul>
-				<li>
-					<div class="message">由于开发人员变动，造成开发进度延期，经过和相关人员协商后，将开 发结束时间延期到2016年9月30日。
-					</div>
-				</li>
-			</ul>
-		</div>
-		<div class="other">
-			<ul class="role">
-				<li class="title">陈天博</li>
-				<li>2016-04-06<br>12:24:12</li>
-			</ul>
-			<ul>
-				<li>
-					<div class="message">好的，请尽快完成。</div>
-				</li>
-			</ul>
-		</div>
-		<div class="other">
-			<ul class="role">
-				<li class="title">谭继峰</li>
-				<li>2016-04-06<br>12:24:12</li>
-			</ul>
-			<ul>
-				<li>
-					<div class="message">其他工作什么时候能完成？要给销售一个比较确定的时间，给测试人员 预留的时间有多长？
-					</div>
-				</li>
-			</ul>
-		</div>
-		<div class="me">
-			<ul class="role">
-				<li class="title">我</li>
-				<li>2016-04-06<br>12:24:12</li>
-			</ul>
-			<ul>
-				<li>
-					<div class="message">由于开发人员变动，造成开发进度延期，经过和相关人员协商后，将开 发结束时间延期到2016年9月30日。
-					</div>
-				</li>
-			</ul>
-		</div>
-		<div class="other">
-			<ul class="role">
-				<li class="title">陈天博</li>
-				<li>2016-04-06<br>12:24:12</li>
-			</ul>
-			<ul>
-				<li>
-					<div class="message">好的，请尽快完成。</div>
-				</li>
-			</ul>
-		</div>
-	</div>
-</li>
-<li class="text-center">
-	<textarea name="" rows="3" class="form-control textarea-counter"></textarea>
-	<div class=""><button class="btn btn-info pull-xs-right m-t-1 m-b-1">发送</button></div>
-</li>
+	</li>
+	<li class="text-center">
+		<textarea name="" rows="3" class="form-control textarea-counter"></textarea>
+		<div class=""><button class="btn btn-info pull-xs-right m-t-1 m-b-1">发送</button></div>
+	</li>
 </ul>

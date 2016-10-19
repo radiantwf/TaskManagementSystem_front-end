@@ -1,5 +1,5 @@
 export class Communication {
     personName:string;
-    sendTime:Date;
+    sentTime:Date;
     content:string;
 }

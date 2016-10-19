@@ -38,17 +38,13 @@ export class InMemoryDataService implements InMemoryDbService {
     tasks[0].relevantProduct = null;
     tasks[0].relevantProject = null;
     tasks[0].communications = [
-      { personName: 'Mr. Nice', sendTime: new Date(2016, 4, 6, 12, 3, 4), content: 'test' },
-      { personName: 'Narco', sendTime: new Date(2016, 4, 6, 12, 3, 4), content: 'test' },
-      { personName: 'Bombasto', sendTime: new Date(2016, 4, 6, 12, 3, 4), content: 'test' },
-      { personName: 'Celeritas', sendTime: new Date(2016, 4, 6, 12, 3, 4), content: 'test' },
-      { personName: 'Magneta', sendTime: new Date(2016, 4, 6, 12, 3, 4), content: 'test' },
-      { personName: 'RubberMan', sendTime: new Date(2016, 4, 6, 12, 3, 4), content: 'test' },
-      { personName: 'Dynama', sendTime: new Date(2016, 4, 6, 12, 3, 4), content: 'test' },
-      { personName: 'Dr IQ', sendTime: new Date(2016, 4, 6, 12, 3, 4), content: 'test' },
-      { personName: 'Magma', sendTime: new Date(2016, 4, 6, 12, 3, 4), content: 'test' },
-      { personName: 'Tornado', sendTime: new Date(2016, 4, 6, 12, 3, 4), content: 'test' }
-    ];;
+      { personName: '谭继锋', sentTime: new Date(2016, 4, 6, 12, 3, 4), content: '其他工作什么时候能完成？要给销售一个比较确定的时间，给测试人员 预留的时间有多长？' },
+      { personName: null, sentTime: new Date(2016, 4, 6, 12, 3, 4), content: '由于开发人员变动，造成开发进度延期，经过和相关人员协商后，将开 发结束时间延期到2016年9月30日。' },
+      { personName: '陈天博', sentTime: new Date(2016, 4, 6, 12, 3, 4), content: '好的，请尽快完成。' },
+      { personName: '谭继锋', sentTime: new Date(2016, 4, 6, 12, 3, 4), content: '其他工作什么时候能完成？要给销售一个比较确定的时间，给测试人员 预留的时间有多长？' },
+      { personName: null, sentTime: new Date(2016, 4, 6, 12, 3, 4), content: '由于开发人员变动，造成开发进度延期，经过和相关人员协商后，将开 发结束时间延期到2016年9月30日。' },
+      { personName: '陈天博', sentTime: new Date(2016, 4, 6, 12, 3, 4), content: '好的，请尽快完成。' },
+    ];
     return { tasks };
   }
 }

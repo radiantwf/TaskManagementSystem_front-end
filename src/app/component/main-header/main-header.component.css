@@ -8,7 +8,7 @@
 }
 
 /*任务统计区块*/
-.stateDiv{
+.stateDiv, .stateDiv:hover{
 	height:88px;
 	background-color: rgba(255,255,255,0.3);
 	border-bottom: 2px solid #d7d6db;
@@ -17,6 +17,13 @@
 	margin-top: 40px;
 	margin-bottom: 20px;;
 	padding-top:18px;
+	cursor: pointer;
+}
+
+.stateDiv:hover, .stateDiv.active{
+	height:88px;
+	background-color: rgba(255,255,255,0.8);
+	border-bottom: 4px solid #d7d6db;
 }
 
 /*任务状态图标*/

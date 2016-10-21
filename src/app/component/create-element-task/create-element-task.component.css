@@ -110,3 +110,15 @@ md-radio-button{
     border-radius: 0.8rem;
     cursor:default;
 }
+
+md-input{
+    font-family: "微软雅黑";
+	color: #666666;
+}
+
+.error{
+    font-size: 0.5rem;
+    color: rgb(221,44,0);
+    text-align: left;
+    margin-top: -10px;
+}

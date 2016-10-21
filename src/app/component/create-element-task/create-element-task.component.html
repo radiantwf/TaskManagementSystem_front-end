@@ -44,7 +44,7 @@
 							<ul>
 								<li>
 									<md-input [(ngModel)]="newTask.name" #taskName="ngModel" placeholder="任务名称" required></md-input>
-									<div [hidden]="taskName.valid || taskName.pristine" class="alert alert-danger">
+									<div [hidden]="taskName.valid || taskName.pristine" class="error">
 										任务名称不能为空
 									</div>
 								</li>
@@ -52,7 +52,7 @@
 							<ul>
 								<li>
 									<md-input [(ngModel)]="newTask.resume" #resume="ngModel" placeholder="简述" required></md-input>
-									<div [hidden]="resume.valid || resume.pristine" class="alert alert-danger">
+									<div [hidden]="resume.valid || resume.pristine" class="error">
 										简述不能为空
 									</div>
 								</li>

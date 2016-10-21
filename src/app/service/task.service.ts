@@ -30,11 +30,11 @@ export class TaskService {
       .catch(this.handleError);
   }
 
-  create(name: string): Promise<Task> {
+  create(task: Task): Promise<Task> {
     return this.http
-      .post(this.tasksUrl, JSON.stringify({name: name}), {headers: this.headers})
+      .post(this.tasksUrl, JSON.stringify(task), {headers: this.headers})
       .toPromise()
-      .then(res => res.json().data)
+      .then(() => task)
       .catch(this.handleError);
   }
 

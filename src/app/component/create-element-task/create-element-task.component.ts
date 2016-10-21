@@ -10,12 +10,21 @@ import { TaskService } from './../../service/task.service';
   styleUrls: ['./../element-record/element-record.component.css', './create-element-task.component.css']
 })
 export class CreateElementTaskComponent implements OnInit {
-  newTask: Task = new Task('','');;
+  newTask: Task = new Task('', '');
+
+
   constructor(
-    private router: Router,
-    private taskService: TaskService) {
+    private router: Router, private taskService: TaskService) {
   }
+
   ngOnInit() {
   }
 
+  addTask() {
+    if (!this.newTask.name || !this.newTask.resume) { return; }
+    this.newTask.id = 'temp';
+    this.taskService.create(this.newTask);
+    let link = ['/task'];
+    this.router.navigate(link);
+  }
 }

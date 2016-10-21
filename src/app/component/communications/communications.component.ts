@@ -35,4 +35,8 @@ export class CommunicationsDirective {
     this.el = el;
     this.renderer = renderer;
   }
+  
+  addCommunication(){
+
+  }
 }

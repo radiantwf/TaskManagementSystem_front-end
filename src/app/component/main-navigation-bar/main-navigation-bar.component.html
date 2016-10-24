@@ -2,28 +2,51 @@
 <div class="leftDiv">
 	<ul class="menu">
 		<li (click)="navigateToHomePage()">
-			<div class="glyph-icon icon-elusive-home-circled" title="" data-original-title=".icon-elusive-home-circled"></div>首页
+			<md-icon  class="material-icons">home</md-icon>
+			<!--<div class="glyph-icon icon-elusive-home-circled" title="" data-original-title=".icon-elusive-home-circled"></div>-->
+			首页
 		</li>
 	</ul>
 	<ul class="menu">
 		<li>
-			<div class="glyph-icon icon-elusive-slideshare" title="" data-original-title=".icon-elusive-slideshare"></div>与我有关的任务</li>
+			<md-icon  class="material-icons">account_circle</md-icon>
+			<!--<div class="glyph-icon icon-elusive-slideshare" title="" data-original-title=".icon-elusive-slideshare"></div>-->
+			与我有关的任务
+		</li>
 		<li>
-			<div class="glyph-icon icon-elusive-user" title="" data-original-title=".icon-elusive-user"></div>我负责的任务<span class="badge badge-gray">3</span></li>
+			<md-icon  class="material-icons">assignment_ind</md-icon>
+			<!--<div class="glyph-icon icon-elusive-user" title="" data-original-title=".icon-elusive-user"></div>-->
+			我负责的任务<span class="badge badge-gray">3</span>
+		</li>
 	</ul>
 	<ul class="menu">
 		<li>
-			<div (click)="navigateToTaskList()" class="glyph-icon icon-elusive-list" title="" data-original-title=".icon-elusive-list"></div>
+			<div (click)="navigateToTaskList()" >
+			<md-icon  class="material-icons">format_list_numbered</md-icon>
+			<!--<div class="glyph-icon icon-elusive-list" title="" data-original-title=".icon-elusive-list"></div>-->
 			任务列表
+			</div>
 			<i (click)="navigateToCreateTask()" class="pull-xs-right glyph-icon icon-plus-circle btn-add"></i>
 		</li>
+		
 		<li>
-			<i (click)="navigateToTaskProject()" class="glyph-icon icon-file-powerpoint-o" title="" data-original-title=".icon-file-powerpoint-o"></i> 项目列表
+			<div (click)="navigateToTaskProject()">
+			<md-icon  class="material-icons">format_list_bulleted</md-icon>
+			<!--<i  class="glyph-icon icon-file-powerpoint-o" title="" data-original-title=".icon-file-powerpoint-o"></i> -->
+			项目列表
+			</div>
 			<i (click)="navigateToCreateProject()" class="pull-xs-right glyph-icon icon-plus-circle btn-add"></i>
 		</li>
+		
 		<li>
-			<i (click)="navigateToTaskProduct()" class="glyph-icon icon-cubes" title="" data-original-title=".icon-cubes"></i> 产品列表
+			
+			<div (click)="navigateToTaskProduct()">
+			<md-icon  class="material-icons">dehaze</md-icon>
+			<!--<i  class="glyph-icon icon-cubes" title="" data-original-title=".icon-cubes"></i> -->
+			产品列表
+			</div>
 			<i (click)="navigateToCreateProduct()" class="pull-xs-right glyph-icon icon-plus-circle btn-add"></i>
 		</li>
+
 	</ul>
 </div>

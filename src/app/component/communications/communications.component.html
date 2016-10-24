@@ -4,7 +4,7 @@
 			<template ngFor let-record [ngForOf]="list">
 				<div [person]="record.personName">
 					<ul class="role">
-						<li *ngIf="record.personName!=null" class="title">{{record.personName}}</li>
+						<li *ngIf="record.personName" class="title">{{record.personName}}</li>
 						<li>{{record.sentTime | date:"yyyy-MM-dd"}}<br>{{record.sentTime | date:"HH:mm:ss"}}</li>
 					</ul>
 					<ul>

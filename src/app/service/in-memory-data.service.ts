@@ -4,7 +4,7 @@ import { Communication } from '../model/communication';
 
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
-    var tasks: Task[] = [
+    let tasks: Task[] = [
       new Task('T201606120001', '任务管理系统开发'),
       new Task('T201606120002', '任务管理系统开发2'),
       new Task('T201606120003', '任务管理系统开发3'),
@@ -37,15 +37,16 @@ export class InMemoryDataService implements InMemoryDbService {
     tasks[0].status = '完成';
     tasks[0].relevantProduct = null;
     tasks[0].relevantProject = null;
-    tasks[0].communications = [
-      { personName: '谭继锋', sentTime: new Date(2016, 4, 6, 12, 3, 4), content: '其他工作什么时候能完成？要给销售一个比较确定的时间，给测试人员 预留的时间有多长？' },
-      { personName: null, sentTime: new Date(2016, 4, 6, 12, 3, 4), content: '由于开发人员变动，造成开发进度延期，经过和相关人员协商后，将开 发结束时间延期到2016年9月30日。' },
-      { personName: '陈天博', sentTime: new Date(2016, 4, 6, 12, 3, 4), content: '好的，请尽快完成。' },
-      { personName: '谭继锋', sentTime: new Date(2016, 4, 6, 12, 3, 4), content: '其他工作什么时候能完成？要给销售一个比较确定的时间，给测试人员 预留的时间有多长？' },
-      { personName: null, sentTime: new Date(2016, 4, 6, 12, 3, 4), content: '由于开发人员变动，造成开发进度延期，经过和相关人员协商后，将开 发结束时间延期到2016年9月30日。' },
-      { personName: '陈天博', sentTime: new Date(2016, 4, 6, 12, 3, 4), content: '好的，请尽快完成。' },
+
+    let communications: Communication[] = [
+      { id: 'T201606120001', personName: '谭继锋', sentTime: new Date(2016, 4, 6, 12, 3, 4), content: '其他工作什么时候能完成？要给销售一个比较确定的时间，给测试人员 预留的时间有多长？' },
+      { id: 'T201606120001', personName: null, sentTime: new Date(2016, 4, 6, 12, 3, 4), content: '由于开发人员变动，造成开发进度延期，经过和相关人员协商后，将开 发结束时间延期到2016年9月30日。' },
+      { id: 'T201606120001', personName: '陈天博', sentTime: new Date(2016, 4, 6, 12, 3, 4), content: '好的，请尽快完成。' },
+      { id: 'T201606120001', personName: '谭继锋', sentTime: new Date(2016, 4, 6, 12, 3, 4), content: '其他工作什么时候能完成？要给销售一个比较确定的时间，给测试人员 预留的时间有多长？' },
+      { id: 'T201606120001', personName: null, sentTime: new Date(2016, 4, 6, 12, 3, 4), content: '由于开发人员变动，造成开发进度延期，经过和相关人员协商后，将开 发结束时间延期到2016年9月30日。' },
+      { id: 'T201606120001', personName: '陈天博', sentTime: new Date(2016, 4, 6, 12, 3, 4), content: '好的，请尽快完成。' },
     ];
-    return { tasks };
+    return { communications, tasks };
   }
 }
 

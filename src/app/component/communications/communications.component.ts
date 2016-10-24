@@ -8,23 +8,27 @@ import { Http } from '@angular/http';
   templateUrl: './communications.component.html',
   styleUrls: ['./communications.component.css',
     './../element-record/element-record.component.css'],
-  inputs: ['list', 'id']
+  inputs: ['id']
 })
 export class CommunicationsComponent implements OnInit {
-  list: Communication[];
+  list: Communication[] = [];
   id: string;
   content: string;
-  constructor(private http: Http) { }
+  constructor(private communicationsService: CommunicationsService) { }
 
   ngOnInit() {
+    this.communicationsService.getCommunicationsById(this.id)
+      .then(list => this.list = list);
   }
 
   addCommunication() {
     if (!this.content) { return; }
-    var communicationsService = new CommunicationsService(this.http, this.id);
-    communicationsService.create(this.content).then(communication => {
-      this.list.push(communication);
-    });
+    var communication = new Communication(this.id, null, new Date(Date.now()), this.content);
+
+    this.communicationsService.create(communication).then(() =>
+      this.communicationsService.getCommunicationsById(this.id)
+        .then(list => this.list = list)
+    );
   }
 }
 

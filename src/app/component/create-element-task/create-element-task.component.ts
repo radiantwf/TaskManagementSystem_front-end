@@ -23,8 +23,7 @@ export class CreateElementTaskComponent implements OnInit {
   addTask() {
     if (!this.newTask.name || !this.newTask.resume) { return; }
     this.newTask.id = 'temp';
-    this.taskService.create(this.newTask);
-    let link = ['/task'];
-    this.router.navigate(link);
+    this.taskService.create(this.newTask).then(() => this.router.navigate(['/task'])
+    );
   }
 }

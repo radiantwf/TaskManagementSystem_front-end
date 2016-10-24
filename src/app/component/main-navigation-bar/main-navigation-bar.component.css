@@ -15,7 +15,7 @@
 .menu li, .menu li:hover{
 	list-style-type: none;
 	height: 52px;
-	line-height: 50px;
+	line-height: 52px;
 	font-size: 0.8rem;
 	color:#939393;
 	padding-left: 40px;
@@ -34,15 +34,17 @@
 }
 
 .menu li md-icon{
-    margin-top: 11px;
+    margin-top: 14px;
     margin-left: -26px;
     position: absolute;
 }
 
 .menu .glyph-icon{
 	font-size: 1.3rem;
-    margin-right: 10px;
-    margin-top: -50px;
+    position: absolute;
+    right: 10px;
+    /*margin-right: 10px;*/
+    margin-top: -52px;
 }
 
 .badge {

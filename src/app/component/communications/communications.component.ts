@@ -25,10 +25,11 @@ export class CommunicationsComponent implements OnInit {
     if (!this.content) { return; }
     var communication = new Communication(this.id, null, new Date(Date.now()), this.content);
 
-    this.communicationsService.create(communication).then(() =>
+    this.communicationsService.create(communication).then(() => {
       this.communicationsService.getCommunicationsById(this.id)
-        .then(list => this.list = list)
-    );
+        .then(list => this.list = list);
+      this.content = '';
+    });
   }
 }
 

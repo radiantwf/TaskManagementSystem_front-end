@@ -23,9 +23,10 @@ import { ModalHomeComponent } from './component/modal-home/modal-home.component'
 import { ModalEmployeesChoiceComponent } from './component/modal-employees-choice/modal-employees-choice.component';
 import { ProgressChartComponent } from './component/progress-chart/progress-chart.component';
 import { ProgressChart2Component } from './component/progress-chart-2/progress-chart-2.component';
-import { CommunicationsComponent,CommunicationsDirective } from './component/communications/communications.component';
+import { CommunicationsComponent, CommunicationsDirective } from './component/communications/communications.component';
 
 import { TaskService } from './service/task.service';
+import { CommunicationsService } from './service/communications.service';
 import { InMemoryDataService } from './service/in-memory-data.service';
 import { NullOrEmptyPipe } from './pipe/null-or-empty.pipe';
 
@@ -44,8 +45,8 @@ import { NullOrEmptyPipe } from './pipe/null-or-empty.pipe';
     MainHeaderComponent,
     MainNavigationBarComponent,
     CreateElementComponent,
-    CreateElementTaskComponent, 
-    ModalHomeComponent, 
+    CreateElementTaskComponent,
+    ModalHomeComponent,
     ModalEmployeesChoiceComponent,
     ProgressChartComponent,
     ProgressChart2Component,
@@ -62,7 +63,7 @@ import { NullOrEmptyPipe } from './pipe/null-or-empty.pipe';
     InMemoryWebApiModule.forRoot(InMemoryDataService),
     HttpModule
   ],
-  providers: [TaskService],
+  providers: [TaskService, CommunicationsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

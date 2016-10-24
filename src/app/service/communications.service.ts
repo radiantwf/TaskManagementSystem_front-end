@@ -8,9 +8,9 @@ import 'rxjs/add/operator/toPromise';
 export class CommunicationsService {
 
   private headers = new Headers({ 'Content-Type': 'application/json' });
-  private communicationsUrl = 'app/tasks/' + this.task.id + '/communications';  // URL to web api
+  private communicationsUrl = 'app/tasks/' + this.id + '/communications';  // URL to web api
 
-  constructor(private http: Http, private task: Task) { }
+  constructor(private http: Http, private id: string) { }
 
   getCommunications(): Promise<Communication[]> {
     return this.http.get(this.communicationsUrl)
@@ -19,11 +19,11 @@ export class CommunicationsService {
       .catch(this.handleError);
   }
 
-  create(communication: Communication): Promise<Communication> {
+  create(content: string): Promise<Communication> {
     return this.http
-      .post(this.communicationsUrl, JSON.stringify(Communication), { headers: this.headers })
+      .post(this.communicationsUrl, JSON.stringify({content: content}), { headers: this.headers })
       .toPromise()
-      .then(() => Communication)
+      .then(res => res.json().data)
       .catch(this.handleError);
   }
   private handleError(error: any): Promise<any> {

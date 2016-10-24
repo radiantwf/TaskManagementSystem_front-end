@@ -34,7 +34,7 @@ export class TaskService {
     return this.http
       .post(this.tasksUrl, JSON.stringify(task), {headers: this.headers})
       .toPromise()
-      .then(() => task)
+      .then(res => res.json().data)
       .catch(this.handleError);
   }
 

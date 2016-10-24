@@ -37,10 +37,10 @@ export class Task {
     public realEndDate: Date;
     // 任务状态
     public status: string;
-    // 关联产品
-    public relevantProduct: any;
-    // 关联项目
-    public relevantProject: any;
+    // 所属产品
+    public parentProduct: any;
+    // 所属项目
+    public parentProject: any;
     // 评论
     public communications: Communication[];
 
@@ -63,8 +63,8 @@ export class Task {
         realBeginDate: Date,
         realEndDate: Date,
         status: string,
-        relevantProduct: any,
-        relevantProject: any,
+        parentProduct: any,
+        parentProject: any,
         communications: any
     ) {
         this.id = id;
@@ -85,8 +85,8 @@ export class Task {
         this.realBeginDate = realBeginDate;
         this.realEndDate = realEndDate;
         this.status = status;
-        this.relevantProduct = relevantProduct;
-        this.relevantProject = relevantProject;
+        this.parentProduct = parentProduct;
+        this.parentProject = parentProject;
         this.communications = communications;
     }
 }

@@ -35,8 +35,8 @@ export class InMemoryDataService implements InMemoryDbService {
     tasks[0].realBeginDate = new Date(2016, 4, 6, 0, 0, 0);
     tasks[0].realEndDate = new Date(2016, 4, 6, 0, 0, 0);
     tasks[0].status = '完成';
-    tasks[0].relevantProduct = null;
-    tasks[0].relevantProject = null;
+    tasks[0].parentProduct = null;
+    tasks[0].parentProject = null;
 
     let communications: Communication[] = [
       { id: 'T201606120001', personName: '谭继锋', sentTime: new Date(2016, 4, 6, 12, 3, 4), content: '其他工作什么时候能完成？要给销售一个比较确定的时间，给测试人员 预留的时间有多长？' },

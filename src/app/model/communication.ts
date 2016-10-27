@@ -1,17 +1,17 @@
 export class Communication {
-    id: string;
+    relevantId: string;
     personId: string;
     personName: string;
     sentTime: Date;
     content: string;
 
     constructor(
-        id: string,
+        relevantId: string,
         personId: string,
         personName: string,
         sentTime: Date,
         content: string) {
-        this.id = id;
+        this.relevantId = relevantId;
         this.personId = personId;
         this.personName = personName;
         this.sentTime = sentTime;

@@ -39,12 +39,12 @@ export class InMemoryDataService implements InMemoryDbService {
     task[0].parentProject = null;
 
     let communication: Communication[] = [
-      { id: 'T201606120001', personId: '1', personName: '谭继锋', sentTime: new Date(2016, 4, 6, 12, 3, 4), content: '其他工作什么时候能完成？要给销售一个比较确定的时间，给测试人员 预留的时间有多长？' },
-      { id: 'T201606120001', personId: '000169', personName: '王峰', sentTime: new Date(2016, 4, 6, 12, 3, 4), content: '由于开发人员变动，造成开发进度延期，经过和相关人员协商后，将开 发结束时间延期到2016年9月30日。' },
-      { id: 'T201606120001', personId: '1', personName: '陈天博', sentTime: new Date(2016, 4, 6, 12, 3, 4), content: '好的，请尽快完成。' },
-      { id: 'T201606120001', personId: '1', personName: '谭继锋', sentTime: new Date(2016, 4, 6, 12, 3, 4), content: '其他工作什么时候能完成？要给销售一个比较确定的时间，给测试人员 预留的时间有多长？' },
-      { id: 'T201606120001', personId: '000169', personName: '王峰', sentTime: new Date(2016, 4, 6, 12, 3, 4), content: '由于开发人员变动，造成开发进度延期，经过和相关人员协商后，将开 发结束时间延期到2016年9月30日。' },
-      { id: 'T201606120001', personId: '1', personName: '陈天博', sentTime: new Date(2016, 4, 6, 12, 3, 4), content: '好的，请尽快完成。' },
+      { relevantId: 'T201606120001', personId: '1', personName: '谭继锋', sentTime: new Date(2016, 4, 6, 12, 3, 4), content: '其他工作什么时候能完成？要给销售一个比较确定的时间，给测试人员 预留的时间有多长？' },
+      { relevantId: 'T201606120001', personId: '000169', personName: '王峰', sentTime: new Date(2016, 4, 6, 12, 3, 4), content: '由于开发人员变动，造成开发进度延期，经过和相关人员协商后，将开 发结束时间延期到2016年9月30日。' },
+      { relevantId: 'T201606120001', personId: '1', personName: '陈天博', sentTime: new Date(2016, 4, 6, 12, 3, 4), content: '好的，请尽快完成。' },
+      { relevantId: 'T201606120001', personId: '1', personName: '谭继锋', sentTime: new Date(2016, 4, 6, 12, 3, 4), content: '其他工作什么时候能完成？要给销售一个比较确定的时间，给测试人员 预留的时间有多长？' },
+      { relevantId: 'T201606120001', personId: '000169', personName: '王峰', sentTime: new Date(2016, 4, 6, 12, 3, 4), content: '由于开发人员变动，造成开发进度延期，经过和相关人员协商后，将开 发结束时间延期到2016年9月30日。' },
+      { relevantId: 'T201606120001', personId: '1', personName: '陈天博', sentTime: new Date(2016, 4, 6, 12, 3, 4), content: '好的，请尽快完成。' },
     ];
     return { communication, task };
   }

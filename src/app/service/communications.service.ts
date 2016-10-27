@@ -18,7 +18,7 @@ export class CommunicationsService {
       return this.http.get(this.communicationsUrl)
         .toPromise()
         .then(response => response.json().data as Communication[])
-        .then(communications => communications.filter(value => value.id === id))
+        .then(communications => communications.filter(value => value.relevantId === id))
         .catch(this.handleError);
     }
     const url = `${this.communicationsUrl}/${id}`;

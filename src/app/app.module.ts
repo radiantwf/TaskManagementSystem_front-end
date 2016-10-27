@@ -60,7 +60,7 @@ import { NullOrEmptyPipe } from './pipe/null-or-empty.pipe';
     DatepickerModule,
     BrowserModule,
     FormsModule,
-    // InMemoryWebApiModule.forRoot(InMemoryDataService),
+    InMemoryWebApiModule.forRoot(InMemoryDataService),
     HttpModule
   ],
   providers: [TaskService, CommunicationsService],

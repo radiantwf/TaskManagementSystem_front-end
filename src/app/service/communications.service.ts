@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Task } from '../model/task';
+import { AppGlobal } from '../shared/app-global';
+
 import { Communication } from '../model/communication';
 import { Headers, Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
@@ -8,19 +9,23 @@ import 'rxjs/add/operator/toPromise';
 export class CommunicationsService {
 
   private headers = new Headers({ 'Content-Type': 'application/json' });
-  private communicationsUrl = 'app/communications';  // URL to web api
+  private communicationsUrl = `${AppGlobal.getInstance().appURL}/communication`;  // URL to web api
 
   constructor(private http: Http) { }
 
-  getCommunications(): Promise<Communication[]> {
-    return this.http.get(this.communicationsUrl)
+  getCommunicationsById(id: string): Promise<Communication[]> {
+    if (this.communicationsUrl === 'app/communication') {
+      return this.http.get(this.communicationsUrl)
+        .toPromise()
+        .then(response => response.json().data as Communication[])
+        .then(communications => communications.filter(value => value.id === id))
+        .catch(this.handleError);
+    }
+    const url = `${this.communicationsUrl}/${id}`;
+    return this.http.get(url)
       .toPromise()
       .then(response => response.json().data as Communication[])
       .catch(this.handleError);
-  }
-  getCommunicationsById(id: string): Promise<Communication[]> {
-    return this.getCommunications()
-      .then(communications => communications.filter(value => value.id === id));
   }
 
   create(communication: Communication): Promise<Communication> {

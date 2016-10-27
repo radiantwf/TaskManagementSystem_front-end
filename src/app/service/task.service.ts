@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { AppGlobal } from '../shared/app-global';
 import { Task } from '../model/task';
 import { Headers, Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
@@ -6,7 +7,7 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class TaskService {
   private headers = new Headers({ 'Content-Type': 'application/json' });
-  private tasksUrl = 'app/tasks';  // URL to web api
+  private tasksUrl = `${AppGlobal.getInstance().appURL}/task`;  // URL to web api
 
   constructor(private http: Http) { }
 
@@ -18,8 +19,19 @@ export class TaskService {
   }
 
   getTask(id: string): Promise<Task> {
-    return this.getTasks()
-      .then(tasks => tasks.find(task => task.id === id));
+
+    if (this.tasksUrl === 'app/tasks') {
+      return this.http.get(this.tasksUrl)
+        .toPromise()
+        .then(response => response.json().data as Task[])
+        .then(tasks => tasks.filter(value => value.id === id))
+        .catch(this.handleError);
+    }
+    const url = `${this.tasksUrl}/${id}`;
+    return this.http.get(url)
+      .toPromise()
+      .then(response => response.json().data as Task)
+      .catch(this.handleError);
   }
 
   delete(id: string): Promise<void> {

@@ -8,6 +8,7 @@ export class Task {
         // 任务名称
         public name: string
     ) { }
+
     // 任务简述
     public resume: string;
     // 任务详细描述
@@ -23,6 +24,8 @@ export class Task {
     // OC负责人
     public primaryOC: string;
     // 执行负责人
+    public primaryExecutorObjectId: string;
+    public primaryExecutorId: string;
     public primaryExecutor: string;
     // 其他执行人
     public otherExecutors: string[];
@@ -41,8 +44,6 @@ export class Task {
     public parentProduct: any;
     // 所属项目
     public parentProject: any;
-    // 评论
-    public communications: Communication[];
 
     createTask(
         id: string,
@@ -64,8 +65,7 @@ export class Task {
         realEndDate: Date,
         status: string,
         parentProduct: any,
-        parentProject: any,
-        communications: any
+        parentProject: any
     ) {
         this.id = id;
         this.name = name;
@@ -86,7 +86,6 @@ export class Task {
         this.realEndDate = realEndDate;
         this.status = status;
         this.parentProduct = parentProduct;
-        this.parentProject = parentProject;
-        this.communications = communications;
+        this.parentProject = parentProject
     }
 }

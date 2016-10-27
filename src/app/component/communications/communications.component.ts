@@ -1,5 +1,7 @@
 import { Component, OnInit, Directive, ElementRef, Renderer, Input } from '@angular/core';
 import { Communication } from '../../model/communication';
+import { AppGlobal } from '../../shared/app-global';
+
 import { CommunicationsService } from './../../service/communications.service';
 import { Http } from '@angular/http';
 
@@ -12,18 +14,20 @@ import { Http } from '@angular/http';
 })
 export class CommunicationsComponent implements OnInit {
   list: Communication[] = [];
+  empId: string;
   id: string;
   content: string;
   constructor(private communicationsService: CommunicationsService) { }
 
   ngOnInit() {
+    this.empId = AppGlobal.getInstance().currentUser.empId;
     this.communicationsService.getCommunicationsById(this.id)
       .then(list => this.list = list);
   }
 
   addCommunication() {
     if (!this.content) { return; }
-    var communication = new Communication(this.id, null, new Date(Date.now()), this.content);
+    var communication = new Communication(this.id, AppGlobal.getInstance().currentUser.empId, null, new Date(Date.now()), this.content);
 
     this.communicationsService.create(communication).then(() => {
       this.communicationsService.getCommunicationsById(this.id)
@@ -33,12 +37,12 @@ export class CommunicationsComponent implements OnInit {
   }
 }
 
-@Directive({ selector: '[person]' })
+@Directive({ selector: '[personId]' })
 export class CommunicationsDirective {
-  @Input('person') person: string;
+  @Input('personId') personId: string;
 
-  @Input('person') set myperson(person: string) {
-    if (this.person == null) {
+  @Input('personId') set myperson(personId: string) {
+    if (this.personId === AppGlobal.getInstance().currentUser.empId) {
       this.renderer.setElementAttribute(this.el.nativeElement, 'class', 'me');
     } else {
       this.renderer.setElementAttribute(this.el.nativeElement, 'class', 'other');

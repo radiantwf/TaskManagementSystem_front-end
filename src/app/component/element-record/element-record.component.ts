@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Task } from './../../model/task';
 
 @Component({
   selector: 'element-record',
@@ -8,12 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ElementRecordComponent implements OnInit {
   private detailFlag = false;
+  taskRecord: Task;
 
   constructor() { }
 
   ngOnInit() {
   }
-  switchDetail(){
+  switchDetail() {
     this.detailFlag = !this.detailFlag;
   }
 }

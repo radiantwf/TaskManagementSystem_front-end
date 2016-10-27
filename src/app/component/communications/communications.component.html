@@ -2,9 +2,9 @@
 	<li>
 		<div class="dynamic">
 			<template ngFor let-record [ngForOf]="list">
-				<div [person]="record.personName">
+				<div [personId]="record.personId">
 					<ul class="role">
-						<li *ngIf="record.personName" class="title">{{record.personName}}</li>
+						<li *ngIf="record.personId !== empId" class="title">{{record.personName}}</li>
 						<li>{{record.sentTime | date:"yyyy-MM-dd"}}<br>{{record.sentTime | date:"HH:mm:ss"}}</li>
 					</ul>
 					<ul>

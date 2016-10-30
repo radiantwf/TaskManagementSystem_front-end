@@ -1,6 +1,7 @@
 #!/bin/bash
 docker kill front;docker rm front
 docker rmi front-image 211.157.146.6:5000/task-management-frontend:0.01
+rm -rf dist
 ng build --prod
 docker build -t front-image .
 

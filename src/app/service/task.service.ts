@@ -6,13 +6,12 @@ import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class TaskService {
-  private headers = new Headers({ 'Content-Type': 'application/json' });
   private tasksUrl = `${AppGlobal.getInstance().appURL}/task`;  // URL to web api
 
   constructor(private http: Http) { }
 
   getTasks(): Promise<Task[]> {
-    return this.http.get(this.tasksUrl)
+    return this.http.get(this.tasksUrl, { headers: this.httpHeaders() })
       .toPromise()
       .then(response => response.json().data as Task[])
       .catch(this.handleError);
@@ -21,7 +20,7 @@ export class TaskService {
   getTask(id: string): Promise<Task> {
 
     if (this.tasksUrl === 'app/tasks') {
-      return this.http.get(this.tasksUrl)
+      return this.http.get(this.tasksUrl, { headers: this.httpHeaders() })
         .toPromise()
         .then(response => response.json().data as Task[])
         .then(tasks => tasks.filter(value => value.id === id))
@@ -36,7 +35,7 @@ export class TaskService {
 
   delete(id: string): Promise<void> {
     const url = `${this.tasksUrl}/${id}`;
-    return this.http.delete(url, { headers: this.headers })
+    return this.http.delete(url, { headers: this.httpHeaders() })
       .toPromise()
       .then(() => null)
       .catch(this.handleError);
@@ -44,7 +43,7 @@ export class TaskService {
 
   create(task: Task): Promise<Task> {
     return this.http
-      .post(this.tasksUrl, JSON.stringify(task), { headers: this.headers })
+      .post(this.tasksUrl, JSON.stringify(task), { headers: this.httpHeaders() })
       .toPromise()
       .catch(this.handleError);
   }
@@ -52,7 +51,7 @@ export class TaskService {
   update(task: Task): Promise<Task> {
     const url = `${this.tasksUrl}/${task.id}`;
     return this.http
-      .put(url, JSON.stringify(task), { headers: this.headers })
+      .put(url, JSON.stringify(task), { headers: this.httpHeaders() })
       .toPromise()
       .then(() => task)
       .catch(this.handleError);
@@ -61,5 +60,12 @@ export class TaskService {
   private handleError(error: any): Promise<any> {
     console.error('An error occurred', error); // for demo purposes only
     return Promise.reject(error.message || error);
+  }
+
+  private httpHeaders(): Headers {
+    var headers = new Headers({ 'Content-Type': 'application/json' });
+    var token = AppGlobal.getInstance().GetLocalToken();
+    headers.append('x-auth-token', token);
+    return headers
   }
 }

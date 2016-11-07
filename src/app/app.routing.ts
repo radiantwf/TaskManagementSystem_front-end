@@ -9,7 +9,7 @@ import { CreateElementComponent } from './component/create-element/create-elemen
 const appRoutes: Routes = [
   {
     path: '',
-    redirectTo: '/task',
+    redirectTo: '/signin',
     pathMatch: 'full'
   },
   {

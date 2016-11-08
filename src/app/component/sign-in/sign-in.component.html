@@ -1,56 +1,43 @@
 <div class="modal-dialog vtop">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="text-center text-primary">系统登录</h1>
-      </div>
-      <div class="modal-body">
-        <form *ngIf="active" (ngSubmit)="onSubmit()" #userForm="ngForm" class="form col-md-12 center-block">
-          
-          <!--用户名-->
-          <div class="form-group">
-            <md-icon _ngcontent-sal-11="" role="img" class="material-icons" aria-label="用户名">perm_identity</md-icon>
-            <md-input _ngcontent-wew-1="" placeholder=""  required 
-                  [(ngModel)]="model.name" name="username"
-                  #username="ngModel" [myAutocomplete]="'txt_username'" [emptyTextAutocomplete]="'off'">
-            </md-input>
-
-            <!--用户名不能为空-->
-            <div [hidden]="taskName.valid || taskName.pristine" class="error">
-										用户名不能为空
-						</div>
-
-          </div>
-
-          <!--密码-->
-          <div class="form-group">
-            <md-icon _ngcontent-sal-11="" role="img" class="material-icons" aria-label="密码">lock_outline</md-icon>
-            <md-input _ngcontent-wew-1="" placeholder="" type="password"  required
-                  [(ngModel)]="model.pwd" name="pwd"
-                  #pwd="ngModel">
-            </md-input>
-
-             <!--密码不能为空-->
-             <div [hidden]="pwd.valid || pwd.pristine" class="error">
-										密码不能为空
-						</div>
-
-          </div>
-
-
-          <!--用户名密码错误-->
-        <div class="form-group errorDiv">
-          <div [hidden]="username.valid || username.pristine" 
-                class="alert alert-danger">
-              用户名密码错误
+  <div class="modal-content">
+    <div class="modal-header">
+      <h1 class="text-center text-primary">系统登录</h1>
+    </div>
+    <div class="modal-body">
+      <form (ngSubmit)="onSubmit()" #userForm="ngForm" class="form col-md-12 center-block">
+        <!--用户名-->
+        <div class="form-group">
+          <md-icon role="img" class="material-icons" aria-label="用户名">perm_identity</md-icon>
+          <md-input placeholder="" (input)="onInput()" required [(ngModel)]="authorize.name" name="username" #username="ngModel" [myAutocomplete]="'txt_username'"
+            [emptyTextAutocomplete]="'off'">
+          </md-input>
+          <!--用户名不能为空-->
+          <div [hidden]="username.valid || username.pristine" class="error">
+            用户名不能为空
           </div>
         </div>
-          <div class="button">
-            <button type="submit" class="btn btn-primary btn-lg btn-block" [disabled]="!userForm.form.valid">登录</button>
+        <!--密码-->
+        <div class="form-group">
+          <md-icon role="img" class="material-icons" aria-label="密码">lock_outline</md-icon>
+          <md-input placeholder="" (input)="onInput()" type="password" required [(ngModel)]="authorize.pwd" name="pwd" #pwd="ngModel">
+          </md-input>
+          <!--密码不能为空-->
+          <div [hidden]="pwd.valid || pwd.pristine" class="error">
+            密码不能为空
           </div>
-
-        </form>
-      </div>
-      <div class="modal-footer">
-      </div>
+        </div>
+        <!--用户名密码错误-->
+        <div class="form-group errorDiv">
+          <div class="alert alert-danger" [hidden]="!wrong_password">
+            用户名密码错误
+          </div>
+        </div>
+        <div class="button">
+          <button type="submit" class="btn btn-primary btn-lg btn-block" [disabled]="!userForm.form.valid">登录</button>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
     </div>
   </div>
+</div>

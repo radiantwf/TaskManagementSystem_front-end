@@ -30,20 +30,24 @@ export class AppGlobal {
         // this.appURL = 'app';
     }
 
-    public GetLocalToken(): string {
+    public getLocalToken(): string {
         if (this.token != null) {
             return this.token
         }
         return this.getCookie("token");
     }
 
-    public SetLocalToken(token: string) {
+    public setLocalToken(token: string) {
         this.token = token;
         if (this.token != null) {
             this.setCookie("token", this.token)
         } else {
             this.delCookie("token")
         }
+    }
+    public clearToken() {
+        this.token = null;
+        this.delCookie("token");
     }
 
     private getCookie(name: string) {

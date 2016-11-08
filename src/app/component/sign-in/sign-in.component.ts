@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { User } from '../../model/User';
+import { Authorize } from '../../model/Authorize';
+import { SignInService } from './../../service/sign-in.service';
+import { AppGlobal } from '../../shared/app-global';
 
 @Component({
   selector: 'app-root',
@@ -8,28 +10,42 @@ import { User } from '../../model/User';
   styleUrls: ['./sign-in.component.css']
 })
 export class SignInComponent implements OnInit {
-  
-  constructor(private router: Router) {
+
+  constructor(private router: Router, private signInService: SignInService) {
+    var token = AppGlobal.getInstance().getLocalToken();
+    if (token != null && token != "") {
+
+      this.signInService.signin(this.authorize.name, this.authorize.pwd)
+        .subscribe(token => {
+          if (token !== null) {
+            AppGlobal.getInstance().setLocalToken(token);
+            this.router.navigate(['/task']);
+            return;
+          }
+          AppGlobal.getInstance().clearToken();
+        });
+    }
   }
 
   ngOnInit() {
   }
 
-  model = new User();
+  authorize = new Authorize();
 
-  submitted = false;
-
-  onSubmit() {
-    this.submitted = true;
-    this.router.navigate(['/']);
+  wrong_password = false;
+  onInput() {
+    this.wrong_password = false;
   }
-
-  // TODO: Remove this when we're done
-  get diagnostic() { return JSON.stringify(this.model); }
-
-  // Reset the form with a new hero AND restore 'pristine' class state
-  // by toggling 'active' flag which causes the form
-  // to be removed/re-added in a tick via NgIf
-  // TODO: Workaround until NgForm has a reset method (#6822)
-  active = true;
+  onSubmit() {
+    this.signInService.signin(this.authorize.name, this.authorize.pwd)
+      .subscribe(token => {
+        if (token !== null) {
+          AppGlobal.getInstance().setLocalToken(token);
+          this.router.navigate(['/task']);
+          return;
+        }
+        AppGlobal.getInstance().clearToken();
+        this.wrong_password = true;
+      });
+  }
 }

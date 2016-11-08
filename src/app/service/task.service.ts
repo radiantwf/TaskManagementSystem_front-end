@@ -18,16 +18,8 @@ export class TaskService {
   }
 
   getTask(id: string): Promise<Task> {
-
-    if (this.tasksUrl === 'app/tasks') {
-      return this.http.get(this.tasksUrl, { headers: this.httpHeaders() })
-        .toPromise()
-        .then(response => response.json().data as Task[])
-        .then(tasks => tasks.filter(value => value.id === id))
-        .catch(this.handleError);
-    }
     const url = `${this.tasksUrl}/${id}`;
-    return this.http.get(url)
+    return this.http.get(url, { headers: this.httpHeaders() })
       .toPromise()
       .then(response => response.json().data as Task)
       .catch(this.handleError);
@@ -64,7 +56,7 @@ export class TaskService {
 
   private httpHeaders(): Headers {
     var headers = new Headers({ 'Content-Type': 'application/json' });
-    var token = AppGlobal.getInstance().GetLocalToken();
+    var token = AppGlobal.getInstance().getLocalToken();
     headers.append('x-auth-token', token);
     return headers
   }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Authorize } from '../../model/Authorize';
-import { SignInService } from './../../service/sign-in.service';
+import { UserService } from './../../service/user.service';
 import { AppGlobal } from '../../shared/app-global';
 
 @Component({
@@ -11,11 +11,11 @@ import { AppGlobal } from '../../shared/app-global';
 })
 export class SignInComponent implements OnInit {
 
-  constructor(private router: Router, private signInService: SignInService) {
+  constructor(private router: Router, private userService: UserService) {
     var token = AppGlobal.getInstance().getLocalToken();
     if (token != null && token != "") {
 
-      this.signInService.signin(this.authorize.name, this.authorize.pwd)
+      this.userService.signin(this.authorize.name, this.authorize.pwd)
         .subscribe(token => {
           if (token !== null) {
             AppGlobal.getInstance().setLocalToken(token);
@@ -37,7 +37,7 @@ export class SignInComponent implements OnInit {
     this.wrong_password = false;
   }
   onSubmit() {
-    this.signInService.signin(this.authorize.name, this.authorize.pwd)
+    this.userService.signin(this.authorize.name, this.authorize.pwd)
       .subscribe(token => {
         if (token !== null) {
           AppGlobal.getInstance().setLocalToken(token);

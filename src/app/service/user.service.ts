@@ -4,8 +4,9 @@ import { Headers, Http, Response } from '@angular/http';
 import { User } from '../model/user';
 import { Observable } from 'rxjs/Observable';
 @Injectable()
-export class SignInService {
+export class UserService {
   private signInUrl = `${AppGlobal.getInstance().appURL}/user/token`;  // URL to web api
+  private userUrl = `${AppGlobal.getInstance().appURL}/user`;  // URL to web api
 
   constructor(private http: Http) { }
 
@@ -16,6 +17,15 @@ export class SignInService {
       .map(response => response.json().data as string)
       .catch(this.handleError);
   }
+
+  getUserInfo(): Observable<User> {
+    return this.http
+      .get(this.userUrl
+      , { headers: this.httpHeaders() })
+      .map(response => response.json().data as User)
+      .catch(this.handleError);
+  }
+
   private handleError(error: Response | any) {
     // In a real world app, we might use a remote logging infrastructure
     let errMsg: string;

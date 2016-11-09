@@ -27,7 +27,7 @@ import { CommunicationsComponent, CommunicationsDirective } from './component/co
 
 import { TaskService } from './service/task.service';
 import { CommunicationsService } from './service/communications.service';
-import { SignInService } from './service/sign-in.service';
+import { UserService } from './service/user.service';
 import { InMemoryDataService } from './service/in-memory-data.service';
 import { NullOrEmptyPipe } from './pipe/null-or-empty.pipe';
 
@@ -64,7 +64,7 @@ import { NullOrEmptyPipe } from './pipe/null-or-empty.pipe';
     // InMemoryWebApiModule.forRoot(InMemoryDataService),
     HttpModule
   ],
-  providers: [TaskService, CommunicationsService, SignInService],
+  providers: [TaskService, CommunicationsService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

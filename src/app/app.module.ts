@@ -24,6 +24,7 @@ import { ModalEmployeesChoiceComponent } from './component/modal-employees-choic
 import { ProgressChartComponent } from './component/progress-chart/progress-chart.component';
 import { ProgressChart2Component } from './component/progress-chart-2/progress-chart-2.component';
 import { CommunicationsComponent, CommunicationsDirective } from './component/communications/communications.component';
+import { SearchComponent } from './component/search/search.component';
 
 import { TaskService } from './service/task.service';
 import { CommunicationsService } from './service/communications.service';
@@ -51,7 +52,8 @@ import { NullOrEmptyPipe } from './pipe/null-or-empty.pipe';
     ModalEmployeesChoiceComponent,
     ProgressChartComponent,
     ProgressChart2Component,
-    CommunicationsComponent
+    CommunicationsComponent,
+    SearchComponent
   ],
   imports: [
     MaterialModule.forRoot(),

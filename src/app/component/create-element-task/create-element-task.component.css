@@ -73,7 +73,7 @@
     cursor:pointer;
 }
 .line{
-    height:20px;
+    height:40px;
     border-bottom: 1px solid #e5e5e5;
     margin-bottom: 20px;
 }
@@ -121,4 +121,8 @@ md-input{
     color: rgb(221,44,0);
     text-align: left;
     margin-top: -10px;
+}
+.form-control{
+    width: 90%;
+    margin-top: 20px;
 }

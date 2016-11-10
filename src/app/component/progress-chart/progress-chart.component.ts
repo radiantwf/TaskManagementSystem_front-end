@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'progress-chart',
   templateUrl: './progress-chart.component.html',
   styleUrls: ['./progress-chart.component.css',
-    './../element-record/element-record.component.css'],
+    './../element-record-header/element-record-header.component.css'],
   inputs: ['planningBeginDate', 'planningEndDate', 'realBeginDate', 'realEndDate']
 })
 export class ProgressChartComponent implements OnInit {

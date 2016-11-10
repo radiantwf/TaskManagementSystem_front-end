@@ -6,7 +6,7 @@ import { TaskService } from './../../service/task.service';
   selector: 'element-record-detail',
   templateUrl: './element-record-detail.component.html',
   styleUrls: ['./element-record-detail.component.css',
-    './../element-record/element-record.component.css'],
+    './../element-record-header/element-record-header.component.css'],
   inputs: ['taskId']
 })
 export class ElementRecordDetailComponent implements OnInit {

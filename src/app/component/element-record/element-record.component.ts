@@ -1,21 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter } from '@angular/core';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Task } from './../../model/task';
 
 @Component({
-  selector: 'element-record',
-  templateUrl: './element-record.component.html',
-  styleUrls: ['./element-record.component.css'],
-  inputs: ['taskRecord']
+    selector: 'element-record',
+    templateUrl: './element-record.component.html',
+    styleUrls: ['./element-record.component.css'],
+    inputs: ['task', 'detailFlag'],
+    outputs: ['detailClicked']
+
 })
 export class ElementRecordComponent implements OnInit {
-  private detailFlag = false;
-  taskRecord: Task;
+    detailFlag: boolean;
+    task: Task = new Task(null, null);
+    detailClicked = new EventEmitter();
 
-  constructor() { }
+    constructor(private router: Router, private route: ActivatedRoute
+    ) { }
 
-  ngOnInit() {
-  }
-  switchDetail() {
-    this.detailFlag = !this.detailFlag;
-  }
+    ngOnInit() {
+    }
+
+    onDetailClicked(event) {
+        this.detailClicked.emit(event);
+    }
 }

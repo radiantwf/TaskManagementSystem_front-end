@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router }            from '@angular/router';
 
-import { Task }        from './../../model/task';
+import { Task } from './../../model/task';
 import { TaskService } from './../../service/task.service';
 
 @Component({
@@ -12,9 +11,8 @@ import { TaskService } from './../../service/task.service';
 
 export class ElementListComponent implements OnInit {
   tasks: Task[] = [];
-
+  id: string = "";
   constructor(
-    private router: Router,
     private taskService: TaskService) {
   }
 
@@ -22,9 +20,11 @@ export class ElementListComponent implements OnInit {
     this.taskService.getTasks()
       .then(tasks => this.tasks = tasks);
   }
-
-  gotoDetail(task: Task): void {
-    let link = ['/task', task.id];
-    this.router.navigate(link);
+  onDetailClicked(event) {
+    if (this.id == event) {
+      this.id = "";
+    } else {
+      this.id = event;
+    }
   }
 }

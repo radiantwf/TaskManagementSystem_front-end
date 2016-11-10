@@ -9,7 +9,7 @@ import { Http } from '@angular/http';
   selector: 'communications',
   templateUrl: './communications.component.html',
   styleUrls: ['./communications.component.css',
-    './../element-record/element-record.component.css'],
+    './../element-record-header/element-record-header.component.css'],
   inputs: ['id']
 })
 export class CommunicationsComponent implements OnInit {

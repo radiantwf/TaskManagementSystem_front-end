@@ -4,6 +4,7 @@ import { AppComponent } from './app.component';
 import { SignInComponent } from './component/sign-in/sign-in.component';
 import { HomeComponent } from './component/home/home.component';
 import { ElementListComponent } from './component/element-list/element-list.component';
+import { ElementRecordComponent } from './component/element-record/element-record.component';
 import { CreateElementComponent } from './component/create-element/create-element.component';
 
 const appRoutes: Routes = [
@@ -21,13 +22,13 @@ const appRoutes: Routes = [
     component: HomeComponent,
     children: [
       {
-        path: 'task',
-        component: ElementListComponent
-      },
-      {
         path: 'task/new',
         component: CreateElementComponent
-      }
+      },
+      {
+        path: 'task',
+        component: ElementListComponent,
+      },
     ]
   }
 ];

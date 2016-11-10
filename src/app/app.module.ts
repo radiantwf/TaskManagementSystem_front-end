@@ -13,6 +13,7 @@ import { HomeComponent } from './component/home/home.component';
 import { TextboxAutocompleteDirective } from './directive/textbox-autocomplete.directive';
 import { ElementListComponent } from './component/element-list/element-list.component';
 import { ElementRecordComponent } from './component/element-record/element-record.component';
+import { ElementRecordHeaderComponent } from './component/element-record-header/element-record-header.component';
 import { ElementRecordDetailComponent } from './component/element-record-detail/element-record-detail.component';
 import { SigninUserInfoComponent } from './component/signin-user-info/signin-user-info.component';
 import { MainHeaderComponent } from './component/main-header/main-header.component';
@@ -42,6 +43,7 @@ import { NullOrEmptyPipe } from './pipe/null-or-empty.pipe';
     NullOrEmptyPipe,
     ElementListComponent,
     ElementRecordComponent,
+    ElementRecordHeaderComponent,
     ElementRecordDetailComponent,
     SigninUserInfoComponent,
     MainHeaderComponent,

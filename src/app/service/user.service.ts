@@ -3,6 +3,7 @@ import { AppGlobal } from '../shared/app-global';
 import { Headers, Http, Response } from '@angular/http';
 import { User } from '../model/user';
 import { Observable } from 'rxjs/Observable';
+
 @Injectable()
 export class UserService {
   private signInUrl = `${AppGlobal.getInstance().appURL}/user/token`;  // URL to web api
@@ -43,6 +44,7 @@ export class UserService {
     console.error(errMsg);
     return Observable.throw(errMsg);
   }
+  
   private httpHeaders(): Headers {
     var headers = new Headers({ 'Content-Type': 'application/json' });
     var token = AppGlobal.getInstance().getLocalToken();

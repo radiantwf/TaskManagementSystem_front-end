@@ -30,6 +30,7 @@ import { SearchComponent } from './component/search/search.component';
 import { TaskService } from './service/task.service';
 import { CommunicationsService } from './service/communications.service';
 import { UserService } from './service/user.service';
+import { MainHeaderService } from './service/main-header.service';
 import { InMemoryDataService } from './service/in-memory-data.service';
 import { NullOrEmptyPipe } from './pipe/null-or-empty.pipe';
 
@@ -68,7 +69,7 @@ import { NullOrEmptyPipe } from './pipe/null-or-empty.pipe';
     // InMemoryWebApiModule.forRoot(InMemoryDataService),
     HttpModule
   ],
-  providers: [TaskService, CommunicationsService, UserService],
+  providers: [TaskService, CommunicationsService, MainHeaderService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

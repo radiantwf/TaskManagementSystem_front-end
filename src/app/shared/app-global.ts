@@ -20,7 +20,6 @@ export class AppGlobal {
             throw new Error("错误: 请使用AppGlobal.getInstance() 代替使用new.");
         }
         AppGlobal.instance = this;
-        this.currentUser.empId = '000169'
 
         if (environment.production) {
             this.appURL = 'http://task.hisign.top:6001/v1';

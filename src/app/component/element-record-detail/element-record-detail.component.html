@@ -139,7 +139,7 @@
 						<ul>
 							<li class="title">所属产品</li>
 							<li>
-								<p>#111111-111111-111111</p>公安信息化产品中心任务管理系统...</li>
+								<p>{{taskRecord.parentProductId | null_or_empty:"无"}}</p>{{taskRecord.parentProduct | null_or_empty:""}}</li>
 						</ul>
 					</div>
 				</div>
@@ -154,7 +154,7 @@
 						<ul>
 							<li class="title">所属项目</li>
 							<li>
-								<p>#111111-111111-111111</p>公安信息化产品中心任务管理系统...</li>
+								<p>{{taskRecord.parentProjectId | null_or_empty:"无"}}</p>{{taskRecord.parentProject | null_or_empty:""}}</li>
 						</ul>
 					</div>
 				</div>

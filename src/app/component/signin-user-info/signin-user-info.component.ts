@@ -19,6 +19,7 @@ export class SigninUserInfoComponent implements OnInit {
       .subscribe(userInfo => {
         if (userInfo !== null) {
           this.myInfo = userInfo;
+          AppGlobal.getInstance().currentUser = userInfo;
         }
       });
   }

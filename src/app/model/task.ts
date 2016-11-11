@@ -40,11 +40,14 @@ export class Task {
     public realEndDate: Date;
     // 任务状态
     public status: string;
-    // 所属产品
-    public parentProduct: any;
-    // 所属项目
-    public parentProject: any;
 
+    // 所属产品
+    public parentProductId: string;
+    public parentProduct: string;
+    // 所属项目
+    public parentProjectId: string;
+    public parentProject: string;
+    
     createTask(
         id: string,
         name: string,
@@ -64,8 +67,10 @@ export class Task {
         realBeginDate: Date,
         realEndDate: Date,
         status: string,
-        parentProduct: any,
-        parentProject: any
+        parentProductId: string,
+        parentProduct: string,
+        parentProjectId: string,
+        parentProject: string
     ) {
         this.id = id;
         this.name = name;

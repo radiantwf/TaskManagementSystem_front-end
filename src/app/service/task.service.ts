@@ -10,8 +10,9 @@ export class TaskService {
 
   constructor(private http: Http) { }
 
-  getTasks(): Promise<Task[]> {
-    return this.http.get(this.tasksUrl, { headers: this.httpHeaders() })
+  getTasks(pageNumber: number = 1): Promise<Task[]> {
+    const url = `${this.tasksUrl}/?pagesize=${AppGlobal.getInstance().pageSize}&page=${pageNumber}`;
+    return this.http.get(url, { headers: this.httpHeaders() })
       .toPromise()
       .then(response => response.json().data as Task[])
       .catch(this.handleError);

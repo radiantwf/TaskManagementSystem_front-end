@@ -13,15 +13,20 @@
 	line-height: 24px;
 	text-align: center;
 	font-size: 0.5rem;
-	margin-top: 20px;
+	margin-top: 10px;
 }
-.pages div .Previous{
+.pages div .Previous, .pages div .Previous：hover{
 	display: inline-table;
 	height:24px;
 	line-height: 24px;
 	text-align: center;
 	margin: 0px;
-	padding:0px;
+	padding:0 5px;
+}
+
+.pages div .Previous:hover, .pages div .Next:hover{
+	cursor: pointer;
+	background-color: rgba(0, 0, 0, 0.0588);
 }
 .pages div .Previous i{
 	display: inline-table;
@@ -47,7 +52,7 @@
 	float:right;
 }
 
-.pages div ul li{
+.pages div ul li, .pages div ul li:hover{
 	display: inline-table;
 	min-width: 24px;
 	height:24px;
@@ -59,9 +64,35 @@
 	cursor: pointer;
 }
 
+.pages div ul li:hover{
+	 background-color: rgba(0, 0, 0, 0.0588);
+}
 
-.PageN{
+.pages div ul li.active{
+	 color:#117ecc;
+	 cursor: default;
+}
+
+.pages div ul li.PageN:hover, .pages div ul li.active:hover{
+	 background-color: rgba(0, 0, 0, 0);
+}
+
+.PageN input{
 	width: 40px;
 	height:20px;
 	line-height: 20px;
+}
+
+
+.PageN input{
+	width: 40px;
+	height:20px;
+	line-height: 20px;
+}
+
+.pages div ul li button{
+	min-width: 40px;
+	width: 40px;
+	margin: 0 5px;
+	padding: 0px;
 }

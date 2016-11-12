@@ -13,7 +13,7 @@
 	line-height: 24px;
 	text-align: center;
 	font-size: 0.5rem;
-	margin-top: 10px;
+	margin-bottom: 20px;
 }
 .pages div .Previous, .pages div .Previous：hover{
 	display: inline-table;
@@ -42,7 +42,7 @@
 	line-height: 24px;
 	text-align: center;
 	margin: 0px;
-	padding:0px;
+	padding:0 5px;
 }
 .pages div .Next i{
 	display: inline-table;

@@ -26,6 +26,7 @@ import { ProgressChartComponent } from './component/progress-chart/progress-char
 import { ProgressChart2Component } from './component/progress-chart-2/progress-chart-2.component';
 import { CommunicationsComponent, CommunicationsDirective } from './component/communications/communications.component';
 import { SearchComponent } from './component/search/search.component';
+import { SignOutComponent } from './component/sign-out/sign-out.component';
 
 import { TaskService } from './service/task.service';
 import { CommunicationsService } from './service/communications.service';
@@ -56,7 +57,8 @@ import { NullOrEmptyPipe } from './pipe/null-or-empty.pipe';
     ProgressChartComponent,
     ProgressChart2Component,
     CommunicationsComponent,
-    SearchComponent
+    SearchComponent,
+    SignOutComponent
   ],
   imports: [
     MaterialModule.forRoot(),

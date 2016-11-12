@@ -33,4 +33,7 @@ export class MainNavigationBarComponent implements OnInit {
   navigateToHomePage() {
     this.router.navigate(['/']);
   }
+  navigateToSignOut() {
+    this.router.navigate(['/signout']);
+  }
 }

@@ -81,14 +81,27 @@
 							</ul>
 							<ul>
 								<li>
-									<md-input [(ngModel)]="newTask.primarySeller" placeholder="商务负责人"></md-input>
+									<select class="form-control">
+										<option>选择商务负责人</option>
+										<option>张三</option>
+										<option>李四</option>
+										<option>王五</option>
+									</select>
+									<!--<md-input [(ngModel)]="newTask.primarySeller" placeholder="商务负责人"></md-input>-->
 								</li>
 							</ul>
 							<ul>
 								<li>
-									<md-input placeholder="OC负责人" [(ngModel)]="newTask.primaryOC" (click)="OCModal.show()"></md-input>
+									<select class="form-control">
+										<option>选择OC负责人</option>
+										<option>张三</option>
+										<option>李四</option>
+										<option>王五</option>
+									</select>
+									<!--<md-input placeholder="OC负责人" [(ngModel)]="newTask.primaryOC" (click)="OCModal.show()"></md-input>-->
 
 									<!--OC负责人弹窗-->
+
 									<div bsModal #OCModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 										<div class="modal-dialog modal-lg">
 											<div class="modal-content">
@@ -205,7 +218,13 @@
 							</ul>
 							<ul>
 								<li>
-									<md-input [(ngModel)]="newTask.primaryExecutor" placeholder="执行负责人"></md-input>
+									<select class="form-control">
+										<option>选择执行负责人</option>
+										<option>张三</option>
+										<option>李四</option>
+										<option>王五</option>
+									</select>
+									<!--<md-input [(ngModel)]="newTask.primaryExecutor" placeholder="执行负责人"></md-input>-->
 								</li>
 							</ul>
 							<ul>

@@ -21,6 +21,16 @@
 	padding-left: 40px;
 }
 
+.SignOut li, .SignOut li:hover{
+	list-style-type: none;
+	height: 52px;
+	line-height: 52px;
+	font-size: 0.8rem;
+	color:#e9573f;
+	padding-left: 42px;
+}
+
+
 .menu li:hover span{
 	background-color:#117ecc;
 	color:#FFFFFF;
@@ -32,10 +42,14 @@
 	background-color: rgba(0,0,0,0.05);
 	cursor: pointer;
 }
+.SignOut li:hover{
+	color:#d7481c;
+}
+
 
 .menu li md-icon{
     margin-top: 14px;
-    margin-left: -26px;
+    margin-left: -28px;
     position: absolute;
 }
 

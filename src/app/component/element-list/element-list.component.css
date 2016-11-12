@@ -7,3 +7,61 @@
 	min-height: 68px;
 	line-height: 68px;
 }
+.pages div{
+	display: inline-table;
+	height:24px;
+	line-height: 24px;
+	text-align: center;
+	font-size: 0.5rem;
+	margin-top: 20px;
+}
+.pages div .Previous{
+	display: inline-table;
+	height:24px;
+	line-height: 24px;
+	text-align: center;
+	margin: 0px;
+	padding:0px;
+}
+.pages div .Previous i{
+	display: inline-table;
+	height:24px;
+	line-height: 24px;
+	text-align: center;
+	float:left;
+}
+
+.pages div .Next{
+	display: inline-table;
+	height:24px;
+	line-height: 24px;
+	text-align: center;
+	margin: 0px;
+	padding:0px;
+}
+.pages div .Next i{
+	display: inline-table;
+	height:24px;
+	line-height: 24px;
+	text-align: center;
+	float:right;
+}
+
+.pages div ul li{
+	display: inline-table;
+	min-width: 24px;
+	height:24px;
+	line-height: 24px;
+	text-align: center;
+	font-size: 0.9rem;
+	margin: 0px;
+	padding:0 5px;
+	cursor: pointer;
+}
+
+
+.PageN{
+	width: 40px;
+	height:20px;
+	line-height: 20px;
+}

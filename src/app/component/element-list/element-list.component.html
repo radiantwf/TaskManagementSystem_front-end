@@ -1,3 +1,22 @@
 <div class="row rightDiv" *ngFor="let task of tasks">
   <element-record [task]="task" (detailClicked)="onDetailClicked($event)" [detailFlag]="task.id==id"></element-record>
 </div>
+
+<!--页码-->
+<div class="pages">
+
+  <div  class="col-lg-2 col-md-2 col-xs-2 col-sm-2 "><a href="#" class="Previous"><i class="material-icons">arrow_back</i>&nbsp;上一页</a></div>
+  <div  class="col-lg-8 col-md-8col-xs-8 col-sm-8">
+    <ul>
+        <li><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <li><a href="#">...</a></li>
+        <li><a href="#">10</a></li>
+        <li><input class="PageN"></li>
+    </ul>
+  </div>
+  <div  class="col-lg-2 col-md-2 col-xs-2 col-sm-2"><a href="#" class="Next">下一页&nbsp;<i class="material-icons">arrow_forward</i></a></div>
+</div>

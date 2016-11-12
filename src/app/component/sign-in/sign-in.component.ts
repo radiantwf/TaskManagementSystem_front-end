@@ -10,24 +10,25 @@ import { AppGlobal } from '../../shared/app-global';
   styleUrls: ['./sign-in.component.css']
 })
 export class SignInComponent implements OnInit {
+  isSignIn: boolean = true;
 
   constructor(private router: Router, private userService: UserService) {
+  }
+
+  ngOnInit() {
     var token = AppGlobal.getInstance().getLocalToken();
     if (token != null && token != "") {
 
       this.userService.signin(this.authorize.name, this.authorize.pwd)
-        .subscribe(token => {
-          if (token !== null) {
-            AppGlobal.getInstance().setLocalToken(token);
-            this.router.navigate(['/task']);
-            return;
-          }
-          AppGlobal.getInstance().clearToken();
-        });
+        .subscribe(t => { token = t; });
     }
-  }
-
-  ngOnInit() {
+    if (token !== null) {
+      AppGlobal.getInstance().setLocalToken(token);
+      this.router.navigate(['/task']);
+      return;
+    }
+    AppGlobal.getInstance().clearToken();
+    this.isSignIn = false;
   }
 
   authorize = new Authorize();

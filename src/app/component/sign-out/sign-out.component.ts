@@ -13,7 +13,7 @@ export class SignOutComponent implements OnInit {
 
   ngOnInit() {
     AppGlobal.getInstance().clearToken();
-    this.router.navigate(['/task']);
+    this.router.navigate(['/']);
   }
 
 }

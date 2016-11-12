@@ -13,20 +13,96 @@
 	padding-right: 23px;
 }
 /*任务状态*/
-.row.overtime{/*超时*/
+
+/*超时*/
+.overtime div.row .task_ic md-icon{
+	font-size: 2rem;
+	margin-top: 16px;
+	color: #f69679;
+
+}
+
+.overtime .line{
 	border-bottom: 4px solid #f69679;
 	margin:0px;
 }
 
-.row.ongoing{/*进行中*/
+.overtime div.row .task_info .date{
+	width:100px;
+	color:#117ecc;
+}
+
+.overtime div.row .task_info .datespan{
+	width:80px;
+	color:#00bfa8;
+}
+
+.overtime div.row .task_info .status{
+	width:60px;
+	color:#d7481c;
+}
+
+
+/*进行中*/
+.ongoing div.row .task_ic md-icon{
+	font-size: 2rem;
+	margin-top: 16px;
+	color: #64decf;
+}
+
+.ongoing .line{
 	border-bottom: 4px solid #64decf;
 	margin:0px;
 }
 
-.row.notstart{/*未开始*/
+.ongoing div.row .task_info .date{
+	width:100px;
+	color:#117ecc;
+}
+
+.ongoing div.row .task_info .datespan{
+	width:80px;
+	color:#666666;
+}
+
+.ongoing div.row .task_info .status{
+	width:60px;
+	color:#666666;
+}
+
+
+
+
+/*未开始*/
+.notstart div.row .task_ic md-icon{
+	font-size: 2rem;
+	margin-top: 16px;
+	color: #cb93dd;
+
+}
+
+.notstart .line{
 	border-bottom: 4px solid #cb93dd;
 	margin:0px;
 }
+
+.notstart div.row .task_info .date{
+	width:100px;
+	color:#117ecc;
+}
+
+.notstart div.row .task_info .datespan{
+	width:80px;
+	color:#666666;
+}
+
+.notstart div.row .task_info .status{
+	width:60px;
+	color:#666666;
+}
+
+
+
 
 /*任务图标*/
 .task_ic{
@@ -40,20 +116,6 @@
 }
 
 
-md-icon.overtime{/*超时*/
-	font-size: 2rem;
-	margin-top: 16px;
-	color: #f69679;
-}
-md-icon.ongoing{/*进行中*/
-	font-size: 2rem;
-	margin-top: 16px;
-}
-md-icon.notstart{/*未开始*/
-	font-size: 2rem;
-	margin-top: 16px;
-	color: #cb93dd;
-}
 
 
 /*任务名称*/
@@ -176,23 +238,25 @@ md-icon.notstart{/*未开始*/
 }
 
 
-/*计划完成日期*/
+/*计划完成日期
 .task_info ul li.title_date{
 	width:100px;
 	color:#117ecc;
 }
 
-/*计划用时*/
+计划用时
 .task_info ul li.title_day{
 	width:80px;
 	color:#00bfa8;
 }
 
-/*已超时*/
+已超时
 .task_info ul li.title_overtime{
 	width:60px;
 	color:#d7481c;
 }
+*/
+
 
 /*任务展开按钮*/
 .open, .open:hover{

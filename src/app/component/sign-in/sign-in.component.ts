@@ -3,13 +3,14 @@ import { Router } from '@angular/router';
 import { Authorize } from '../../model/Authorize';
 import { UserService } from './../../service/user.service';
 import { AppGlobal } from '../../shared/app-global';
-
+import { sha1 } from '../../shared/sha1';
 @Component({
   selector: 'app-root',
   templateUrl: './sign-in.component.html',
   styleUrls: ['./sign-in.component.css']
 })
 export class SignInComponent implements OnInit {
+  /// <reference path="../../shared/sha1.ts" />
   isSignIn: boolean = true;
 
   constructor(private router: Router, private userService: UserService) {
@@ -38,7 +39,8 @@ export class SignInComponent implements OnInit {
     this.wrong_password = false;
   }
   onSubmit() {
-    this.userService.signin(this.authorize.name, this.authorize.pwd)
+    var hash = sha1.hash(this.authorize.pwd);
+    this.userService.signin(this.authorize.name, hash)
       .subscribe(token => {
         if (token !== null) {
           AppGlobal.getInstance().setLocalToken(token);

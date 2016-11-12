@@ -13,7 +13,8 @@ export class SignOutComponent implements OnInit {
 
   ngOnInit() {
     AppGlobal.getInstance().clearToken();
-    this.router.navigate(['/']);
+    setTimeout(function (router) {
+      router.navigate(['/']);
+    }, 100, this.router);
   }
-
 }

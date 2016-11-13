@@ -58,7 +58,9 @@ export class TaskService {
   private httpHeaders(): Headers {
     var headers = new Headers({ 'Content-Type': 'application/json' });
     var token = AppGlobal.getInstance().getLocalToken();
-    headers.append('x-auth-token', token);
+    if (token != null && token != "") {
+      headers.append('X-Auth-Token', token);
+    }
     return headers
   }
 }

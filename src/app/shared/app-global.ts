@@ -11,7 +11,7 @@ export class AppGlobal {
     private token: string = null;
 
     /**当前用户信息 */
-    currentUser: User = new User();
+    currentUser: User = null;
     /**分页页数 */
     pageSize: number = 10;
 

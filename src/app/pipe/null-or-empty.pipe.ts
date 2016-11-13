@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class NullOrEmptyPipe implements PipeTransform {
 
   transform(value: any, arg: any): any {
-    if (value === null || value == null|| value == "") {
+    if (typeof (value) == "undefined" || value === null || value == null || value == "") {
       return arg;
     }
     else {

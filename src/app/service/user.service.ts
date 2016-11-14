@@ -6,16 +6,16 @@ import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class UserService {
-  private signInUrl = `${AppGlobal.getInstance().appURL}/user/token`;  // URL to web api
+  private signInUrl = `${AppGlobal.getInstance().appURL}/user/signin`;  // URL to web api
   private userUrl = `${AppGlobal.getInstance().appURL}/user`;  // URL to web api
 
   constructor(private http: Http) { }
 
-  signin(uid: string, password: string): Observable<string> {
+  signin(uid: string, password: string): Observable<User> {
     return this.http
       .post(this.signInUrl, JSON.stringify({ "uid": uid, "password": password })
       , { headers: this.httpHeaders() })
-      .map(response => response.json().data as string)
+      .map(response => response.json().data as User)
       .catch(this.handleError);
   }
 
@@ -44,7 +44,7 @@ export class UserService {
     console.error(errMsg);
     return Observable.throw(errMsg);
   }
-  
+
   private httpHeaders(): Headers {
     var headers = new Headers({ 'Content-Type': 'application/json' });
     var token = AppGlobal.getInstance().getLocalToken();

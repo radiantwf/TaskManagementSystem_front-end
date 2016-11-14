@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { Authorize } from '../../model/Authorize';
 import { UserService } from './../../service/user.service';
 import { AppGlobal } from '../../shared/app-global';
-
+import { sha1 } from '../../shared/sha1';
 @Component({
   selector: 'app-root',
   templateUrl: './sign-in.component.html',
@@ -16,19 +16,26 @@ export class SignInComponent implements OnInit {
   }
 
   ngOnInit() {
-    var token = AppGlobal.getInstance().getLocalToken();
-    if (token != null && token != "") {
-
+    this.isSignIn = true;
+    var savedToken = AppGlobal.getInstance().getLocalToken();
+    if (savedToken != null && savedToken != "") {
       this.userService.signin(this.authorize.name, this.authorize.pwd)
-        .subscribe(t => { token = t; });
+        .subscribe(user => {
+          if (user != null) {
+            AppGlobal.getInstance().clearToken();
+            AppGlobal.getInstance().currentUser = user;
+            AppGlobal.getInstance().setLocalToken(user.token);
+            this.router.navigate(['/task']);
+          } else {
+            AppGlobal.getInstance().clearToken();
+            this.isSignIn = false;
+          }
+        });
     }
-    if (token !== null) {
-      AppGlobal.getInstance().setLocalToken(token);
-      this.router.navigate(['/task']);
-      return;
+    else {
+      AppGlobal.getInstance().clearToken();
+      this.isSignIn = false;
     }
-    AppGlobal.getInstance().clearToken();
-    this.isSignIn = false;
   }
 
   authorize = new Authorize();
@@ -38,15 +45,19 @@ export class SignInComponent implements OnInit {
     this.wrong_password = false;
   }
   onSubmit() {
-    this.userService.signin(this.authorize.name, this.authorize.pwd)
-      .subscribe(token => {
-        if (token !== null) {
-          AppGlobal.getInstance().setLocalToken(token);
+    AppGlobal.getInstance().clearToken();
+    var hash = sha1.hash(this.authorize.pwd);
+    this.userService.signin(this.authorize.name, hash)
+      .subscribe(user => {
+        if (user !== null) {
+          AppGlobal.getInstance().currentUser = user;
+          AppGlobal.getInstance().setLocalToken(user.token);
           this.router.navigate(['/task']);
-          return;
         }
-        AppGlobal.getInstance().clearToken();
-        this.wrong_password = true;
+        else {
+          AppGlobal.getInstance().clearToken();
+          this.wrong_password = true;
+        }
       });
   }
 }

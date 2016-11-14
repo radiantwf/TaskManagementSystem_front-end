@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AppGlobal } from '../../shared/app-global';
+import { User } from '../../model/User';
 
 @Component({
   selector: 'app-sign-out',
@@ -13,7 +14,9 @@ export class SignOutComponent implements OnInit {
 
   ngOnInit() {
     AppGlobal.getInstance().clearToken();
-    this.router.navigate(['/']);
+    AppGlobal.getInstance().currentUser = null;
+    setTimeout(function (router) {
+      router.navigate(['/']);
+    }, 100, this.router);
   }
-
 }

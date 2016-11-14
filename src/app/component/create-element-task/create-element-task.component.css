@@ -124,5 +124,9 @@ md-input{
 }
 .form-control{
     width: 80%;
-    margin-top: 20px;
+    margin-top: 10px;
+}
+
+md-checkbox{
+    line-height: 60px;
 }

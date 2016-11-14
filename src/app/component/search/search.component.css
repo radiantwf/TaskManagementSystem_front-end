@@ -17,9 +17,9 @@
 .sch button{
 	position: absolute;
     /* margin-top: 12px; */
-    /* float: right; */
+     /*float: right; */
     /* color: #fff; */
-    right: 16px;
+    right: -14px;
     top: 20px;
 }
 

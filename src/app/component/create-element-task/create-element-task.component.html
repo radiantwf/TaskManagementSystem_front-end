@@ -28,40 +28,40 @@
   <div class="row">
     <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
       <!--任务基本信息展开-->
-        <div class="task_class">
-          <div class="task_class_ic">
-            <md-icon>library_books</md-icon>
-          </div>
-          <div class="task_class_info">
-            <ul>
-              <li>
-                <md-input [(ngModel)]="newTask.name" #taskName="ngModel" placeholder="任务名称" required></md-input>
-                <div [hidden]="taskName.valid || taskName.pristine" class="error">
-                  任务名称不能为空
-                </div>
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <md-input [(ngModel)]="newTask.resume" #resume="ngModel" placeholder="简述" required></md-input>
-                <div [hidden]="resume.valid || resume.pristine" class="error">
-                  简述不能为空
-                </div>
-              </li>
-            </ul>
-            <ul>
-              <li class="title">详细描述</li>
-              <li>
-                <textarea [(ngModel)]="newTask.description" name="" rows="3" class="form-control textarea-counter"></textarea>
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <md-input placeholder="客户联络方式"></md-input>
-              </li>
-            </ul>
-          </div>
+      <div class="task_class">
+        <div class="task_class_ic">
+          <md-icon>library_books</md-icon>
         </div>
+        <div class="task_class_info">
+          <ul>
+            <li>
+              <md-input [(ngModel)]="newTask.name" #taskName="ngModel" placeholder="任务名称" required></md-input>
+              <div [hidden]="taskName.valid || taskName.pristine" class="error">
+                任务名称不能为空
+              </div>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <md-input [(ngModel)]="newTask.resume" #resume="ngModel" placeholder="简述" required></md-input>
+              <div [hidden]="resume.valid || resume.pristine" class="error">
+                简述不能为空
+              </div>
+            </li>
+          </ul>
+          <ul>
+            <li class="title">详细描述</li>
+            <li>
+              <textarea [(ngModel)]="newTask.description" name="" rows="3" class="form-control textarea-counter"></textarea>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <md-input placeholder="客户联络方式"></md-input>
+            </li>
+          </ul>
+        </div>
+      </div>
       <!--客户联系方式-->
       <div class="task_class">
         <div class="task_class_ic">
@@ -72,12 +72,10 @@
           <ul>
             <li>
               <select class="form-control">
-										<option>选择商务负责人</option>
-										<option>张三</option>
-										<option>李四</option>
-										<option>王五</option>
+										<option>选择销售负责人</option>
+										<option *ngFor="let emp of sellers" value = "emp.empId">{{emp.name}}</option>
 									</select>
-              <!--<md-input [(ngModel)]="newTask.primarySeller" placeholder="商务负责人"></md-input>-->
+              <!--<md-input [(ngModel)]="newTask.primarySeller" placeholder="销售负责人"></md-input>-->
             </li>
           </ul>
           <ul>
@@ -101,9 +99,7 @@
             <li>
               <select class="form-control">
 										<option>选择OC负责人</option>
-										<option>张三</option>
-										<option>李四</option>
-										<option>王五</option>
+										<option *ngFor="let emp of OC" value = "emp.empId">{{emp.name}}</option>
 									</select>
               <!--<md-input placeholder="OC负责人" [(ngModel)]="newTask.primaryOC" (click)="OCModal.show()"></md-input>-->
               <!--OC负责人弹窗-->
@@ -220,9 +216,7 @@
             <li>
               <select class="form-control">
 										<option>选择执行负责人</option>
-										<option>张三</option>
-										<option>李四</option>
-										<option>王五</option>
+										<option *ngFor="let emp of taskManagers" value = "emp.empId">{{emp.name}}</option>
 									</select>
               <!--<md-input [(ngModel)]="newTask.primaryExecutor" placeholder="执行负责人"></md-input>-->
             </li>
@@ -256,117 +250,117 @@
           </div>
         </div>
       </div>
-                <!--所属产品-->
-          <div class="task_class">
-            <div class="task_class_ic">
-              <!--<div class="glyph-icon tooltip-button icon-cubes" title=""></div>-->
-              <md-icon>dashboard</md-icon>
-            </div>
-            <div class="task_class_info">
-              <ul>
-                <!--<li class="title">所属产品</li>
+      <!--所属产品-->
+      <div class="task_class">
+        <div class="task_class_ic">
+          <!--<div class="glyph-icon tooltip-button icon-cubes" title=""></div>-->
+          <md-icon>dashboard</md-icon>
+        </div>
+        <div class="task_class_info">
+          <ul>
+            <!--<li class="title">所属产品</li>
 													<li>
 														<input type="text" class="form-control" id="" placeholder="无">	
 													</li>-->
-                <li>
-                  <md-input placeholder="所属产品" (click)="lgModal.show()"></md-input>
-                  <!-- 所属产品弹窗 -->
-                  <!--<button class="btn btn-primary" (click)="lgModal.show()">Large modal</button>-->
-                  <div bsModal #lgModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-lg">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <button type="button" class="close" (click)="OCModal.hide()" aria-label="Close">
+            <li>
+              <md-input placeholder="所属产品" (click)="lgModal.show()"></md-input>
+              <!-- 所属产品弹窗 -->
+              <!--<button class="btn btn-primary" (click)="lgModal.show()">Large modal</button>-->
+              <div bsModal #lgModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" (click)="OCModal.hide()" aria-label="Close">
 													<span aria-hidden="true">&times;</span>
 													</button>
-                          <h4 class="modal-title">请选择所属产品</h4>
-                        </div>
-                        <div class="modal-body">
-                          <ul>
-                            <li class="title">已选所属产品</li>
+                      <h4 class="modal-title">请选择所属产品</h4>
+                    </div>
+                    <div class="modal-body">
+                      <ul>
+                        <li class="title">已选所属产品</li>
+                        <li>
+                          <ul class="select">
                             <li>
-                              <ul class="select">
-                                <li>
-                                  <p>#111111-111111-111111</p>公安信息化产品中心任务管理系统
-                                  <md-icon>clear</md-icon>
-                                </li>
-                                <li>所属产品2
-                                  <md-icon>clear</md-icon>
-                                </li>
-                                <li>所属产品3
-                                  <md-icon>clear</md-icon>
-                                </li>
-                                <li>所属产品4
-                                  <md-icon>clear</md-icon>
-                                </li>
-                                <li>所属产品5
-                                  <md-icon>clear</md-icon>
-                                </li>
-                                <li>所属产品6
-                                  <md-icon>clear</md-icon>
-                                </li>
-                              </ul>
+                              <p>#111111-111111-111111</p>公安信息化产品中心任务管理系统
+                              <md-icon>clear</md-icon>
+                            </li>
+                            <li>所属产品2
+                              <md-icon>clear</md-icon>
+                            </li>
+                            <li>所属产品3
+                              <md-icon>clear</md-icon>
+                            </li>
+                            <li>所属产品4
+                              <md-icon>clear</md-icon>
+                            </li>
+                            <li>所属产品5
+                              <md-icon>clear</md-icon>
+                            </li>
+                            <li>所属产品6
+                              <md-icon>clear</md-icon>
                             </li>
                           </ul>
-                          <div class="line"></div>
-                          <ul>
-                            <li class="title">产品 </li>
-                            <li>
-                              <ul class="personnel">
-                                <li class="selected">人员1</li>
-                                <li class="selected">人员2</li>
-                                <li>人员3</li>
-                                <li>人员4</li>
-                                <li>人员5</li>
-                                <li>人员6</li>
-                                <li>人员7</li>
-                                <li>人员8</li>
-                                <li>人员9</li>
-                                <li>人员10</li>
-                                <li>人员11</li>
-                                <li>人员12</li>
-                                <li>人员13</li>
-                                <li>人员14</li>
-                                <li>人员15</li>
-                                <li>人员16</li>
-                                <li>人员17</li>
-                              </ul>
-                            </li>
+                        </li>
+                      </ul>
+                      <div class="line"></div>
+                      <ul>
+                        <li class="title">产品 </li>
+                        <li>
+                          <ul class="personnel">
+                            <li class="selected">人员1</li>
+                            <li class="selected">人员2</li>
+                            <li>人员3</li>
+                            <li>人员4</li>
+                            <li>人员5</li>
+                            <li>人员6</li>
+                            <li>人员7</li>
+                            <li>人员8</li>
+                            <li>人员9</li>
+                            <li>人员10</li>
+                            <li>人员11</li>
+                            <li>人员12</li>
+                            <li>人员13</li>
+                            <li>人员14</li>
+                            <li>人员15</li>
+                            <li>人员16</li>
+                            <li>人员17</li>
                           </ul>
-                        </div>
-                        <div class="modal-footer">
-                          <button md-icon-button md-tooltip="取消" tooltip-position="below">
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="modal-footer">
+                      <button md-icon-button md-tooltip="取消" tooltip-position="below">
 														<md-icon>close</md-icon>
 													</button>
-                          <button md-icon-button md-tooltip="提交" tooltip-position="below">
+                      <button md-icon-button md-tooltip="提交" tooltip-position="below">
 														<md-icon>done</md-icon>
 													</button>
-                        </div>
-                      </div>
                     </div>
                   </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <!--所属项目-->
-          <div class="task_class">
-            <div class="task_class_ic">
-              <!--<div class="glyph-icon icon-file-powerpoint-o" title=""></div>-->
-              <md-icon>view_quilt</md-icon>
-            </div>
-            <div class="task_class_info">
-              <ul>
-                <!--<li class="title">所属项目</li>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!--所属项目-->
+      <div class="task_class">
+        <div class="task_class_ic">
+          <!--<div class="glyph-icon icon-file-powerpoint-o" title=""></div>-->
+          <md-icon>view_quilt</md-icon>
+        </div>
+        <div class="task_class_info">
+          <ul>
+            <!--<li class="title">所属项目</li>
 													<li>
 														<input type="text" class="form-control" id="" placeholder="无">	
 													</li>-->
-                <li>
-                  <md-input placeholder="所属项目"></md-input>
-                </li>
-              </ul>
-            </div>
-          </div>
+            <li>
+              <md-input placeholder="所属项目"></md-input>
+            </li>
+          </ul>
+        </div>
+      </div>
       <!--<div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
 			<div class="row">
 				<div class="col-lg-8 col-md-12 col-xs-12 col-sm-12 right_line">

@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { Task } from './../../model/task';
+import { Employee } from './../../model/employee';
 import { TaskService } from './../../service/task.service';
+import { EmployeeService } from './../../service/employee.service';
 import { AppGlobal } from '../../shared/app-global';
 
 @Component({
@@ -12,12 +14,17 @@ import { AppGlobal } from '../../shared/app-global';
 })
 export class CreateElementTaskComponent implements OnInit {
   newTask: Task = new Task('', '');
+  employees: Array<Employee>;
+  sellers: Array<Employee>;
+  OC: Array<Employee>;
+  taskManagers: Array<Employee>;
+
   sellerAreaVisibility: boolean;
   ocAreaVisibility: boolean;
   taskAreaVisibility: boolean;
 
   constructor(
-    private router: Router, private taskService: TaskService) {
+    private router: Router, private taskService: TaskService, private employeeService: EmployeeService) {
   }
 
   ngOnInit() {
@@ -31,8 +38,26 @@ export class CreateElementTaskComponent implements OnInit {
       this.taskAreaVisibility = user.permissions.findIndex(value => (value == 1
         || value == 11 || value == 19 || value == 21 || value == 29)) >= 0;
     }
-  }
+    this.employeeService.getEmployee().then(e => { this.employees = e; this.ProcessEmployees(); })
 
+  }
+  ProcessEmployees() {
+    this.sellers = new Array<Employee>();
+    this.OC = new Array<Employee>();
+    this.taskManagers = new Array<Employee>();
+    this.employees.forEach(value => {
+      if (value.permissions.findIndex(value => (value == 98)) >= 0) {
+        this.sellers.push(value);
+      }
+      if (value.permissions.findIndex(value => (value == 99)) >= 0) {
+        this.OC.push(value);
+      }
+      if (value.permissions.findIndex(value => (value == 1
+        || value == 11 || value == 19 || value == 21 || value == 29)) >= 0) {
+        this.taskManagers.push(value);
+      }
+    });
+  }
   addTask() {
     if (!this.newTask.name || !this.newTask.resume) { return; }
     this.newTask.id = 'temp';

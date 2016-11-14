@@ -19,7 +19,7 @@ export class Task {
     public creator: string;
     // 任务创建时间
     public createdTime: Date;
-    // 商务负责人
+    // 销售负责人
     public primarySeller: string;
     // OC负责人
     public primaryOC: string;

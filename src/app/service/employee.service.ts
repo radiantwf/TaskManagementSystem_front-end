@@ -10,11 +10,12 @@ export class EmployeeService {
 
   constructor(private http: Http) { }
 
-  getEmployee(): Observable<Employee> {
+  getEmployee(): Promise<Array<Employee>> {
     return this.http
       .get(this.employeeUrl
       , { headers: this.httpHeaders() })
-      .map(response => response.json().data as Employee)
+      .toPromise()
+      .then(response => response.json().data as Array<Employee>)
       .catch(this.handleError);
   }
 

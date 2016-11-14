@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 
 import { Task } from './../../model/task';
 import { TaskService } from './../../service/task.service';
+import { AppGlobal } from '../../shared/app-global';
 
 @Component({
   selector: 'create-element-task',
@@ -11,13 +12,25 @@ import { TaskService } from './../../service/task.service';
 })
 export class CreateElementTaskComponent implements OnInit {
   newTask: Task = new Task('', '');
-
+  sellerAreaVisibility: boolean;
+  ocAreaVisibility: boolean;
+  taskAreaVisibility: boolean;
 
   constructor(
     private router: Router, private taskService: TaskService) {
   }
 
   ngOnInit() {
+    var user = AppGlobal.getInstance().currentUser;
+    if (user != null) {
+      this.sellerAreaVisibility = user.permissions.findIndex(value => (value == 1
+        || value == 11 || value == 19 || value == 21 || value == 29
+        || value == 98 || value == 99)) >= 0;
+      this.ocAreaVisibility = user.permissions.findIndex(value => (value == 1
+        || value == 11 || value == 19 || value == 21 || value == 29 || value == 98)) >= 0;
+      this.taskAreaVisibility = user.permissions.findIndex(value => (value == 1
+        || value == 11 || value == 19 || value == 21 || value == 29)) >= 0;
+    }
   }
 
   addTask() {

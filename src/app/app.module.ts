@@ -31,6 +31,7 @@ import { SignOutComponent } from './component/sign-out/sign-out.component';
 import { TaskService } from './service/task.service';
 import { CommunicationsService } from './service/communications.service';
 import { UserService } from './service/user.service';
+import { EmployeeService } from './service/employee.service';
 import { MainHeaderService } from './service/main-header.service';
 import { InMemoryDataService } from './service/in-memory-data.service';
 import { NullOrEmptyPipe } from './pipe/null-or-empty.pipe';
@@ -71,7 +72,7 @@ import { NullOrEmptyPipe } from './pipe/null-or-empty.pipe';
     // InMemoryWebApiModule.forRoot(InMemoryDataService),
     HttpModule
   ],
-  providers: [TaskService, CommunicationsService, MainHeaderService, UserService],
+  providers: [TaskService, CommunicationsService, MainHeaderService, UserService, EmployeeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

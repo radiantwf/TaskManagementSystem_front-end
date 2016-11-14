@@ -71,9 +71,9 @@
         <div class="task_class_info">
           <ul>
             <li>
-              <select class="form-control">
-										<option>选择销售负责人</option>
-										<option *ngFor="let emp of sellers" value = "emp.empId">{{emp.name}}</option>
+              <select [(ngModel)]="sellerId" class="form-control">
+										<option [value]="''" >选择销售负责人</option>
+										<option *ngFor="let emp of sellers" [value] = "emp.empId">{{emp.name}}</option>
 									</select>
               <!--<md-input [(ngModel)]="newTask.primarySeller" placeholder="销售负责人"></md-input>-->
             </li>
@@ -97,9 +97,9 @@
           </ul>
           <ul>
             <li>
-              <select class="form-control">
-										<option>选择OC负责人</option>
-										<option *ngFor="let emp of OC" value = "emp.empId">{{emp.name}}</option>
+              <select [(ngModel)]="OCId" class="form-control">
+										<option [value]="''">选择OC负责人</option>
+										<option *ngFor="let emp of OC" [value] = "emp.empId">{{emp.name}}</option>
 									</select>
               <!--<md-input placeholder="OC负责人" [(ngModel)]="newTask.primaryOC" (click)="OCModal.show()"></md-input>-->
               <!--OC负责人弹窗-->
@@ -214,9 +214,9 @@
           </ul>
           <ul>
             <li>
-              <select class="form-control">
-										<option>选择执行负责人</option>
-										<option *ngFor="let emp of taskManagers" value = "emp.empId">{{emp.name}}</option>
+              <select [(ngModel)]="taskManagerId" class="form-control">
+										<option [value]="''">选择执行负责人</option>
+										<option *ngFor="let emp of taskManagers" [value] = "emp.empId">{{emp.name}}</option>
 									</select>
               <!--<md-input [(ngModel)]="newTask.primaryExecutor" placeholder="执行负责人"></md-input>-->
             </li>

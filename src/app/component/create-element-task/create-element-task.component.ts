@@ -19,6 +19,10 @@ export class CreateElementTaskComponent implements OnInit {
   OC: Array<Employee>;
   taskManagers: Array<Employee>;
 
+  sellerId: string;
+  OCId: string;
+  taskManagerId: string;
+
   sellerAreaVisibility: boolean;
   ocAreaVisibility: boolean;
   taskAreaVisibility: boolean;
@@ -61,6 +65,10 @@ export class CreateElementTaskComponent implements OnInit {
   addTask() {
     if (!this.newTask.name || !this.newTask.resume) { return; }
     this.newTask.id = 'temp';
+    this.newTask.creatorId = AppGlobal.getInstance().currentUser.empId;
+    this.newTask.primarySellerId = this.sellerId;
+    this.newTask.primaryOCId = this.OCId;
+    this.newTask.primaryExecutorId = this.taskManagerId
     this.taskService.create(this.newTask).then(() => this.router.navigate(['/task'])
     );
   }

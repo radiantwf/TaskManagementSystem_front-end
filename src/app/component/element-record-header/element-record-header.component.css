@@ -472,5 +472,43 @@
     padding-bottom: 5px;
 }
 
+button.down, button.up, button.menu{
+	width: 48px;
+	height: 48px;
+}
+ button.down md-icon, button.up md-icon{
+	font-size: 48px;
+	width: 48px;
+	height: 48px;
+	line-height: 48px;
+}
 
+button.menu md-icon{
+	font-size: 36px;
+	width: 48px;
+	height: 48px;
+	line-height: 48px;
+}
+.badge{
+	position: absolute;
+	width: 12px;
+	height: 12px;
+	z-index: 1;
+	border-radius: 1rem;
+	background-color: #de5862;
+	border: 1px solid #FFFFFF;
+	margin-top: 30px;
+	right:0px;
+}
 
+md-icon + .badge_m{
+	position: absolute;
+	width: 12px;
+	height: 12px;
+	z-index: 1;
+	border-radius: 1rem;
+	background-color: #de5862;
+	border: 1px solid #FFFFFF;
+	margin-top: 8px;
+	left:32px;
+}

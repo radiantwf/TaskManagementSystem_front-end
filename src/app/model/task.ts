@@ -16,15 +16,17 @@ export class Task {
     // 客户联系方式
     public customerContact: string;
     // 任务创建人
+    public creatorId: string;
     public creator: string;
     // 任务创建时间
     public createdTime: Date;
-    // 商务负责人
+    // 销售负责人
+    public primarySellerId: string;
     public primarySeller: string;
     // OC负责人
+    public primaryOCId: string;
     public primaryOC: string;
     // 执行负责人
-    public primaryExecutorObjectId: string;
     public primaryExecutorId: string;
     public primaryExecutor: string;
     // 其他执行人
@@ -47,50 +49,4 @@ export class Task {
     // 所属项目
     public parentProjectId: string;
     public parentProject: string;
-    
-    createTask(
-        id: string,
-        name: string,
-        resume: string,
-        description: string,
-        customerContact: string,
-        creator: string,
-        createdTime: Date,
-        primarySeller: string,
-        primaryOC: string,
-        primaryExecutor: string,
-        otherExecutors: string[],
-        requiringBeginDate: Date,
-        requiringEndDate: Date,
-        planningBeginDate: Date,
-        planningEndDate: Date,
-        realBeginDate: Date,
-        realEndDate: Date,
-        status: string,
-        parentProductId: string,
-        parentProduct: string,
-        parentProjectId: string,
-        parentProject: string
-    ) {
-        this.id = id;
-        this.name = name;
-        this.resume = resume;
-        this.description = description;
-        this.customerContact = customerContact;
-        this.creator = creator;
-        this.createdTime = createdTime;
-        this.primarySeller = primarySeller;
-        this.primaryOC = primaryOC;
-        this.primaryExecutor = primaryExecutor;
-        this.otherExecutors = otherExecutors;
-        this.requiringBeginDate = requiringBeginDate;
-        this.requiringEndDate = requiringEndDate;
-        this.planningBeginDate = planningBeginDate;
-        this.planningEndDate = planningEndDate;
-        this.realBeginDate = realBeginDate;
-        this.realEndDate = realEndDate;
-        this.status = status;
-        this.parentProduct = parentProduct;
-        this.parentProject = parentProject
-    }
 }

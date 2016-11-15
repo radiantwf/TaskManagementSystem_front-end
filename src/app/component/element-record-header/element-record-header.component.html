@@ -45,17 +45,16 @@
   <div class="col-lg-1 col-md-1 col-xs-1 col-sm-1" *ngIf="detailFlag">
     <div class="open">
       <button md-icon-button [md-menu-trigger-for]="menu" md-tooltip="操作" tooltip-position="below">
-				<md-icon class="menu">menu</md-icon>
-        <span class="badge"></span>
+				<md-icon>menu</md-icon>
 			</button>
       <!--<button  md-mini-fab md-mini-fab [md-menu-trigger-for]="menu" color="primary">
 				<md-icon>menu</md-icon>
 			</button>-->
       <md-menu #menu="mdMenu">
-        <button md-menu-item><md-icon>assignment_ind</md-icon><span class="badge badgeM"></span>指派</button>
-        <button md-menu-item><md-icon>play_arrow</md-icon><span class="badge badgeM"></span>开始</button>
+        <button md-menu-item><md-icon>assignment_ind</md-icon>指派</button>
+        <button md-menu-item><md-icon>play_arrow</md-icon>开始</button>
         <button md-menu-item><md-icon>stop</md-icon>停止（暂停）</button>
-        <button md-menu-item><md-icon>sms</md-icon><span class="badge badgeM"></span>留言</button>
+        <button md-menu-item><md-icon>sms</md-icon>留言</button>
         <button md-menu-item><md-icon>clear</md-icon>取消</button>
         <button md-menu-item><md-icon>mode_edit</md-icon>编辑</button>
       </md-menu>
@@ -65,13 +64,10 @@
   <div class="col-lg-1 col-md-1 col-xs-1 col-sm-1">
     <div class="open">
       <button *ngIf="!detailFlag" (click)="onDetailClicked(taskRecord.id)" md-icon-button md-tooltip="打开" tooltip-position="below">
-				<md-icon class="down">keyboard_arrow_down</md-icon>
-        <span class="badge"></span>
+				<md-icon>keyboard_arrow_down</md-icon>
 			</button>
-
-
       <button *ngIf="detailFlag" (click)="onDetailClicked(taskRecord.id)" md-icon-button md-tooltip="收起" tooltip-position="below">
-				<md-icon class="up">keyboard_arrow_up</md-icon>
+				<md-icon>keyboard_arrow_up</md-icon>
 			</button>
     </div>
   </div>

@@ -472,45 +472,5 @@
     padding-bottom: 5px;
 }
 
- .open md-icon.down, .open md-icon.up{
-	font-size: 48px;
-	height: 48px;
-    width: 48px;
-}
-
- .open md-icon.menu{
-	font-size: 36px;
-	height: 36px;
-    width: 36px;
-}
-
-.open button{
-	height: 48px;
-    width: 48px;
-	margin-top: 12px;
-}
-
-
-span.badge{
-	position: absolute;
-	z-index: 1;
-	width: 12px;
-	height: 12px;
-	border-radius: 50%;
-	background-color:#de5862;
-	border:1px solid #ffffff;
-	margin-top: 34px;
-	right: 0px;
-}
-
-.menu + span{
-	margin-top: 28px;
-	right: 0px;
-}
-
-span.badgeM{
-	margin-top: 8px;
-	left:34px; 
-}
 
 

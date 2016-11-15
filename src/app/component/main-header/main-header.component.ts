@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MainHeaderService } from './../../service/main-header.service';
 import { TaskCounts } from '../../model/counts';
+import { AppGlobal } from '../../shared/app-global';
 
 @Component({
   selector: 'main-header',
@@ -20,6 +21,7 @@ export class MainHeaderComponent implements OnInit {
       .subscribe(counts => {
         if (counts !== null) {
           this.counts = counts;
+          AppGlobal.getInstance().lastPage = Math.ceil(this.counts.total / AppGlobal.getInstance().pageSize)
         }
       });
   }

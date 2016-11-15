@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { AppGlobal } from '../shared/app-global';
 import { Task } from '../model/task';
 import { Headers, Http } from '@angular/http';
-import 'rxjs/add/operator/toPromise';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class TaskService {
@@ -12,6 +12,7 @@ export class TaskService {
 
   getTasks(pageNumber: number = 1): Promise<Task[]> {
     const url = `${this.tasksUrl}/?pagesize=${AppGlobal.getInstance().pageSize}&page=${pageNumber}`;
+    console.log(url);
     return this.http.get(url, { headers: this.httpHeaders() })
       .toPromise()
       .then(response => response.json().data as Task[])

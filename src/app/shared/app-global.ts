@@ -15,6 +15,8 @@ export class AppGlobal {
     /**分页页数 */
     pageSize: number = 10;
 
+    lastPage: number = 1;
+
     constructor() {
         if (AppGlobal.instance) {
             throw new Error("错误: 请使用AppGlobal.getInstance() 代替使用new.");

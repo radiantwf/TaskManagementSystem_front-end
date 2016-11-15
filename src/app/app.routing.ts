@@ -34,6 +34,10 @@ const appRoutes: Routes = [
         path: 'task',
         component: ElementListComponent,
       },
+      {
+        path: 'task/:page',
+        component: ElementListComponent,
+      },
     ]
   }
 ];

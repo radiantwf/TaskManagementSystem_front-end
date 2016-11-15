@@ -25,7 +25,7 @@ export class SignInComponent implements OnInit {
             AppGlobal.getInstance().clearToken();
             AppGlobal.getInstance().currentUser = user;
             AppGlobal.getInstance().setLocalToken(user.token);
-            this.router.navigate(['/task']);
+            this.router.navigate(['/task', '1']);
           } else {
             AppGlobal.getInstance().clearToken();
             this.isSignIn = false;

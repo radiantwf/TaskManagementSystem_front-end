@@ -2,8 +2,8 @@
   <element-record [task]="task" (detailClicked)="onDetailClicked($event)" [detailFlag]="task.id==id"></element-record>
 </div>
 <!--页码-->
-<div class="pages">
-  <div class="col-lg-2 col-md-2 col-xs-2 col-sm-2 "><a ng-href="#" class="Previous"><i class="material-icons">arrow_back</i>&nbsp;上一页</a></div>
+<div *ngIf="tasks.length > 0" class="pages">
+  <div class="col-lg-2 col-md-2 col-xs-2 col-sm-2 "><a (click)="prevPage()" class="Previous"><i class="material-icons">arrow_back</i>&nbsp;上一页</a></div>
   <div class="col-lg-8 col-md-8col-xs-8 col-sm-8">
     <ul>
       <li class="active"><a ng-href="#">1</a></li>
@@ -16,5 +16,5 @@
       <li class="PageN"><input><button md-button>GO</button></li>
     </ul>
   </div>
-  <div class="col-lg-2 col-md-2 col-xs-2 col-sm-2"><a ng-href="#" class="Next">下一页&nbsp;<i class="material-icons">arrow_forward</i></a></div>
+  <div class="col-lg-2 col-md-2 col-xs-2 col-sm-2"><a (click)="nextPage()" class="Next">下一页&nbsp;<i class="material-icons">arrow_forward</i></a></div>
 </div>

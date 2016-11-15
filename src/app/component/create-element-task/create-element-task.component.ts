@@ -38,7 +38,7 @@ export class CreateElementTaskComponent implements OnInit {
         || value == 11 || value == 19 || value == 21 || value == 29
         || value == 98 || value == 99)) >= 0;
       this.ocAreaVisibility = user.permissions.findIndex(value => (value == 1
-        || value == 11 || value == 19 || value == 21 || value == 29 || value == 98)) >= 0;
+        || value == 11 || value == 19 || value == 21 || value == 29 || value == 99)) >= 0;
       this.taskAreaVisibility = user.permissions.findIndex(value => (value == 1
         || value == 11 || value == 19 || value == 21 || value == 29)) >= 0;
     }

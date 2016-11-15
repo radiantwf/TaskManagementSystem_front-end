@@ -63,9 +63,8 @@
           </ul>
         </div>
       </div>
-
       <!--选择销售负责人-->
-      <div class="task_class">
+      <div *ngIf="sellerAreaVisibility" class="task_class">
         <div class="task_class_ic">
           <!--<div class="glyph-icon icon-elusive-group" title=""></div>-->
           <md-icon>account_box</md-icon>
@@ -87,23 +86,17 @@
                   <md-input [(ngModel)]="newTask.requiringBeginDate" placeholder="要求任务开始时间" value="2016年10月10日"></md-input>
                 </div>-->
                 <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12">
-                  <md-checkbox [checked]="true" color="primary">
-                    设置任务完成时间
-                  </md-checkbox>
                   <md-input [(ngModel)]="newTask.requiringEndDate" placeholder="要求任务完成时间"></md-input>
                 </div>
                 <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12">
-                  
                 </div>
               </div>
             </li>
           </ul>
         </div>
       </div>
-
-
       <!--选择OC负责人-->
-      <div class="task_class">
+      <div *ngIf="ocAreaVisibility" class="task_class">
         <div class="task_class_ic">
           <md-icon>account_circle</md-icon>
         </div>
@@ -222,7 +215,6 @@
                   </div>
                 </div>
               </div>
-              <!--OC负责人弹窗-->
             </li>
           </ul>
           <ul>
@@ -240,20 +232,19 @@
             </li>
           </ul>
           <ul>
-              <li>
-                <div class="row" class="col-lg-10 col-md-10 col-xs-12 col-sm-12">
-                  <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12">
-                    <md-input [(ngModel)]="newTask.planningBeginDate" placeholder="计划任务开始时间" value="2016年10月10日"></md-input>
-                  </div>
-                  <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12">
-                    <md-input [(ngModel)]="newTask.planningEndDate" placeholder="计划任务完成时间"></md-input>
-                  </div>
+            <li>
+              <div class="row" class="col-lg-10 col-md-10 col-xs-12 col-sm-12">
+                <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12">
+                  <md-input [(ngModel)]="newTask.planningBeginDate" placeholder="计划任务开始时间" value="2016年10月10日"></md-input>
                 </div>
-              </li>
-            </ul>
+                <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12">
+                  <md-input [(ngModel)]="newTask.planningEndDate" placeholder="计划任务完成时间"></md-input>
+                </div>
+              </div>
+            </li>
+          </ul>
         </div>
       </div>
-
       <!--所属产品-->
       <div class="task_class">
         <div class="task_class_ic">
@@ -352,6 +343,5 @@
           </ul>
         </div>
       </div>
-
     </div>
     <!---------------------------------------------------------------------------->

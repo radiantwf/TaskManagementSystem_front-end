@@ -15,7 +15,7 @@ export class AppGlobal {
     /**分页页数 */
     pageSize: number = 10;
 
-    lastPage: number = 1;
+    lastPage: number = 0;
 
     constructor() {
         if (AppGlobal.instance) {

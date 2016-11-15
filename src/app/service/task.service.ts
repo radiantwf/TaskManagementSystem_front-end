@@ -1,16 +1,17 @@
 import { Injectable } from '@angular/core';
 import { AppGlobal } from '../shared/app-global';
 import { Task } from '../model/task';
+import { TaskCounts } from '../model/counts';
 import { Headers, Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class TaskService {
   private tasksUrl = `${AppGlobal.getInstance().appURL}/task`;  // URL to web api
-
+  private tasksCountsUrl = `${AppGlobal.getInstance().appURL}/task/counts`;
   constructor(private http: Http) { }
 
-  getTasks(pageNumber: number = 1): Promise<Task[]> {
+  getTasks(pageNumber): Promise<Task[]> {
     const url = `${this.tasksUrl}/?pagesize=${AppGlobal.getInstance().pageSize}&page=${pageNumber}`;
     console.log(url);
     return this.http.get(url, { headers: this.httpHeaders() })
@@ -50,6 +51,13 @@ export class TaskService {
       .then(() => task)
       .catch(this.handleError);
   }
+
+  getTaskCounts(): Observable<any> {
+    return this.http.get(this.tasksCountsUrl, { headers: this.httpHeaders() })
+      .map(response => response.json().data as TaskCounts)
+      .catch(this.handleError);
+  }
+
 
   private handleError(error: any): Promise<any> {
     console.error('An error occurred', error); // for demo purposes only

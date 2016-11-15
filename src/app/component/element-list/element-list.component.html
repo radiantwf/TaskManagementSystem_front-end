@@ -6,14 +6,16 @@
   <div class="col-lg-2 col-md-2 col-xs-2 col-sm-2 "><a (click)="prevPage()" class="Previous"><i class="material-icons">arrow_back</i>&nbsp;上一页</a></div>
   <div class="col-lg-8 col-md-8col-xs-8 col-sm-8">
     <ul>
-      <li class="active"><a ng-href="#">1</a></li>
-      <li><a ng-href="#">2</a></li>
-      <li><a ng-href="#">3</a></li>
+      <!--<li class="active"><a ng-href="#">1</a></li>-->
+      <a *ngFor="let p of displayPageNumbers" (click)="clickPage(p)">
+        <li>{{p}}</li>
+      </a>
+      <!--<li><a ng-href="#">3</a></li>
       <li><a ng-href="#">4</a></li>
       <li><a ng-href="#">5</a></li>
       <li><a ng-href="#">...</a></li>
-      <li><a ng-href="#">10</a></li>
-      <li class="PageN"><input><button md-button>GO</button></li>
+      <li><a ng-href="#">10</a></li>-->
+      <li class="PageN"><input [(ngModel)]="jumpPage"><button md-button (click)="clickPage(jumpPage)">GO</button></li>
     </ul>
   </div>
   <div class="col-lg-2 col-md-2 col-xs-2 col-sm-2"><a (click)="nextPage()" class="Next">下一页&nbsp;<i class="material-icons">arrow_forward</i></a></div>

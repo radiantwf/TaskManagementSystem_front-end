@@ -49,16 +49,28 @@ export class CreateElementTaskComponent implements OnInit {
     this.sellers = new Array<Employee>();
     this.OC = new Array<Employee>();
     this.taskManagers = new Array<Employee>();
+    this.sellerId = '';
+    this.OCId = '';
+    this.taskManagerId = '';
     this.employees.forEach(value => {
       if (value.permissions.findIndex(value => (value == 98)) >= 0) {
         this.sellers.push(value);
+        if (value.empId == AppGlobal.getInstance().currentUser.empId) {
+          this.sellerId = value.empId;
+        }
       }
       if (value.permissions.findIndex(value => (value == 99)) >= 0) {
         this.OC.push(value);
+        if (value.empId == AppGlobal.getInstance().currentUser.empId) {
+          this.OCId = value.empId;
+        }
       }
       if (value.permissions.findIndex(value => (value == 1
         || value == 11 || value == 19 || value == 21 || value == 29)) >= 0) {
         this.taskManagers.push(value);
+        if (value.empId == AppGlobal.getInstance().currentUser.empId) {
+          this.taskManagerId = value.empId;
+        }
       }
     });
   }

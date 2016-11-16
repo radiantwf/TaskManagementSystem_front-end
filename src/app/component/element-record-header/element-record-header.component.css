@@ -360,7 +360,7 @@
 }
 
 .dynamic .other ul{
-	width: 360px;
+	width: 80%;
 	float: left;
 
 }
@@ -427,7 +427,7 @@
 }
 
 .dynamic .me ul{
-	width: 360px;
+	width: 80%;
 	float: right;
 
 }

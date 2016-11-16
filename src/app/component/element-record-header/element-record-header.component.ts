@@ -11,19 +11,27 @@ import { AppGlobal } from '../../shared/app-global';
   outputs: ['detailClicked']
 })
 export class ElementRecordHeaderComponent implements OnInit {
-  private detailFlag = false;
-  private taskRecord: Task;
-  private detailClicked = new EventEmitter();
-  private processFlag: boolean = false;
+  detailFlag = false;
+  taskRecord: Task;
+  detailClicked = new EventEmitter();
+  processFlag: boolean = false;
+  deleteAble: boolean = false;
+
   constructor(private router: Router) { }
 
   ngOnInit() {
-    var permissions = AppGlobal.getInstance().currentUser.permissions;
-    if (this.taskRecord.status == "新建" && permissions.findIndex(value => (value == 1
-      || value == 11 || value == 21 || value == 98)) >= 0) {
+    var user = AppGlobal.getInstance().currentUser;
+
+    if (this.taskRecord.status == '新建' && user.permissions.findIndex(value => (value == 1
+      || value == 11 || value == 21 || value == 99)) >= 0) {
       this.processFlag = true;
     } else {
       this.processFlag = false;
+    }
+    if (this.taskRecord.status == '新建' && user.empId == this.taskRecord.creatorId) {
+      this.deleteAble = true;
+    } else {
+      this.deleteAble = false;
     }
   }
 

@@ -51,6 +51,7 @@
 
 			<md-menu #menu="mdMenu">
 				<button *ngIf="processFlag" md-menu-item><md-icon>build</md-icon><span class="badge_m"></span>处理</button>
+				<button *ngIf="deleteAble" md-menu-item><md-icon>delete</md-icon>删除</button>
 				<button md-menu-item><md-icon>assignment_ind</md-icon>指派</button>
 				<button md-menu-item><md-icon>play_arrow</md-icon>开始</button>
 				<button md-menu-item><md-icon>stop</md-icon>停止（暂停）</button>

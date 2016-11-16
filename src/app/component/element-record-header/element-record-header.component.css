@@ -103,6 +103,20 @@
 
 
 
+/*标题*/
+.task_head{
+	float: left;
+	font-size: 1.6rem;
+	padding-left: 20px;
+}
+
+.task_title{
+	float: left;
+	font-size: 1.2rem;
+	line-height: 56px;
+}
+
+
 
 /*任务图标*/
 .task_ic{

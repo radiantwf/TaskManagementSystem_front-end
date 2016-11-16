@@ -33,7 +33,7 @@ export class MainNavigationBarComponent implements OnInit {
     this.router.navigate(['/task/new']);
   }
   navigateToTaskList() {
-    this.router.navigate(['/task']);
+    this.router.navigate(['/task/1']);
   }
   navigateToCreateProduct() {
     this.router.navigate(['/product/new']);

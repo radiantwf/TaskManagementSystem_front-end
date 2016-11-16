@@ -52,7 +52,7 @@ export class SignInComponent implements OnInit {
         if (user !== null) {
           AppGlobal.getInstance().currentUser = user;
           AppGlobal.getInstance().setLocalToken(user.token);
-          this.router.navigate(['/task']);
+          this.router.navigate(['/task','1']);
         }
         else {
           AppGlobal.getInstance().clearToken();

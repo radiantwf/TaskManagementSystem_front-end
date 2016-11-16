@@ -10,11 +10,6 @@
       <a *ngFor="let p of displayPageNumbers" (click)="clickPage(p)">
         <li>{{p}}</li>
       </a>
-      <!--<li><a ng-href="#">3</a></li>
-      <li><a ng-href="#">4</a></li>
-      <li><a ng-href="#">5</a></li>
-      <li><a ng-href="#">...</a></li>
-      <li><a ng-href="#">10</a></li>-->
       <li class="PageN"><input [(ngModel)]="jumpPage"><button md-button (click)="clickPage(jumpPage)">GO</button></li>
     </ul>
   </div>

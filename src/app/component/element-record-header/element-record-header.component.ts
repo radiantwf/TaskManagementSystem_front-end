@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 export class ElementRecordHeaderComponent implements OnInit {
   private detailFlag = false;
   taskRecord: Task;
+  private processFlag: boolean = false;
   detailClicked = new EventEmitter();
   constructor(private router: Router) { }
 

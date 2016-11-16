@@ -81,6 +81,4 @@ export class AppGlobal {
     public static getInstance(): AppGlobal {
         return AppGlobal.instance;
     }
-
-
 }

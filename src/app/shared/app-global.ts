@@ -62,14 +62,14 @@ export class AppGlobal {
         var Days = 30;
         var exp = new Date();
         exp.setTime(exp.getTime() + Days * 24 * 60 * 60 * 1000);
-        document.cookie = name + "=" + value + ";expires=" + exp.toUTCString();
+        document.cookie = name + "=" + value + ";expires=" + exp.toUTCString() + ";path=/";
     }
     private delCookie(name: string) {
         var exp = new Date();
         exp.setTime(exp.getTime() - 1);
         var cval = this.getCookie(name);
         if (cval != null)
-            document.cookie = name + "=" + cval + ";expires=" + exp.toUTCString();
+            document.cookie = name + "=" + cval + ";expires=" + exp.toUTCString() + ";path=/";
     }
 
     /**

@@ -13,9 +13,7 @@
 	background-color: rgba(255,255,255,0.3);
 	border-bottom: 2px solid #d7d6db;
 	float: right;
-	margin-right: 20px;
-	margin-top: 40px;
-	margin-bottom: 20px;;
+	margin: 40px 10px 20px 10px;
 	padding-top:18px;
 	cursor: pointer;
 }

@@ -2,6 +2,7 @@ import { User } from '../model/User';
 import { environment } from '../../environments/environment';
 import { UserService } from './../service/user.service';
 import { Http } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
 
 /**
  * AppGlobal 全局定义 单例模式
@@ -14,6 +15,7 @@ export class AppGlobal {
 
     /**当前用户信息 */
     private _currentUser: User = null;
+    private _currentUserObservable = Observable.create(this._currentUser);
     /**分页页数 */
     pageSize: number = 10;
 
@@ -38,6 +40,10 @@ export class AppGlobal {
     }
     get currentUser(): User {
         return this._currentUser;
+    }
+
+    get currentUserObservable(): Observable<User> {
+        return this._currentUserObservable;
     }
     // CurrentUser(http: Http): User {
     //     if (this._currentUser == null) {

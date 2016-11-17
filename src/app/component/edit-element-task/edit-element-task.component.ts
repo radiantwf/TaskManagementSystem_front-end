@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import { Task } from './../../model/task';
 import { Employee } from './../../model/employee';
@@ -22,20 +22,26 @@ export class EditElementTaskComponent implements OnInit {
   OCId: string;
   taskManagerId: string;
 
-  sellerAreaVisibility: boolean;
   ocAreaVisibility: boolean;
   taskAreaVisibility: boolean;
 
   constructor(
-    private router: Router, private taskService: TaskService, private employeeService: EmployeeService) {
+    private router: Router,
+    private activatedRoute: ActivatedRoute,
+    private taskService: TaskService,
+    private employeeService: EmployeeService) {
   }
 
   ngOnInit() {
+    this.activatedRoute.params.subscribe(params => {
+      if (typeof (params['tid']) != "undefined") {
+        this.taskService.getTask(params['tid'])
+          .then(task => this.editingTask = task);
+      }
+    });
+
     var user = AppGlobal.getInstance().currentUser;
     if (user != null) {
-      this.sellerAreaVisibility = user.permissions.findIndex(value => (value == 1
-        || value == 11 || value == 19 || value == 21 || value == 29
-        || value == 98 || value == 99)) >= 0;
       this.ocAreaVisibility = user.permissions.findIndex(value => (value == 1
         || value == 11 || value == 19 || value == 21 || value == 29 || value == 99)) >= 0;
       this.taskAreaVisibility = user.permissions.findIndex(value => (value == 1

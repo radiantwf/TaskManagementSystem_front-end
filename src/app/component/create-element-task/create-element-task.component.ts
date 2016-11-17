@@ -23,7 +23,6 @@ export class CreateElementTaskComponent implements OnInit {
   OCId: string;
   taskManagerId: string;
 
-  sellerAreaVisibility: boolean;
   ocAreaVisibility: boolean;
   taskAreaVisibility: boolean;
 
@@ -34,9 +33,6 @@ export class CreateElementTaskComponent implements OnInit {
   ngOnInit() {
     var user = AppGlobal.getInstance().currentUser;
     if (user != null) {
-      this.sellerAreaVisibility = user.permissions.findIndex(value => (value == 1
-        || value == 11 || value == 19 || value == 21 || value == 29
-        || value == 98 || value == 99)) >= 0;
       this.ocAreaVisibility = user.permissions.findIndex(value => (value == 1
         || value == 11 || value == 19 || value == 21 || value == 29 || value == 99)) >= 0;
       this.taskAreaVisibility = user.permissions.findIndex(value => (value == 1

@@ -1,6 +1,6 @@
 /*检索*/
 .sch{
-
+	margin: 0px;
 }
 .sch input{
 	float: right;
@@ -20,7 +20,7 @@
     /* margin-top: 12px; */
      /*float: right; */
     /* color: #fff; */
-    right: -14px;
+    right: 0px;
     top: 20px;
 }
 

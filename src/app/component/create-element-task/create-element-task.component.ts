@@ -76,7 +76,7 @@ export class CreateElementTaskComponent implements OnInit {
     this.newTask.creatorId = AppGlobal.getInstance().currentUser.empId;
     this.newTask.primarySellerId = this.sellerId;
     this.newTask.primaryOCId = this.OCId;
-    this.newTask.primaryExecutorId = this.taskManagerId
+    this.newTask.primaryExecutorId = this.taskManagerId;
     this.taskService.create(this.newTask).then(() => this.router.navigate(['/task/1'])
     );
   }

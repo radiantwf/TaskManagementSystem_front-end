@@ -5,7 +5,7 @@ import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
 import { AlertModule, DatepickerModule, ModalModule } from 'ng2-bootstrap/ng2-bootstrap';
 
-import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+// import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { routing } from './app.routing';
 import { AppComponent } from './app.component';
 import { SignInComponent } from './component/sign-in/sign-in.component';
@@ -29,13 +29,15 @@ import { SearchComponent } from './component/search/search.component';
 import { SignOutComponent } from './component/sign-out/sign-out.component';
 import { EditElementTaskComponent } from './component/edit-element-task/edit-element-task.component';
 import { EditElementComponent } from './component/edit-element/edit-element.component';
+import { DelElementComponent } from './component/del-element/del-element.component';
+import { DelElementTaskComponent } from './component/del-element-task/del-element-task.component';
 
 import { TaskService } from './service/task.service';
 import { CommunicationsService } from './service/communications.service';
 import { UserService } from './service/user.service';
 import { EmployeeService } from './service/employee.service';
 import { MainHeaderService } from './service/main-header.service';
-import { InMemoryDataService } from './service/in-memory-data.service';
+// import { InMemoryDataService } from './service/in-memory-data.service';
 import { NullOrEmptyPipe } from './pipe/null-or-empty.pipe';
 
 @NgModule({
@@ -63,7 +65,9 @@ import { NullOrEmptyPipe } from './pipe/null-or-empty.pipe';
     SearchComponent,
     SignOutComponent,
     EditElementTaskComponent,
-    EditElementComponent
+    EditElementComponent,
+    DelElementComponent,
+    DelElementTaskComponent
   ],
   imports: [
     MaterialModule.forRoot(),
@@ -75,6 +79,9 @@ import { NullOrEmptyPipe } from './pipe/null-or-empty.pipe';
     FormsModule,
     // InMemoryWebApiModule.forRoot(InMemoryDataService),
     HttpModule
+  ],
+  entryComponents: [
+    DelElementComponent
   ],
   providers: [TaskService, CommunicationsService, MainHeaderService, UserService, EmployeeService],
   bootstrap: [AppComponent]

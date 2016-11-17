@@ -1,7 +1,9 @@
-import { Component, OnInit, EventEmitter } from '@angular/core';
+import { Component, OnInit, EventEmitter, Optional } from '@angular/core';
 import { Task } from './../../model/task';
 import { Router } from '@angular/router';
 import { AppGlobal } from '../../shared/app-global';
+import { MdDialogRef, MdDialog, MdDialogConfig } from '@angular/material';
+import { DelElementComponent } from './../del-element/del-element.component';
 
 @Component({
   selector: 'element-record-header',
@@ -11,13 +13,15 @@ import { AppGlobal } from '../../shared/app-global';
   outputs: ['detailClicked']
 })
 export class ElementRecordHeaderComponent implements OnInit {
+
   detailFlag = false;
   taskRecord: Task;
   detailClicked = new EventEmitter();
   processFlag: boolean = false;
   deleteAble: boolean = false;
+  dialogRef: MdDialogRef<DelElementComponent>;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, public dialog: MdDialog) { }
 
   ngOnInit() {
     var user = AppGlobal.getInstance().currentUser;
@@ -35,7 +39,29 @@ export class ElementRecordHeaderComponent implements OnInit {
     }
   }
 
+  openDialog() {
+    this.dialogRef = this.dialog.open(DelElementComponent, {
+      disableClose: false
+    });
+
+    this.dialogRef.afterClosed().subscribe(result => {
+      console.log('result: ' + result);
+      this.dialogRef = null;
+    });
+  }
+
   onDetailClicked(event) {
     this.detailClicked.emit(event);
   }
 }
+
+// @Component({
+//   selector: 'del-task-dialog',
+//   template: `
+//   <button type="button" (click)="dialogRef.close('yes')">Yes</button>
+//   <button type="button" (click)="dialogRef.close('no')">No</button>
+//   `
+// })
+// export class DelTaskDialog {
+//   constructor(public dialogRef: MdDialogRef<DelTaskDialog>) { }
+// }

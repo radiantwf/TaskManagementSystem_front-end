@@ -26,7 +26,7 @@
         <div class="task_class_info">
           <ul>
             <li>
-              <md-input [(ngModel)]="editingTask.name" #taskName="ngModel" placeholder="任务名称" required></md-input>
+              <md-input [readonly]="operationType == 'process'" [(ngModel)]="editingTask.name" #taskName="ngModel" placeholder="任务名称" required></md-input>
               <div [hidden]="taskName.valid || taskName.pristine" class="error">
                 任务名称不能为空
               </div>
@@ -34,7 +34,7 @@
           </ul>
           <ul>
             <li>
-              <md-input [(ngModel)]="editingTask.resume" #resume="ngModel" placeholder="简述" required></md-input>
+              <md-input [readonly]="operationType == 'process'" [(ngModel)]="editingTask.resume" #resume="ngModel" placeholder="简述" required></md-input>
               <div [hidden]="resume.valid || resume.pristine" class="error">
                 简述不能为空
               </div>

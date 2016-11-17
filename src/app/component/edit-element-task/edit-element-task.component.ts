@@ -17,7 +17,7 @@ export class EditElementTaskComponent implements OnInit {
   sellers: Array<Employee>;
   OC: Array<Employee>;
   taskManagers: Array<Employee>;
-
+  operationType: string;
   sellerId: string;
   OCId: string;
   taskManagerId: string;
@@ -33,13 +33,6 @@ export class EditElementTaskComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.activatedRoute.params.subscribe(params => {
-      if (typeof (params['tid']) != "undefined") {
-        this.taskService.getTask(params['tid'])
-          .then(task => this.editingTask = task);
-      }
-    });
-
     var user = AppGlobal.getInstance().currentUser;
     if (user != null) {
       this.ocAreaVisibility = user.permissions.findIndex(value => (value == 1
@@ -47,45 +40,44 @@ export class EditElementTaskComponent implements OnInit {
       this.taskAreaVisibility = user.permissions.findIndex(value => (value == 1
         || value == 11 || value == 19 || value == 21 || value == 29)) >= 0;
     }
-    this.employeeService.getEmployee().then(e => { this.employees = e; this.ProcessEmployees(); })
-
+    this.employeeService.getEmployee()
+      .then(e => this.employees = e)
+      .then(() => this.ProcessEmployees())
+    this.activatedRoute.params.subscribe(params => {
+      if (typeof (params['tid']) != "undefined" && typeof (params['do']) != "undefined") {
+        this.operationType = params['do'];
+        this.taskService.getTask(params['tid'])
+          .then(task => this.editingTask = task)
+          .then(() => {
+            this.sellerId = this.editingTask.primarySellerId == null ? '' : this.editingTask.primarySellerId;
+            this.OCId = this.editingTask.primaryOCId == null ? AppGlobal.getInstance().currentUser.empId : this.editingTask.primaryOCId;
+            this.taskManagerId = this.editingTask.primaryExecutorId == null ? '' : this.editingTask.primaryExecutorId;
+          });
+      }
+    });
   }
   ProcessEmployees() {
     this.sellers = new Array<Employee>();
     this.OC = new Array<Employee>();
     this.taskManagers = new Array<Employee>();
-    this.sellerId = '';
-    this.OCId = '';
-    this.taskManagerId = '';
     this.employees.forEach(value => {
       if (value.permissions.findIndex(value => (value == 98)) >= 0) {
         this.sellers.push(value);
-        if (value.empId == AppGlobal.getInstance().currentUser.empId) {
-          this.sellerId = value.empId;
-        }
       }
       if (value.permissions.findIndex(value => (value == 99)) >= 0) {
         this.OC.push(value);
-        if (value.empId == AppGlobal.getInstance().currentUser.empId) {
-          this.OCId = value.empId;
-        }
       }
       if (value.permissions.findIndex(value => (value == 1
         || value == 11 || value == 19 || value == 21 || value == 29)) >= 0) {
         this.taskManagers.push(value);
-        if (value.empId == AppGlobal.getInstance().currentUser.empId) {
-          this.taskManagerId = value.empId;
-        }
       }
     });
   }
   addTask() {
     if (!this.editingTask.name || !this.editingTask.resume) { return; }
-    this.editingTask.id = 'temp';
-    this.editingTask.creatorId = AppGlobal.getInstance().currentUser.empId;
     this.editingTask.primarySellerId = this.sellerId;
     this.editingTask.primaryOCId = this.OCId;
-    this.editingTask.primaryExecutorId = this.taskManagerId
+    this.editingTask.primaryExecutorId = this.taskManagerId;
     this.taskService.create(this.editingTask).then(() => this.router.navigate(['/task/1'])
     );
   }

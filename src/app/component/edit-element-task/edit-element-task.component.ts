@@ -12,7 +12,7 @@ import { AppGlobal } from '../../shared/app-global';
   styleUrls: ['./../element-record-header/element-record-header.component.css', './edit-element-task.component.css']
 })
 export class EditElementTaskComponent implements OnInit {
-  newTask: Task = new Task('', '');
+  editingTask: Task = new Task('', '');
   employees: Array<Employee>;
   sellers: Array<Employee>;
   OC: Array<Employee>;
@@ -74,13 +74,13 @@ export class EditElementTaskComponent implements OnInit {
     });
   }
   addTask() {
-    if (!this.newTask.name || !this.newTask.resume) { return; }
-    this.newTask.id = 'temp';
-    this.newTask.creatorId = AppGlobal.getInstance().currentUser.empId;
-    this.newTask.primarySellerId = this.sellerId;
-    this.newTask.primaryOCId = this.OCId;
-    this.newTask.primaryExecutorId = this.taskManagerId
-    this.taskService.create(this.newTask).then(() => this.router.navigate(['/task/1'])
+    if (!this.editingTask.name || !this.editingTask.resume) { return; }
+    this.editingTask.id = 'temp';
+    this.editingTask.creatorId = AppGlobal.getInstance().currentUser.empId;
+    this.editingTask.primarySellerId = this.sellerId;
+    this.editingTask.primaryOCId = this.OCId;
+    this.editingTask.primaryExecutorId = this.taskManagerId
+    this.taskService.create(this.editingTask).then(() => this.router.navigate(['/task/1'])
     );
   }
 }

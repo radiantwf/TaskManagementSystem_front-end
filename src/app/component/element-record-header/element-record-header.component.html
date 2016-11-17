@@ -1,5 +1,5 @@
 <div class="row overtime">
-	<div class="col-lg-11 col-md-11 col-xs-11 col-sm-11" *ngIf="!detailFlag">
+	<div class="col-lg-11 col-md-10 col-xs-10 col-sm-10" *ngIf="!detailFlag">
 		<div class="row">
 			<div class="col-lg-8 col-md-12 col-xs-12 col-sm-12 right_line">
 				<!--任务图标-->
@@ -10,7 +10,7 @@
 				<div class="task_name">{{taskRecord.name | null_or_empty:"无"}}<span>{{taskRecord.id | null_or_empty:"无"}}</span></div>
 			</div>
 			<!--任务时间-->
-			<div class="col-lg-4 col-md-12 col-xs-12 col-sm-12" *ngIf="!detailFlag">
+			<div class="col-lg-4 col-md-12 col-xs-12 col-sm-12 right_line" *ngIf="!detailFlag">
 				<div class="task_info" *ngIf="taskRecord.planningEndDate!=null">
 					<ul>
 						<li class="date" *ngIf="taskRecord.planningEndDate !== null"><span>{{taskRecord.planningEndDate | date:"MM"}}</span>月<span>{{taskRecord.planningEndDate | date:"dd"}}</span>日</li>
@@ -29,7 +29,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="col-lg-10 col-md-11 col-xs-10 col-sm-10" *ngIf="detailFlag">
+	<div class="col-lg-10 col-md-8 col-xs-8 col-sm-8" *ngIf="detailFlag">
 		<div class="row">
 			<div class="col-lg-12 col-md-12 col-xs-12 col-sm-12 right_line">
 				<!--任务图标-->
@@ -42,7 +42,7 @@
 		</div>
 	</div>
 	<!--操作按钮-->
-	<div class="col-lg-1 col-md-1 col-xs-1 col-sm-1" *ngIf="detailFlag">
+	<div class="col-lg-1 col-md-2 col-xs-2 col-sm-2 right_line" *ngIf="detailFlag">
 		<div class="open">
 			<button class="menu" md-icon-button [md-menu-trigger-for]="menu" md-tooltip="操作" tooltip-position="below">
 				<md-icon>menu</md-icon>
@@ -62,7 +62,7 @@
 		</div>
 	</div>
 	<!--任务展开开关-->
-	<div class="col-lg-1 col-md-1 col-xs-1 col-sm-1">
+	<div class="col-lg-1 col-md-2 col-xs-2 col-sm-2 right_line">
 		<div class="open">
 			<button class="down" *ngIf="!detailFlag" (click)="onDetailClicked(taskRecord.id)" md-icon-button md-tooltip="打开" tooltip-position="below">
 				<md-icon>keyboard_arrow_down</md-icon>

@@ -281,6 +281,7 @@
 	color: #666666;
 	border-left: 1px solid #e3e3e5;
 	cursor: pointer;
+	min-width: 60px;
 }
 /*
 .open:hover{

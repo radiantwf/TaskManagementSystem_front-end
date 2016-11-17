@@ -1,10 +1,10 @@
 /*系统logo*/
 .logo{
-	width: 280px;
 	height: 200px;
 	background-image: url(../../../assets/img/logo.png);
-	position: absolute;
+	/*position: absolute;*/
 	top:-60px;
+	background-repeat: no-repeat;
 }
 
 /*任务统计区块*/
@@ -12,7 +12,7 @@
 	height:88px;
 	background-color: rgba(255,255,255,0.3);
 	border-bottom: 2px solid #d7d6db;
-	float: right;
+	/*float: right;*/
 	margin: 40px 10px 20px 10px;
 	padding-top:18px;
 	cursor: pointer;

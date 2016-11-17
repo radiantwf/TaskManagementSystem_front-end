@@ -69,6 +69,13 @@
 				</md-menu>
 			</div>
 		</div>
+		<div class="col-lg-1 col-md-2 col-xs-2 col-sm-2 right_line">
+			<div class="open">
+				<button class="up" *ngIf="detailFlag" (click)="onDetailClicked(taskRecord.id)" md-icon-button md-tooltip="收起" tooltip-position="below">
+					<md-icon >keyboard_arrow_up</md-icon>
+				</button>
+			</div>
+	</div>
 
 	</div>
 	<!--任务展开开关-->

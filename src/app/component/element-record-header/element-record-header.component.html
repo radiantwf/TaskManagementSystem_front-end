@@ -1,68 +1,84 @@
 <div class="row overtime">
-	<div class="col-lg-11 col-md-10 col-xs-10 col-sm-10" *ngIf="!detailFlag">
-		<div class="row">
-			<div class="col-lg-8 col-md-12 col-xs-12 col-sm-12 right_line">
-				<!--任务图标-->
-				<div class="task_ic">
-					<md-icon>format_list_bulleted</md-icon>
-				</div>
-				<!--任务名称-->
-				<div class="task_name">{{taskRecord.name | null_or_empty:"无"}}<span>{{taskRecord.id | null_or_empty:"无"}}</span></div>
+	<div class="row" *ngIf="!detailFlag">
+		<div class="col-lg-7 col-md-12 col-xs-12 col-sm-12 right_line">
+			<!--任务图标-->
+			<div class="task_ic">
+				<md-icon>format_list_bulleted</md-icon>
 			</div>
-			<!--任务时间-->
-			<div class="col-lg-4 col-md-12 col-xs-12 col-sm-12 right_line" *ngIf="!detailFlag">
-				<div class="task_info" *ngIf="taskRecord.planningEndDate!=null">
-					<ul>
-						<li class="date" *ngIf="taskRecord.planningEndDate !== null"><span>{{taskRecord.planningEndDate | date:"MM"}}</span>月<span>{{taskRecord.planningEndDate | date:"dd"}}</span>日</li>
-						<li class="date" *ngIf="taskRecord.planningEndDate === null"></li>
-						<li>计划完成时间</li>
-					</ul>
-					<ul>
-						<li class="datespan"><span>120</span>天</li>
-						<li>计划用时</li>
-					</ul>
-					<ul>
-						<li class="status"><span>2</span>天</li>
-						<li>已超时</li>
-					</ul>
-				</div>
+			<!--任务名称-->
+			<div class="task_name">{{taskRecord.name | null_or_empty:"无"}}<span>{{taskRecord.id | null_or_empty:"无"}}</span></div>
+		</div>
+		<!--任务时间-->
+		<div class="col-lg-4 col-md-10 col-xs-10 col-sm-10 right_line">
+			<div class="task_info" *ngIf="taskRecord.planningEndDate!=null">
+				<ul>
+					<li class="date" *ngIf="taskRecord.planningEndDate !== null"><span>{{taskRecord.planningEndDate | date:"MM"}}</span>月<span>{{taskRecord.planningEndDate | date:"dd"}}</span>日</li>
+					<li class="date" *ngIf="taskRecord.planningEndDate === null"></li>
+					<li>计划完成时间</li>
+				</ul>
+				<ul>
+					<li class="datespan"><span>120</span>天</li>
+					<li>计划用时</li>
+				</ul>
+				<ul>
+					<li class="status"><span>2</span>天</li>
+					<li>已超时</li>
+				</ul>
+			</div>
+		</div>
+		<!--任务展开开关-->
+		<div class="col-lg-1 col-md-2 col-xs-2 col-sm-2 right_line">
+			<div class="open">
+				<button class="down" (click)="onDetailClicked(taskRecord.id)" md-icon-button md-tooltip="打开" tooltip-position="below">
+						<md-icon>keyboard_arrow_down</md-icon>
+						<span *ngIf="processFlag" class="badge"></span>
+					</button>
 			</div>
 		</div>
 	</div>
-	<div class="col-lg-10 col-md-8 col-xs-8 col-sm-8" *ngIf="detailFlag">
-		<div class="row">
-			<div class="col-lg-12 col-md-12 col-xs-12 col-sm-12 right_line">
-				<!--任务图标-->
-				<div class="task_ic">
-					<md-icon class="overtime">format_list_bulleted</md-icon>
-				</div>
-				<!--任务名称-->
-				<div class="task_name">{{taskRecord.name | null_or_empty:"无"}}</div>
-			</div>
-		</div>
-	</div>
-	<!--操作按钮-->
-	<div class="col-lg-1 col-md-2 col-xs-2 col-sm-2 right_line" *ngIf="detailFlag">
-		<div class="open">
-			<button class="menu" md-icon-button [md-menu-trigger-for]="menu" md-tooltip="操作" tooltip-position="below">
-				<md-icon>menu</md-icon>
-        <span  *ngIf="processFlag" class="badge"></span>
-			</button>
 
-			<md-menu #menu="mdMenu">
-				<button *ngIf="processFlag" md-menu-item><md-icon>build</md-icon><span class="badge_m"></span>处理</button>
-				<button *ngIf="deleteAble" md-menu-item><md-icon>delete</md-icon>删除</button>
-				<button md-menu-item><md-icon>assignment_ind</md-icon>指派</button>
-				<button md-menu-item><md-icon>play_arrow</md-icon>开始</button>
-				<button md-menu-item><md-icon>stop</md-icon>停止（暂停）</button>
-				<button md-menu-item><md-icon>sms</md-icon>留言</button>
-				<button md-menu-item><md-icon>clear</md-icon>取消</button>
-				<button md-menu-item><md-icon>mode_edit</md-icon>编辑</button>
-			</md-menu>
+	<div class="row" *ngIf="detailFlag">
+
+		<div class="col-lg-10 col-md-8 col-xs-8 col-sm-8 right_line">
+			<!--任务图标-->
+			<div class="task_ic">
+				<md-icon class="overtime">format_list_bulleted</md-icon>
+			</div>
+			<!--任务名称-->
+			<div class="task_name">{{taskRecord.name | null_or_empty:"无"}}</div>
+		</div>
+
+
+		<!--操作按钮-->
+		<div class="col-lg-1 col-md-2 col-xs-2 col-sm-2 right_line" *ngIf="detailFlag">
+			<div class="open">
+				<button class="menu" md-icon-button [md-menu-trigger-for]="menu" md-tooltip="操作" tooltip-position="below">
+							<md-icon>menu</md-icon>
+					<span  *ngIf="processFlag" class="badge"></span>
+						</button>
+
+				<md-menu #menu="mdMenu">
+					<button *ngIf="processFlag" md-menu-item><md-icon>build</md-icon><span class="badge_m"></span>处理</button>
+					<button *ngIf="deleteAble" md-menu-item><md-icon>delete</md-icon>删除</button>
+					<button md-menu-item><md-icon>assignment_ind</md-icon>指派</button>
+					<button md-menu-item><md-icon>play_arrow</md-icon>开始</button>
+					<button md-menu-item><md-icon>stop</md-icon>停止（暂停）</button>
+					<button md-menu-item><md-icon>sms</md-icon>留言</button>
+					<button md-menu-item><md-icon>clear</md-icon>取消</button>
+					<button md-menu-item><md-icon>mode_edit</md-icon>编辑</button>
+				</md-menu>
+			</div>
+		</div>
+		<div class="col-lg-1 col-md-2 col-xs-2 col-sm-2 right_line">
+			<div class="open">
+				<button class="up" (click)="onDetailClicked(taskRecord.id)" md-icon-button md-tooltip="收起" tooltip-position="below">
+					<md-icon >keyboard_arrow_up</md-icon>
+				</button>
+			</div>
 		</div>
 	</div>
 	<!--任务展开开关-->
-	<div class="col-lg-1 col-md-2 col-xs-2 col-sm-2 right_line">
+	<!--<div class="col-lg-1 col-md-2 col-xs-2 col-sm-2 right_line">
 		<div class="open">
 			<button class="down" *ngIf="!detailFlag" (click)="onDetailClicked(taskRecord.id)" md-icon-button md-tooltip="打开" tooltip-position="below">
 				<md-icon>keyboard_arrow_down</md-icon>
@@ -72,7 +88,7 @@
 				<md-icon >keyboard_arrow_up</md-icon>
 			</button>
 		</div>
-	</div>
+	</div>-->
 
 	<!--任务状态色条-->
 	<div class="row line"></div>

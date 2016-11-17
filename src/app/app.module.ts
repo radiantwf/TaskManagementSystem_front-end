@@ -28,6 +28,7 @@ import { CommunicationsComponent, CommunicationsDirective } from './component/co
 import { SearchComponent } from './component/search/search.component';
 import { SignOutComponent } from './component/sign-out/sign-out.component';
 import { EditElementTaskComponent } from './component/edit-element-task/edit-element-task.component';
+import { EditElementComponent } from './component/edit-element/edit-element.component';
 
 import { TaskService } from './service/task.service';
 import { CommunicationsService } from './service/communications.service';
@@ -36,7 +37,6 @@ import { EmployeeService } from './service/employee.service';
 import { MainHeaderService } from './service/main-header.service';
 import { InMemoryDataService } from './service/in-memory-data.service';
 import { NullOrEmptyPipe } from './pipe/null-or-empty.pipe';
-import { EditElementComponent } from './edit-element/edit-element.component';
 
 @NgModule({
   declarations: [

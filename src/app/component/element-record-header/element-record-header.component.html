@@ -50,25 +50,6 @@
 
 
 		<!--操作按钮-->
-		<div class="col-lg-1 col-md-2 col-xs-2 col-sm-2 right_line" *ngIf="detailFlag">
-			<div class="open">
-				<button class="menu" md-icon-button [md-menu-trigger-for]="menu" md-tooltip="操作" tooltip-position="below">
-							<md-icon>menu</md-icon>
-					<span  *ngIf="processFlag" class="badge"></span>
-						</button>
-
-				<md-menu #menu="mdMenu">
-					<button *ngIf="processFlag" md-menu-item [routerLink]="['/task',taskRecord.id,'process']"><md-icon>build</md-icon><span class="badge_m"></span>处理</button>
-					<button *ngIf="deleteAble" md-menu-item><md-icon>delete</md-icon>删除</button>
-					<button md-menu-item><md-icon>assignment_ind</md-icon>指派</button>
-					<button md-menu-item><md-icon>play_arrow</md-icon>开始</button>
-					<button md-menu-item><md-icon>stop</md-icon>停止（暂停）</button>
-					<button md-menu-item><md-icon>sms</md-icon>留言</button>
-					<button md-menu-item><md-icon>clear</md-icon>取消</button>
-					<button md-menu-item><md-icon>mode_edit</md-icon>编辑</button>
-				</md-menu>
-			</div>
-		</div>
 		<div class="col-lg-1 col-md-2 col-xs-2 col-sm-2 right_line">
 			<div class="open">
 				<button class="up" (click)="onDetailClicked(taskRecord.id)" md-icon-button md-tooltip="收起" tooltip-position="below">
@@ -88,18 +69,6 @@
 			</md-menu>
 		</div>
 	</div>
-	<!--任务展开开关-->
-	<!--<div class="col-lg-1 col-md-2 col-xs-2 col-sm-2 right_line">
-		<div class="open">
-			<button class="down" *ngIf="!detailFlag" (click)="onDetailClicked(taskRecord.id)" md-icon-button md-tooltip="打开" tooltip-position="below">
-				<md-icon>keyboard_arrow_down</md-icon>
-        <span *ngIf="processFlag" class="badge"></span>
-			</button>
-			<button class="up" *ngIf="detailFlag" (click)="onDetailClicked(taskRecord.id)" md-icon-button md-tooltip="收起" tooltip-position="below">
-				<md-icon >keyboard_arrow_up</md-icon>
-			</button>
-		</div>
-	</div>-->
 
 	<!--任务状态色条-->
 	<div class="row line"></div>

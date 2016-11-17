@@ -1,5 +1,7 @@
 import { User } from '../model/User';
 import { environment } from '../../environments/environment';
+import { UserService } from './../service/user.service';
+import { Http } from '@angular/http';
 
 /**
  * AppGlobal 全局定义 单例模式
@@ -11,7 +13,7 @@ export class AppGlobal {
     private token: string = null;
 
     /**当前用户信息 */
-    currentUser: User = null;
+    private _currentUser: User = null;
     /**分页页数 */
     pageSize: number = 10;
 
@@ -30,6 +32,26 @@ export class AppGlobal {
         }
         // this.appURL = 'app';
     }
+
+    set currentUser(user: User) {
+        this._currentUser = user;
+    }
+    get currentUser(): User {
+        return this._currentUser;
+    }
+    // CurrentUser(http: Http): User {
+    //     if (this._currentUser == null) {
+    //         var userService = new UserService(http);
+    //         var sub = userService.signin('', '')
+    //             .subscribe(user => {
+    //                 if (user != null) {
+    //                     this._currentUser = user;
+    //                     return this._currentUser;
+    //                 }
+    //             });
+    //     }
+    //     return this._currentUser;
+    // }
 
     public getLocalToken(): string {
         if (this.token != null) {

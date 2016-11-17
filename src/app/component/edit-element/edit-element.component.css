@@ -1,0 +1,9 @@
+
+/*右侧内容区*/
+.rightDiv{
+	margin: 20px;
+	background-color: rgba(255,255,255,0.3);
+	border: 1px solid #d1c8c6;
+	min-height: 68px;
+	line-height: 68px;
+}

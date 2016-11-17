@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-edit-element',
+  selector: 'edit-element',
   templateUrl: './edit-element.component.html',
   styleUrls: ['./edit-element.component.css']
 })

@@ -38,6 +38,10 @@ const appRoutes: Routes = [
         path: 'task/:page',
         component: ElementListComponent,
       },
+      {
+        path: 'task/:tid/process',
+        component: CreateElementComponent,
+      },
     ]
   }
 ];

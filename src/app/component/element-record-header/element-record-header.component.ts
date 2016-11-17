@@ -25,6 +25,7 @@ export class ElementRecordHeaderComponent implements OnInit {
     if (this.taskRecord.status == '新建' && user.permissions.findIndex(value => (value == 1
       || value == 11 || value == 21 || value == 99)) >= 0) {
       this.processFlag = true;
+      console.log(this.taskRecord.creatorId);
     } else {
       this.processFlag = false;
     }

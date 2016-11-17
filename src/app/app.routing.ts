@@ -7,6 +7,7 @@ import { HomeComponent } from './component/home/home.component';
 import { ElementListComponent } from './component/element-list/element-list.component';
 import { ElementRecordComponent } from './component/element-record/element-record.component';
 import { CreateElementComponent } from './component/create-element/create-element.component';
+import { EditElementComponent } from './component/edit-element/edit-element.component';
 
 const appRoutes: Routes = [
   {
@@ -37,6 +38,10 @@ const appRoutes: Routes = [
       {
         path: 'task/:page',
         component: ElementListComponent,
+      },
+      {
+        path: 'task/:tid/:do',
+        component: EditElementComponent,
       },
     ]
   }

@@ -27,6 +27,7 @@ import { ProgressChart2Component } from './component/progress-chart-2/progress-c
 import { CommunicationsComponent, CommunicationsDirective } from './component/communications/communications.component';
 import { SearchComponent } from './component/search/search.component';
 import { SignOutComponent } from './component/sign-out/sign-out.component';
+import { EditElementTaskComponent } from './component/edit-element-task/edit-element-task.component';
 
 import { TaskService } from './service/task.service';
 import { CommunicationsService } from './service/communications.service';
@@ -35,6 +36,7 @@ import { EmployeeService } from './service/employee.service';
 import { MainHeaderService } from './service/main-header.service';
 import { InMemoryDataService } from './service/in-memory-data.service';
 import { NullOrEmptyPipe } from './pipe/null-or-empty.pipe';
+import { EditElementComponent } from './edit-element/edit-element.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +61,9 @@ import { NullOrEmptyPipe } from './pipe/null-or-empty.pipe';
     ProgressChart2Component,
     CommunicationsComponent,
     SearchComponent,
-    SignOutComponent
+    SignOutComponent,
+    EditElementTaskComponent,
+    EditElementComponent
   ],
   imports: [
     MaterialModule.forRoot(),

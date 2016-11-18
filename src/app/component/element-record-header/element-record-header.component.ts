@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AppGlobal } from '../../shared/app-global';
 import { MdDialogRef, MdDialog, MdDialogConfig } from '@angular/material';
 import { DelElementComponent } from './../del-element/del-element.component';
+import { TaskService } from './../../service/task.service';
 
 @Component({
   selector: 'element-record-header',
@@ -21,7 +22,7 @@ export class ElementRecordHeaderComponent implements OnInit {
   deleteAble: boolean = false;
   dialogRef: MdDialogRef<DelElementComponent>;
 
-  constructor(private router: Router, public dialog: MdDialog) { }
+  constructor(private router: Router, public dialog: MdDialog, private taskService: TaskService) { }
 
   ngOnInit() {
     var user = AppGlobal.getInstance().currentUser;
@@ -32,10 +33,15 @@ export class ElementRecordHeaderComponent implements OnInit {
     } else {
       this.processFlag = false;
     }
-    if (this.taskRecord.status == '新建' && user.empId == this.taskRecord.creatorId) {
+    
+    if (user.permissions.findIndex(value => (value == 1)) >= 0) {
       this.deleteAble = true;
     } else {
-      this.deleteAble = false;
+      if (this.taskRecord.status == '新建' && user.empId == this.taskRecord.creatorId) {
+        this.deleteAble = true;
+      } else {
+        this.deleteAble = false;
+      }
     }
   }
 
@@ -45,8 +51,11 @@ export class ElementRecordHeaderComponent implements OnInit {
     });
 
     this.dialogRef.afterClosed().subscribe(result => {
-      console.log('result: ' + result);
       this.dialogRef = null;
+      if (result) {
+        this.taskService.delete(this.taskRecord.id)
+          .then(() => this.router.navigate(['/']));
+      }
     });
   }
 

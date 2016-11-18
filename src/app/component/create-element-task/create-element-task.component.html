@@ -1,5 +1,6 @@
 <!---------------------------------------------------------------------------->
 <!--新建任务-->
+<form (submit)="addTask()">
 <div class="row">
   <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
     <div class="row">
@@ -14,7 +15,7 @@
         <!--<button md-mini-fab  color="accent" md-tooltip="清空" tooltip-position="below">
 					<md-icon>autorenew</md-icon>
 				</button>-->
-        <button md-mini-fab color="primary" md-tooltip="确定" tooltip-position="below" (click)="addTask()">
+        <button type="submit" md-mini-fab color="primary" md-tooltip="确定" tooltip-position="below">
 					<md-icon>done</md-icon>
 				</button>
         <!--<button type="button" class="btn btn-danger pull-xs-right m-r-1 m-t-1 m-b-1">取消</button>
@@ -348,4 +349,5 @@
         </div>
       </div>
     </div>
+  </form>
     <!---------------------------------------------------------------------------->

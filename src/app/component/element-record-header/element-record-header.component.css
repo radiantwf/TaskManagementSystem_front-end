@@ -187,14 +187,14 @@
 }*/
 
 [md-menu-item] md-icon{
-	margin-right: 10px;
+	margin-right:12px;
 
 }
 
 [md-menu-item] {
 	font-family: "微软雅黑";
 	color: #666666;
-
+	padding-right:40px;
 }
 /*.tool ul{
 	text-align: center;
@@ -504,6 +504,8 @@ button.menu md-icon{
 	height: 48px;
 	line-height: 48px;
 }
+
+
 .badge{
 	position: absolute;
 	width: 12px;

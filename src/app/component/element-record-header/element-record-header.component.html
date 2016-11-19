@@ -47,8 +47,7 @@
 			<div class="open">
 				<button class="menu" md-icon-button [md-menu-trigger-for]="menu" md-tooltip="操作" tooltip-position="below">
 							<md-icon>menu</md-icon>
-					<span  [hidden]="!processFlag" class="badge"></span>
-					<span  class="badge"></span>
+					<span [hidden]="!processFlag" class="badge"></span>
 						</button>
 				<md-menu #menu="mdMenu">
 					<button [hidden]="!processFlag" md-menu-item [routerLink]="['/task',taskRecord.id,'process']"><md-icon>build</md-icon><span class="badge_m"></span>处理</button>

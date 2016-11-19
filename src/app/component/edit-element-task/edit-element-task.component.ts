@@ -12,7 +12,9 @@ import { AppGlobal } from '../../shared/app-global';
   styleUrls: ['./../element-record-header/element-record-header.component.css', './edit-element-task.component.css']
 })
 export class EditElementTaskComponent implements OnInit {
-  editingTask: Task = new Task('', '');
+  srcTask: Task = new Task('', '');
+  editingTask: Task = new Task('', null);
+
   employees: Array<Employee>;
   sellers: Array<Employee>;
   OC: Array<Employee>;
@@ -47,11 +49,11 @@ export class EditElementTaskComponent implements OnInit {
       if (typeof (params['tid']) != "undefined" && typeof (params['do']) != "undefined") {
         this.operationType = params['do'];
         this.taskService.getTask(params['tid'])
-          .then(task => this.editingTask = task)
+          .then(task => this.srcTask = task)
           .then(() => {
-            this.sellerId = this.editingTask.primarySellerId == null ? '' : this.editingTask.primarySellerId;
-            this.OCId = this.editingTask.primaryOCId == null ? AppGlobal.getInstance().currentUser.empId : this.editingTask.primaryOCId;
-            this.taskManagerId = this.editingTask.primaryExecutorId == null ? '' : this.editingTask.primaryExecutorId;
+            this.sellerId = this.srcTask.primarySellerId == null ? '' : this.srcTask.primarySellerId;
+            this.OCId = this.srcTask.primaryOCId == null ? AppGlobal.getInstance().currentUser.empId : this.srcTask.primaryOCId;
+            this.taskManagerId = this.srcTask.primaryExecutorId == null ? '' : this.srcTask.primaryExecutorId;
           });
       }
     });
@@ -73,12 +75,9 @@ export class EditElementTaskComponent implements OnInit {
       }
     });
   }
-  addTask() {
-    if (!this.editingTask.name || !this.editingTask.resume) { return; }
-    this.editingTask.primarySellerId = this.sellerId;
-    this.editingTask.primaryOCId = this.OCId;
-    this.editingTask.primaryExecutorId = this.taskManagerId;
-    this.taskService.create(this.editingTask).then(() => this.router.navigate(['/task/1'])
+  editTask() {
+    this.editingTask.id = this.srcTask.id;
+    this.taskService.update(this.editingTask).then(() => this.router.navigate(['/task/1'])
     );
   }
 }

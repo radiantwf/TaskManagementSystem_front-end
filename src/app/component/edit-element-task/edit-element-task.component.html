@@ -6,7 +6,7 @@
       <div class="task_head">修改任务</div>
       <!--操作按钮-->
       <div class="fix">
-        <button md-mini-fab color="primary" md-tooltip="确定" tooltip-position="below" (click)="addTask()">
+        <button md-mini-fab color="primary" md-tooltip="确定" tooltip-position="below" (click)="editTask()">
 					<md-icon>done</md-icon>
 				</button>
       </div>
@@ -26,7 +26,8 @@
         <div class="task_class_info">
           <ul>
             <li>
-              <md-input [readonly]="operationType == 'process'" [(ngModel)]="editingTask.name" #taskName="ngModel" placeholder="任务名称" required></md-input>
+              <md-input [readonly]="operationType == 'process'" [(ngModel)]="srcTask.name" (ngModelChange)="editingTask.name = srcTask.name == $event ? null : $event"
+                #taskName="ngModel" placeholder="任务名称" required></md-input>
               <div [hidden]="taskName.valid || taskName.pristine" class="error">
                 任务名称不能为空
               </div>
@@ -34,7 +35,8 @@
           </ul>
           <ul>
             <li>
-              <md-input [readonly]="operationType == 'process'" [(ngModel)]="editingTask.resume" #resume="ngModel" placeholder="简述" required></md-input>
+              <md-input [readonly]="operationType == 'process'" (ngModelChange)="editingTask.resume = srcTask.resume == $event ? null : $event"
+                [(ngModel)]="srcTask.resume" #resume="ngModel" placeholder="简述" required></md-input>
               <div [hidden]="resume.valid || resume.pristine" class="error">
                 简述不能为空
               </div>
@@ -43,7 +45,8 @@
           <ul>
             <li class="title">详细描述</li>
             <li>
-              <textarea [(ngModel)]="editingTask.description" name="" rows="3" class="form-control textarea-counter"></textarea>
+              <textarea (ngModelChange)="editingTask.description = srcTask.description == $event ? null : $event" [(ngModel)]="srcTask.description"
+                name="" rows="3" class="form-control textarea-counter"></textarea>
             </li>
           </ul>
         </div>
@@ -58,21 +61,18 @@
         <div class="task_class_info">
           <ul>
             <li>
-              <select [(ngModel)]="sellerId" class="form-control">
+              <select (ngModelChange)="editingTask.sellerId = srcTask.sellerId == $event ? null : $event" [(ngModel)]="sellerId" class="form-control">
 										<option [value]="''" >选择销售负责人</option>
 										<option *ngFor="let emp of sellers" [value] = "emp.empId">{{emp.name}}</option>
 									</select>
-              <!--<md-input [(ngModel)]="editingTask.primarySeller" placeholder="销售负责人"></md-input>-->
             </li>
           </ul>
           <ul>
             <li>
               <div class="row" class="col-lg-10 col-md-10 col-xs-12 col-sm-12">
-                <!--<div class="col-lg-6 col-md-12 col-xs-12 col-sm-12">
-                  <md-input [(ngModel)]="editingTask.requiringBeginDate" placeholder="要求任务开始时间" value="2016年10月10日"></md-input>
-                </div>-->
                 <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12">
-                  <md-input [(ngModel)]="editingTask.requiringEndDate" placeholder="要求任务完成时间"></md-input>
+                  <md-input (ngModelChange)="editingTask.requiringEndDate = srcTask.requiringEndDate == $event ? null : $event" [(ngModel)]="srcTask.requiringEndDate"
+                    placeholder="要求任务完成时间"></md-input>
                 </div>
                 <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12">
                 </div>
@@ -82,7 +82,8 @@
           <ul>
             <li class="title">客户联络方式</li>
             <li>
-              <textarea [(ngModel)]="editingTask.customerContact" name="" rows="3" class="form-control textarea-counter"></textarea>
+              <textarea (ngModelChange)="editingTask.customerContact = srcTask.customerContact == $event ? null : $event" [(ngModel)]="srcTask.customerContact"
+                name="" rows="3" class="form-control textarea-counter"></textarea>
             </li>
           </ul>
         </div>
@@ -96,142 +97,37 @@
         <div class="task_class_info">
           <ul>
             <li>
-              <select [(ngModel)]="OCId" class="form-control">
+              <select (ngModelChange)="editingTask.OCId = srcTask.OCId == $event ? null : $event" [(ngModel)]="OCId" class="form-control">
 										<option [value]="''">选择OC负责人</option>
 										<option *ngFor="let emp of OC" [value] = "emp.empId">{{emp.name}}</option>
 									</select>
-              <!--<md-input placeholder="OC负责人" [(ngModel)]="editingTask.primaryOC" (click)="OCModal.show()"></md-input>-->
-              <!--OC负责人弹窗-->
-              <div bsModal #OCModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <button type="button" class="close" (click)="OCModal.hide()" aria-label="Close">
-													<span aria-hidden="true">&times;</span>
-													</button>
-                      <h4 class="modal-title">请选择OC负责人</h4>
-                    </div>
-                    <div class="modal-body">
-                      <ul>
-                        <li class="title">部门选择</li>
-                        <li>
-                          <div class="row" class="col-lg-12 col-md-12 col-xs-12 col-sm-12 m-t-1">
-                            <div class="col-lg-6 col-md-6 col-xs-12 col-sm-12">
-                              <!--<md-input placeholder="一级部门选择" [md-menu-trigger-for]="menu">
-																		<span md-suffix><md-icon>arrow_drop_down</md-icon></span>
-																	</md-input>
-																	<md-menu #menu="mdMenu" style="z-index: 10000000;">
-																		<button md-menu-item><md-icon>assignment_ind</md-icon>指派</button>
-																		<button md-menu-item><md-icon>play_arrow</md-icon>开始</button>
-																		<button md-menu-item><md-icon>stop</md-icon>停止（暂停）</button>
-																		<button md-menu-item><md-icon>sms</md-icon>留言</button>
-																		<button md-menu-item><md-icon>clear</md-icon>取消</button>
-																		<button md-menu-item><md-icon>mode_edit</md-icon>编辑</button>
-																	</md-menu>-->
-                              <select class="form-control">
-																		<option>选择一级部门</option>
-																		<option>部门1</option>
-																		<option>部门2</option>
-																		<option>部门3</option>
-																		<option>部门4</option>
-																	</select>
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-xs-12 col-sm-12">
-                              <select class="form-control">
-																		<option>选择二级部门</option>
-																		<option>部门1</option>
-																		<option>部门2</option>
-																		<option>部门3</option>
-																		<option>部门4</option>
-																	</select>
-                            </div>
-                          </div>
-                        </li>
-                      </ul>
-                      <div class="line"></div>
-                      <ul>
-                        <li class="title">人员 </li>
-                        <li>
-                          <ul class="personnel">
-                            <li class="selected">人员1</li>
-                            <li class="selected">人员2</li>
-                            <li>人员3</li>
-                            <li>人员4</li>
-                            <li>人员5</li>
-                            <li>人员6</li>
-                            <li>人员7</li>
-                            <li>人员8</li>
-                            <li>人员9</li>
-                            <li>人员10</li>
-                            <li>人员11</li>
-                            <li>人员12</li>
-                            <li>人员13</li>
-                            <li>人员14</li>
-                            <li>人员15</li>
-                            <li>人员16</li>
-                            <li>人员17</li>
-                          </ul>
-                        </li>
-                      </ul>
-                      <div class="line"></div>
-                      <ul>
-                        <li class="title">已选负责人</li>
-                        <li>
-                          <ul class="select">
-                            <li>负责人1
-                              <md-icon>clear</md-icon>
-                            </li>
-                            <li>负责人2
-                              <md-icon>clear</md-icon>
-                            </li>
-                            <li>负责人3
-                              <md-icon>clear</md-icon>
-                            </li>
-                            <li>负责人4
-                              <md-icon>clear</md-icon>
-                            </li>
-                            <li>负责人5
-                              <md-icon>clear</md-icon>
-                            </li>
-                          </ul>
-                        </li>
-                      </ul>
-                    </div>
-                    <div class="modal-footer">
-                      <button md-icon-button md-tooltip="取消" tooltip-position="below">
-														<md-icon>close</md-icon>
-													</button>
-                      <button md-icon-button md-tooltip="提交" tooltip-position="below">
-														<md-icon>done</md-icon>
-													</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </li>
           </ul>
           <ul>
             <li>
-              <select [(ngModel)]="taskManagerId" class="form-control">
+              <select (ngModelChange)="editingTask.taskManagerId = srcTask.taskManagerId == $event ? null : $event" [(ngModel)]="taskManagerId"
+                class="form-control">
 										<option [value]="''">选择执行负责人</option>
 										<option *ngFor="let emp of taskManagers" [value] = "emp.empId">{{emp.name}}</option>
 									</select>
-              <!--<md-input [(ngModel)]="editingTask.primaryExecutor" placeholder="执行负责人"></md-input>-->
             </li>
           </ul>
           <ul>
             <li>
-              <md-input [(ngModel)]="editingTask.otherExecutors" placeholder="其他相关负责人员"></md-input>
+              <md-input (ngModelChange)="editingTask.otherExecutors = srcTask.otherExecutors == $event ? null : $event" [(ngModel)]="srcTask.otherExecutors"
+                placeholder="其他相关负责人员"></md-input>
             </li>
           </ul>
           <ul>
             <li>
               <div class="row" class="col-lg-10 col-md-10 col-xs-12 col-sm-12">
                 <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12">
-                  <md-input [(ngModel)]="editingTask.planningBeginDate" placeholder="计划任务开始时间" value="2016年10月10日"></md-input>
+                  <md-input (ngModelChange)="editingTask.planningBeginDate = srcTask.planningBeginDate == $event ? null : $event" [(ngModel)]="srcTask.planningBeginDate"
+                    placeholder="计划任务开始时间" value="2016年10月10日"></md-input>
                 </div>
                 <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12">
-                  <md-input [(ngModel)]="editingTask.planningEndDate" placeholder="计划任务完成时间"></md-input>
+                  <md-input (ngModelChange)="editingTask.planningEndDate = srcTask.planningEndDate == $event ? null : $event" [(ngModel)]="srcTask.planningEndDate"
+                    placeholder="计划任务完成时间"></md-input>
                 </div>
               </div>
             </li>
@@ -253,81 +149,6 @@
 													</li>-->
             <li>
               <md-input placeholder="所属产品" (click)="lgModal.show()"></md-input>
-              <!-- 所属产品弹窗 -->
-              <!--<button class="btn btn-primary" (click)="lgModal.show()">Large modal</button>-->
-              <div bsModal #lgModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <button type="button" class="close" (click)="OCModal.hide()" aria-label="Close">
-													<span aria-hidden="true">&times;</span>
-													</button>
-                      <h4 class="modal-title">请选择所属产品</h4>
-                    </div>
-                    <div class="modal-body">
-                      <ul>
-                        <li class="title">已选所属产品</li>
-                        <li>
-                          <ul class="select">
-                            <li>
-                              <p>#111111-111111-111111</p>公安信息化产品中心任务管理系统
-                              <md-icon>clear</md-icon>
-                            </li>
-                            <li>所属产品2
-                              <md-icon>clear</md-icon>
-                            </li>
-                            <li>所属产品3
-                              <md-icon>clear</md-icon>
-                            </li>
-                            <li>所属产品4
-                              <md-icon>clear</md-icon>
-                            </li>
-                            <li>所属产品5
-                              <md-icon>clear</md-icon>
-                            </li>
-                            <li>所属产品6
-                              <md-icon>clear</md-icon>
-                            </li>
-                          </ul>
-                        </li>
-                      </ul>
-                      <div class="line"></div>
-                      <ul>
-                        <li class="title">产品 </li>
-                        <li>
-                          <ul class="personnel">
-                            <li class="selected">人员1</li>
-                            <li class="selected">人员2</li>
-                            <li>人员3</li>
-                            <li>人员4</li>
-                            <li>人员5</li>
-                            <li>人员6</li>
-                            <li>人员7</li>
-                            <li>人员8</li>
-                            <li>人员9</li>
-                            <li>人员10</li>
-                            <li>人员11</li>
-                            <li>人员12</li>
-                            <li>人员13</li>
-                            <li>人员14</li>
-                            <li>人员15</li>
-                            <li>人员16</li>
-                            <li>人员17</li>
-                          </ul>
-                        </li>
-                      </ul>
-                    </div>
-                    <div class="modal-footer">
-                      <button md-icon-button md-tooltip="取消" tooltip-position="below">
-														<md-icon>close</md-icon>
-													</button>
-                      <button md-icon-button md-tooltip="提交" tooltip-position="below">
-														<md-icon>done</md-icon>
-													</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </li>
           </ul>
           <ul>

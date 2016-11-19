@@ -52,13 +52,11 @@
 						</button>
 				<md-menu #menu="mdMenu">
 					<button [hidden]="!processFlag" md-menu-item [routerLink]="['/task',taskRecord.id,'process']"><md-icon>build</md-icon><span class="badge_m"></span>处理</button>
-					<button [hidden]="!deleteAble" md-menu-item (click)="openDialog()"><md-icon>delete</md-icon>删除</button>
-					<button md-menu-item><md-icon>assignment_ind</md-icon>指派</button>
 					<button md-menu-item><md-icon>play_arrow</md-icon>开始</button>
-					<button md-menu-item><md-icon>stop</md-icon>停止（暂停）</button>
-					<button md-menu-item><md-icon>sms</md-icon>留言</button>
-					<button md-menu-item><md-icon>clear</md-icon>取消</button>
+					<button md-menu-item><md-icon>done</md-icon>完成</button>
+					<button md-menu-item><md-icon>close</md-icon>关闭</button>
 					<button md-menu-item><md-icon>mode_edit</md-icon>编辑</button>
+					<button [hidden]="!deleteAble" md-menu-item (click)="openDialog()"><md-icon>delete</md-icon>删除</button>
 				</md-menu>
 			</div>
 		</div>

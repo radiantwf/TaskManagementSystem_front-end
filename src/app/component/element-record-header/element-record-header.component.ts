@@ -3,7 +3,11 @@ import { Task } from './../../model/task';
 import { Router } from '@angular/router';
 import { AppGlobal } from '../../shared/app-global';
 import { MdDialogRef, MdDialog, MdDialogConfig } from '@angular/material';
-import { DelElementComponent } from './../del-element/del-element.component';
+import { DialogDelElementComponent } from './../dialog-del-element/dialog-del-element.component';
+import { DialogStartElementComponent } from './../dialog-start-element/dialog-start-element.component';
+import { DialogFinishElementComponent } from './../dialog-finish-element/dialog-finish-element.component';
+import { DialogProgressPercentageComponent } from './../dialog-progress-percentage/dialog-progress-percentage.component';
+
 import { TaskService } from './../../service/task.service';
 
 @Component({
@@ -20,7 +24,7 @@ export class ElementRecordHeaderComponent implements OnInit {
   detailClicked = new EventEmitter();
   processFlag: boolean = false;
   deleteAble: boolean = false;
-  dialogRef: MdDialogRef<DelElementComponent>;
+  dialogRef: MdDialogRef<DialogDelElementComponent>;
 
   constructor(private router: Router, public dialog: MdDialog, private taskService: TaskService) { }
 
@@ -33,7 +37,7 @@ export class ElementRecordHeaderComponent implements OnInit {
     } else {
       this.processFlag = false;
     }
-    
+
     if (user.permissions.findIndex(value => (value == 1)) >= 0) {
       this.deleteAble = true;
     } else {
@@ -45,8 +49,8 @@ export class ElementRecordHeaderComponent implements OnInit {
     }
   }
 
-  openDialog() {
-    this.dialogRef = this.dialog.open(DelElementComponent, {
+  openDelDialog() {
+    this.dialogRef = this.dialog.open(DialogDelElementComponent, {
       disableClose: false
     });
 
@@ -63,14 +67,3 @@ export class ElementRecordHeaderComponent implements OnInit {
     this.detailClicked.emit(event);
   }
 }
-
-// @Component({
-//   selector: 'del-task-dialog',
-//   template: `
-//   <button type="button" (click)="dialogRef.close('yes')">Yes</button>
-//   <button type="button" (click)="dialogRef.close('no')">No</button>
-//   `
-// })
-// export class DelTaskDialog {
-//   constructor(public dialogRef: MdDialogRef<DelTaskDialog>) { }
-// }

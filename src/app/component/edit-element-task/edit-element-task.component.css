@@ -20,10 +20,10 @@
 	color: #666666;
  }
 
-  ul li{
-    /*height:32px;
-    line-height:32px;*/
- }
+/*ul li{
+    height:32px;
+    line-height:32px;
+}*/
 
  ul li md-input{
      width: 80%;

@@ -29,8 +29,7 @@ import { SearchComponent } from './component/search/search.component';
 import { SignOutComponent } from './component/sign-out/sign-out.component';
 import { EditElementTaskComponent } from './component/edit-element-task/edit-element-task.component';
 import { EditElementComponent } from './component/edit-element/edit-element.component';
-import { DelElementComponent } from './component/del-element/del-element.component';
-import { DelElementTaskComponent } from './component/del-element-task/del-element-task.component';
+import { DialogDelElementComponent } from './component/dialog-del-element/dialog-del-element.component';
 
 import { TaskService } from './service/task.service';
 import { CommunicationsService } from './service/communications.service';
@@ -39,6 +38,9 @@ import { EmployeeService } from './service/employee.service';
 import { MainHeaderService } from './service/main-header.service';
 // import { InMemoryDataService } from './service/in-memory-data.service';
 import { NullOrEmptyPipe } from './pipe/null-or-empty.pipe';
+import { DialogStartElementComponent } from './component/dialog-start-element/dialog-start-element.component';
+import { DialogFinishElementComponent } from './component/dialog-finish-element/dialog-finish-element.component';
+import { DialogProgressPercentageComponent } from './component/dialog-progress-percentage/dialog-progress-percentage.component';
 
 @NgModule({
   declarations: [
@@ -66,8 +68,10 @@ import { NullOrEmptyPipe } from './pipe/null-or-empty.pipe';
     SignOutComponent,
     EditElementTaskComponent,
     EditElementComponent,
-    DelElementComponent,
-    DelElementTaskComponent
+    DialogDelElementComponent,
+    DialogStartElementComponent,
+    DialogFinishElementComponent,
+    DialogProgressPercentageComponent,
   ],
   imports: [
     MaterialModule.forRoot(),
@@ -81,7 +85,10 @@ import { NullOrEmptyPipe } from './pipe/null-or-empty.pipe';
     HttpModule
   ],
   entryComponents: [
-    DelElementComponent
+    DialogDelElementComponent,
+    DialogStartElementComponent,
+    DialogFinishElementComponent,
+    DialogProgressPercentageComponent,
   ],
   providers: [TaskService, CommunicationsService, MainHeaderService, UserService, EmployeeService],
   bootstrap: [AppComponent]

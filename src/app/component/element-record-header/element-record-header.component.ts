@@ -24,7 +24,10 @@ export class ElementRecordHeaderComponent implements OnInit {
   detailClicked = new EventEmitter();
   processFlag: boolean = false;
   deleteAble: boolean = false;
-  dialogRef: MdDialogRef<DialogDelElementComponent>;
+  dialogDelRef: MdDialogRef<DialogDelElementComponent>;
+  dialogStartRef: MdDialogRef<DialogStartElementComponent>;
+  dialogFinishRef: MdDialogRef<DialogFinishElementComponent>;
+  dialogProgessRef: MdDialogRef<DialogProgressPercentageComponent>;
 
   constructor(private router: Router, public dialog: MdDialog, private taskService: TaskService) { }
 
@@ -50,12 +53,12 @@ export class ElementRecordHeaderComponent implements OnInit {
   }
 
   openDelDialog() {
-    this.dialogRef = this.dialog.open(DialogDelElementComponent, {
+    this.dialogDelRef = this.dialog.open(DialogDelElementComponent, {
       disableClose: false
     });
 
-    this.dialogRef.afterClosed().subscribe(result => {
-      this.dialogRef = null;
+    this.dialogDelRef.afterClosed().subscribe(result => {
+      this.dialogDelRef = null;
       if (result) {
         this.taskService.delete(this.taskRecord.id)
           .then(() => this.router.navigate(['/']));
@@ -64,43 +67,37 @@ export class ElementRecordHeaderComponent implements OnInit {
   }
 
   openStartDialog() {
-    this.dialogRef = this.dialog.open(DialogDelElementComponent, {
+    this.dialogStartRef = this.dialog.open(DialogStartElementComponent, {
       disableClose: false
     });
 
-    this.dialogRef.afterClosed().subscribe(result => {
-      this.dialogRef = null;
+    this.dialogStartRef.afterClosed().subscribe(result => {
+      this.dialogStartRef = null;
       if (result) {
-        this.taskService.delete(this.taskRecord.id)
-          .then(() => this.router.navigate(['/']));
       }
     });
   }
 
   openFinishDialog() {
-    this.dialogRef = this.dialog.open(DialogDelElementComponent, {
+    this.dialogFinishRef = this.dialog.open(DialogFinishElementComponent, {
       disableClose: false
     });
 
-    this.dialogRef.afterClosed().subscribe(result => {
-      this.dialogRef = null;
+    this.dialogFinishRef.afterClosed().subscribe(result => {
+      this.dialogFinishRef = null;
       if (result) {
-        this.taskService.delete(this.taskRecord.id)
-          .then(() => this.router.navigate(['/']));
       }
     });
   }
 
   openProgressDialog() {
-    this.dialogRef = this.dialog.open(DialogDelElementComponent, {
+    this.dialogProgessRef = this.dialog.open(DialogProgressPercentageComponent, {
       disableClose: false
     });
 
-    this.dialogRef.afterClosed().subscribe(result => {
-      this.dialogRef = null;
+    this.dialogProgessRef.afterClosed().subscribe(result => {
+      this.dialogProgessRef = null;
       if (result) {
-        this.taskService.delete(this.taskRecord.id)
-          .then(() => this.router.navigate(['/']));
       }
     });
   }

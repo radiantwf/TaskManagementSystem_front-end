@@ -54,8 +54,8 @@
 					<button [hidden]="!processFlag" md-menu-item [routerLink]="['/task',taskRecord.id,'process']"><md-icon>build</md-icon><span class="badge_m"></span>处理</button>
 					<button md-menu-item (click)="openStartDialog()"><md-icon>play_arrow</md-icon>开始</button>
 					<button md-menu-item (click)="openFinishDialog()"><md-icon>done</md-icon>完成</button>
-					<button md-menu-item><md-icon>close</md-icon>关闭</button>
-					<button md-menu-item><md-icon>mode_edit</md-icon>编辑</button>
+					<button md-menu-item (click)="openFinishDialog()"><md-icon>close</md-icon>关闭</button>
+					<button md-menu-item [routerLink]="['/task',taskRecord.id,'edit']"><md-icon>mode_edit</md-icon>编辑</button>
 					<button [hidden]="!deleteAble" md-menu-item (click)="openDelDialog()"><md-icon>delete</md-icon>删除</button>
 				</md-menu>
 			</div>

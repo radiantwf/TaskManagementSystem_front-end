@@ -7,6 +7,7 @@ import { DialogDelElementComponent } from './../dialog-del-element/dialog-del-el
 import { DialogStartElementComponent } from './../dialog-start-element/dialog-start-element.component';
 import { DialogFinishElementComponent } from './../dialog-finish-element/dialog-finish-element.component';
 import { DialogProgressPercentageComponent } from './../dialog-progress-percentage/dialog-progress-percentage.component';
+import { DialogCloseElementComponent } from './../dialog-close-element/dialog-close-element.component';
 
 import { TaskService } from './../../service/task.service';
 
@@ -28,6 +29,7 @@ export class ElementRecordHeaderComponent implements OnInit {
   dialogStartRef: MdDialogRef<DialogStartElementComponent>;
   dialogFinishRef: MdDialogRef<DialogFinishElementComponent>;
   dialogProgessRef: MdDialogRef<DialogProgressPercentageComponent>;
+  dialogCloseRef: MdDialogRef<DialogCloseElementComponent>;
 
   constructor(private router: Router, public dialog: MdDialog, private taskService: TaskService) { }
 
@@ -85,6 +87,17 @@ export class ElementRecordHeaderComponent implements OnInit {
 
     this.dialogFinishRef.afterClosed().subscribe(result => {
       this.dialogFinishRef = null;
+      if (result) {
+      }
+    });
+  }
+  openCloseDialog() {
+    this.dialogCloseRef = this.dialog.open(DialogCloseElementComponent, {
+      disableClose: false
+    });
+
+    this.dialogCloseRef.afterClosed().subscribe(result => {
+      this.dialogCloseRef = null;
       if (result) {
       }
     });

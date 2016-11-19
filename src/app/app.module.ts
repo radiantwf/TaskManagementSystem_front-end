@@ -41,6 +41,7 @@ import { NullOrEmptyPipe } from './pipe/null-or-empty.pipe';
 import { DialogStartElementComponent } from './component/dialog-start-element/dialog-start-element.component';
 import { DialogFinishElementComponent } from './component/dialog-finish-element/dialog-finish-element.component';
 import { DialogProgressPercentageComponent } from './component/dialog-progress-percentage/dialog-progress-percentage.component';
+import { DialogCloseElementComponent } from './component/dialog-close-element/dialog-close-element.component';
 
 @NgModule({
   declarations: [
@@ -72,6 +73,7 @@ import { DialogProgressPercentageComponent } from './component/dialog-progress-p
     DialogStartElementComponent,
     DialogFinishElementComponent,
     DialogProgressPercentageComponent,
+    DialogCloseElementComponent,
   ],
   imports: [
     MaterialModule.forRoot(),
@@ -89,6 +91,7 @@ import { DialogProgressPercentageComponent } from './component/dialog-progress-p
     DialogStartElementComponent,
     DialogFinishElementComponent,
     DialogProgressPercentageComponent,
+    DialogCloseElementComponent,
   ],
   providers: [TaskService, CommunicationsService, MainHeaderService, UserService, EmployeeService],
   bootstrap: [AppComponent]

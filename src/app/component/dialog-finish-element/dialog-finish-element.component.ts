@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Optional } from '@angular/core';
+import { MdDialogRef, MdDialog } from '@angular/material';
 
 @Component({
   selector: 'app-dialog-finish-element',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DialogFinishElementComponent implements OnInit {
 
-  constructor() { }
+  constructor( @Optional() public dialogRef: MdDialogRef<DialogFinishElementComponent>) { }
 
   ngOnInit() {
   }

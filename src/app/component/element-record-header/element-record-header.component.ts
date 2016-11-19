@@ -63,6 +63,48 @@ export class ElementRecordHeaderComponent implements OnInit {
     });
   }
 
+  openStartDialog() {
+    this.dialogRef = this.dialog.open(DialogDelElementComponent, {
+      disableClose: false
+    });
+
+    this.dialogRef.afterClosed().subscribe(result => {
+      this.dialogRef = null;
+      if (result) {
+        this.taskService.delete(this.taskRecord.id)
+          .then(() => this.router.navigate(['/']));
+      }
+    });
+  }
+
+  openFinishDialog() {
+    this.dialogRef = this.dialog.open(DialogDelElementComponent, {
+      disableClose: false
+    });
+
+    this.dialogRef.afterClosed().subscribe(result => {
+      this.dialogRef = null;
+      if (result) {
+        this.taskService.delete(this.taskRecord.id)
+          .then(() => this.router.navigate(['/']));
+      }
+    });
+  }
+
+  openProgressDialog() {
+    this.dialogRef = this.dialog.open(DialogDelElementComponent, {
+      disableClose: false
+    });
+
+    this.dialogRef.afterClosed().subscribe(result => {
+      this.dialogRef = null;
+      if (result) {
+        this.taskService.delete(this.taskRecord.id)
+          .then(() => this.router.navigate(['/']));
+      }
+    });
+  }
+
   onDetailClicked(event) {
     this.detailClicked.emit(event);
   }

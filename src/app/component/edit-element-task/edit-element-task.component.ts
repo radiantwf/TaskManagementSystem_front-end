@@ -24,8 +24,10 @@ export class EditElementTaskComponent implements OnInit {
   OCId: string;
   taskManagerId: string;
 
-  ocAreaVisibility: boolean;
-  taskAreaVisibility: boolean;
+  isSeller: boolean = false;
+  isOC: boolean = false;
+  isTaskManager: boolean = false;
+  isTaskExecutor: boolean = false;
 
   constructor(
     private router: Router,
@@ -37,10 +39,10 @@ export class EditElementTaskComponent implements OnInit {
   ngOnInit() {
     var user = AppGlobal.getInstance().currentUser;
     if (user != null) {
-      this.ocAreaVisibility = user.permissions.findIndex(value => (value == 1
-        || value == 11 || value == 19 || value == 21 || value == 29 || value == 99)) >= 0;
-      this.taskAreaVisibility = user.permissions.findIndex(value => (value == 1
-        || value == 11 || value == 19 || value == 21 || value == 29)) >= 0;
+      this.isOC = user.permissions.findIndex(value => (value == 99)) >= 0;
+      this.isSeller = user.permissions.findIndex(value => (value == 98)) >= 0;
+      this.isTaskManager = user.permissions.findIndex(value => (value == 11 || value == 21)) >= 0;
+      this.isTaskExecutor = user.permissions.findIndex(value => (value == 19 || value == 29)) >= 0;
     }
     this.employeeService.getEmployee()
       .then(e => this.employees = e)

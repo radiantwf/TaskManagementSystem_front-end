@@ -3,7 +3,7 @@
 		<div class="col-lg-7 col-md-12 col-xs-12 col-sm-12 right_line">
 			<!--任务图标-->
 			<div class="task_ic">
-				<md-icon>format_list_bulleted</md-icon>
+				<md-icon>format_list_numbered</md-icon>
 			</div>
 			<!--任务名称-->
 			<div class="task_name">{{taskRecord.name | null_or_empty:"无"}}<span>{{taskRecord.id | null_or_empty:"无"}}</span></div>
@@ -39,7 +39,7 @@
 	<div class="row" *ngIf="detailFlag">
 		<div class="col-lg-10 col-md-8 col-xs-8 col-sm-8 right_line">
 			<div class="task_ic">
-				<md-icon class="overtime">format_list_bulleted</md-icon>
+				<md-icon class="overtime">format_list_numbered</md-icon>
 			</div>
 			<div class="task_name">{{taskRecord.name | null_or_empty:"无"}}</div>
 		</div>

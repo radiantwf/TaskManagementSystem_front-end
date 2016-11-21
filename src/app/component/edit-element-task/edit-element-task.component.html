@@ -25,8 +25,8 @@
             </ul>
             <ul>
               <li>
-                <md-input [readonly]="operationType=='process'" [(ngModel)]="srcTask.name" (ngModelChange)="editingTask.name=$event" name="taskName"
-                  #taskName="ngModel" placeholder="任务名称" required> name="taskName "</md-input>
+                <md-input [(ngModel)]="srcTask.name" (ngModelChange)="editingTask.name=$event" #taskName="ngModel" placeholder="任务名称" [required]="true"
+                  name="taskName"></md-input>
                 <div [hidden]="taskName.valid || taskName.pristine" class="error">
                   任务名称不能为空
                 </div>
@@ -34,8 +34,8 @@
             </ul>
             <ul>
               <li>
-                <md-input [readonly]="operationType=='process'" (ngModelChange)="editingTask.resume=$event" [(ngModel)]="srcTask.resume"
-                  name="resume" #resume="ngModel" placeholder="简述" required></md-input>
+                <md-input [(ngModel)]="srcTask.resume" (ngModelChange)="editingTask.resume=$event" #resume="ngModel" placeholder="简述" [required]="true"
+                  name="resume"></md-input>
                 <div [hidden]="resume.valid || resume.pristine" class="error">
                   简述不能为空
                 </div>
@@ -44,7 +44,7 @@
             <ul>
               <li class="title">详细描述</li>
               <li>
-                <textarea name="description" [ngModelOptions]="{standalone: true}" (ngModelChange)="editingTask.description=$event" [(ngModel)]="srcTask.description"
+                <textarea [(ngModel)]="srcTask.description" (ngModelChange)="editingTask.description=$event" #description="ngModel" name="description"
                   rows="3" class="form-control textarea-counter"></textarea>
               </li>
             </ul>
@@ -58,9 +58,14 @@
           <div class="task_class_info">
             <ul>
               <li>
-                <select name="sellerIdSelect" [ngModelOptions]="{standalone: true}" (ngModelChange)="editingTask.sellerId=$event" [(ngModel)]="sellerId"
-                  class="form-control">
-										<option [value]=" ''" >选择销售负责人</option>
+                请选择销售负责人<span>*</span>
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <select [(ngModel)]="sellerId" (ngModelChange)="editingTask.sellerId=$event" class="form-control" #sellerIdSelect="ngModel"
+                  name="sellerIdSelect" [required]="true">
+										<option [hidden]="isSeller" [value]="''">无销售</option>
 										<option *ngFor="let emp of sellers" [value] = "emp.empId">{{emp.name}}</option>
 									</select>
               </li>
@@ -68,9 +73,10 @@
             <ul>
               <li>
                 <div class="row" class="col-lg-10 col-md-10 col-xs-12 col-sm-12">
+
                   <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12">
-                    <md-input name="requiringEndDate" [ngModelOptions]="{standalone: true}" (ngModelChange)="editingTask.requiringEndDate=$event"
-                      [(ngModel)]="srcTask.requiringEndDate" placeholder="要求任务完成时间"></md-input>
+                    <md-input [(ngModel)]="srcTask.requiringEndDate" (ngModelChange)="editingTask.requiringEndDate=$event" #requiringEndDate="ngModel"
+                      name="requiringEndDate" placeholder="要求任务完成时间"></md-input>
                   </div>
                   <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12">
                   </div>
@@ -78,10 +84,15 @@
               </li>
             </ul>
             <ul>
+              <li>
+                <md-input [readonly] placeholder="时间填写demo" [value]="'2016-10-20T08:00:00+08:00'"></md-input>
+              </li>
+            </ul>
+            <ul>
               <li class="title">客户联络方式</li>
               <li>
-                <textarea name="customerContact" [ngModelOptions]="{standalone: true}" (ngModelChange)="editingTask.customerContact=$event"
-                  [(ngModel)]="srcTask.customerContact" rows="3" class="form-control textarea-counter"></textarea>
+                <textarea [(ngModel)]="srcTask.customerContact" (ngModelChange)="editingTask.customerContact=$event" #customerContact="ngModel"
+                  name="customerContact" rows="3" class="form-control textarea-counter"></textarea>
               </li>
             </ul>
           </div>
@@ -94,38 +105,47 @@
           <div class="task_class_info">
             <ul>
               <li>
-                <select name="OCIdSelect" [ngModelOptions]="{standalone: true}" (ngModelChange)="editingTask.OCId=$event" [(ngModel)]="OCId"
-                  class="form-control">
-										<option [value]=" ''">选择OC负责人</option>
+                请选择OC负责人 <span [hidden]="!(taskManagerId != null || (isTaskManager || isTaskExecutor))">*</span>
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <select [(ngModel)]="OCId" (ngModelChange)="editingTask.OCId=$event" class="form-control" #OCIdSelect="ngModel" name="OCIdSelect"
+                  [required]="taskManagerId != null || (isTaskManager || isTaskExecutor)">
+										<option [hidden]="isOC" [value]="''">无OC</option>
 										<option *ngFor="let emp of OC" [value] = "emp.empId">{{emp.name}}</option>
 									</select>
               </li>
             </ul>
             <ul>
               <li>
-                <select name="taskManagerIdSelect" [ngModelOptions]="{standalone: true}" (ngModelChange)="editingTask.taskManagerId=$event"
-                  [(ngModel)]="taskManagerId" class="form-control">
-										<option [value]=" ''">选择执行负责人</option>
+                请选择执行负责人 <span [hidden]="!(isTaskManager || isTaskExecutor)">*</span>
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <select [(ngModel)]="taskManagerId" (ngModelChange)="editingTask.taskManagerId=$event" class="form-control" #taskManagerIdSelect="ngModel"
+                  name="taskManagerIdSelect" [required]="isTaskManager || isTaskExecutor">
 										<option *ngFor="let emp of taskManagers" [value] = "emp.empId">{{emp.name}}</option>
 									</select>
               </li>
             </ul>
             <ul>
               <li>
-                <md-input name="otherExecutors" [ngModelOptions]="{standalone: true}" (ngModelChange)="editingTask.otherExecutors=$event"
-                  [(ngModel)]="srcTask.otherExecutors" placeholder="其他相关负责人员"></md-input>
+                <md-input [(ngModel)]="srcTask.otherExecutors" (ngModelChange)="editingTask.otherExecutors=$event" placeholder="其他相关负责人员"
+                  #otherExecutors="ngModel" name="otherExecutors"></md-input>
               </li>
             </ul>
             <ul>
               <li *ngIf="!isOC">
                 <div class="row" class="col-lg-10 col-md-10 col-xs-12 col-sm-12">
                   <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12">
-                    <md-input name="planningBeginDate" [ngModelOptions]="{standalone: true}" (ngModelChange)="editingTask.planningBeginDate=$event"
-                      [(ngModel)]="srcTask.planningBeginDate" placeholder="计划任务开始时间" value="2016年10月10日"></md-input>
+                    <md-input [(ngModel)]="srcTask.planningBeginDate" (ngModelChange)="editingTask.planningBeginDate=$event" placeholder="计划任务开始时间"
+                      value="2016年10月10日" #planningBeginDate="ngModel" name="planningBeginDate" [required]="(isTaskExecutor && !isTaskManager) || srcTask.planningEndDate != null"></md-input>
                   </div>
                   <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12">
-                    <md-input name="planningEndDate" [ngModelOptions]="{standalone: true}" (ngModelChange)="editingTask.planningEndDate=$event"
-                      [(ngModel)]="srcTask.planningEndDate" placeholder="计划任务完成时间"></md-input>
+                    <md-input [(ngModel)]="srcTask.planningEndDate" (ngModelChange)="editingTask.planningEndDate=$event" placeholder="计划任务完成时间"
+                      #planningEndDate="ngModel" name="planningEndDate" [required]="(isTaskExecutor && !isTaskManager) || srcTask.planningBeginDate != null"></md-input>
                   </div>
                 </div>
               </li>

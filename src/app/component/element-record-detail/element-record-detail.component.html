@@ -41,9 +41,8 @@
 					</div>
 					<div class="task_class_info">
 						<ul>
-							<li class="title">要求任务周期</li>
-							<li>{{taskRecord.requiringBeginDate | date:"yyyy年MM月dd日" | null_or_empty:"无"}} ~ {{taskRecord.requiringEndDate | date:"yyyy年MM月dd日"
-								| null_or_empty:"无"}}</li>
+							<li class="title">要求截止日期</li>
+							<li>{{taskRecord.requiringEndDate | date:"yyyy年MM月dd日" | null_or_empty:"无"}}</li>
 						</ul>
 						<ul>
 							<li class="title">计划任务周期</li>
@@ -70,7 +69,7 @@
 				</div>
 
 
-				
+
 			</div>
 			<!--右侧-->
 			<div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">

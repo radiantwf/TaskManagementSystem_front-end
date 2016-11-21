@@ -32,7 +32,6 @@ export class Task {
     // 其他执行人
     public otherExecutors: string[];
     // 任务要求执行周期
-    public requiringBeginDate: Date;
     public requiringEndDate: Date;
     // 任务计划执行周期
     public planningBeginDate: Date;

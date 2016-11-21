@@ -5,11 +5,14 @@
             请选择当前任务的开始时间：
         </h6>
         <span>
-            <md-input value="2016年10月10日"></md-input>
+            <md-input ></md-input>
         </span>
+        <p>
+            <md-input [readonly] placeholder="时间填写demo" [value]="'2016-10-20T08:00:00+08:00'"></md-input>
+        </p>
     </div>
 </div>
 <div class="md-dialog-actions">
     <button md-button class="md-button button-line" type="button" (click)="dialogRef.close(false)">取&nbsp;&nbsp;消</button>
-    <button md-button class="md-button confirm-button"  type="button" (click)="dialogRef.close(true)">确&nbsp;&nbsp;定</button>
+    <button md-button class="md-button confirm-button" type="button" (click)="dialogRef.close(true)">确&nbsp;&nbsp;定</button>
 </div>

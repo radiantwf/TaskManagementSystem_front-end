@@ -37,7 +37,7 @@
             <ul>
               <li class="title">详细描述</li>
               <li>
-                <textarea [(ngModel)]="newTask.customerContact" #customerContact="ngModel" name="customerContact" rows="3" class="form-control textarea-counter"></textarea>
+                <textarea [(ngModel)]="newTask.description" #description="ngModel" name="description" rows="3" class="form-control textarea-counter"></textarea>
               </li>
             </ul>
           </div>
@@ -50,8 +50,13 @@
           <div class="task_class_info">
             <ul>
               <li>
-                <select [(ngModel)]="sellerId" class="form-control" #sellerIdSelect="ngModel" name="sellerIdSelect" [required]="isSeller">
-										<option [value]="''" >选择销售负责人</option>
+                请选择销售负责人<span>*</span>
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <select [(ngModel)]="sellerId" class="form-control" #sellerIdSelect="ngModel" name="sellerIdSelect" [required]="true">
+										<option [hidden]="isSeller" [value]="''">无销售</option>
 										<option *ngFor="let emp of sellers" [value] = "emp.empId">{{emp.name}}</option>
 									</select>
               </li>
@@ -66,6 +71,11 @@
                   <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12">
                   </div>
                 </div>
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <md-input [readonly] placeholder="时间填写demo" [value]="'2016-10-20T08:00:00+08:00'"></md-input>
               </li>
             </ul>
             <ul>
@@ -84,16 +94,25 @@
           <div class="task_class_info">
             <ul>
               <li>
-                <select [(ngModel)]="OCId" class="form-control" #OCIdSelect="ngModel" name="OCIdSelect" [required]="isOC">
-										<option [value]="''">选择OC负责人</option>
+                请选择OC负责人 <span [hidden]="!(taskManagerId != null || (isTaskManager || isTaskExecutor))">*</span>
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <select [(ngModel)]="OCId" class="form-control" #OCIdSelect="ngModel" name="OCIdSelect" [required]="taskManagerId != null || (isTaskManager || isTaskExecutor)">
+										<option [hidden]="isOC" [value]="''">无OC</option>
 										<option *ngFor="let emp of OC" [value] = "emp.empId">{{emp.name}}</option>
 									</select>
               </li>
             </ul>
             <ul>
               <li>
+                请选择执行负责人 <span [hidden]="!(isTaskManager || isTaskExecutor)">*</span>
+              </li>
+            </ul>
+            <ul>
+              <li>
                 <select [(ngModel)]="taskManagerId" class="form-control" #taskManagerIdSelect="ngModel" name="taskManagerIdSelect" [required]="isTaskManager || isTaskExecutor">
-										<option [value]="''">选择执行负责人</option>
 										<option *ngFor="let emp of taskManagers" [value] = "emp.empId">{{emp.name}}</option>
 									</select>
               </li>
@@ -107,11 +126,12 @@
               <li *ngIf="!isOC">
                 <div class="row" class="col-lg-10 col-md-10 col-xs-12 col-sm-12">
                   <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12">
-                    <md-input [(ngModel)]="newTask.planningBeginDate" placeholder="计划任务开始时间" value="2016年10月10日"  #planningBeginDate="ngModel" name="planningBeginDate"
-                      [required]="isTaskExecutor && !isTaskManager"></md-input>
+                    <md-input [(ngModel)]="newTask.planningBeginDate" placeholder="计划任务开始时间" value="2016年10月10日" #planningBeginDate="ngModel"
+                      name="planningBeginDate" [required]="(isTaskExecutor && !isTaskManager) || newTask.planningEndDate != null"></md-input>
                   </div>
                   <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12">
-                    <md-input [(ngModel)]="newTask.planningEndDate" placeholder="计划任务完成时间"  #planningEndDate="ngModel" name="planningEndDate" [required]="isTaskExecutor && !isTaskManager"></md-input>
+                    <md-input [(ngModel)]="newTask.planningEndDate" placeholder="计划任务完成时间" #planningEndDate="ngModel" name="planningEndDate"
+                      [required]="(isTaskExecutor && !isTaskManager) || newTask.planningBeginDate != null"></md-input>
                   </div>
                 </div>
               </li>

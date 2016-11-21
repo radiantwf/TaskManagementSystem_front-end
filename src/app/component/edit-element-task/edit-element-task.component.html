@@ -86,7 +86,7 @@
             </ul>
           </div>
         </div>
-        <div *ngIf="ocAreaVisibility" class="task_class">
+        <div *ngIf="!isSeller" class="task_class">
           <div class="task_class_ic">
             <md-icon>account_circle</md-icon>
           </div>
@@ -117,7 +117,7 @@
               </li>
             </ul>
             <ul>
-              <li>
+              <li *ngIf="!isOC">
                 <div class="row" class="col-lg-10 col-md-10 col-xs-12 col-sm-12">
                   <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12">
                     <md-input name="planningBeginDate" [ngModelOptions]="{standalone: true}" (ngModelChange)="editingTask.planningBeginDate = $event"

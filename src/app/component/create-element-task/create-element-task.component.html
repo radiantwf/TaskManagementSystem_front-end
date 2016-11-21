@@ -4,7 +4,7 @@
       <div class="row">
         <div class="task_head">新建任务</div>
         <div class="fix">
-          <button type="submit" md-mini-fab color="primary" md-tooltip="确定" tooltip-position="below">
+          <button type="submit" [disabled]="!taskForm.form.valid" md-mini-fab color="primary" md-tooltip="确定" tooltip-position="below">
 					<md-icon>done</md-icon>
 				</button>
         </div>
@@ -20,7 +20,7 @@
           <div class="task_class_info">
             <ul>
               <li>
-                <md-input [(ngModel)]="newTask.name" #taskName="ngModel" placeholder="任务名称" [required]="true" [ngModelOptions]="{standalone: true}"></md-input>
+                <md-input [(ngModel)]="newTask.name" #taskName="ngModel" placeholder="任务名称" [required]="true" name="taskName"></md-input>
                 <div [hidden]="taskName.valid || taskName.pristine" class="error">
                   任务名称不能为空
                 </div>
@@ -28,7 +28,7 @@
             </ul>
             <ul>
               <li>
-                <md-input [(ngModel)]="newTask.resume" #resume="ngModel" placeholder="简述" [required]="true" [ngModelOptions]="{standalone: true}"></md-input>
+                <md-input [(ngModel)]="newTask.resume" #resume="ngModel" placeholder="简述" [required]="true" name="resume"></md-input>
                 <div [hidden]="resume.valid || resume.pristine" class="error">
                   简述不能为空
                 </div>

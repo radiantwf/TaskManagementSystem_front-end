@@ -7,6 +7,8 @@
 
 .row{
     margin:0px;
+	background-color: rgba(255,255,255,0.8);
+	color: rgba(0,0,0,0.54);
 }
 
 .rightDiv>.row>.row{
@@ -141,6 +143,7 @@
 .right_line{
 	/*border-right: 1px solid #e3e3e5;*/
 	border-bottom: 1px solid  #e3e3e5;
+	min-height: 69px;
 }
 
 

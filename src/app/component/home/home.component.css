@@ -78,5 +78,45 @@ i:before, .fc-icon, .ui-icon:before {
 	line-height: 70px;
 }
 
+/*导航栏透明*/
+.app-sidenav {
+    min-width: 100px;
+    width: 220px;
+}
 
 
+.md-sidenav-content {
+    position: relative;
+    transform: translate3d(0, 0, 0);
+    display: block;
+    height: 100%;
+    overflow: auto;
+    margin-left: 0px; 
+    margin-right: 0px;
+}
+md-sidenav-layout, md-sidenav{
+    background-color: rgba(255,255,255,0);
+}
+
+
+/*隐藏按钮*/
+.app-icon-button{
+    box-shadow: none;
+    user-select: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    filter: none;
+    font-weight: normal;
+    height: auto;
+    line-height: inherit;
+    margin-top:0px;
+    margin-left:20px;
+    min-width: 0;
+    padding: 0;
+    height:24px;
+    line-height: 24px;
+    text-align: left;
+    text-decoration: none;
+    color: rgba(0,0,0,0.54);
+}

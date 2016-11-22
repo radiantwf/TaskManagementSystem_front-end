@@ -191,12 +191,14 @@
 
 [md-menu-item] md-icon{
 	margin-right:12px;
+}
 
+[disabled] md-icon{
+	color:#c6c6c6;
 }
 
 [md-menu-item] {
 	font-family: "微软雅黑";
-	color: #666666;
 	padding-right:40px;
 }
 /*.tool ul{

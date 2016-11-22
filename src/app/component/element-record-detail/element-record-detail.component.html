@@ -54,6 +54,14 @@
 							<li>{{taskRecord.realBeginDate | date:"yyyy年MM月dd日" | null_or_empty:"无"}} ~ {{taskRecord.realEndDate | date:"yyyy年MM月dd日"
 								| null_or_empty:"无"}}</li>
 						</ul>
+						<ul>
+							<li class="title">任务状态</li>
+							<li>{{taskRecord.status | null_or_empty:""}}</li>
+						</ul>
+						<ul>
+							<li class="title">当前进度</li>
+							<li>{{taskRecord.percent}}</li>
+						</ul>
 						<!--<ul style="margin-bottom:100px;">
 							<li class="title">任务状态</li>
 							<li>

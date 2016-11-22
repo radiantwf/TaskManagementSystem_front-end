@@ -40,6 +40,7 @@ export class Task {
     public realBeginDate: Date;
     public realEndDate: Date;
     // 任务状态
+    public percent: number;
     public status: string;
 
     // 所属产品

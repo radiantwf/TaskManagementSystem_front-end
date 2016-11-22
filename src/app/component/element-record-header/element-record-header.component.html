@@ -47,14 +47,15 @@
 			<div class="open">
 				<button class="menu" md-icon-button [md-menu-trigger-for]="menu" md-tooltip="操作" tooltip-position="below">
 							<md-icon>menu</md-icon>
-					<span [hidden]="!processFlag" class="badge"></span>
+					<span [hidden]="!processAlert" class="badge"></span>
 						</button>
 				<md-menu #menu="mdMenu">
-					<button [hidden]="!processFlag" md-menu-item [routerLink]="['/task',taskRecord.id,'process']"><md-icon>build</md-icon><span class="badge_m"></span>处理</button>
-					<button md-menu-item (click)="openStartDialog()"><md-icon>play_arrow</md-icon>开始</button>
-					<button md-menu-item (click)="openFinishDialog()"><md-icon>done</md-icon>完成</button>
-					<button md-menu-item (click)="openFinishDialog()"><md-icon>close</md-icon>关闭</button>
-					<button md-menu-item [routerLink]="['/task',taskRecord.id,'edit']"><md-icon>mode_edit</md-icon>编辑</button>
+					<button [hidden]="!processAble" md-menu-item [routerLink]="['/task',taskRecord.id,'process']"><md-icon>build</md-icon><span [hidden]="!processAlert" class="badge_m"></span>处理</button>
+					<button [disabled]="!startAble" md-menu-item (click)="openStartDialog()"><md-icon>play_arrow</md-icon><span [hidden]="!startAlert" class="badge_m"></span>开始</button>
+					<button [disabled]="!progressAble" md-menu-item (click)="openProgressDialog()"><md-icon>play_arrow</md-icon>填写进度</button>
+					<button [disabled]="!finishAble" md-menu-item (click)="openFinishDialog()"><md-icon>done</md-icon>完成</button>
+					<button [disabled]="!closeAble" md-menu-item (click)="openCloseDialog()"><md-icon>close</md-icon>关闭</button>
+					<button [disabled]="!editAble" md-menu-item [routerLink]="['/task',taskRecord.id,'edit']"><md-icon>mode_edit</md-icon>编辑</button>
 					<button [hidden]="!deleteAble" md-menu-item (click)="openDelDialog()"><md-icon>delete</md-icon>删除</button>
 				</md-menu>
 			</div>

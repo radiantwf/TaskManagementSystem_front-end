@@ -9,36 +9,48 @@ export class User {
     constructor(
     ) { }
 
-    public isSysAdmin(): boolean {
+    get  isAdmin(): boolean {
         var ret = (this.permissions.findIndex(value => (value == 1)) >= 0);
         return ret;
     }
-    public isProductAdmin(): boolean {
-        var ret =  (this.permissions.findIndex(value => (value == 1 || value == 11)) >= 0);
+    get  isProductAdmin(): boolean {
+        var ret = (this.permissions.findIndex(value => (value == 11)) >= 0);
         return ret;
     }
-    public isProjectManager(): boolean {
-        var ret =  (this.permissions.findIndex(value => (value == 1 || value == 21)) >= 0);
+    get  isProductManager(): boolean {
+        var ret = (this.permissions.findIndex(value => (value == 19))) >= 0;
         return ret;
     }
-    public isProductManager(): boolean {
-        var ret = ( this.permissions.findIndex(value => (value == 1 || value == 11 || value == 19))) >= 0;
+    get  isProjectManager(): boolean {
+        var ret = (this.permissions.findIndex(value => (value == 21)) >= 0);
         return ret;
     }
-    public isProjectAdmin(): boolean {
-        var ret =  (this.permissions.findIndex(value => (value == 1 || value == 21 || value == 29))) >= 0;
+    get  isProjectAdmin(): boolean {
+        var ret = (this.permissions.findIndex(value => (value == 29))) >= 0;
         return ret;
     }
-    public isSeller(): boolean {
-        var ret =  (this.permissions.findIndex(value => (value == 1 || value == 98)) >= 0);
+    get  isTaskManager(): boolean {
+        var ret = (this.permissions.findIndex(value => (value == 19 || value == 29))) >= 0;
         return ret;
     }
-    public isOC(): boolean {
-        var ret =  (this.permissions.findIndex(value => (value == 1 || value == 99)) >= 0);
+    get  isTaskAdmin(): boolean {
+        var ret = (this.permissions.findIndex(value => (value == 11 || value == 21))) >= 0;
         return ret;
     }
-    public isDeveloper(): boolean {
-        var ret = (this.permissions.findIndex(value => (value == 1 || value == 39)) >= 0);
+    get  isSeller(): boolean {
+        var ret = (this.permissions.findIndex(value => (value == 98)) >= 0);
+        return ret;
+    }
+    get  isOC(): boolean {
+        var ret = (this.permissions.findIndex(value => (value == 99)) >= 0);
+        return ret;
+    }
+    get  isDeveloper(): boolean {
+        var ret = (this.permissions.findIndex(value => (value == 39)) >= 0);
+        return ret;
+    }
+    get  isTester(): boolean {
+        var ret = (this.permissions.findIndex(value => (value == 100)) >= 0);
         return ret;
     }
 }

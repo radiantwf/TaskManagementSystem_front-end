@@ -23,33 +23,98 @@ export class ElementRecordHeaderComponent implements OnInit {
   detailFlag = false;
   taskRecord: Task;
   detailClicked = new EventEmitter();
-  processFlag: boolean = false;
+
+  processAble: boolean = false;
+  processAlert: boolean = false;
+  startAble: boolean = false;
+  startAlert: boolean = false;
+  progessAble: boolean = false;
+  finishAble: boolean = false;
+  closeAble: boolean = false;
+  editAble: boolean = false;
   deleteAble: boolean = false;
+
   dialogDelRef: MdDialogRef<DialogDelElementComponent>;
   dialogStartRef: MdDialogRef<DialogStartElementComponent>;
   dialogFinishRef: MdDialogRef<DialogFinishElementComponent>;
   dialogProgessRef: MdDialogRef<DialogProgressPercentageComponent>;
   dialogCloseRef: MdDialogRef<DialogCloseElementComponent>;
 
+
   constructor(private router: Router, public dialog: MdDialog, private taskService: TaskService) { }
 
   ngOnInit() {
     var user = AppGlobal.getInstance().currentUser;
 
-    if (this.taskRecord.status == '新建' && user.permissions.findIndex(value => (value == 1
-      || value == 11 || value == 21 || value == 99)) >= 0) {
-      this.processFlag = true;
-    } else {
-      this.processFlag = false;
+    if (this.taskRecord.status == '新建' && user.isOC) {
+      this.processAlert = true;
+      this.processAble = true;
     }
 
-    if (user.permissions.findIndex(value => (value == 1)) >= 0) {
+    if (this.taskRecord.status == '分配中') {
+      if (user.empId == this.taskRecord.primaryOCId) {
+        this.processAlert = true;
+        this.processAble = true;
+      }
+      if (user.isTaskAdmin) {
+        this.processAble = true;
+      }
+    }
+
+    if (this.taskRecord.status == '计划中') {
+      if (user.empId == this.taskRecord.primaryExecutorId) {
+        this.processAlert = true;
+        this.processAble = true;
+      }
+      if (user.isTaskAdmin) {
+        this.processAble = true;
+      }
+    }
+
+    if (this.taskRecord.status == '未开始') {
+      if (user.empId == this.taskRecord.primaryExecutorId) {
+        this.startAlert = true;
+        this.startAble = true;
+      }
+      if (user.isTaskAdmin) {
+        this.startAble = true;
+      }
+    }
+    if (this.taskRecord.status == '进行中') {
+      if (user.empId == this.taskRecord.primaryExecutorId) {
+        this.progessAble = true;
+        this.finishAble = true;
+      }
+      if (user.isTaskAdmin) {
+        this.progessAble = true;
+        this.finishAble = true;
+      }
+    }
+    if (this.taskRecord.status != '关闭') {
+      if (user.isOC || user.isAdmin || user.isTaskAdmin) {
+        this.closeAble = true;
+      }
+      if (user.isSeller && user.empId == this.taskRecord.primarySellerId) {
+        this.closeAble = true;
+      }
+    }
+    if (user.isAdmin || user.isOC || user.isTaskAdmin) {
+      this.editAble = true;
+    }
+    if (user.isSeller && user.empId == this.taskRecord.primarySellerId) {
+      this.editAble = true;
+    }
+    if (user.isAdmin) {
       this.deleteAble = true;
     } else {
-      if (this.taskRecord.status == '新建' && user.empId == this.taskRecord.creatorId) {
-        this.deleteAble = true;
-      } else {
-        this.deleteAble = false;
+      if (this.taskRecord.status == '新建' || this.taskRecord.status == '分配中') {
+        if (user.empId == this.taskRecord.creatorId) {
+          this.deleteAble = true;
+          this.closeAble = true;
+        }
+        if (user.isSeller && user.empId == this.taskRecord.primarySellerId) {
+          this.deleteAble = true;
+        }
       }
     }
   }

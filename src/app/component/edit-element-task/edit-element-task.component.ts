@@ -26,8 +26,15 @@ export class EditElementTaskComponent implements OnInit {
 
   isSeller: boolean = false;
   isOC: boolean = false;
+  isTaskAdmin: boolean = false;
   isTaskManager: boolean = false;
-  isTaskExecutor: boolean = false;
+  isAdmin: boolean = false;
+
+  requiringEndDate: Date = null;
+  planningBeginDate: Date = null;
+  planningEndDate: Date = null;
+  realBeginDate: Date = null;
+  realEndDate: Date = null;
 
   constructor(
     private router: Router,
@@ -39,10 +46,11 @@ export class EditElementTaskComponent implements OnInit {
   ngOnInit() {
     var user = AppGlobal.getInstance().currentUser;
     if (user != null) {
-      this.isOC = user.permissions.findIndex(value => (value == 99)) >= 0;
-      this.isSeller = user.permissions.findIndex(value => (value == 98)) >= 0;
-      this.isTaskManager = user.permissions.findIndex(value => (value == 11 || value == 21)) >= 0;
-      this.isTaskExecutor = user.permissions.findIndex(value => (value == 19 || value == 29)) >= 0;
+      this.isOC = user.isOC;
+      this.isSeller = user.isSeller;
+      this.isTaskAdmin = user.isTaskAdmin;
+      this.isTaskManager = user.isTaskManager;
+      this.isAdmin = user.isAdmin;
     }
     this.employeeService.getEmployee()
       .then(e => this.employees = e)
@@ -56,6 +64,11 @@ export class EditElementTaskComponent implements OnInit {
             this.sellerId = this.srcTask.primarySellerId == null ? '' : this.srcTask.primarySellerId;
             this.OCId = this.srcTask.primaryOCId == null ? AppGlobal.getInstance().currentUser.empId : this.srcTask.primaryOCId;
             this.taskManagerId = this.srcTask.primaryExecutorId == null ? '' : this.srcTask.primaryExecutorId;
+            this.requiringEndDate = this.srcTask.requiringEndDate;
+            this.planningBeginDate = this.srcTask.planningBeginDate;
+            this.planningEndDate = this.srcTask.planningEndDate;
+            this.realBeginDate = this.srcTask.realBeginDate;
+            this.realEndDate = this.srcTask.realEndDate;
           });
       }
     });
@@ -79,6 +92,21 @@ export class EditElementTaskComponent implements OnInit {
   }
   editTask() {
     this.editingTask.id = this.srcTask.id;
+    if (this.requiringEndDate != this.srcTask.requiringEndDate) {
+      this.editingTask.requiringEndDate = this.requiringEndDate;
+    }
+    if (this.planningBeginDate != this.srcTask.planningBeginDate) {
+      this.editingTask.planningBeginDate = this.planningBeginDate;
+    }
+    if (this.planningEndDate != this.srcTask.planningEndDate) {
+      this.editingTask.planningEndDate = this.planningEndDate;
+    }
+    if (this.realBeginDate != this.srcTask.realBeginDate) {
+      this.editingTask.realBeginDate = this.realBeginDate;
+    }
+    if (this.realEndDate != this.srcTask.realEndDate) {
+      this.editingTask.realEndDate = this.realEndDate;
+    }
     this.taskService.update(this.editingTask).then(() => this.router.navigate(['/task/1'])
     );
   }

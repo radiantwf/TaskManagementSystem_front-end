@@ -122,8 +122,8 @@
                 <md-input [(ngModel)]="newTask.otherExecutors" placeholder="其他相关负责人员" #otherExecutors="ngModel" name="otherExecutors"></md-input>
               </li>
             </ul>
-            <ul>
-              <li *ngIf="!isOC">
+            <ul *ngIf="!isOC">
+              <li>
                 <div class="row" class="col-lg-10 col-md-10 col-xs-12 col-sm-12">
                   <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12">
                     <md-input [(ngModel)]="newTask.planningBeginDate" placeholder="任务计划开始时间" #planningBeginDate="ngModel" name="planningBeginDate"
@@ -136,7 +136,7 @@
                 </div>
               </li>
             </ul>
-            <ul>
+            <ul *ngIf="!isOC">
               <li>
                 <md-input [readonly] placeholder="时间填写demo" [value]="'2016-10-20T08:00:00+08:00'"></md-input>
               </li>

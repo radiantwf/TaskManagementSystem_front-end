@@ -1,14 +1,5 @@
-import { Communication } from './communication';
-
 // 任务 类型
 export class Task {
-    constructor(
-        // 任务编号
-        public id: string,
-        // 任务名称
-        public name: string
-    ) { }
-
     // 任务简述
     public resume: string;
     // 任务详细描述
@@ -42,11 +33,16 @@ export class Task {
     // 任务状态
     public percent: number;
     public status: string;
-
     // 所属产品
     public parentProductId: string;
     public parentProduct: string;
     // 所属项目
     public parentProjectId: string;
     public parentProject: string;
+    constructor(
+        // 任务编号
+        public id: string,
+        // 任务名称
+        public name: string
+    ) { }
 }

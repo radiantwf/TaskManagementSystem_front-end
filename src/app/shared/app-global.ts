@@ -1,7 +1,5 @@
 import { User } from '../model/User';
 import { environment } from '../../environments/environment';
-import { UserService } from './../service/user.service';
-import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 
 /**
@@ -9,21 +7,27 @@ import { Observable } from 'rxjs/Observable';
  */
 export class AppGlobal {
     private static instance: AppGlobal = new AppGlobal();
-    appURL: string
-    authorization_code: string = null;
-    private token: string = null;
-
-    /**当前用户信息 */
     private _currentUser: User = null;
     private _currentUserObservable = Observable.create(this._currentUser);
-    /**分页页数 */
-    pageSize: number = 10;
+    private token: string = null;
+    public appURL: string = '';
+    public authorization_code: string = null;
+    public pageSize: number = 10;
+    public lastPage: number = 0;
 
-    lastPage: number = 0;
+    /**
+     * 获取当前实例
+     * 
+     * @static
+     * @returns {AppGlobal}
+     */
+    public static getInstance(): AppGlobal {
+        return AppGlobal.instance;
+    }
 
     constructor() {
         if (AppGlobal.instance) {
-            throw new Error("错误: 请使用AppGlobal.getInstance() 代替使用new.");
+            throw new Error('错误: 请使用AppGlobal.getInstance() 代替使用new.');
         }
         AppGlobal.instance = this;
 
@@ -61,52 +65,47 @@ export class AppGlobal {
 
     public getLocalToken(): string {
         if (this.token != null) {
-            return this.token
+            return this.token;
         }
-        return this.getCookie("token");
+        return this.getCookie('token');
     }
 
     public setLocalToken(token: string) {
         this.token = token;
         if (this.token != null) {
-            this.setCookie("token", this.token)
+            this.setCookie('token', this.token, 1);
         } else {
-            this.delCookie("token")
+            this.clearCookie('token');
         }
     }
     public clearToken() {
         this.token = null;
-        this.delCookie("token");
+        this.clearCookie('token');
     }
-
-    private getCookie(name: string) {
-        var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
-        if (arr = document.cookie.match(reg))
-            return arr[2];
-        else
-            return null;
+    // 设置cookie
+    private setCookie(cname, cvalue, exdays) {
+        let d = new Date();
+        d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+        let expires = 'expires=' + d.toUTCString();
+        document.cookie = cname + '=' + cvalue + '; ' + expires + ';path=/';
     }
-    private setCookie(name: string, value: string) {
-        var Days = 30;
-        var exp = new Date();
-        exp.setTime(exp.getTime() + Days * 24 * 60 * 60 * 1000);
-        document.cookie = name + "=" + value + ";expires=" + exp.toUTCString() + ";path=/";
+    // 获取cookie
+    private getCookie(cname) {
+        let name = cname + '=';
+        let ca = document.cookie.split(';');
+        for (let i = 0; i < ca.length; i++) {
+            let c = ca[i];
+            while (c.charAt(0) === ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) !== -1) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return '';
     }
-    private delCookie(name: string) {
-        var exp = new Date();
-        exp.setTime(exp.getTime() - 1);
-        var cval = this.getCookie(name);
-        if (cval != null)
-            document.cookie = name + "=" + cval + ";expires=" + exp.toUTCString() + ";path=/";
-    }
-
-    /**
-     * 获取当前实例
-     * 
-     * @static
-     * @returns {AppGlobal}
-     */
-    public static getInstance(): AppGlobal {
-        return AppGlobal.instance;
+    // 清除cookie 
+    private clearCookie(name) {
+        this.setCookie(name, '', -1);
     }
 }

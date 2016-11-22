@@ -1,8 +1,8 @@
-import { Component, OnInit, EventEmitter, Optional } from '@angular/core';
+import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
 import { Task } from './../../model/task';
 import { Router } from '@angular/router';
 import { AppGlobal } from '../../shared/app-global';
-import { MdDialogRef, MdDialog, MdDialogConfig } from '@angular/material';
+import { MdDialogRef, MdDialog } from '@angular/material';
 import { DialogDelElementComponent } from './../dialog-del-element/dialog-del-element.component';
 import { DialogStartElementComponent } from './../dialog-start-element/dialog-start-element.component';
 import { DialogFinishElementComponent } from './../dialog-finish-element/dialog-finish-element.component';
@@ -12,17 +12,15 @@ import { DialogCloseElementComponent } from './../dialog-close-element/dialog-cl
 import { TaskService } from './../../service/task.service';
 
 @Component({
-  selector: 'element-record-header',
+  selector: 'app-element-record-header',
   templateUrl: './element-record-header.component.html',
-  styleUrls: ['./element-record-header.component.css'],
-  inputs: ['taskRecord', 'detailFlag'],
-  outputs: ['detailClicked']
+  styleUrls: ['./element-record-header.component.css']
 })
 export class ElementRecordHeaderComponent implements OnInit {
 
-  detailFlag = false;
-  taskRecord: Task;
-  detailClicked = new EventEmitter();
+  @Input() detailFlag = false;
+  @Input() taskRecord: Task;
+  @Output() detailClicked = new EventEmitter();
 
   isSeller: boolean = false;
   isOC: boolean = false;
@@ -49,21 +47,21 @@ export class ElementRecordHeaderComponent implements OnInit {
   constructor(private router: Router, public dialog: MdDialog, private taskService: TaskService) { }
 
   ngOnInit() {
-    var user = AppGlobal.getInstance().currentUser;
+    let user = AppGlobal.getInstance().currentUser;
 
-    this.isAdmin = user.permissions.findIndex(value => (value == 1)) >= 0;
-    this.isOC = user.permissions.findIndex(value => (value == 99)) >= 0;
-    this.isSeller = user.permissions.findIndex(value => (value == 98)) >= 0;
-    this.isTaskAdmin = user.permissions.findIndex(value => (value == 11 || value == 21)) >= 0;
-    this.isTaskManager = user.permissions.findIndex(value => (value == 19 || value == 29)) >= 0;
+    this.isAdmin = user.permissions.findIndex(value => (value === 1)) >= 0;
+    this.isOC = user.permissions.findIndex(value => (value === 99)) >= 0;
+    this.isSeller = user.permissions.findIndex(value => (value === 98)) >= 0;
+    this.isTaskAdmin = user.permissions.findIndex(value => (value === 11 || value === 21)) >= 0;
+    this.isTaskManager = user.permissions.findIndex(value => (value === 19 || value === 29)) >= 0;
 
-    if (this.taskRecord.status == '新建' && this.isOC) {
+    if (this.taskRecord.status === '新建' && this.isOC) {
       this.processAlert = true;
       this.processAble = true;
     }
 
-    if (this.taskRecord.status == '分配中') {
-      if (user.empId == this.taskRecord.primaryOCId) {
+    if (this.taskRecord.status === '分配中') {
+      if (user.empId === this.taskRecord.primaryOCId) {
         this.processAlert = true;
         this.processAble = true;
       }
@@ -72,8 +70,8 @@ export class ElementRecordHeaderComponent implements OnInit {
       }
     }
 
-    if (this.taskRecord.status == '计划中') {
-      if (user.empId == this.taskRecord.primaryExecutorId) {
+    if (this.taskRecord.status === '计划中') {
+      if (user.empId === this.taskRecord.primaryExecutorId) {
         this.processAlert = true;
         this.processAble = true;
       }
@@ -82,8 +80,8 @@ export class ElementRecordHeaderComponent implements OnInit {
       }
     }
 
-    if (this.taskRecord.status == '未开始') {
-      if (user.empId == this.taskRecord.primaryExecutorId) {
+    if (this.taskRecord.status === '未开始') {
+      if (user.empId === this.taskRecord.primaryExecutorId) {
         this.startAlert = true;
         this.startAble = true;
       }
@@ -91,8 +89,8 @@ export class ElementRecordHeaderComponent implements OnInit {
         this.startAble = true;
       }
     }
-    if (this.taskRecord.status == '进行中') {
-      if (user.empId == this.taskRecord.primaryExecutorId) {
+    if (this.taskRecord.status === '进行中') {
+      if (user.empId === this.taskRecord.primaryExecutorId) {
         this.progessAble = true;
         this.finishAble = true;
       }
@@ -101,29 +99,29 @@ export class ElementRecordHeaderComponent implements OnInit {
         this.finishAble = true;
       }
     }
-    if (this.taskRecord.status != '关闭') {
+    if (this.taskRecord.status !== '关闭') {
       if (this.isOC || this.isAdmin || this.isTaskAdmin) {
         this.closeAble = true;
       }
-      if (this.isSeller && user.empId == this.taskRecord.primarySellerId) {
+      if (this.isSeller && user.empId === this.taskRecord.primarySellerId) {
         this.closeAble = true;
       }
     }
     if (this.isAdmin || this.isOC || this.isTaskAdmin) {
       this.editAble = true;
     }
-    if (this.isSeller && user.empId == this.taskRecord.primarySellerId) {
+    if (this.isSeller && user.empId === this.taskRecord.primarySellerId) {
       this.editAble = true;
     }
     if (this.isAdmin) {
       this.deleteAble = true;
     } else {
-      if (this.taskRecord.status == '新建' || this.taskRecord.status == '分配中') {
-        if (user.empId == this.taskRecord.creatorId) {
+      if (this.taskRecord.status === '新建' || this.taskRecord.status === '分配中') {
+        if (user.empId === this.taskRecord.creatorId) {
           this.deleteAble = true;
           this.closeAble = true;
         }
-        if (this.isSeller && user.empId == this.taskRecord.primarySellerId) {
+        if (this.isSeller && user.empId === this.taskRecord.primarySellerId) {
           this.deleteAble = true;
         }
       }
@@ -152,7 +150,7 @@ export class ElementRecordHeaderComponent implements OnInit {
     this.dialogStartRef.afterClosed().subscribe(result => {
       this.dialogStartRef = null;
       if (result != null) {
-        var newTask = result as Task;
+        let newTask = result as Task;
         newTask.id = this.taskRecord.id;
         this.taskService.strat(newTask)
           .then(() => this.router.navigate(['/']));
@@ -168,7 +166,7 @@ export class ElementRecordHeaderComponent implements OnInit {
     this.dialogFinishRef.afterClosed().subscribe(result => {
       this.dialogFinishRef = null;
       if (result != null) {
-        var newTask = result as Task;
+        let newTask = result as Task;
         newTask.id = this.taskRecord.id;
         this.taskService.finish(newTask)
           .then(() => this.router.navigate(['/']));
@@ -183,7 +181,7 @@ export class ElementRecordHeaderComponent implements OnInit {
     this.dialogCloseRef.afterClosed().subscribe(result => {
       this.dialogCloseRef = null;
       if (result) {
-        var newTask = new Task(this.taskRecord.id, '');
+        let newTask = new Task(this.taskRecord.id, '');
         this.taskService.close(newTask)
           .then(() => this.router.navigate(['/']));
       }
@@ -198,7 +196,7 @@ export class ElementRecordHeaderComponent implements OnInit {
     this.dialogProgessRef.afterClosed().subscribe(result => {
       this.dialogProgessRef = null;
       if (result != null) {
-        var newTask = result as Task;
+        let newTask = result as Task;
         newTask.id = this.taskRecord.id;
         this.taskService.progress(newTask)
           .then(() => this.router.navigate(['/']));

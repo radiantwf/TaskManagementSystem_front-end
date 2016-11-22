@@ -56,7 +56,6 @@
             <ul>
               <li>
                 <select [(ngModel)]="sellerId" class="form-control" #sellerIdSelect="ngModel" name="sellerIdSelect" [required]="true">
-										<option [hidden]="isSeller" [value]="''">无销售</option>
 										<option *ngFor="let emp of sellers" [value] = "emp.empId">{{emp.name}}</option>
 									</select>
               </li>
@@ -64,7 +63,6 @@
             <ul>
               <li>
                 <div class="row" class="col-lg-10 col-md-10 col-xs-12 col-sm-12">
-
                   <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12">
                     <md-input [(ngModel)]="newTask.requiringEndDate" #requiringEndDate="ngModel" name="requiringEndDate" placeholder="要求任务完成时间"></md-input>
                   </div>
@@ -100,7 +98,6 @@
             <ul>
               <li>
                 <select [(ngModel)]="OCId" class="form-control" #OCIdSelect="ngModel" name="OCIdSelect" [required]="taskManagerId != null || (isTaskAdmin || isTaskManager)">
-										<option [hidden]="isOC" [value]="''">无OC</option>
 										<option *ngFor="let emp of OC" [value] = "emp.empId">{{emp.name}}</option>
 									</select>
               </li>

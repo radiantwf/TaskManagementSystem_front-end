@@ -140,7 +140,11 @@ export class ElementRecordHeaderComponent implements OnInit {
 
     this.dialogStartRef.afterClosed().subscribe(result => {
       this.dialogStartRef = null;
-      if (result) {
+      if (result != null) {
+        var newTask = result as Task;
+        newTask.id = this.taskRecord.id;
+        this.taskService.strat(newTask)
+          .then(() => this.router.navigate(['/']));
       }
     });
   }
@@ -152,7 +156,11 @@ export class ElementRecordHeaderComponent implements OnInit {
 
     this.dialogFinishRef.afterClosed().subscribe(result => {
       this.dialogFinishRef = null;
-      if (result) {
+      if (result != null) {
+        var newTask = result as Task;
+        newTask.id = this.taskRecord.id;
+        this.taskService.finish(newTask)
+          .then(() => this.router.navigate(['/']));
       }
     });
   }
@@ -164,6 +172,9 @@ export class ElementRecordHeaderComponent implements OnInit {
     this.dialogCloseRef.afterClosed().subscribe(result => {
       this.dialogCloseRef = null;
       if (result) {
+        var newTask = new Task(this.taskRecord.id, '');
+        this.taskService.close(newTask)
+          .then(() => this.router.navigate(['/']));
       }
     });
   }
@@ -175,7 +186,11 @@ export class ElementRecordHeaderComponent implements OnInit {
 
     this.dialogProgessRef.afterClosed().subscribe(result => {
       this.dialogProgessRef = null;
-      if (result) {
+      if (result != null) {
+        var newTask = result as Task;
+        newTask.id = this.taskRecord.id;
+        this.taskService.progress(newTask)
+          .then(() => this.router.navigate(['/']));
       }
     });
   }

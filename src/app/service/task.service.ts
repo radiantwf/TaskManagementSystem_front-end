@@ -52,6 +52,39 @@ export class TaskService {
       .catch(this.handleError);
   }
 
+  strat(task: Task): Promise<Task> {
+    const url = `${this.tasksUrl}/${task.id}/start`;
+    return this.http
+      .put(url, JSON.stringify(task), { headers: this.httpHeaders() })
+      .toPromise()
+      .then(() => task)
+      .catch(this.handleError);
+  }
+  progress(task: Task): Promise<Task> {
+    const url = `${this.tasksUrl}/${task.id}/progress`;
+    return this.http
+      .put(url, JSON.stringify(task), { headers: this.httpHeaders() })
+      .toPromise()
+      .then(() => task)
+      .catch(this.handleError);
+  }
+  finish(task: Task): Promise<Task> {
+    const url = `${this.tasksUrl}/${task.id}/finish`;
+    return this.http
+      .put(url, JSON.stringify(task), { headers: this.httpHeaders() })
+      .toPromise()
+      .then(() => task)
+      .catch(this.handleError);
+  }
+  close(task: Task): Promise<Task> {
+    const url = `${this.tasksUrl}/${task.id}/close`;
+    return this.http
+      .put(url, JSON.stringify(task), { headers: this.httpHeaders() })
+      .toPromise()
+      .then(() => task)
+      .catch(this.handleError);
+  }
+
   getTaskCounts(): Observable<any> {
     return this.http.get(this.tasksCountsUrl, { headers: this.httpHeaders() })
       .map(response => response.json().data as TaskCounts)

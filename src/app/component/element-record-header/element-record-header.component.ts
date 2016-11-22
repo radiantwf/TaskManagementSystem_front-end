@@ -24,6 +24,12 @@ export class ElementRecordHeaderComponent implements OnInit {
   taskRecord: Task;
   detailClicked = new EventEmitter();
 
+  isSeller: boolean = false;
+  isOC: boolean = false;
+  isTaskAdmin: boolean = false;
+  isTaskManager: boolean = false;
+  isAdmin: boolean = false;
+
   processAble: boolean = false;
   processAlert: boolean = false;
   startAble: boolean = false;
@@ -40,13 +46,18 @@ export class ElementRecordHeaderComponent implements OnInit {
   dialogProgessRef: MdDialogRef<DialogProgressPercentageComponent>;
   dialogCloseRef: MdDialogRef<DialogCloseElementComponent>;
 
-
   constructor(private router: Router, public dialog: MdDialog, private taskService: TaskService) { }
 
   ngOnInit() {
     var user = AppGlobal.getInstance().currentUser;
 
-    if (this.taskRecord.status == '新建' && user.isOC) {
+    this.isAdmin = user.permissions.findIndex(value => (value == 1)) >= 0;
+    this.isOC = user.permissions.findIndex(value => (value == 99)) >= 0;
+    this.isSeller = user.permissions.findIndex(value => (value == 98)) >= 0;
+    this.isTaskAdmin = user.permissions.findIndex(value => (value == 11 || value == 21)) >= 0;
+    this.isTaskManager = user.permissions.findIndex(value => (value == 19 || value == 29)) >= 0;
+
+    if (this.taskRecord.status == '新建' && this.isOC) {
       this.processAlert = true;
       this.processAble = true;
     }
@@ -56,7 +67,7 @@ export class ElementRecordHeaderComponent implements OnInit {
         this.processAlert = true;
         this.processAble = true;
       }
-      if (user.isTaskAdmin) {
+      if (this.isTaskAdmin) {
         this.processAble = true;
       }
     }
@@ -66,7 +77,7 @@ export class ElementRecordHeaderComponent implements OnInit {
         this.processAlert = true;
         this.processAble = true;
       }
-      if (user.isTaskAdmin) {
+      if (this.isTaskAdmin) {
         this.processAble = true;
       }
     }
@@ -76,7 +87,7 @@ export class ElementRecordHeaderComponent implements OnInit {
         this.startAlert = true;
         this.startAble = true;
       }
-      if (user.isTaskAdmin) {
+      if (this.isTaskAdmin) {
         this.startAble = true;
       }
     }
@@ -85,26 +96,26 @@ export class ElementRecordHeaderComponent implements OnInit {
         this.progessAble = true;
         this.finishAble = true;
       }
-      if (user.isTaskAdmin) {
+      if (this.isTaskAdmin) {
         this.progessAble = true;
         this.finishAble = true;
       }
     }
     if (this.taskRecord.status != '关闭') {
-      if (user.isOC || user.isAdmin || user.isTaskAdmin) {
+      if (this.isOC || this.isAdmin || this.isTaskAdmin) {
         this.closeAble = true;
       }
-      if (user.isSeller && user.empId == this.taskRecord.primarySellerId) {
+      if (this.isSeller && user.empId == this.taskRecord.primarySellerId) {
         this.closeAble = true;
       }
     }
-    if (user.isAdmin || user.isOC || user.isTaskAdmin) {
+    if (this.isAdmin || this.isOC || this.isTaskAdmin) {
       this.editAble = true;
     }
-    if (user.isSeller && user.empId == this.taskRecord.primarySellerId) {
+    if (this.isSeller && user.empId == this.taskRecord.primarySellerId) {
       this.editAble = true;
     }
-    if (user.isAdmin) {
+    if (this.isAdmin) {
       this.deleteAble = true;
     } else {
       if (this.taskRecord.status == '新建' || this.taskRecord.status == '分配中') {
@@ -112,7 +123,7 @@ export class ElementRecordHeaderComponent implements OnInit {
           this.deleteAble = true;
           this.closeAble = true;
         }
-        if (user.isSeller && user.empId == this.taskRecord.primarySellerId) {
+        if (this.isSeller && user.empId == this.taskRecord.primarySellerId) {
           this.deleteAble = true;
         }
       }

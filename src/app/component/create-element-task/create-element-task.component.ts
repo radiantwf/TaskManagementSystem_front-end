@@ -64,7 +64,7 @@ export class CreateElementTaskComponent implements OnInit {
         });
     }
     addTask() {
-        if (!this.newTask.name || !this.newTask.resume) { return; }
+        if (!this.newTask.name) { return; }
         this.newTask.id = 'temp';
         this.newTask.creatorId = AppGlobal.getInstance().currentUser.empId;
         this.newTask.primarySellerId = this.sellerId;

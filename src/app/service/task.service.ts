@@ -44,7 +44,7 @@ export class TaskService {
   }
 
   update(task: Task): Promise<Task> {
-    const url = `${this.tasksUrl}/${task.id}`;
+    const url = `${this.tasksUrl}/${task.id}/update`;
     return this.http
       .put(url, JSON.stringify(task), { headers: this.httpHeaders() })
       .toPromise()

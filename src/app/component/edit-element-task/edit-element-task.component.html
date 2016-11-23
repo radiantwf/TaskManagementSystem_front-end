@@ -33,15 +33,6 @@
               </li>
             </ul>
             <ul>
-              <li>
-                <md-input [(ngModel)]="srcTask.resume" (ngModelChange)="editingTask.resume=$event" #resume="ngModel" placeholder="简述" [required]="true"
-                  name="resume"></md-input>
-                <div [hidden]="resume.valid || resume.pristine" class="error">
-                  简述不能为空
-                </div>
-              </li>
-            </ul>
-            <ul>
               <li class="title">详细描述</li>
               <li>
                 <textarea [(ngModel)]="srcTask.description" (ngModelChange)="editingTask.description=$event" #description="ngModel" name="description"
@@ -73,7 +64,7 @@
               <li>
                 <div class="row" class="col-lg-10 col-md-10 col-xs-12 col-sm-12">
                   <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12">
-                    <md-input [(ngModel)]="requiringEndDate" #requiringEndDateInput="ngModel" name="requiringEndDateInput" placeholder="要求任务完成时间"></md-input>
+                    <md-input [(ngModel)]="requiringEndDate" #requiringEndDateInput="ngModel" name="requiringEndDateInput" placeholder="要求任务完成日期"></md-input>
                   </div>
                   <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12">
                   </div>
@@ -82,7 +73,7 @@
             </ul>
             <ul>
               <li>
-                <md-input [readonly] placeholder="时间填写demo" [value]="'2016-10-20T08:00:00+08:00'"></md-input>
+                <md-input [readonly] placeholder="日期填写demo" [value]="'2016-10-20T08:00:00+08:00'"></md-input>
               </li>
             </ul>
             <ul>
@@ -136,11 +127,11 @@
               <li>
                 <div class="row" class="col-lg-10 col-md-10 col-xs-12 col-sm-12">
                   <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12">
-                    <md-input [readonly]="isSeller || isOC && !isTaskAdmin && !isTaskManager && !isAdmin" [(ngModel)]="planningBeginDate" placeholder="任务计划开始时间"
+                    <md-input [readonly]="isSeller || isOC && !isTaskAdmin && !isTaskManager && !isAdmin" [(ngModel)]="planningBeginDate" placeholder="任务计划开始日期"
                       #planningBeginDateInput="ngModel" name="planningBeginDateInput" [required]="(isTaskManager && !isTaskAdmin) || planningEndDate != null || realBeginDate != null || realEndDate != null"></md-input>
                   </div>
                   <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12">
-                    <md-input [readonly]="isSeller || isOC && !isTaskAdmin && !isTaskManager && !isAdmin" [(ngModel)]="planningEndDate" placeholder="任务计划完成时间"
+                    <md-input [readonly]="isSeller || isOC && !isTaskAdmin && !isTaskManager && !isAdmin" [(ngModel)]="planningEndDate" placeholder="任务计划完成日期"
                       #planningEndDateInput="ngModel" name="planningEndDateInput" [required]="(isTaskManager && !isTaskAdmin) || planningBeginDate != null || realBeginDate != null || realEndDate != null"></md-input>
                   </div>
                 </div>
@@ -150,11 +141,11 @@
               <li>
                 <div class="row" class="col-lg-10 col-md-10 col-xs-12 col-sm-12">
                   <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12">
-                    <md-input [readonly]="isSeller || isOC && !isTaskAdmin && !isTaskManager && !isAdmin" [(ngModel)]="realBeginDate" placeholder="任务实际开始时间"
+                    <md-input [readonly]="isSeller || isOC && !isTaskAdmin && !isTaskManager && !isAdmin" [(ngModel)]="realBeginDate" placeholder="任务实际开始日期"
                       #realBeginDateInput="ngModel" name="realBeginDateInput" [required]="srcTask.percent >= 100 || realEndDate != null"></md-input>
                   </div>
                   <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12">
-                    <md-input [readonly]="isSeller || isOC && !isTaskAdmin && !isTaskManager && !isAdmin" [(ngModel)]="realEndDate" placeholder="任务实际完成时间"
+                    <md-input [readonly]="isSeller || isOC && !isTaskAdmin && !isTaskManager && !isAdmin" [(ngModel)]="realEndDate" placeholder="任务实际完成日期"
                       #realEndDateInput="ngModel" name="realEndDateInput" [required]="srcTask.percent >= 100"></md-input>
                   </div>
                 </div>
@@ -168,7 +159,7 @@
             </ul>
             <ul>
               <li>
-                <md-input [readonly] placeholder="时间填写demo" [value]="'2016-10-20T08:00:00+08:00'"></md-input>
+                <md-input [readonly] placeholder="日期填写demo" [value]="'2016-10-20T08:00:00+08:00'"></md-input>
               </li>
             </ul>
           </div>

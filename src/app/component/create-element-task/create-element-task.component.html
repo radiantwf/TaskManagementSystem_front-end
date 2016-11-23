@@ -27,14 +27,6 @@
               </li>
             </ul>
             <ul>
-              <li>
-                <md-input [(ngModel)]="newTask.resume" #resume="ngModel" placeholder="简述" [required]="true" name="resume"></md-input>
-                <div [hidden]="resume.valid || resume.pristine" class="error">
-                  简述不能为空
-                </div>
-              </li>
-            </ul>
-            <ul>
               <li class="title">详细描述</li>
               <li>
                 <textarea [(ngModel)]="newTask.description" #description="ngModel" name="description" rows="3" class="form-control textarea-counter"></textarea>
@@ -64,7 +56,7 @@
               <li>
                 <div class="row" class="col-lg-10 col-md-10 col-xs-12 col-sm-12">
                   <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12">
-                    <md-input [(ngModel)]="newTask.requiringEndDate" #requiringEndDate="ngModel" name="requiringEndDate" placeholder="要求任务完成时间"></md-input>
+                    <md-input [(ngModel)]="newTask.requiringEndDate" #requiringEndDate="ngModel" name="requiringEndDate" placeholder="要求完成日期"></md-input>
                   </div>
                   <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12">
                   </div>
@@ -73,7 +65,7 @@
             </ul>
             <ul>
               <li>
-                <md-input [readonly] placeholder="时间填写demo" [value]="'2016-10-20T08:00:00+08:00'"></md-input>
+                <md-input [readonly] placeholder="日期填写demo" [value]="'2016-10-20T08:00:00+08:00'"></md-input>
               </li>
             </ul>
             <ul>
@@ -123,11 +115,11 @@
               <li>
                 <div class="row" class="col-lg-10 col-md-10 col-xs-12 col-sm-12">
                   <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12">
-                    <md-input [(ngModel)]="newTask.planningBeginDate" placeholder="任务计划开始时间" #planningBeginDate="ngModel" name="planningBeginDate"
+                    <md-input [(ngModel)]="newTask.planningBeginDate" placeholder="任务计划开始日期" #planningBeginDate="ngModel" name="planningBeginDate"
                       [required]="(isTaskManager && !isTaskAdmin) || newTask.planningEndDate != null"></md-input>
                   </div>
                   <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12">
-                    <md-input [(ngModel)]="newTask.planningEndDate" placeholder="任务计划完成时间" #planningEndDate="ngModel" name="planningEndDate"
+                    <md-input [(ngModel)]="newTask.planningEndDate" placeholder="任务计划完成日期" #planningEndDate="ngModel" name="planningEndDate"
                       [required]="(isTaskManager && !isTaskAdmin) || newTask.planningBeginDate != null"></md-input>
                   </div>
                 </div>
@@ -135,7 +127,7 @@
             </ul>
             <ul *ngIf="!isOC">
               <li>
-                <md-input [readonly] placeholder="时间填写demo" [value]="'2016-10-20T08:00:00+08:00'"></md-input>
+                <md-input [readonly] placeholder="日期填写demo" [value]="'2016-10-20T08:00:00+08:00'"></md-input>
               </li>
             </ul>
           </div>

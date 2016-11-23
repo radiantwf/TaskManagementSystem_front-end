@@ -1,7 +1,5 @@
 // 任务 类型
 export class Task {
-    // 任务简述
-    public resume: string;
     // 任务详细描述
     public description: string;
     // 客户联系方式

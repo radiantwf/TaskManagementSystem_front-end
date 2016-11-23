@@ -99,7 +99,7 @@ export class ElementRecordHeaderComponent implements OnInit {
         this.finishAble = true;
       }
     }
-    if (this.taskRecord.status !== '关闭') {
+    if (this.taskRecord.status !== '已关闭') {
       if (this.isOC || this.isAdmin || this.isTaskAdmin) {
         this.closeAble = true;
       }
@@ -107,11 +107,13 @@ export class ElementRecordHeaderComponent implements OnInit {
         this.closeAble = true;
       }
     }
-    if (this.isAdmin || this.isOC || this.isTaskAdmin) {
-      this.editAble = true;
-    }
-    if (this.isSeller && user.empId === this.taskRecord.primarySellerId) {
-      this.editAble = true;
+    if (this.taskRecord.status !== '已关闭') {
+      if (this.isAdmin || this.isOC || this.isTaskAdmin) {
+        this.editAble = true;
+      }
+      if (this.isSeller && user.empId === this.taskRecord.primarySellerId) {
+        this.editAble = true;
+      }
     }
     if (this.isAdmin) {
       this.deleteAble = true;

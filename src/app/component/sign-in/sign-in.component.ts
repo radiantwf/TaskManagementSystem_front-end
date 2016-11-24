@@ -11,14 +11,16 @@ import { sha1 } from '../../shared/sha1';
 })
 export class SignInComponent implements OnInit {
   isSignIn: boolean = true;
+  authorize = new Authorize();
+  wrong_password = false;
 
   constructor(private router: Router, private userService: UserService) {
   }
 
   ngOnInit() {
     this.isSignIn = true;
-    var savedToken = AppGlobal.getInstance().getLocalToken();
-    if (savedToken != null && savedToken != "") {
+    let savedToken = AppGlobal.getInstance().getLocalToken();
+    if (savedToken != null && savedToken !== '') {
       this.userService.signin(this.authorize.name, this.authorize.pwd)
         .subscribe(user => {
           if (user != null) {
@@ -31,30 +33,24 @@ export class SignInComponent implements OnInit {
             this.isSignIn = false;
           }
         });
-    }
-    else {
+    } else {
       AppGlobal.getInstance().clearToken();
       this.isSignIn = false;
     }
   }
-
-  authorize = new Authorize();
-
-  wrong_password = false;
   onInput() {
     this.wrong_password = false;
   }
   onSubmit() {
     AppGlobal.getInstance().clearToken();
-    var hash = sha1.hash(this.authorize.pwd);
+    let hash = sha1.hash(this.authorize.pwd);
     this.userService.signin(this.authorize.name, hash)
       .subscribe(user => {
         if (user !== null) {
           AppGlobal.getInstance().currentUser = user;
           AppGlobal.getInstance().setLocalToken(user.token);
-          this.router.navigate(['/task','1']);
-        }
-        else {
+          this.router.navigate(['/task', '1']);
+        } else {
           AppGlobal.getInstance().clearToken();
           this.wrong_password = true;
         }

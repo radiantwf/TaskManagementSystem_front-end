@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { AppGlobal } from '../../shared/app-global';
-import { User } from '../../model/User';
 
 @Component({
   selector: 'main-navigation-bar',

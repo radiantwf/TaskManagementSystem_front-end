@@ -16,7 +16,7 @@ export class MainNavigationBarComponent implements OnInit {
   constructor(private router: Router) {
   }
   ngOnInit() {
-    var user = AppGlobal.getInstance().currentUser;
+    let user = AppGlobal.getInstance().currentUser;
     if (user != null) {
       this.createTaskVisibility = user.permissions.findIndex(value => (value == 1
         || value == 11 || value == 19 || value == 21 || value == 29

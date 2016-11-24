@@ -104,3 +104,10 @@ i:before, .fc-icon, .ui-icon:before {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+
+li i{
+    float:right;
+    margin-top: -36px;
+    margin-right: 10px;
+    font-size:20px;
+}

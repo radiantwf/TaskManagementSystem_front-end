@@ -1,4 +1,3 @@
-
 .task_btn{
     height: 68px;
     line-height: 68px;
@@ -129,4 +128,11 @@ md-input{
 
 md-checkbox{
     line-height: 60px;
+}
+
+.task_class_ic {
+    text-align: center;
+    width: 50px;
+    position: absolute;
+    left: 5px;
 }

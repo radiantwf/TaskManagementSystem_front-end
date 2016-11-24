@@ -26,7 +26,7 @@
         <!--<div class="glyph-icon icon-elusive-list" title="" data-original-title=".icon-elusive-list"></div>-->
         任务列表
       </div>
-      <i *ngIf="createTaskVisibility" [routerLink]="['/task','new']" class="pull-xs-right material-icons">add_circle</i>
+      <i *ngIf="createTaskVisibility" [routerLink]="['/task','new']" class="btn-add material-icons">add_circle</i>
     </li>
     <li>
       <div [routerLink]="['/project']">
@@ -47,7 +47,7 @@
   </ul>
   <ul class="menu SignOut">
     <li [routerLink]="['/signout']">
-      <md-icon class="material-icons"><i class="material-icons">power_settings_new</i></md-icon>
+      <md-icon class="material-icons">power_settings_new</md-icon>
       退出登录
     </li>
   </ul>

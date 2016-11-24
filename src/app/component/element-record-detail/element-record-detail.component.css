@@ -41,15 +41,20 @@ md-icon{
 
 [md-button].md-primary, [md-icon-button].md-primary {
     color: #117ecc;
-    font-size: 1.2rem;
+	font-family: "微软雅黑";
+    font-size: 1.0rem;
     margin-top: 12px;
     float: right;
 }
-
+[md-button] {
+    font-weight: 100; 
+    min-width: 88px; 
+}
 
 [md-button].md-refuse, [md-icon-button].md-refuse {
     color: rgba(0,0,0,0.60);
-    font-size: 1.2rem;
+	font-family: "微软雅黑";
+    font-size: 1.0rem;
     margin-top: 12px;
     float: right;
 

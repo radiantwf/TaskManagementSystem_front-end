@@ -130,3 +130,12 @@ md-input{
 md-checkbox{
     line-height: 60px;
 }
+
+
+
+.task_class_ic {
+    text-align: center;
+    width: 50px;
+    position: absolute;
+    left: 5px;
+}

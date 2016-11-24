@@ -22,5 +22,35 @@ md-icon{
 }
 
 .errorDiv {
-  padding: 5px 90px 5px 80px;
+  padding: 10px;
+}
+
+.alert {
+    height: 64px;
+    line-height: 64px;
+    padding: 0rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+}
+.alert-warning {
+    background-color: #fcf8e3;
+    border-color: #faf2cc;
+    color: rgba(0,0,0,0.60);
+}
+
+[md-button].md-primary, [md-icon-button].md-primary {
+    color: #117ecc;
+    font-size: 1.2rem;
+    margin-top: 12px;
+    float: right;
+}
+
+
+[md-button].md-refuse, [md-icon-button].md-refuse {
+    color: rgba(0,0,0,0.60);
+    font-size: 1.2rem;
+    margin-top: 12px;
+    float: right;
+
 }

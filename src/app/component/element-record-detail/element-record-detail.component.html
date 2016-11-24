@@ -3,6 +3,13 @@
 <!---------------------------------------------------------------------------->
 <!--任务详情-->
 <div class="row pdt10">
+	<div class="row">
+		<div class="errorDiv">
+			<div class="alert alert-danger">
+				用户名密码错误
+			</div>
+		</div>
+	</div>
 	<div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
 		<!--任务编号-->
 		<div class="row">
@@ -70,11 +77,6 @@
 		<!--所属产品-->
 		<div class="row">
 			<div class="col-lg-1 col-md-1 col-xs-1 col-sm-1">
-				<!--<div class="task_class">
-					<div class="task_class_ic">
-						<md-icon>widgets</md-icon>
-					</div>
-				</div>-->
 			</div>
 			<div class="col-lg-11 col-md-11 col-xs-11 col-sm-11">
 				<div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
@@ -106,11 +108,6 @@
 		<!--销售负责人-->
 		<div class="row">
 			<div class="col-lg-1 col-md-1 col-xs-1 col-sm-1">
-				<!--<div class="task_class">
-					<div class="task_class_ic">
-						<md-icon>account_circle</md-icon>
-					</div>
-				</div>-->
 			</div>
 			<div class="col-lg-11 col-md-11 col-xs-11 col-sm-11">
 				<div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
@@ -138,7 +135,7 @@
 			</div>
 		</div>
 		<!--OC负责人-->
-		<div class="row">
+		<div class="row" *ngIf="taskRecord.status==='分配中' ||taskRecord.status==='计划中' ||taskRecord.status==='未开始' || taskRecord.status==='进行中' || taskRecord.status==='完成' || taskRecord.status==='关闭'">
 			<div class="col-lg-1 col-md-1 col-xs-1 col-sm-1">
 				<div class="task_class">
 					<div class="task_class_ic">
@@ -158,7 +155,7 @@
 					</div>
 				</div>
 				<div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
-					<div class="task_class">
+					<div class="task_class" *ngIf="taskRecord.status!=='分配中'">
 						<div class="task_class_info">
 							<ul>
 								<li class="title">执行负责人</li>
@@ -167,7 +164,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-8 col-md-12 col-xs-12 col-sm-12">
+				<div class="col-lg-8 col-md-12 col-xs-12 col-sm-12" *ngIf="taskRecord.status!=='分配中'">
 					<div class="task_class">
 						<div class="task_class_info">
 							<ul>
@@ -180,13 +177,8 @@
 			</div>
 		</div>
 		<!--计划时间-->
-		<div class="row">
+		<div class="row" *ngIf="taskRecord.status==='未开始' || taskRecord.status==='进行中' || taskRecord.status==='完成' || taskRecord.status==='关闭'">
 			<div class="col-lg-1 col-md-1 col-xs-1 col-sm-1">
-				<!--<div class="task_class">
-					<div class="task_class_ic">
-						<md-icon>access_time</md-icon>
-					</div>
-				</div>-->
 			</div>
 			<div class="col-lg-11 col-md-11 col-xs-11 col-sm-11">
 				<div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
@@ -194,8 +186,7 @@
 						<div class="task_class_info">
 							<ul>
 								<li class="title">计划开始时间</li>
-								<li>{{taskRecord.planningBeginDate | date:"yyyy年MM月dd日" | null_or_empty:"无"}} ~ {{taskRecord.planningEndDate | date:"yyyy年MM月dd日"
-									| null_or_empty:"无"}}</li>
+								<li>{{taskRecord.planningBeginDate | date:"yyyy年MM月dd日" | null_or_empty:"无"}}</li>
 							</ul>
 						</div>
 					</div>
@@ -205,8 +196,7 @@
 						<div class="task_class_info">
 							<ul>
 								<li class="title">计划结束时间</li>
-								<li>{{taskRecord.planningBeginDate | date:"yyyy年MM月dd日" | null_or_empty:"无"}} ~ {{taskRecord.planningEndDate | date:"yyyy年MM月dd日"
-									| null_or_empty:"无"}}</li>
+								<li>{{taskRecord.planningEndDate | date:"yyyy年MM月dd日" | null_or_empty:"无"}}</li>
 							</ul>
 						</div>
 					</div>
@@ -216,13 +206,8 @@
 			</div>
 		</div>
 		<!--实际时间-->
-		<div class="row">
+		<div class="row" *ngIf="taskRecord.status==='进行中' || taskRecord.status==='完成' || taskRecord.status==='关闭'">
 			<div class="col-lg-1 col-md-1 col-xs-1 col-sm-1">
-				<!--<div class="task_class">
-					<div class="task_class_ic">
-						<md-icon>timer</md-icon>
-					</div>
-				</div>-->
 			</div>
 			<div class="col-lg-11 col-md-11 col-xs-11 col-sm-11">
 				<div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
@@ -230,8 +215,7 @@
 						<div class="task_class_info">
 							<ul>
 								<li class="title">实际开始时间</li>
-								<li>{{taskRecord.planningBeginDate | date:"yyyy年MM月dd日" | null_or_empty:"无"}} ~ {{taskRecord.planningEndDate | date:"yyyy年MM月dd日"
-									| null_or_empty:"无"}}</li>
+								<li>{{taskRecord.realBeginDate | date:"yyyy年MM月dd日" | null_or_empty:"无"}}</li>
 							</ul>
 						</div>
 					</div>
@@ -241,8 +225,7 @@
 						<div class="task_class_info">
 							<ul>
 								<li class="title">实际结束时间</li>
-								<li>{{taskRecord.planningBeginDate | date:"yyyy年MM月dd日" | null_or_empty:"无"}} ~ {{taskRecord.planningEndDate | date:"yyyy年MM月dd日"
-									| null_or_empty:"无"}}</li>
+								<li>{{taskRecord.realEndDate | date:"yyyy年MM月dd日" | null_or_empty:"无"}}</li>
 							</ul>
 						</div>
 					</div>
@@ -254,11 +237,6 @@
 		<!--任务状态-->
 		<div class="row">
 			<div class="col-lg-1 col-md-1 col-xs-1 col-sm-1">
-				<!--<div class="task_class">
-					<div class="task_class_ic">
-						<md-icon>timelapse</md-icon>
-					</div>
-				</div>-->
 			</div>
 			<div class="col-lg-11 col-md-11 col-xs-11 col-sm-11">
 				<div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
@@ -272,11 +250,11 @@
 					</div>
 				</div>
 				<div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
-					<div class="task_class">
+					<div *ngIf="taskRecord.status==='进行中' || taskRecord.status==='完成' || taskRecord.status==='关闭'" class="task_class">
 						<div class="task_class_info">
 							<ul>
 								<li class="title">当前进度</li>
-								<li>{{taskRecord.percent}}</li>
+								<li>{{taskRecord.percent}}%</li>
 							</ul>
 						</div>
 					</div>
@@ -285,7 +263,7 @@
 				</div>
 			</div>
 		</div>
-		
+
 		<!--任务动态-->
 		<div class="row">
 			<div class="col-lg-1 col-md-1 col-xs-1 col-sm-1">

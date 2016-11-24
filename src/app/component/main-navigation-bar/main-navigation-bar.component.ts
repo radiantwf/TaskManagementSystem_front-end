@@ -26,31 +26,5 @@ export class MainNavigationBarComponent implements OnInit {
       this.createProjectVisibility = user.permissions.findIndex(value => (value == 1
         || value == 21 || value == 29)) >= 0;
     }
-    // this.createProductVisibility = this.user.isSysAdmin() || this.user.isProductAdmin() || this.user.isProductManager();
-    // this.createProjectVisibility = this.user.isSysAdmin() || this.user.isProjectManager() || this.user.isProjectManager();
-  }
-  navigateToCreateTask() {
-    this.router.navigate(['/task/new']);
-  }
-  navigateToTaskList() {
-    this.router.navigate(['/task/1']);
-  }
-  navigateToCreateProduct() {
-    this.router.navigate(['/product/new']);
-  }
-  navigateToProductList() {
-    this.router.navigate(['/product']);
-  }
-  navigateToCreateProject() {
-    this.router.navigate(['/project/new']);
-  }
-  navigateToProjectList() {
-    this.router.navigate(['/project']);
-  }
-  navigateToHomePage() {
-    this.router.navigate(['/']);
-  }
-  navigateToSignOut() {
-    this.router.navigate(['/signout']);
   }
 }

@@ -1,7 +1,7 @@
 <!--菜单-->
 <div class="leftDiv">
   <ul class="menu">
-    <li (click)="navigateToHomePage()">
+    <li [routerLink]="['/']">
       <md-icon class="material-icons">home</md-icon>
       <!--<div class="glyph-icon icon-elusive-home-circled" title="" data-original-title=".icon-elusive-home-circled"></div>-->
       首页
@@ -21,32 +21,32 @@
   </ul>
   <ul class="menu">
     <li>
-      <div (click)="navigateToTaskList()">
+      <div [routerLink]="['/task']">
         <md-icon class="material-icons">format_list_numbered</md-icon>
         <!--<div class="glyph-icon icon-elusive-list" title="" data-original-title=".icon-elusive-list"></div>-->
         任务列表
       </div>
-      <i *ngIf="(createTaskVisibility)" (click)="navigateToCreateTask()" class="pull-xs-right glyph-icon icon-plus-circle btn-add"></i>
+      <i *ngIf="(createTaskVisibility)" [routerLink]="['/task','new']" class="pull-xs-right glyph-icon icon-plus-circle btn-add"></i>
     </li>
     <li>
-      <div (click)="navigateToTaskProject()">
+      <div [routerLink]="['/project']">
         <md-icon class="material-icons">link</md-icon>
         <!--<i  class="glyph-icon icon-file-powerpoint-o" title="" data-original-title=".icon-file-powerpoint-o"></i> -->
         项目列表
       </div>
-      <i *ngIf="createProjectVisibility" (click)="navigateToCreateProject()" class="pull-xs-right glyph-icon icon-plus-circle btn-add"></i>
+      <i *ngIf="createProjectVisibility" [routerLink]="['/project','new']" class="pull-xs-right glyph-icon icon-plus-circle btn-add"></i>
     </li>
     <li>
-      <div (click)="navigateToTaskProduct()">
+      <div [routerLink]="['/product']">
         <md-icon class="material-icons">widgets</md-icon>
         <!--<i  class="glyph-icon icon-cubes" title="" data-original-title=".icon-cubes"></i> -->
         产品列表
       </div>
-      <i *ngIf="createProductVisibility" (click)="navigateToCreateProduct()" class="pull-xs-right glyph-icon icon-plus-circle btn-add"></i>
+      <i *ngIf="createProductVisibility" [routerLink]="['/product','new']" class="pull-xs-right glyph-icon icon-plus-circle btn-add"></i>
     </li>
   </ul>
   <ul class="menu SignOut">
-    <li (click)="navigateToSignOut()">
+    <li [routerLink]="['/signout']">
       <md-icon class="material-icons"><i class="material-icons">power_settings_new</i></md-icon>
       退出登录
     </li>

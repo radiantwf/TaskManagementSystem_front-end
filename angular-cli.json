@@ -18,8 +18,7 @@
       "prefix": "app",
       "mobile": false,
       "styles": [
-        "styles.css",
-      "../icons/icons.css"
+        "styles.css"
       ],
       "scripts": [],
       "environments": {

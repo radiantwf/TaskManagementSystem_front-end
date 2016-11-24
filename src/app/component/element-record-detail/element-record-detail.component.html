@@ -3,7 +3,7 @@
 <!---------------------------------------------------------------------------->
 <!--任务详情-->
 <div class="row pdt10">
-	<div class="row">
+	<div class="row" *ngIf="processAlert">
 		<div class="errorDiv">
 			<div class="alert alert-warning">
 				是否接受当前任务？<button md-button color="refuse">拒&nbsp;绝</button><button md-button color="primary">接&nbsp;受</button>

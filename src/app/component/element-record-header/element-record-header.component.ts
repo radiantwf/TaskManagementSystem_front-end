@@ -28,10 +28,12 @@ export class ElementRecordHeaderComponent implements OnInit {
   isTaskManager: boolean = false;
   isAdmin: boolean = false;
 
-  processAble: boolean = false;
   processAlert: boolean = false;
-  startAble: boolean = false;
   startAlert: boolean = false;
+  menuAlert: boolean = false;
+
+  processAble: boolean = false;
+  startAble: boolean = false;
   progessAble: boolean = false;
   finishAble: boolean = false;
   closeAble: boolean = false;
@@ -56,33 +58,23 @@ export class ElementRecordHeaderComponent implements OnInit {
     this.isTaskManager = user.permissions.findIndex(value => (value === 19 || value === 29)) >= 0;
 
     if (this.taskRecord.status === '新建' && this.isOC) {
-      this.processAlert = true;
       this.processAble = true;
     }
 
     if (this.taskRecord.status === '分配中') {
       if (user.empId === this.taskRecord.primaryOCId) {
-        this.processAlert = true;
-        this.processAble = true;
-      }
-      if (this.isTaskAdmin) {
         this.processAble = true;
       }
     }
 
     if (this.taskRecord.status === '计划中') {
-      if (user.empId === this.taskRecord.primaryExecutorId) {
-        this.processAlert = true;
-        this.processAble = true;
-      }
-      if (this.isTaskAdmin) {
+      if (user.empId === this.taskRecord.primaryExecutorId || this.isTaskAdmin) {
         this.processAble = true;
       }
     }
 
     if (this.taskRecord.status === '未开始') {
       if (user.empId === this.taskRecord.primaryExecutorId) {
-        this.startAlert = true;
         this.startAble = true;
       }
       if (this.isTaskAdmin) {
@@ -91,11 +83,9 @@ export class ElementRecordHeaderComponent implements OnInit {
     }
     if (this.taskRecord.status === '进行中') {
       if (user.empId === this.taskRecord.primaryExecutorId) {
-        this.progessAble = true;
         this.finishAble = true;
       }
       if (this.isTaskAdmin) {
-        this.progessAble = true;
         this.finishAble = true;
       }
     }
@@ -128,6 +118,9 @@ export class ElementRecordHeaderComponent implements OnInit {
         }
       }
     }
+    this.processAlert = this.processAble;
+    this.startAlert = this.startAble;
+    this.menuAlert = this.startAlert;
   }
 
   openDelDialog() {

@@ -5,8 +5,7 @@ import { TaskService } from './../../service/task.service';
 @Component({
   selector: 'element-record-detail',
   templateUrl: './element-record-detail.component.html',
-  styleUrls: ['./element-record-detail.component.css',
-    './../element-record-header/element-record-header.component.css'],
+  styleUrls: ['./../element-record-header/element-record-header.component.css', './element-record-detail.component.css'],
   inputs: ['taskId']
 })
 export class ElementRecordDetailComponent implements OnInit {

@@ -110,7 +110,7 @@ md-sidenav-layout, md-sidenav{
     font-weight: normal;
     height: auto;
     line-height: inherit;
-    margin-top:0px;
+    margin-top:10px;
     margin-left:20px;
     min-width: 0;
     padding: 0;
@@ -119,4 +119,7 @@ md-sidenav-layout, md-sidenav{
     text-align: left;
     text-decoration: none;
     color: rgba(0,0,0,0.54);
+}
+.app-icon-button i{
+    font-size: 32px;
 }

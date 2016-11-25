@@ -9,6 +9,7 @@ import { MdDialogRef } from '@angular/material';
 export class DialogPlanComponent implements OnInit {
   planningBeginDate: Date;
   planningEndDate: Date;
+
   constructor( @Optional() public dialogRef: MdDialogRef<DialogPlanComponent>) { }
 
   ngOnInit() {

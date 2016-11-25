@@ -33,14 +33,14 @@ export class CreateElementTaskComponent implements OnInit {
     }
 
     ngOnInit() {
-        var user = AppGlobal.getInstance().currentUser;
+        let user = AppGlobal.getInstance().currentUser;
         if (user != null) {
-            this.isOC = user.permissions.findIndex(value => (value == 99)) >= 0;
-            this.isSeller = user.permissions.findIndex(value => (value == 98)) >= 0;
-            this.isTaskAdmin = user.permissions.findIndex(value => (value == 11 || value == 21)) >= 0;
-            this.isTaskManager = user.permissions.findIndex(value => (value == 19 || value == 29)) >= 0;
+            this.isOC = user.permissions.findIndex(value => (value === 99)) >= 0;
+            this.isSeller = user.permissions.findIndex(value => (value === 98)) >= 0;
+            this.isTaskAdmin = user.permissions.findIndex(value => (value === 11 || value === 21)) >= 0;
+            this.isTaskManager = user.permissions.findIndex(value => (value === 19 || value === 29)) >= 0;
         }
-        this.employeeService.getEmployee().then(e => { this.employees = e; this.ProcessEmployees(); })
+        this.employeeService.getEmployee().then(e => { this.employees = e; this.ProcessEmployees(); });
 
     }
     ProcessEmployees() {
@@ -51,22 +51,22 @@ export class CreateElementTaskComponent implements OnInit {
         this.OCId = null;
         this.taskManagerId = null;
         this.employees.forEach(value => {
-            if (value.permissions.findIndex(value => (value == 98)) >= 0) {
+            if (value.permissions.findIndex(p => (p === 98)) >= 0) {
                 this.sellers.push(value);
-                if (value.empId == AppGlobal.getInstance().currentUser.empId) {
+                if (value.empId === AppGlobal.getInstance().currentUser.empId) {
                     this.sellerId = value.empId;
                 }
             }
-            if (value.permissions.findIndex(value => (value == 99)) >= 0) {
+            if (value.permissions.findIndex(p => (p === 99)) >= 0) {
                 this.OC.push(value);
-                if (value.empId == AppGlobal.getInstance().currentUser.empId) {
+                if (value.empId === AppGlobal.getInstance().currentUser.empId) {
                     this.OCId = value.empId;
                 }
             }
-            if (value.permissions.findIndex(value => (value == 1
-                || value == 11 || value == 19 || value == 21 || value == 29)) >= 0) {
+            if (value.permissions.findIndex(p => (p === 1
+                || p === 11 || p === 19 || p === 21 || p === 29)) >= 0) {
                 this.taskManagers.push(value);
-                if (value.empId == AppGlobal.getInstance().currentUser.empId) {
+                if (value.empId === AppGlobal.getInstance().currentUser.empId) {
                     this.taskManagerId = value.empId;
                 }
             }

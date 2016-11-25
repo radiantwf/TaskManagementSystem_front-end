@@ -72,7 +72,8 @@ export class ElementRecordDetailComponent implements OnInit {
     this.dialogPlanRef = this.dialog.open(DialogPlanComponent, {
       disableClose: false
     });
-
+    this.dialogPlanRef.componentInstance.planningBeginDate = this.taskRecord.planningBeginDate;
+    this.dialogPlanRef.componentInstance.planningEndDate = this.taskRecord.planningEndDate;
     this.dialogPlanRef.afterClosed().subscribe(result => {
       this.dialogPlanRef = null;
       if (result) {
@@ -80,6 +81,10 @@ export class ElementRecordDetailComponent implements OnInit {
     });
   }
   openAssignDialog() {
+
+    this.dialogAssignRef.componentInstance.primaryOCId = this.taskRecord.primaryOCId;
+    this.dialogAssignRef.componentInstance.primaryExecutorId = this.taskRecord.primaryExecutorId;
+    this.dialogAssignRef.componentInstance.otherExecutors = this.taskRecord.otherExecutors;
     this.dialogAssignRef = this.dialog.open(DialogAssignTaskComponent, {
       disableClose: false
     });

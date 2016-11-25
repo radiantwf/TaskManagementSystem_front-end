@@ -7,7 +7,9 @@ import { MdDialogRef } from '@angular/material';
   styleUrls: ['./dialog-assign-task.component.css']
 })
 export class DialogAssignTaskComponent implements OnInit {
-
+  primaryOCId: string;
+  primaryExecutorId: string;
+  otherExecutors: string;
   constructor( @Optional() public dialogRef: MdDialogRef<DialogAssignTaskComponent>) { }
 
   ngOnInit() {

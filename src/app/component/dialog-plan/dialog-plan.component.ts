@@ -7,7 +7,8 @@ import { MdDialogRef } from '@angular/material';
   styleUrls: ['./dialog-plan.component.css']
 })
 export class DialogPlanComponent implements OnInit {
-
+  planningBeginDate: Date;
+  planningEndDate: Date;
   constructor( @Optional() public dialogRef: MdDialogRef<DialogPlanComponent>) { }
 
   ngOnInit() {

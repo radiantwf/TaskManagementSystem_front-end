@@ -39,24 +39,23 @@ export class ElementRecordDetailComponent implements OnInit {
     this.isSeller = user.permissions.findIndex(value => (value === 98)) >= 0;
     this.isTaskAdmin = user.permissions.findIndex(value => (value === 11 || value === 21)) >= 0;
     this.isTaskManager = user.permissions.findIndex(value => (value === 19 || value === 29)) >= 0;
-
-    if (this.taskRecord.status === '新建' && this.isOC) {
-      this.processAlert = true;
-    }
-
-    if (this.taskRecord.status === '分配中') {
-      if (user.empId === this.taskRecord.primaryOCId) {
-        this.processAlert = true;
-      }
-    }
-
-    if (this.taskRecord.status === '计划中') {
-      if (user.empId === this.taskRecord.primaryExecutorId) {
-        this.processAlert = true;
-      }
-    }
     this.taskService.getTask(this.taskId)
-      .then(task => this.taskRecord = task);
+      .then(task => this.taskRecord = task)
+      .then(() => {
+        if (this.taskRecord.status === '新建' && this.isOC) {
+          this.processAlert = true;
+        }
+        if (this.taskRecord.status === '分配中') {
+          if (user.empId === this.taskRecord.primaryOCId) {
+            this.processAlert = true;
+          }
+        }
+        if (this.taskRecord.status === '计划中') {
+          if (user.empId === this.taskRecord.primaryExecutorId) {
+            this.processAlert = true;
+          }
+        }
+      });
   }
   onRefuseButtenClick() {
     this.openRefuseDialog();

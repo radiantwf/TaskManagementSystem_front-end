@@ -49,7 +49,7 @@ md-icon{
 }
 [md-button] {
     font-weight: 100; 
-    min-width: 88px; 
+    min-width: 0px; 
 }
 
 [md-button].md-refuse, [md-icon-button].md-refuse {

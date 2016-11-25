@@ -82,13 +82,13 @@ export class ElementRecordDetailComponent implements OnInit {
   }
   openAssignDialog() {
 
-    this.dialogAssignRef.componentInstance.primaryOCId = this.taskRecord.primaryOCId;
-    this.dialogAssignRef.componentInstance.primaryExecutorId = this.taskRecord.primaryExecutorId;
-    this.dialogAssignRef.componentInstance.otherExecutors = this.taskRecord.otherExecutors;
     this.dialogAssignRef = this.dialog.open(DialogAssignTaskComponent, {
       disableClose: false
     });
-
+    
+    this.dialogAssignRef.componentInstance.primaryOCId = this.taskRecord.primaryOCId;
+    this.dialogAssignRef.componentInstance.primaryExecutorId = this.taskRecord.primaryExecutorId;
+    this.dialogAssignRef.componentInstance.otherExecutors = this.taskRecord.otherExecutors;
     this.dialogAssignRef.afterClosed().subscribe(result => {
       this.dialogAssignRef = null;
       if (result) {

@@ -42,6 +42,9 @@ import { DialogStartElementComponent } from './component/dialog-start-element/di
 import { DialogFinishElementComponent } from './component/dialog-finish-element/dialog-finish-element.component';
 import { DialogProgressPercentageComponent } from './component/dialog-progress-percentage/dialog-progress-percentage.component';
 import { DialogCloseElementComponent } from './component/dialog-close-element/dialog-close-element.component';
+import { DialogPlanComponent } from './component/dialog-plan/dialog-plan.component';
+import { DialogAssignTaskComponent } from './component/dialog-assign-task/dialog-assign-task.component';
+import { DialogRefuseTaskComponent } from './component/dialog-refuse-task/dialog-refuse-task.component';
 
 @NgModule({
   declarations: [
@@ -74,6 +77,9 @@ import { DialogCloseElementComponent } from './component/dialog-close-element/di
     DialogFinishElementComponent,
     DialogProgressPercentageComponent,
     DialogCloseElementComponent,
+    DialogPlanComponent,
+    DialogAssignTaskComponent,
+    DialogRefuseTaskComponent,
   ],
   imports: [
     MaterialModule.forRoot(),
@@ -92,6 +98,9 @@ import { DialogCloseElementComponent } from './component/dialog-close-element/di
     DialogFinishElementComponent,
     DialogProgressPercentageComponent,
     DialogCloseElementComponent,
+    DialogPlanComponent,
+    DialogAssignTaskComponent,
+    DialogRefuseTaskComponent,
   ],
   providers: [TaskService, CommunicationsService, MainHeaderService, UserService, EmployeeService],
   bootstrap: [AppComponent]

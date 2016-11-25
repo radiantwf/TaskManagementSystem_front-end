@@ -7,6 +7,7 @@ import { MdDialogRef } from '@angular/material';
   styleUrls: ['./dialog-refuse-task.component.css']
 })
 export class DialogRefuseTaskComponent implements OnInit {
+  reason: string = '';
   constructor( @Optional() public dialogRef: MdDialogRef<DialogRefuseTaskComponent>) { }
 
   ngOnInit() {

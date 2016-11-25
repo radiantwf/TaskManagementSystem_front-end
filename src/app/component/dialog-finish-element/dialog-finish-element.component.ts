@@ -1,5 +1,5 @@
 import { Component, OnInit, Optional } from '@angular/core';
-import { MdDialogRef, MdDialog } from '@angular/material';
+import { MdDialogRef } from '@angular/material';
 import { Task } from './../../model/task';
 
 @Component({
@@ -8,7 +8,7 @@ import { Task } from './../../model/task';
   styleUrls: ['./dialog-finish-element.component.css']
 })
 export class DialogFinishElementComponent implements OnInit {
-  task: Task = new Task(null,null);
+  task: Task = new Task(null, null);
 
   constructor( @Optional() public dialogRef: MdDialogRef<DialogFinishElementComponent>) { }
 

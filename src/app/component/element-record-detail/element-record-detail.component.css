@@ -34,9 +34,9 @@ md-icon{
     border: 1px solid transparent;
     border-radius: 0.25rem;
 }
-.alert-warning {
-    background-color: #fcf8e3;
-    border-color: #faf2cc;
+.alert-pop {    
+    background-color: #f2dede;
+    border-color: #ebcccc;
     color: rgba(0,0,0,0.60);
 }
 
@@ -53,10 +53,9 @@ md-icon{
 }
 
 [md-button].md-refuse, [md-icon-button].md-refuse {
-    color: rgba(0,0,0,0.60);
+    color: rgba(0,0,0,0.54);
 	font-family: "微软雅黑";
     font-size: 1.0rem;
     margin-top: 12px;
     float: right;
-
 }

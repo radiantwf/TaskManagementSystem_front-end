@@ -112,7 +112,7 @@
             <ul>
               <li>
                 <select [(ngModel)]="srcTask.primaryExecutorId" (ngModelChange)="editingTask.primaryExecutorId=$event" class="form-control" #taskManagerIdSelect="ngModel"
-                  name="taskManagerIdSelect" [required]="isTaskAdmin || isTaskManager">
+                  name="taskManagerIdSelect">
 										<option *ngFor="let emp of taskManagers" [value] = "emp.empId">{{emp.name}}</option>
 									</select>
               </li>
@@ -128,11 +128,11 @@
                 <div class="row" class="col-lg-10 col-md-10 col-xs-12 col-sm-12">
                   <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12">
                     <md-input [readonly]="isSeller || isOC && !isTaskAdmin && !isTaskManager && !isAdmin" [(ngModel)]="planningBeginDate" placeholder="任务计划开始日期"
-                      #planningBeginDateInput="ngModel" name="planningBeginDateInput" [required]="(isTaskManager && !isTaskAdmin) || planningEndDate != null || realBeginDate != null || realEndDate != null"></md-input>
+                      #planningBeginDateInput="ngModel" name="planningBeginDateInput" [required]="planningEndDate != null || realBeginDate != null || realEndDate != null"></md-input>
                   </div>
                   <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12">
                     <md-input [readonly]="isSeller || isOC && !isTaskAdmin && !isTaskManager && !isAdmin" [(ngModel)]="planningEndDate" placeholder="任务计划完成日期"
-                      #planningEndDateInput="ngModel" name="planningEndDateInput" [required]="(isTaskManager && !isTaskAdmin) || planningBeginDate != null || realBeginDate != null || realEndDate != null"></md-input>
+                      #planningEndDateInput="ngModel" name="planningEndDateInput" [required]="planningBeginDate != null || realBeginDate != null || realEndDate != null"></md-input>
                   </div>
                 </div>
               </li>

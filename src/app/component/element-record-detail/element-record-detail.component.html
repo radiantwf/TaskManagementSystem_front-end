@@ -5,8 +5,16 @@
   <div class="row" *ngIf="accessAlert">
     <div class="errorDiv">
       <div class="alert alert-pop">
-        是否接受当前任务？<button md-button color="refuse" (click)="onRefuseButtenClick()">拒&nbsp;绝</button><button md-button color="primary"
-          (click)="onAcceptButtenClick()">接&nbsp;受</button>
+        是否接受当前任务？<button md-button color="refuse" (click)="onRefuseButtonClick()">拒&nbsp;绝</button><button md-button color="primary"
+          (click)="onAcceptButtonClick()">接&nbsp;受</button>
+      </div>
+    </div>
+  </div>
+  <div class="row" *ngIf="refuseAlert">
+    <div class="errorDiv">
+      <div class="alert alert-pop">
+        当前任务已被拒绝，是否重新激活该任务？<button md-button color="refuse" (click)="onCloseButtonClick()">关闭任务</button><button md-button
+          color="primary" (click)="onEditAndActiveButtonClick()">修改并激活</button><button md-button color="primary" (click)="onActiveButtonClick()">激&nbsp;活</button>
       </div>
     </div>
   </div>

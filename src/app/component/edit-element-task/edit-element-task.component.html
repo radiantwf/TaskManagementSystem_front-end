@@ -12,6 +12,13 @@
     </div>
     <div class="row">
       <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+        <div class="row" *ngIf="refuseAlert">
+          <div class="errorDiv">
+            <div class="alert alert-pop">
+              当前任务已被拒绝，编辑后会重新激活该项目。
+            </div>
+          </div>
+        </div>
         <div class="task_class">
           <div class="task_class_ic">
             <md-icon>library_books</md-icon>
@@ -98,8 +105,8 @@
             </ul>
             <ul>
               <li>
-                <select [(ngModel)]="srcTask.primaryOCId" (ngModelChange)="editingTask.primaryOCId=$event" class="form-control" #OCIdSelect="ngModel" name="OCIdSelect"
-                  [required]="srcTask.primarySellerId != null || (isTaskAdmin || isTaskManager)">
+                <select [(ngModel)]="srcTask.primaryOCId" (ngModelChange)="editingTask.primaryOCId=$event" class="form-control" #OCIdSelect="ngModel"
+                  name="OCIdSelect" [required]="srcTask.primarySellerId != null || (isTaskAdmin || isTaskManager)">
 										<option *ngFor="let emp of OC" [value] = "emp.empId">{{emp.name}}</option>
 									</select>
               </li>
@@ -111,8 +118,8 @@
             </ul>
             <ul>
               <li>
-                <select [(ngModel)]="srcTask.primaryExecutorId" (ngModelChange)="editingTask.primaryExecutorId=$event" class="form-control" #taskManagerIdSelect="ngModel"
-                  name="taskManagerIdSelect">
+                <select [(ngModel)]="srcTask.primaryExecutorId" (ngModelChange)="editingTask.primaryExecutorId=$event" class="form-control"
+                  #taskManagerIdSelect="ngModel" name="taskManagerIdSelect">
 										<option *ngFor="let emp of taskManagers" [value] = "emp.empId">{{emp.name}}</option>
 									</select>
               </li>

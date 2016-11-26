@@ -30,7 +30,7 @@
       <div class="open">
         <button class="down" (click)="onDetailClicked(taskRecord.id)" md-icon-button md-tooltip="打开" tooltip-position="below">
 					<md-icon>keyboard_arrow_down</md-icon>
-					<span [hidden]="!(accessAlert || menuAlert)" class="badge"></span>
+					<span [hidden]="!(accessAlert || refuseAlert || menuAlert)" class="badge"></span>
 				</button>
       </div>
     </div>

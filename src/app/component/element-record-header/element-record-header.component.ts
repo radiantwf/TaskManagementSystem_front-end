@@ -59,16 +59,18 @@ export class ElementRecordHeaderComponent implements OnInit {
       this.accessAlert = true;
     }
     if (this.taskRecord.status === '分配中' && this.taskRecord.refuseStatus == null) {
-      this.accessAlert = true;
+      if (user.empId === this.taskRecord.primaryOCId) {
+        this.accessAlert = true;
+      }
     }
     if (this.taskRecord.status === '计划中' && this.taskRecord.refuseStatus == null) {
       if (user.empId === this.taskRecord.primaryExecutorId) {
         this.accessAlert = true;
       }
     }
-    if (this.taskRecord.refuseStatus == null) {
-      if (user.empId === this.taskRecord.primarySellerId || this.isOC) {
-        this.accessAlert = true;
+    if (this.taskRecord.refuseStatus != null) {
+      if (user.empId === this.taskRecord.primarySellerId) {
+        this.refuseAlert = true;
       }
     }
     if (this.taskRecord.status === '未开始' && this.taskRecord.refuseStatus == null) {

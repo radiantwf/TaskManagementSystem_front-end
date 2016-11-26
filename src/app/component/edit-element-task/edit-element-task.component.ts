@@ -14,6 +14,7 @@ import { AppGlobal } from '../../shared/app-global';
 export class EditElementTaskComponent implements OnInit {
     srcTask: Task = new Task('', '');
     editingTask: Task = new Task('', null);
+    refuseAlert: boolean = false;
 
     employees: Array<Employee>;
     sellers: Array<Employee>;
@@ -63,6 +64,9 @@ export class EditElementTaskComponent implements OnInit {
                         this.planningEndDate = this.srcTask.planningEndDate;
                         this.realBeginDate = this.srcTask.realBeginDate;
                         this.realEndDate = this.srcTask.realEndDate;
+                        if (this.srcTask.refuseStatus != null) {
+                            this.refuseAlert = true;
+                        }
                     });
             }
         });

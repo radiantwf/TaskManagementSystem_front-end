@@ -46,22 +46,38 @@ export class ElementRecordDetailComponent implements OnInit {
         if (this.taskRecord.status === '新建' && this.isOC && this.taskRecord.refuseStatus == null) {
           this.accessAlert = true;
         }
-        if (this.taskRecord.status === '分配中' && this.taskRecord.refuseStatus == null) {
-          if (user.empId === this.taskRecord.primaryOCId) {
+        if (this.taskRecord.status === '分配中' && this.isOC && this.taskRecord.refuseStatus == null) {
+          this.accessAlert = true;
+        }
+        if (this.taskRecord.status === '计划中' && this.taskRecord.refuseStatus == null) {
+          if (user.empId === this.taskRecord.primaryExecutorId || this.isOC) {
             this.accessAlert = true;
           }
         }
-        if (this.taskRecord.status === '计划中' && this.taskRecord.refuseStatus == null) {
-          if (user.empId === this.taskRecord.primaryExecutorId) {
-            this.accessAlert = true;
+        if (this.taskRecord.refuseStatus != null) {
+          if (user.empId === this.taskRecord.primarySellerId) {
+            this.refuseAlert = true;
           }
         }
       });
   }
-  onRefuseButtenClick() {
+  onActiveButtonClick() {
+    let newTask = new Task(this.taskRecord.id, null);
+    this.taskService.update(newTask)
+      .then(() => this.router.navigate(['/']));
+  }
+  onEditAndActiveButtonClick() {
+    this.router.navigate(['/task', this.taskRecord.id, 'edit']);
+  }
+  onCloseButtonClick() {
+    let newTask = new Task(this.taskRecord.id, null);
+    this.taskService.close(newTask)
+      .then(() => this.router.navigate(['/']));
+  }
+  onRefuseButtonClick() {
     this.openRefuseDialog();
   }
-  onAcceptButtenClick() {
+  onAcceptButtonClick() {
     if (this.taskRecord.status === '新建' || this.taskRecord.status === '分配中') {
       this.openAssignDialog();
     }

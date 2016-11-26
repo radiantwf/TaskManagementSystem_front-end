@@ -27,12 +27,11 @@ export class ElementRecordHeaderComponent implements OnInit {
   isTaskAdmin: boolean = false;
   isTaskManager: boolean = false;
   isAdmin: boolean = false;
-
-  processAlert: boolean = false;
+  accessAlert: boolean = false;
+  refuseAlert: boolean = false;
   startAlert: boolean = false;
   menuAlert: boolean = false;
 
-  processAble: boolean = false;
   startAble: boolean = false;
   progessAble: boolean = false;
   finishAble: boolean = false;
@@ -56,21 +55,23 @@ export class ElementRecordHeaderComponent implements OnInit {
     this.isSeller = user.permissions.findIndex(value => (value === 98)) >= 0;
     this.isTaskAdmin = user.permissions.findIndex(value => (value === 11 || value === 21)) >= 0;
     this.isTaskManager = user.permissions.findIndex(value => (value === 19 || value === 29)) >= 0;
-    if (this.taskRecord.status === '新建' && this.isOC) {
-      this.processAble = true;
+    if (this.taskRecord.status === '新建' && this.isOC && this.taskRecord.refuseStatus == null) {
+      this.accessAlert = true;
     }
-    if (this.taskRecord.status === '分配中') {
-      if (user.empId === this.taskRecord.primaryOCId) {
-        this.processAble = true;
+    if (this.taskRecord.status === '分配中' && this.taskRecord.refuseStatus == null) {
+      this.accessAlert = true;
+    }
+    if (this.taskRecord.status === '计划中' && this.taskRecord.refuseStatus == null) {
+      if (user.empId === this.taskRecord.primaryExecutorId) {
+        this.accessAlert = true;
       }
     }
-
-    if (this.taskRecord.status === '计划中') {
-      if (user.empId === this.taskRecord.primaryExecutorId || this.isTaskAdmin) {
-        this.processAble = true;
+    if (this.taskRecord.refuseStatus == null) {
+      if (user.empId === this.taskRecord.primarySellerId || this.isOC) {
+        this.accessAlert = true;
       }
     }
-    if (this.taskRecord.status === '未开始') {
+    if (this.taskRecord.status === '未开始' && this.taskRecord.refuseStatus == null) {
       if (user.empId === this.taskRecord.primaryExecutorId) {
         this.startAble = true;
       }
@@ -78,7 +79,7 @@ export class ElementRecordHeaderComponent implements OnInit {
         this.startAble = true;
       }
     }
-    if (this.taskRecord.status === '进行中') {
+    if (this.taskRecord.status === '进行中' && this.taskRecord.refuseStatus == null) {
       if (user.empId === this.taskRecord.primaryExecutorId) {
         this.finishAble = true;
       }
@@ -86,7 +87,7 @@ export class ElementRecordHeaderComponent implements OnInit {
         this.finishAble = true;
       }
     }
-    if (this.taskRecord.status !== '已关闭') {
+    if (this.taskRecord.status !== '已关闭' && this.taskRecord.refuseStatus == null) {
       if (this.isOC || this.isAdmin || this.isTaskAdmin) {
         this.closeAble = true;
       }
@@ -94,7 +95,7 @@ export class ElementRecordHeaderComponent implements OnInit {
         this.closeAble = true;
       }
     }
-    if (this.taskRecord.status !== '已关闭') {
+    if (this.taskRecord.status !== '已关闭' && this.taskRecord.refuseStatus == null) {
       if (this.isAdmin || this.isOC || this.isTaskAdmin) {
         this.editAble = true;
       }
@@ -115,7 +116,6 @@ export class ElementRecordHeaderComponent implements OnInit {
         }
       }
     }
-    this.processAlert = this.processAble;
     this.startAlert = this.startAble;
     this.menuAlert = this.startAlert;
   }

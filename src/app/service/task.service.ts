@@ -51,10 +51,10 @@ export class TaskService {
       .then(() => task)
       .catch(this.handleError);
   }
-  refuse(taskId: string, reason: string): Promise<Task> {
-    const url = `${this.tasksUrl}/${taskId}/refuse`;
+  refuse(task: Task): Promise<Task> {
+    const url = `${this.tasksUrl}/${task.id}/refuse`;
     return this.http
-      .put(url, reason, { headers: this.httpHeaders() })
+      .put(url, JSON.stringify(task), { headers: this.httpHeaders() })
       .toPromise()
       .catch(this.handleError);
   }

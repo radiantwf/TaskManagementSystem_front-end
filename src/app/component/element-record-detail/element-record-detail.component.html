@@ -2,7 +2,7 @@
 <!---------------------------------------------------------------------------->
 <!--任务详情-->
 <div class="row pdt10">
-  <div class="row" *ngIf="processAlert">
+  <div class="row" *ngIf="accessAlert">
     <div class="errorDiv">
       <div class="alert alert-pop">
         是否接受当前任务？<button md-button color="refuse" (click)="onRefuseButtenClick()">拒&nbsp;绝</button><button md-button color="primary"
@@ -243,7 +243,7 @@
             <div class="task_class_info">
               <ul>
                 <li class="title">任务状态</li>
-                <li>{{taskRecord.status | null_or_empty:""}}</li>
+                <li>{{taskRecord.refuseStatus | null_or_empty : (taskRecord.status | null_or_empty : "")}}</li>
               </ul>
             </div>
           </div>

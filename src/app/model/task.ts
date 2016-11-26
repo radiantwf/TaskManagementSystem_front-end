@@ -31,6 +31,8 @@ export class Task {
     // 任务状态
     public percent: number;
     public status: string;
+    public refuseStatus: string;
+    public refuseReason: string;
     // 所属产品
     public parentProductId: string;
     public parentProduct: string;

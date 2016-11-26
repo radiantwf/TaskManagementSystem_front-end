@@ -98,9 +98,7 @@ export class ElementRecordDetailComponent implements OnInit {
         editingTask.planningBeginDate = result[0];
         editingTask.planningEndDate = result[1];
         this.taskService.update(editingTask)
-          .then(
-          // () => this.router.navigate([this.router.url]) 刷新页面
-          );
+          .then(() => this.router.navigate(['/']));
       }
     });
   }
@@ -120,9 +118,7 @@ export class ElementRecordDetailComponent implements OnInit {
         editingTask.primaryExecutorId = result[1];
         editingTask.otherExecutors = result[2];
         this.taskService.update(editingTask)
-          .then(
-          // () => this.router.navigate([this.router.url]) 刷新页面
-          );
+          .then(() => this.router.navigate(['/']));
       }
     });
   }
@@ -137,9 +133,7 @@ export class ElementRecordDetailComponent implements OnInit {
         let editingTask = new Task(this.taskId, null);
         editingTask.refuseReason = result;
         this.taskService.refuse(editingTask)
-          .then(
-          // () => this.router.navigate([this.router.url]) 刷新页面
-          );
+          .then(() => this.router.navigate(['/']));
       }
     });
   }

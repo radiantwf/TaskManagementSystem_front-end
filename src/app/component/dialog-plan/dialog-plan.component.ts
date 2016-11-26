@@ -14,5 +14,14 @@ export class DialogPlanComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  returnValue() {
+    if (this.planningBeginDate == null || this.planningEndDate == null) {
+      alert('请填写任务计划日期！');
+      return;
+    }
+    let result: [Date, Date] = [null, null];
+    result[0] = this.planningBeginDate;
+    result[1] = this.planningEndDate;
+    this.dialogRef.close(result);
+  }
 }

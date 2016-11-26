@@ -13,4 +13,11 @@ export class DialogRefuseTaskComponent implements OnInit {
   ngOnInit() {
   }
 
+  returnValue() {
+    if (this.reason == null || this.reason === '') {
+      alert('请填写拒绝理由！');
+      return;
+    }
+    this.dialogRef.close(this.reason);
+  }
 }

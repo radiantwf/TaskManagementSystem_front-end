@@ -76,22 +76,36 @@ export class ElementRecordDetailComponent implements OnInit {
     this.dialogPlanRef.componentInstance.planningEndDate = this.taskRecord.planningEndDate;
     this.dialogPlanRef.afterClosed().subscribe(result => {
       this.dialogPlanRef = null;
-      if (result) {
+      if (result != null) {
+        let editingTask = new Task(this.taskId, null);
+        editingTask.planningBeginDate = result[0];
+        editingTask.planningEndDate = result[1];
+        this.taskService.update(editingTask)
+          .then(
+          // () => this.router.navigate([this.router.url]) 刷新页面
+          );
       }
     });
   }
   openAssignDialog() {
-
     this.dialogAssignRef = this.dialog.open(DialogAssignTaskComponent, {
       disableClose: false
     });
-    
+
     this.dialogAssignRef.componentInstance.primaryOCId = this.taskRecord.primaryOCId;
     this.dialogAssignRef.componentInstance.primaryExecutorId = this.taskRecord.primaryExecutorId;
     this.dialogAssignRef.componentInstance.otherExecutors = this.taskRecord.otherExecutors;
     this.dialogAssignRef.afterClosed().subscribe(result => {
       this.dialogAssignRef = null;
-      if (result) {
+      if (result != null) {
+        let editingTask = new Task(this.taskId, null);
+        editingTask.primaryOCId = result[0];
+        editingTask.primaryExecutorId = result[1];
+        editingTask.otherExecutors = result[2];
+        this.taskService.update(editingTask)
+          .then(
+          // () => this.router.navigate([this.router.url]) 刷新页面
+          );
       }
     });
   }
@@ -102,7 +116,11 @@ export class ElementRecordDetailComponent implements OnInit {
 
     this.dialogRefuseRef.afterClosed().subscribe(result => {
       this.dialogRefuseRef = null;
-      if (result) {
+      if (result != null) {
+        this.taskService.refuse(this.taskId, result)
+          .then(
+          // () => this.router.navigate([this.router.url]) 刷新页面
+          );
       }
     });
   }

@@ -4,22 +4,22 @@
     <p>请选择对应负责人：</p>
     <div class="col-lg12 col-md-12 col-xs-12 col-sm-12">
       <p>请选择OC负责人</p>
-      <select [(ngModel)]="primaryOCId" class="form-control">
+      <select [(ngModel)]="primaryOCId" (ngModelChange)="desPrimaryOCId=$event" [required]="true" class="form-control">
         <option *ngFor="let emp of OC" [value] = "emp.empId">{{emp.name}}</option>
       </select>
     </div>
     <div class="col-lg12 col-md-12 col-xs-12 col-sm-12 mrb20">
       <p>请选择任务负责人</p>
-      <select [(ngModel)]="primaryExecutorId" class="form-control">
+      <select [(ngModel)]="primaryExecutorId" (ngModelChange)="desPrimaryExecutorId=$event" [required]="true" class="form-control">
         <option *ngFor="let emp of taskExecutors" [value]="emp.empId">{{emp.name}}</option>
       </select>
     </div>
     <div class="col-lg12 col-md-12 col-xs-12 col-sm-12">
-      <md-input [(ngModel)]="otherExecutors" placeholder="其他相关负责人员"></md-input>
+      <md-input [(ngModel)]="otherExecutors" (ngModelChange)="desOtherExecutors=$event" placeholder="其他相关负责人员"></md-input>
     </div>
   </div>
 </div>
 <div class="md-dialog-actions">
-  <button md-button class="md-button button-line" type="button" (click)="dialogRef.close(false)">取&nbsp;&nbsp;消</button>
-  <button md-button class="md-button confirm-button" type="button" (click)="dialogRef.close(true)">确&nbsp;&nbsp;定</button>
+  <button md-button class="md-button button-line" type="button" (click)="dialogRef.close(null)">取&nbsp;&nbsp;消</button>
+  <button md-button class="md-button confirm-button" type="button" (click)="returnValue()">确&nbsp;&nbsp;定</button>
 </div>

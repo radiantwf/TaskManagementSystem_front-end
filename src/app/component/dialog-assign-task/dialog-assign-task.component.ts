@@ -13,6 +13,9 @@ export class DialogAssignTaskComponent implements OnInit {
   primaryOCId: string;
   primaryExecutorId: string;
   otherExecutors: string;
+  desPrimaryOCId: string;
+  desPrimaryExecutorId: string;
+  desOtherExecutors: string;
 
   employees: Array<Employee>;
   OC: Array<Employee>;
@@ -22,6 +25,9 @@ export class DialogAssignTaskComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.desPrimaryOCId = null;
+    this.desPrimaryExecutorId = null;
+    this.desOtherExecutors = null;
   }
 
   ProcessEmployees() {
@@ -30,16 +36,34 @@ export class DialogAssignTaskComponent implements OnInit {
     this.employees.forEach(value => {
       if (value.permissions.findIndex(p => (p === 99)) >= 0) {
         this.OC.push(value);
-        if (value.empId === AppGlobal.getInstance().currentUser.empId) {
-          this.primaryOCId = value.empId;
+        if (this.primaryOCId == null) {
+          if (value.empId === AppGlobal.getInstance().currentUser.empId) {
+            this.primaryOCId = value.empId;
+            this.desPrimaryOCId = value.empId;
+          }
         }
       }
       if (value.permissions.findIndex(p => (p === 11 || p === 19 || p === 21 || p === 29)) >= 0) {
         this.taskExecutors.push(value);
-        if (value.empId === AppGlobal.getInstance().currentUser.empId) {
-          this.primaryExecutorId = value.empId;
+        if (this.primaryExecutorId == null) {
+          if (value.empId === AppGlobal.getInstance().currentUser.empId) {
+            this.primaryExecutorId = value.empId;
+            this.desPrimaryExecutorId = value.empId;
+          }
         }
       }
     });
+  }
+  returnValue() {
+    if ((this.primaryOCId == null && this.desPrimaryOCId == null)
+      || (this.primaryExecutorId == null && this.desPrimaryExecutorId == null)) {
+      alert('请选择OC负责人与任务负责人！');
+      return;
+    }
+    let result: [string, string, string] = [null, null, null];
+    result[0] = this.desPrimaryOCId;
+    result[1] = this.desPrimaryExecutorId;
+    result[2] = this.desOtherExecutors;
+    this.dialogRef.close(result);
   }
 }

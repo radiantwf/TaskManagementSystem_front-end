@@ -51,6 +51,13 @@ export class TaskService {
       .then(() => task)
       .catch(this.handleError);
   }
+  refuse(taskId: string, reason: string): Promise<Task> {
+    const url = `${this.tasksUrl}/${taskId}/refuse`;
+    return this.http
+      .put(url, reason, { headers: this.httpHeaders() })
+      .toPromise()
+      .catch(this.handleError);
+  }
 
   strat(task: Task): Promise<Task> {
     const url = `${this.tasksUrl}/${task.id}/start`;

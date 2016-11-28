@@ -142,7 +142,7 @@
       </div>
     </div>
     <!--OC负责人-->
-    <div class="row" *ngIf="taskRecord.status==='分配中' ||taskRecord.status==='计划中' ||taskRecord.status==='未开始' || taskRecord.status==='进行中' || taskRecord.status==='完成' || taskRecord.status==='关闭'">
+    <div class="row" *ngIf="taskRecord.status==='分配中' ||taskRecord.status==='计划中' ||taskRecord.status==='未开始' || taskRecord.status==='进行中' || taskRecord.status==='已完成' || taskRecord.status==='已关闭'">
       <div class="col-lg-1 col-md-1 col-xs-1 col-sm-1">
         <div class="task_class">
           <div class="task_class_ic">
@@ -184,7 +184,7 @@
       </div>
     </div>
     <!--计划时间-->
-    <div class="row" *ngIf="taskRecord.status==='未开始' || taskRecord.status==='进行中' || taskRecord.status==='完成' || taskRecord.status==='关闭'">
+    <div class="row" *ngIf="taskRecord.status==='未开始' || taskRecord.status==='进行中' || taskRecord.status==='已完成' || taskRecord.status==='已关闭'">
       <div class="col-lg-1 col-md-1 col-xs-1 col-sm-1">
       </div>
       <div class="col-lg-11 col-md-11 col-xs-11 col-sm-11">
@@ -213,7 +213,7 @@
       </div>
     </div>
     <!--实际时间-->
-    <div class="row" *ngIf="taskRecord.status==='进行中' || taskRecord.status==='完成' || taskRecord.status==='关闭'">
+    <div class="row" *ngIf="taskRecord.status==='进行中' || taskRecord.status==='已完成' || taskRecord.status==='已关闭'">
       <div class="col-lg-1 col-md-1 col-xs-1 col-sm-1">
       </div>
       <div class="col-lg-11 col-md-11 col-xs-11 col-sm-11">
@@ -257,7 +257,7 @@
           </div>
         </div>
         <div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
-          <div *ngIf="taskRecord.status==='进行中' || taskRecord.status==='完成' || taskRecord.status==='关闭'" class="task_class">
+          <div *ngIf="taskRecord.status==='进行中' || taskRecord.status==='已完成' || taskRecord.status==='已关闭'" class="task_class">
             <div class="task_class_info">
               <ul>
                 <li class="title">当前进度</li>

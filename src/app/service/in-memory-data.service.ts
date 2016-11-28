@@ -33,7 +33,7 @@
 //     task[0].planningEndDate = new Date(2016, 4, 6, 0, 0, 0);
 //     task[0].realBeginDate = new Date(2016, 4, 6, 0, 0, 0);
 //     task[0].realEndDate = new Date(2016, 4, 6, 0, 0, 0);
-//     task[0].status = '完成';
+//     task[0].status = '已完成';
 //     task[0].parentProduct = null;
 //     task[0].parentProject = null;
 

@@ -1,13 +1,13 @@
 import {
-  Component, OnInit, EventEmitter
+  Component, OnInit
 } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router'
+import { ActivatedRoute, Router } from '@angular/router';
 import { Task } from './../../model/task';
 import { TaskService } from './../../service/task.service';
 import { AppGlobal } from '../../shared/app-global';
 
 @Component({
-  selector: 'element-list',
+  selector: 'app-element-list',
   templateUrl: './element-list.component.html',
   styleUrls: ['./element-list.component.css'],
 })
@@ -34,20 +34,19 @@ export class ElementListComponent implements OnInit {
     });
 
     this.activatedRoute.params.subscribe(params => {
-      if (typeof (params['page']) == "undefined") {
+      if (typeof (params['page']) === undefined) {
         this.page = 1;
-      }
-      else {
-        this.page = parseInt(params['page']);
+      } else {
+        this.page = parseInt(params['page'], 1);
       }
       this.taskService.getTaskCounts()
         .subscribe(counts => {
           if (counts !== null) {
             this.counts = counts;
-            AppGlobal.getInstance().lastPage = Math.ceil(counts.total / AppGlobal.getInstance().pageSize)
+            AppGlobal.getInstance().lastPage = Math.ceil(counts.total / AppGlobal.getInstance().pageSize);
             this.lastPage = AppGlobal.getInstance().lastPage;
-            var pages = new Array<string>();
-            for (var i = 1; i <= this.lastPage; i++) {
+            let pages = new Array<string>();
+            for (let i = 1; i <= this.lastPage; i++) {
               if (this.lastPage <= 8) {
                 pages.push(i.toString());
                 continue;
@@ -64,8 +63,8 @@ export class ElementListComponent implements OnInit {
                 pages.push(i.toString());
                 continue;
               }
-              if (i == this.page - 2 || i == this.page + 2) {
-                if (this.page == 6 || this.page == this.lastPage - 4) {
+              if (i === this.page - 2 || i === this.page + 2) {
+                if (this.page === 6 || this.page === this.lastPage - 4) {
                   pages.push(i.toString());
                 } else {
                   pages.push('...');
@@ -81,15 +80,15 @@ export class ElementListComponent implements OnInit {
     });
   }
   onDetailClicked(event) {
-    if (this.id == event) {
-      this.id = "";
+    if (this.id === event) {
+      this.id = '';
     } else {
       this.id = event;
     }
   }
   clickPage(clickedPage) {
     console.log(clickedPage);
-    if (typeof (clickedPage) != "number") {
+    if (typeof (clickedPage) !== 'number') {
       this.jumpPage = null;
     }
     if (clickedPage <= 1) {
@@ -98,7 +97,7 @@ export class ElementListComponent implements OnInit {
     if (clickedPage >= this.lastPage) {
       clickedPage = this.lastPage;
     }
-    this.router.navigate(['/task', clickedPage.toString()]);
+    this.router.navigate([this.elementType, clickedPage.toString()]);
   }
   prevPage() {
     let prevPage = 0;
@@ -107,7 +106,7 @@ export class ElementListComponent implements OnInit {
     } else {
       prevPage = this.page - 1;
     }
-    this.router.navigate(['/task', prevPage.toString()]);
+    this.router.navigate([this.elementType, prevPage.toString()]);
   }
   nextPage() {
     let nextPage = 0;
@@ -116,6 +115,6 @@ export class ElementListComponent implements OnInit {
     } else {
       nextPage = this.page + 1;
     }
-    this.router.navigate(['/task', nextPage.toString()]);
+    this.router.navigate([this.elementType, nextPage.toString()]);
   }
 }

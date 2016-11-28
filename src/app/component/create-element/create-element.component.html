@@ -1,3 +1,5 @@
-  <div class="row rightDiv">
-      <create-element-task></create-element-task>
-  </div>
+<div class="row rightDiv">
+  <create-element-task *ngIf="elementType==='task'"></create-element-task>
+  <app-create-element-project *ngIf="elementType==='project'"></app-create-element-project>
+  <app-create-element-product *ngIf="elementType==='product'"></app-create-element-product>
+</div>

@@ -46,6 +46,38 @@ const appRoutes: Routes = [
         path: 'task/:tid/:do',
         component: EditElementComponent,
       },
+      {
+        path: 'project/new',
+        component: CreateElementComponent
+      },
+      {
+        path: 'project',
+        component: ElementListComponent,
+      },
+      {
+        path: 'project/:page',
+        component: ElementListComponent,
+      },
+      {
+        path: 'project/:tid/:do',
+        component: EditElementComponent,
+      },
+      {
+        path: 'product/new',
+        component: CreateElementComponent
+      },
+      {
+        path: 'product',
+        component: ElementListComponent,
+      },
+      {
+        path: 'product/:page',
+        component: ElementListComponent,
+      },
+      {
+        path: 'product/:tid/:do',
+        component: EditElementComponent,
+      },
     ]
   }
 ];

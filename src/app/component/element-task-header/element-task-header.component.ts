@@ -108,7 +108,7 @@ export class ElementTaskHeaderComponent implements OnInit {
     if (this.isAdmin) {
       this.deleteAble = true;
     } else {
-      if (this.taskRecord.status === '新建' || this.taskRecord.status === '分配中') {
+      if (this.taskRecord.status === '新建' || this.taskRecord.status === '分配中' || this.taskRecord.status === '计划中') {
         if (user.empId === this.taskRecord.creatorId) {
           this.deleteAble = true;
           this.closeAble = true;

@@ -14,12 +14,13 @@ import { AppGlobal } from '../../shared/app-global';
 
 export class ElementListComponent implements OnInit {
   tasks: Task[] = [];
-  id: string = "";
+  id: string = '';
   page: number;
   lastPage: number;
   displayPageNumbers: string[];
   counts: any;
   jumpPage: number;
+  elementType: string = '';
 
   constructor(
     private taskService: TaskService,
@@ -28,6 +29,10 @@ export class ElementListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.activatedRoute.url.subscribe(value => {
+      this.elementType = value[0].path.toLowerCase();
+    });
+
     this.activatedRoute.params.subscribe(params => {
       if (typeof (params['page']) == "undefined") {
         this.page = 1;
@@ -96,7 +101,7 @@ export class ElementListComponent implements OnInit {
     this.router.navigate(['/task', clickedPage.toString()]);
   }
   prevPage() {
-    var prevPage = 0;
+    let prevPage = 0;
     if (this.page <= 1) {
       prevPage = 1;
     } else {
@@ -105,7 +110,7 @@ export class ElementListComponent implements OnInit {
     this.router.navigate(['/task', prevPage.toString()]);
   }
   nextPage() {
-    var nextPage = 0;
+    let nextPage = 0;
     if (this.page >= this.lastPage) {
       nextPage = this.lastPage;
     } else {

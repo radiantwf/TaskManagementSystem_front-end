@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'edit-element',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./edit-element.component.css']
 })
 export class EditElementComponent implements OnInit {
+  elementType: string = '';
 
-  constructor() { }
+  constructor(
+    private router: Router,
+    private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
+    this.activatedRoute.url.subscribe(value => {
+      this.elementType = value[0].path.toLowerCase();
+    });
   }
-
 }

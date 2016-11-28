@@ -3,19 +3,16 @@
   <ul class="menu">
     <li [routerLink]="['/']">
       <md-icon class="material-icons">home</md-icon>
-      <!--<div class="glyph-icon icon-elusive-home-circled" title="" data-original-title=".icon-elusive-home-circled"></div>-->
       首页
     </li>
   </ul>
   <ul *ngIf="false" class="menu">
     <li>
       <md-icon class="material-icons">account_circle</md-icon>
-      <!--<div class="glyph-icon icon-elusive-slideshare" title="" data-original-title=".icon-elusive-slideshare"></div>-->
       与我有关的任务
     </li>
     <li>
       <md-icon class="material-icons">assignment_ind</md-icon>
-      <!--<div class="glyph-icon icon-elusive-user" title="" data-original-title=".icon-elusive-user"></div>-->
       我负责的任务<span class="badge badge-gray">3</span>
     </li>
   </ul>
@@ -23,7 +20,6 @@
     <li>
       <div [routerLink]="['/task']">
         <md-icon class="material-icons">format_list_numbered</md-icon>
-        <!--<div class="glyph-icon icon-elusive-list" title="" data-original-title=".icon-elusive-list"></div>-->
         任务列表
       </div>
       <i *ngIf="createTaskVisibility" [routerLink]="['/task','new']" class="btn-add material-icons">add_circle</i>
@@ -31,18 +27,16 @@
     <li>
       <div [routerLink]="['/project']">
         <md-icon class="material-icons">link</md-icon>
-        <!--<i  class="glyph-icon icon-file-powerpoint-o" title="" data-original-title=".icon-file-powerpoint-o"></i> -->
         项目列表
       </div>
-      <i *ngIf="createProjectVisibility" [routerLink]="['/task','new']" class="pull-xs-right material-icons">add_circle</i>
+      <i *ngIf="createProjectVisibility" [routerLink]="['/project','new']" class="pull-xs-right material-icons">add_circle</i>
     </li>
     <li>
       <div [routerLink]="['/product']">
         <md-icon class="material-icons">widgets</md-icon>
-        <!--<i  class="glyph-icon icon-cubes" title="" data-original-title=".icon-cubes"></i> -->
         产品列表
       </div>
-      <i *ngIf="createProductVisibility" [routerLink]="['/task','new']" class="pull-xs-right material-icons">add_circle</i>
+      <i *ngIf="createProductVisibility" [routerLink]="['/product','new']" class="pull-xs-right material-icons">add_circle</i>
     </li>
   </ul>
   <ul class="menu">

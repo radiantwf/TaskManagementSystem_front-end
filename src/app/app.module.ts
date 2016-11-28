@@ -12,7 +12,7 @@ import { SignInComponent } from './component/sign-in/sign-in.component';
 import { HomeComponent } from './component/home/home.component';
 import { TextboxAutocompleteDirective } from './directive/textbox-autocomplete.directive';
 import { ElementListComponent } from './component/element-list/element-list.component';
-import { ElementRecordComponent } from './component/element-record/element-record.component';
+import { ElementTaskComponent } from './component/element-task/element-task.component';
 import { ElementTaskHeaderComponent } from './component/element-task-header/element-task-header.component';
 import { ElementTaskDetailComponent } from './component/element-task-detail/element-task-detail.component';
 import { SigninUserInfoComponent } from './component/signin-user-info/signin-user-info.component';
@@ -53,6 +53,8 @@ import { ElementProjectHeaderComponent } from './component/element-project-heade
 import { ElementProjectDetailComponent } from './component/element-project-detail/element-project-detail.component';
 import { ElementProductHeaderComponent } from './component/element-product-header/element-product-header.component';
 import { ElementProductDetailComponent } from './component/element-product-detail/element-product-detail.component';
+import { ElementProjectComponent } from './component/element-project/element-project.component';
+import { ElementProductComponent } from './component/element-product/element-product.component';
 import { ChangePasswordComponent } from './component/change-password/change-password.component';
 
 @NgModule({
@@ -64,7 +66,7 @@ import { ChangePasswordComponent } from './component/change-password/change-pass
     CommunicationsDirective,
     NullOrEmptyPipe,
     ElementListComponent,
-    ElementRecordComponent,
+    ElementTaskComponent,
     ElementTaskHeaderComponent,
     ElementTaskDetailComponent,
     SigninUserInfoComponent,
@@ -98,6 +100,8 @@ import { ChangePasswordComponent } from './component/change-password/change-pass
     ElementProductHeaderComponent,
     ElementProductDetailComponent,
     ChangePasswordComponent,
+    ElementProjectComponent,
+    ElementProductComponent,
   ],
   imports: [
     MaterialModule.forRoot(),

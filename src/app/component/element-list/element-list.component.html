@@ -1,5 +1,5 @@
 <div class="row rightDiv" *ngFor="let task of tasks">
-  <element-record [task]="task" (detailClicked)="onDetailClicked($event)" [detailFlag]="task.id==id"></element-record>
+  <element-task [task]="task" (detailClicked)="onDetailClicked($event)" [detailFlag]="task.id==id"></element-task>
 </div>
 <!--页码-->
 <div *ngIf="tasks.length > 0" class="pages">

@@ -9,7 +9,7 @@ import { DialogAssignTaskComponent } from './../dialog-assign-task/dialog-assign
 import { DialogRefuseTaskComponent } from './../dialog-refuse-task/dialog-refuse-task.component';
 
 @Component({
-  selector: 'element-task-detail',
+  selector: 'app-element-task-detail',
   templateUrl: './element-task-detail.component.html',
   styleUrls: ['./../element-task-header/element-task-header.component.css', './element-task-detail.component.css']
 })

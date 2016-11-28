@@ -13,9 +13,18 @@ export class UserService {
 
   signin(uid: string, password: string): Observable<User> {
     return this.http
-      .post(this.signInUrl, JSON.stringify({ "uid": uid, "password": password })
+      .post(this.signInUrl, JSON.stringify({ 'uid': uid, 'password': password })
       , { headers: this.httpHeaders() })
       .map(response => response.json().data as User)
+      .catch(this.handleError);
+  }
+
+  changePassword(uid: string, password: string, newpassword: string): Observable<string> {
+    const url = `${this.userUrl}/${uid}`;
+    return this.http
+      .put(url, JSON.stringify({ 'uid': uid, 'password': password, 'newpassword': newpassword })
+      , { headers: this.httpHeaders() })
+      .map(response => response.json().data as string)
       .catch(this.handleError);
   }
 
@@ -32,8 +41,8 @@ export class UserService {
     let errMsg: string;
     if (error instanceof Response) {
       const code = error.status;
-      if (code == 401) {
-        return Observable.create()
+      if (code === 401) {
+        return Observable.create();
       }
       const body = error.json() || '';
       const err = body.error || JSON.stringify(body);
@@ -46,12 +55,12 @@ export class UserService {
   }
 
   private httpHeaders(): Headers {
-    var headers = new Headers({ 'Content-Type': 'application/json' });
-    var token = AppGlobal.getInstance().getLocalToken();
-    if (token != null && token != "") {
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let token = AppGlobal.getInstance().getLocalToken();
+    if (token != null && token !== '') {
       headers.append('X-Auth-Token', token);
     }
-    return headers
+    return headers;
   }
 }
 

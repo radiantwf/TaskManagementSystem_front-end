@@ -1,11 +1,10 @@
 <div class="container">
   <!---------------------------------------------------------------------------->
   <div class="row head">
-
     <div class="col-lg-4 col-md-4 col-xs-2 col-sm-12">
     </div>
     <div class="col-lg-6 col-md-8 col-xs-10 col-sm-12">
-      <search></search>
+      <app-search *ngIf="false"></app-search>
     </div>
     <div class="col-lg-2 col-md-12 col-xs-12 col-sm-12">
       <signin-user-info></signin-user-info>
@@ -17,7 +16,7 @@
     <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12 body_bg">
       <!---------------------------------------------------------------------------->
       <!--头部区域-->
-      <main-header></main-header>
+      <main-header *ngIf="false"></main-header>
       <!---------------------------------------------------------------------------->
       <!--头部分割线-->
       <div class="row line"></div>
@@ -27,7 +26,7 @@
         <!--左侧菜单区域-->
         <md-sidenav-layout>
           <md-sidenav #sidenav mode="side" [opened]="true" class="app-sidenav">
-              <main-navigation-bar></main-navigation-bar>
+            <main-navigation-bar></main-navigation-bar>
           </md-sidenav>
           <!---------------------------------------------------------------------------->
           <!--右侧内容区域-->
@@ -38,7 +37,6 @@
           </button>
             <router-outlet></router-outlet>
           </div>
-
         </md-sidenav-layout>
       </div>
     </div>

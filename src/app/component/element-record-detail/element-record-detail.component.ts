@@ -50,7 +50,7 @@ export class ElementRecordDetailComponent implements OnInit {
           this.accessAlert = true;
         }
         if (this.taskRecord.status === '计划中' && this.taskRecord.refuseStatus == null) {
-          if (user.empId === this.taskRecord.primaryExecutorId || this.isOC) {
+          if (user.empId === this.taskRecord.primaryExecutorId) {
             this.accessAlert = true;
           }
         }

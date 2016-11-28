@@ -1,113 +1,116 @@
-
 /*菜单*/
+
 .leftDiv {
-    background-color: rgba(255,255,255,0.3);
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
-.menu{
-	display: inline-block;
-	width: 100%;
-	border-bottom: 1px solid #fff;
-
+.menu {
+  display: inline-block;
+  width: 100%;
+  border-bottom: 1px solid #fff;
 }
 
-.menu li, .menu li:hover{
-	list-style-type: none;
-	height: 52px;
-	line-height: 52px;
-	font-size: 0.8rem;
-	color:#939393;
-	padding-left: 40px;
+.menu li,
+.menu li:hover {
+  list-style-type: none;
+  height: 52px;
+  line-height: 52px;
+  font-size: 0.8rem;
+  color: #939393;
+  padding-left: 40px;
 }
 
-.SignOut li, .SignOut li:hover{
-	list-style-type: none;
-	height: 52px;
-	line-height: 52px;
-	font-size: 0.8rem;
-	color:#e9573f;
-	padding-left: 42px;
+.menu li.SignOut,
+.menu li.SignOut:hover {
+  list-style-type: none;
+  height: 52px;
+  line-height: 52px;
+  font-size: 0.8rem;
+  color: #e9573f;
+  padding-left: 42px;
 }
 
-
-.menu li:hover span{
-	background-color:#117ecc;
-	color:#FFFFFF;
-
+.menu li.SignOut:hover {
+  color: red;
 }
 
-.menu li:hover{
-	color:#117ecc;
-	background-color: rgba(0,0,0,0.05);
-	cursor: pointer;
-}
-.SignOut li:hover{
-	color:#d7481c;
+.menu li:hover span {
+  background-color: #117ecc;
+  color: #FFFFFF;
 }
 
-
-.menu li md-icon{
-    margin-top: 14px;
-    margin-left: -28px;
-    position: absolute;
+.menu li:hover {
+  color: #117ecc;
+  background-color: rgba(0, 0, 0, 0.05);
+  cursor: pointer;
 }
 
-.menu .glyph-icon{
-	font-size: 1.3rem;
-    position: absolute;
-    right: 10px;
-    /*margin-right: 10px;*/
-    margin-top: -52px;
+.menu li md-icon {
+  margin-top: 14px;
+  margin-left: -28px;
+  position: absolute;
+}
+
+.menu .glyph-icon {
+  font-size: 1.3rem;
+  position: absolute;
+  right: 10px;
+  /*margin-right: 10px;*/
+  margin-top: -52px;
 }
 
 .badge {
-	position: absolute;
-    display: inline-block;
-    min-width: 10px;
-    padding: 3px 7px;
-    font-size: 0.5rem;
-    font-weight: 600;
-    color: #ffffff;
-    line-height: 1;
-    vertical-align: baseline;
-    white-space: nowrap;
-    text-align: center;
-    background-color: #777777;
-    border-radius: 10px;
-    margin-top: 16px;
-    right:10px
+  position: absolute;
+  display: inline-block;
+  min-width: 10px;
+  padding: 3px 7px;
+  font-size: 0.5rem;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1;
+  vertical-align: baseline;
+  white-space: nowrap;
+  text-align: center;
+  background-color: #777777;
+  border-radius: 10px;
+  margin-top: 16px;
+  right: 10px
 }
 
 .badge-danger {
-    background-color: #e9573f;
+  background-color: #e9573f;
 }
 
-.badge-gray{
-	background-color: #dadada;
-	color: #7f7e7e;
+.badge-gray {
+  background-color: #dadada;
+  color: #7f7e7e;
 }
 
-.btn-add:hover{
- color: #d7481c;
+.btn-add:hover {
+  color: #d7481c;
 }
+
 
 /*图标*/
-i:before, .fc-icon, .ui-icon:before {
-    font-family: FontAwesome;
-    font-weight: 400;
-    font-style: normal;
-    display: inline-block;
-    text-align: center;
-    text-decoration: none;
-    background: 0 0;
-    speak: none;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+
+i:before,
+.fc-icon,
+.ui-icon:before {
+  font-family: FontAwesome;
+  font-weight: 400;
+  font-style: normal;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  background: 0 0;
+  speak: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-li i{
-    float:right;
-    margin-top: -36px;
-    margin-right: 10px;
-    font-size:20px;
+li i {
+  float: right;
+  margin-top: -36px;
+  margin-right: 10px;
+  font-size: 20px;
 }

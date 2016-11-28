@@ -45,8 +45,12 @@
       <i *ngIf="createProductVisibility" [routerLink]="['/task','new']" class="pull-xs-right material-icons">add_circle</i>
     </li>
   </ul>
-  <ul class="menu SignOut">
-    <li [routerLink]="['/signout']">
+  <ul class="menu">
+    <li [routerLink]="['/password']">
+      <md-icon class="material-icons">keyboard</md-icon>
+      修改密码
+    </li>
+    <li class="SignOut" [routerLink]="['/signout']">
       <md-icon class="material-icons">power_settings_new</md-icon>
       退出登录
     </li>

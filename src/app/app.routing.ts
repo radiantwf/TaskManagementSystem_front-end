@@ -6,6 +6,7 @@ import { HomeComponent } from './component/home/home.component';
 import { ElementListComponent } from './component/element-list/element-list.component';
 import { CreateElementComponent } from './component/create-element/create-element.component';
 import { EditElementComponent } from './component/edit-element/edit-element.component';
+import { ChangePasswordComponent } from './component/change-password/change-password.component';
 
 const appRoutes: Routes = [
   {
@@ -20,6 +21,10 @@ const appRoutes: Routes = [
   {
     path: 'signout',
     component: SignOutComponent
+  },
+  {
+    path: 'password',
+    component: ChangePasswordComponent
   },
   {
     path: '',

@@ -53,6 +53,7 @@ import { ElementProjectHeaderComponent } from './component/element-project-heade
 import { ElementProjectDetailComponent } from './component/element-project-detail/element-project-detail.component';
 import { ElementProductHeaderComponent } from './component/element-product-header/element-product-header.component';
 import { ElementProductDetailComponent } from './component/element-product-detail/element-product-detail.component';
+import { ChangePasswordComponent } from './component/change-password/change-password.component';
 
 @NgModule({
   declarations: [
@@ -96,6 +97,7 @@ import { ElementProductDetailComponent } from './component/element-product-detai
     ElementProjectDetailComponent,
     ElementProductHeaderComponent,
     ElementProductDetailComponent,
+    ChangePasswordComponent,
   ],
   imports: [
     MaterialModule.forRoot(),

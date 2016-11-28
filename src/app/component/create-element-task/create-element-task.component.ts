@@ -10,7 +10,7 @@ import { AppGlobal } from '../../shared/app-global';
 @Component({
     selector: 'create-element-task',
     templateUrl: './create-element-task.component.html',
-    styleUrls: ['./../element-record-header/element-record-header.component.css', './create-element-task.component.css']
+    styleUrls: ['./../element-task-header/element-task-header.component.css', './create-element-task.component.css']
 })
 export class CreateElementTaskComponent implements OnInit {
     newTask: Task = new Task('', '');

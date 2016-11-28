@@ -9,7 +9,7 @@ import { AppGlobal } from '../../shared/app-global';
 @Component({
     selector: 'app-edit-element-task',
     templateUrl: './edit-element-task.component.html',
-    styleUrls: ['./../element-record-header/element-record-header.component.css', './edit-element-task.component.css']
+    styleUrls: ['./../element-task-header/element-task-header.component.css', './edit-element-task.component.css']
 })
 export class EditElementTaskComponent implements OnInit {
     srcTask: Task = new Task('', '');

@@ -9,11 +9,11 @@ import { DialogAssignTaskComponent } from './../dialog-assign-task/dialog-assign
 import { DialogRefuseTaskComponent } from './../dialog-refuse-task/dialog-refuse-task.component';
 
 @Component({
-  selector: 'element-record-detail',
-  templateUrl: './element-record-detail.component.html',
-  styleUrls: ['./../element-record-header/element-record-header.component.css', './element-record-detail.component.css']
+  selector: 'element-task-detail',
+  templateUrl: './element-task-detail.component.html',
+  styleUrls: ['./../element-task-header/element-task-header.component.css', './element-task-detail.component.css']
 })
-export class ElementRecordDetailComponent implements OnInit {
+export class ElementTaskDetailComponent implements OnInit {
   @Input() taskId: string;
   taskRecord: Task = new Task('', '');
 

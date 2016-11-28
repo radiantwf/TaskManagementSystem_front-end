@@ -12,11 +12,11 @@ import { DialogCloseElementComponent } from './../dialog-close-element/dialog-cl
 import { TaskService } from './../../service/task.service';
 
 @Component({
-  selector: 'app-element-record-header',
-  templateUrl: './element-record-header.component.html',
-  styleUrls: ['./element-record-header.component.css']
+  selector: 'app-element-task-header',
+  templateUrl: './element-task-header.component.html',
+  styleUrls: ['./element-task-header.component.css']
 })
-export class ElementRecordHeaderComponent implements OnInit {
+export class ElementTaskHeaderComponent implements OnInit {
 
   @Input() detailFlag = false;
   @Input() taskRecord: Task;

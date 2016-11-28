@@ -1,2 +1,2 @@
-<app-element-record-header [taskRecord]="task" (detailClicked)="onDetailClicked($event)" [detailFlag]="detailFlag"></app-element-record-header>
-<element-record-detail *ngIf="detailFlag" [taskId]="task.id"></element-record-detail>
+<app-element-task-header [taskRecord]="task" (detailClicked)="onDetailClicked($event)" [detailFlag]="detailFlag"></app-element-task-header>
+<element-task-detail *ngIf="detailFlag" [taskId]="task.id"></element-task-detail>

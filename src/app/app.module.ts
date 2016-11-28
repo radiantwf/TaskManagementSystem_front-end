@@ -13,8 +13,8 @@ import { HomeComponent } from './component/home/home.component';
 import { TextboxAutocompleteDirective } from './directive/textbox-autocomplete.directive';
 import { ElementListComponent } from './component/element-list/element-list.component';
 import { ElementRecordComponent } from './component/element-record/element-record.component';
-import { ElementRecordHeaderComponent } from './component/element-record-header/element-record-header.component';
-import { ElementRecordDetailComponent } from './component/element-record-detail/element-record-detail.component';
+import { ElementTaskHeaderComponent } from './component/element-task-header/element-task-header.component';
+import { ElementTaskDetailComponent } from './component/element-task-detail/element-task-detail.component';
 import { SigninUserInfoComponent } from './component/signin-user-info/signin-user-info.component';
 import { MainHeaderComponent } from './component/main-header/main-header.component';
 import { MainNavigationBarComponent } from './component/main-navigation-bar/main-navigation-bar.component';
@@ -45,6 +45,14 @@ import { DialogCloseElementComponent } from './component/dialog-close-element/di
 import { DialogPlanComponent } from './component/dialog-plan/dialog-plan.component';
 import { DialogAssignTaskComponent } from './component/dialog-assign-task/dialog-assign-task.component';
 import { DialogRefuseTaskComponent } from './component/dialog-refuse-task/dialog-refuse-task.component';
+import { CreateElementProjectComponent } from './component/create-element-project/create-element-project.component';
+import { CreateElementProductComponent } from './component/create-element-product/create-element-product.component';
+import { EditElementProductComponent } from './component/edit-element-product/edit-element-product.component';
+import { EditElementProjectComponent } from './component/edit-element-project/edit-element-project.component';
+import { ElementProjectHeaderComponent } from './component/element-project-header/element-project-header.component';
+import { ElementProjectDetailComponent } from './component/element-project-detail/element-project-detail.component';
+import { ElementProductHeaderComponent } from './component/element-product-header/element-product-header.component';
+import { ElementProductDetailComponent } from './component/element-product-detail/element-product-detail.component';
 
 @NgModule({
   declarations: [
@@ -56,8 +64,8 @@ import { DialogRefuseTaskComponent } from './component/dialog-refuse-task/dialog
     NullOrEmptyPipe,
     ElementListComponent,
     ElementRecordComponent,
-    ElementRecordHeaderComponent,
-    ElementRecordDetailComponent,
+    ElementTaskHeaderComponent,
+    ElementTaskDetailComponent,
     SigninUserInfoComponent,
     MainHeaderComponent,
     MainNavigationBarComponent,
@@ -80,6 +88,14 @@ import { DialogRefuseTaskComponent } from './component/dialog-refuse-task/dialog
     DialogPlanComponent,
     DialogAssignTaskComponent,
     DialogRefuseTaskComponent,
+    CreateElementProjectComponent,
+    CreateElementProductComponent,
+    EditElementProductComponent,
+    EditElementProjectComponent,
+    ElementProjectHeaderComponent,
+    ElementProjectDetailComponent,
+    ElementProductHeaderComponent,
+    ElementProductDetailComponent,
   ],
   imports: [
     MaterialModule.forRoot(),

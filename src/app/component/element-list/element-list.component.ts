@@ -2,9 +2,6 @@ import {
   Component, OnInit
 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Task } from './../../model/task';
-import { Project } from './../../model/project';
-import { Product } from './../../model/product';
 import { TaskService } from './../../service/task.service';
 import { ProjectService } from './../../service/project.service';
 import { ProductService } from './../../service/product.service';
@@ -104,7 +101,44 @@ export class ElementListComponent implements OnInit {
   }
 
   getProducts() {
-
+    this.productService.getProductCounts()
+      .subscribe(counts => {
+        if (counts !== null) {
+          this.counts = counts;
+          AppGlobal.getInstance().lastPage = Math.ceil(counts.total / AppGlobal.getInstance().pageSize);
+          this.lastPage = AppGlobal.getInstance().lastPage;
+          let pages = new Array<string>();
+          for (let i = 1; i <= this.lastPage; i++) {
+            if (this.lastPage <= 8) {
+              pages.push(i.toString());
+              continue;
+            }
+            if (i <= 3) {
+              pages.push(i.toString());
+              continue;
+            }
+            if (i >= this.lastPage - 1) {
+              pages.push(i.toString());
+              continue;
+            }
+            if (i >= this.page - 1 && i <= this.page + 1) {
+              pages.push(i.toString());
+              continue;
+            }
+            if (i === this.page - 2 || i === this.page + 2) {
+              if (this.page === 6 || this.page === this.lastPage - 4) {
+                pages.push(i.toString());
+              } else {
+                pages.push('...');
+                continue;
+              }
+            }
+          }
+          this.displayPageNumbers = pages;
+        }
+      });
+    this.productService.getProducts(this.page)
+      .then(products => this.elements = products);
   }
 
   onDetailClicked(event) {
@@ -115,7 +149,6 @@ export class ElementListComponent implements OnInit {
     }
   }
   clickPage(clickedPage) {
-    console.log(clickedPage);
     if (typeof (clickedPage) !== 'number') {
       this.jumpPage = null;
     }

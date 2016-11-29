@@ -20,7 +20,7 @@
           <div class="product_class_info">
             <ul>
               <li>
-                <md-input [(ngModel)]="newProduct.id" #projectId="ngModel" placeholder="产品编号" [required]="true" name="productId"></md-input>
+                <md-input [(ngModel)]="newProduct.id" #productId="ngModel" placeholder="产品编号" [required]="true" name="productId"></md-input>
                 <div [hidden]="productId.valid || productId.pristine" class="error">
                   产品编号不能为空
                 </div>
@@ -80,9 +80,9 @@
             </ul>
             <ul>
               <li>
-                <select [(ngModel)]="devlopmentManagerId" class="form-control" #devlopmentManagerSelect="ngModel" name="devlopmentManagerSelect"
+                <select [(ngModel)]="developmentManagerId" class="form-control" #developmentManagerSelect="ngModel" name="developmentManagerSelect"
                   [required]="true">
-										<option *ngFor="let emp of devlopmentManagers" [value] = "emp.empId">{{emp.name}}</option>
+										<option *ngFor="let emp of developmentManagers" [value] = "emp.empId">{{emp.name}}</option>
 									</select>
               </li>
             </ul>

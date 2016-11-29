@@ -11,19 +11,19 @@ import { AppGlobal } from '../../shared/app-global';
 })
 export class MainHeaderComponent implements OnInit {
 
-  counts: TaskCounts = new TaskCounts()
+  counts: TaskCounts = new TaskCounts();
 
   constructor(private router: Router, private service: MainHeaderService) {
   }
 
   ngOnInit() {
-    this.service.getTaskCounts()
-      .subscribe(counts => {
-        if (counts !== null) {
-          this.counts = counts;
-          AppGlobal.getInstance().lastPage = Math.ceil(this.counts.total / AppGlobal.getInstance().pageSize)
-        }
-      });
+    // this.service.getTaskCounts()
+    //   .subscribe(counts => {
+    //     if (counts !== null) {
+    //       this.counts = counts;
+    //       AppGlobal.getInstance().lastPage = Math.ceil(this.counts.total / AppGlobal.getInstance().pageSize)
+    //     }
+    //   });
   }
 
 }

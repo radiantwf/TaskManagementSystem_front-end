@@ -35,5 +35,7 @@ export class ElementProductDetailComponent implements OnInit {
     this.isSeller = user.permissions.findIndex(value => (value === 98)) >= 0;
     this.isProductAdmin = user.permissions.findIndex(value => (value === 11 || value === 21)) >= 0;
     this.isProductManager = user.permissions.findIndex(value => (value === 19 || value === 29)) >= 0;
+    this.productService.getProduct(this.productId)
+      .then(product => this.productRecord = product);
   }
 }

@@ -1,7 +1,7 @@
 <div class="row rightDiv" *ngFor="let element of elements">
   <element-task *ngIf="elementType==='task'" [task]="element" (detailClicked)="onDetailClicked($event)" [detailFlag]="element.id==id"></element-task>
-  <!--<app-element-product *ngIf="elementType==='product'" [product]="element" (detailClicked)="onDetailClicked($event)" [detailFlag]="element.id==id"></app-element-product>-->
-  <!--<app-element-project *ngIf="elementType==='project'" [project]="element" (detailClicked)="onDetailClicked($event)" [detailFlag]="element.id==id"></app-element-project>-->
+  <app-element-product *ngIf="elementType==='product'" [product]="element" (detailClicked)="onDetailClicked($event)" [detailFlag]="element.id==id"></app-element-product>
+  <app-element-project *ngIf="elementType==='project'" [project]="element" (detailClicked)="onDetailClicked($event)" [detailFlag]="element.id==id"></app-element-project>
 </div>
 <!--页码-->
 <div *ngIf="elements.length > 0" class="pages">

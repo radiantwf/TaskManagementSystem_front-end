@@ -17,10 +17,10 @@ export class CreateElementProductComponent implements OnInit {
   employees: Array<Employee>;
   productManagers: Array<Employee>;
   marketingManagers: Array<Employee>;
-  devlopmentManagers: Array<Employee>;
+  developmentManagers: Array<Employee>;
   productManagerId: string;
   marketingManagerId: string;
-  devlopmentManagerId: string;
+  developmentManagerId: string;
 
   constructor(
     private router: Router,
@@ -34,10 +34,10 @@ export class CreateElementProductComponent implements OnInit {
   ProcessEmployees() {
     this.productManagers = new Array<Employee>();
     this.marketingManagers = new Array<Employee>();
-    this.devlopmentManagers = new Array<Employee>();
+    this.developmentManagers = new Array<Employee>();
     this.productManagerId = null;
     this.marketingManagerId = null;
-    this.devlopmentManagerId = null;
+    this.developmentManagerId = null;
     this.employees.forEach(value => {
       if (value.permissions.findIndex(p => (p === 11 || p === 19)) >= 0) {
         this.productManagers.push(value);
@@ -49,9 +49,14 @@ export class CreateElementProductComponent implements OnInit {
         this.marketingManagers.push(value);
       }
       if (value.permissions.findIndex(p => (p === 38 || p === 39)) >= 0) {
-        this.devlopmentManagers.push(value);
+        this.developmentManagers.push(value);
       }
     });
   }
-  addProduct() { }
+  addProduct() {
+    this.newProduct.productManagerId = this.productManagerId;
+    this.newProduct.marketingManagerId = this.marketingManagerId;
+    this.newProduct.developmentManagerId = this.developmentManagerId;
+    this.productService.create(this.newProduct).then(() => this.router.navigate(['/product/1']));
+  }
 }

@@ -1,3 +1,160 @@
-<p>
-  create-element-project works!
-</p>
+<form (ngSubmit)="addproject()" #projectForm="ngForm" class="form center-block">
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+      <div class="row">
+        <div class="project_head">新建项目</div>
+        <div class="fix">
+          <button type="submit" [disabled]="!projectForm.form.valid" md-mini-fab color="primary" md-tooltip="确定" tooltip-position="below">
+					<md-icon>done</md-icon>
+				</button>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+        <div class="project_class">
+          <div class="project_class_ic">
+            <md-icon>library_books</md-icon>
+          </div>
+          <div class="project_title">基本信息</div>
+          <div class="project_class_info">
+            <ul>
+              <li>
+                <md-input [(ngModel)]="newProject.name" #projectName="ngModel" placeholder="项目名称" [required]="true" name="projectName"></md-input>
+                <div [hidden]="projectName.valid || projectName.pristine" class="error">
+                  项目名称不能为空
+                </div>
+              </li>
+            </ul>
+            <ul>
+              <li class="title">详细描述</li>
+              <li>
+                <textarea [(ngModel)]="newProject.description" #description="ngModel" name="description" rows="3" class="form-control textarea-counter"></textarea>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="project_class">
+          <div class="project_class_ic">
+            <md-icon>account_box</md-icon>
+          </div>
+          <div class="project_title">商务信息</div>
+          <div class="project_class_info">
+            <ul>
+              <li>
+                请选择销售负责人<span>*</span>
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <select [(ngModel)]="sellerId" class="form-control" #sellerIdSelect="ngModel" name="sellerIdSelect" [required]="true">
+										<option *ngFor="let emp of sellers" [value] = "emp.empId">{{emp.name}}</option>
+									</select>
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <div class="row" class="col-lg-10 col-md-10 col-xs-12 col-sm-12">
+                  <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12">
+                    <md-input [(ngModel)]="newProject.requiringAcceptanceDate" #requiringEndDate="ngModel" name="requiringEndDate" placeholder="要求验收日期"></md-input>
+                  </div>
+                  <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12">
+                  </div>
+                </div>
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <md-input [readonly] placeholder="日期填写demo" [value]="'2016-10-20T08:00:00+08:00'"></md-input>
+              </li>
+            </ul>
+            <ul>
+              <li class="title">客户联络方式</li>
+              <li>
+                <textarea [(ngModel)]="newProject.customerContact" #customerContact="ngModel" name="customerContact" rows="3" class="form-control textarea-counter"></textarea>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="project_class">
+          <div class="project_class_ic">
+            <md-icon>account_circle</md-icon>
+          </div>
+          <div class="project_title">执行信息</div>
+          <div class="project_class_info">
+            <ul>
+              <li>
+                请选择项目经理 <span>*</span>
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <select [(ngModel)]="projectManagerId" class="form-control" #projectManagerSelect="ngModel" name="projectManagerSelect" [required]="true">
+										<option *ngFor="let emp of projectManagers" [value] = "emp.empId">{{emp.name}}</option>
+									</select>
+              </li>
+            </ul>
+            <ul>
+              <li>
+                请选择产品经理 <span>*</span>
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <select [(ngModel)]="productManagerId" class="form-control" #productManagerSelect="ngModel" name="productManagerSelect" [required]="true">
+										<option *ngFor="let emp of productManagers" [value] = "emp.empId">{{emp.name}}</option>
+									</select>
+              </li>
+            </ul>
+            <ul>
+              <li>
+                请选择研发经理 <span>*</span>
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <select [(ngModel)]="devlopmentManagerId" class="form-control" #devlopmentManagerSelect="ngModel" name="devlopmentManagerSelect"
+                  [required]="true">
+										<option *ngFor="let emp of devlopmentManagers" [value] = "emp.empId">{{emp.name}}</option>
+									</select>
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <md-input [(ngModel)]="newProject.otherExecutors" placeholder="其他执行人员" #otherExecutors="ngModel" name="otherExecutors"></md-input>
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <div class="row" class="col-lg-10 col-md-10 col-xs-12 col-sm-12">
+                  <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12">
+                    <md-input [(ngModel)]="newProject.planningReleaseDate" placeholder="计划发布日期" #planningReleaseDate="ngModel" name="planningReleaseDate"
+                      [required]="true"></md-input>
+                  </div>
+                </div>
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <md-input [readonly] placeholder="日期填写demo" [value]="'2016-10-20T08:00:00+08:00'"></md-input>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="project_class">
+          <div class="project_class_ic">
+            <md-icon>dashboard</md-icon>
+          </div>
+          <div class="project_title">产品与项目</div>
+          <div class="project_class_info">
+            <ul>
+              <li>
+                <md-input placeholder="关联产品"></md-input>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

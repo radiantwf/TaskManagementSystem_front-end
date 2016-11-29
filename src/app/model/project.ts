@@ -11,8 +11,9 @@ export class Project {
     public primarySeller: string;
     // 任务要求验收日期
     public requiringAcceptanceDate: Date;
-
-    // 产品经理
+    // 客户联络方式
+    public customerContact: string;
+    // 项目经理
     public projectManagerId: string;
     public projectManager: string;
     // 产品经理
@@ -27,6 +28,8 @@ export class Project {
     public planningReleaseDate: Date;
     // 实际发布日期
     public realReleaseDate: Date;
+    // 实际验收日期
+    public realAcceptanceDate: Date;
     // 状态
     public status: string;
     // 关联产品

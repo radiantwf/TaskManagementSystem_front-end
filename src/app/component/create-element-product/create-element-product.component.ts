@@ -10,7 +10,7 @@ import { AppGlobal } from '../../shared/app-global';
   selector: 'app-create-element-product',
   templateUrl: './create-element-product.component.html',
   // styleUrls: ['./create-element-product.component.css']
-  styleUrls: ['./../element-task-header/element-task-header.component.css', './../create-element-task/create-element-task.component.css']
+  styleUrls: ['./../element-task-header/element-task-header.component.css', './create-element-product.component.css']
 })
 export class CreateElementProductComponent implements OnInit {
   newProduct: Product = new Product('', '');
@@ -53,4 +53,5 @@ export class CreateElementProductComponent implements OnInit {
       }
     });
   }
+  addProduct() { }
 }

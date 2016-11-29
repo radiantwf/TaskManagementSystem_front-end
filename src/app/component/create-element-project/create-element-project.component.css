@@ -1,0 +1,759 @@
+.project_btn {
+  height: 68px;
+  line-height: 68px;
+  text-align: center;
+}
+
+.project_class_info input,
+textarea {
+  width: 80%;
+  padding: 0.5rem;
+  font-size: 0.5rem;
+  margin-top: 10px;
+  float: left;
+}
+
+ul {
+  display: table;
+  font-family: "微软雅黑";
+  color: #666666;
+}
+
+
+/*
+ul li{
+    height:32px;
+    line-height:32px;
+ }*/
+
+ul li md-input {
+  width: 80%;
+}
+
+
+/*
+.project_class_info span{
+    display: inline-table;
+    color: #e80202;
+    padding: 0.5rem;
+    font-size: 0.5rem;
+    margin-top: 10px;
+}*/
+
+.fix {
+  /*position:fixed;*/
+  position: relative;
+  float: right;
+  margin-right: 20px;
+  z-index: 99;
+}
+
+
+/*弹窗内容样式*/
+
+
+/*li{
+    padding:10px;
+}*/
+
+.select li {
+  float: left;
+  font-size: 0.8rem;
+  background-color: #d7481c;
+  color: #fff;
+  margin: 5px;
+  padding: 2px 10px;
+  border-radius: 0.8rem;
+}
+
+.select li:hover {
+  background-color: rgba(215, 72, 28, 0.8);
+}
+
+.select li md-icon {
+  font-size: 0.8rem;
+  width: 12px;
+  height: 12px;
+  line-height: 12px;
+  cursor: pointer;
+}
+
+.line {
+  height: 40px;
+  border-bottom: 1px solid #e5e5e5;
+  margin-bottom: 20px;
+}
+
+md-radio-button {
+  margin-right: 20px;
+  margin-top: 20px;
+  font-size: 0.8rem;
+}
+
+.personnel li {
+  float: left;
+  font-size: 0.8rem;
+  background-color: #117ecc;
+  color: #fff;
+  margin: 5px;
+  padding: 2px 10px;
+  border-radius: 0.8rem;
+  cursor: pointer;
+}
+
+.personnel li:hover {
+  background-color: rgba(17, 126, 204, 0.8);
+}
+
+.personnel li.selected {
+  float: left;
+  font-size: 0.8rem;
+  background-color: #eee;
+  color: #bbb;
+  margin: 5px;
+  padding: 2px 10px;
+  border-radius: 0.8rem;
+  cursor: default;
+}
+
+md-input {
+  font-family: "微软雅黑";
+  color: #666666;
+}
+
+.error {
+  font-size: 0.5rem;
+  color: rgb(221, 44, 0);
+  text-align: left;
+  margin-top: -10px;
+}
+
+.form-control {
+  width: 80%;
+  margin-top: 10px;
+}
+
+md-checkbox {
+  line-height: 60px;
+}
+
+.project_class_ic {
+  text-align: center;
+  width: 50px;
+  position: absolute;
+  left: 5px;
+}
+
+.col-xs-1,
+.col-xs-2,
+.col-xs-3,
+.col-xs-4,
+.col-xs-5,
+.col-xs-6,
+.col-xs-7,
+.col-xs-8,
+.col-xs-9,
+.col-xs-10,
+.col-xs-11,
+.col-xs-12,
+.col-sm-1,
+.col-sm-2,
+.col-sm-3,
+.col-sm-4,
+.col-sm-5,
+.col-sm-6,
+.col-sm-7,
+.col-sm-8,
+.col-sm-9,
+.col-sm-10,
+.col-sm-11,
+.col-sm-12,
+.col-md-1,
+.col-md-2,
+.col-md-3,
+.col-md-4,
+.col-md-5,
+.col-md-6,
+.col-md-7,
+.col-md-8,
+.col-md-9,
+.col-md-10,
+.col-md-11,
+.col-md-12,
+.col-lg-1,
+.col-lg-2,
+.col-lg-3,
+.col-lg-4,
+.col-lg-5,
+.col-lg-6,
+.col-lg-7,
+.col-lg-8,
+.col-lg-9,
+.col-lg-10,
+.col-lg-11,
+.col-lg-12,
+.col-xl-1,
+.col-xl-2,
+.col-xl-3,
+.col-xl-4,
+.col-xl-5,
+.col-xl-6,
+.col-xl-7,
+.col-xl-8,
+.col-xl-9,
+.col-xl-10,
+.col-xl-11,
+.col-xl-12 {
+  position: relative;
+  min-height: 1px;
+  padding-right: 0px;
+  padding-left: 0px;
+}
+
+.row {
+  margin: 0px;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: rgba(0, 0, 0, 0.54);
+}
+
+.rightDiv>.row>.row {
+  padding-right: 23px;
+}
+
+
+/*任务状态*/
+
+
+/*超时*/
+
+.overtime div.row .project_ic md-icon {
+  font-size: 2rem;
+  margin-top: 16px;
+  color: #f69679;
+}
+
+.overtime .line {
+  border-bottom: 4px solid #f69679;
+  margin: 0px;
+}
+
+.overtime div.row .project_info .date {
+  width: 100px;
+  color: #117ecc;
+}
+
+.overtime div.row .project_info .datespan {
+  width: 80px;
+  color: #00bfa8;
+}
+
+.overtime div.row .project_info .status {
+  width: 60px;
+  color: #d7481c;
+}
+
+
+/*进行中*/
+
+.ongoing div.row .project_ic md-icon {
+  font-size: 2rem;
+  margin-top: 16px;
+  color: #64decf;
+}
+
+.ongoing .line {
+  border-bottom: 4px solid #64decf;
+  margin: 0px;
+}
+
+.ongoing div.row .project_info .date {
+  width: 100px;
+  color: #117ecc;
+}
+
+.ongoing div.row .project_info .datespan {
+  width: 80px;
+  color: #666666;
+}
+
+.ongoing div.row .project_info .status {
+  width: 60px;
+  color: #666666;
+}
+
+
+/*未开始*/
+
+.notstart div.row .project_ic md-icon {
+  font-size: 2rem;
+  margin-top: 16px;
+  color: #cb93dd;
+}
+
+.notstart .line {
+  border-bottom: 4px solid #cb93dd;
+  margin: 0px;
+}
+
+.notstart div.row .project_info .date {
+  width: 100px;
+  color: #117ecc;
+}
+
+.notstart div.row .project_info .datespan {
+  width: 80px;
+  color: #666666;
+}
+
+.notstart div.row .project_info .status {
+  width: 60px;
+  color: #666666;
+}
+
+
+/*标题*/
+
+.project_head {
+  float: left;
+  font-size: 1.6rem;
+  padding-left: 20px;
+}
+
+.project_title {
+  float: left;
+  font-size: 1.2rem;
+  line-height: 56px;
+}
+
+
+/*任务图标*/
+
+.project_ic {
+  font-size: 1rem;
+  width: 52px;
+  height: 68px;
+  line-height: 68px;
+  text-align: center;
+  float: left;
+  color: #666666;
+}
+
+
+/*任务名称*/
+
+.project_name {
+  float: left;
+  font-size: 1.2rem;
+}
+
+.right_line {
+  /*border-right: 1px solid #e3e3e5;*/
+  border-bottom: 1px solid #e3e3e5;
+  min-height: 69px;
+}
+
+
+/*工具条*/
+
+.tool {
+  display: block;
+  text-align: center;
+  line-height: 40px;
+  /*height:40px;
+ border: 1px solid #e3e3e5;
+ border-right: 0px;
+ border-bottom: 0px;
+ background-color: rgba(255,255,255,0.5);
+ */
+}
+
+.tool button {
+  margin-top: 15px;
+}
+
+
+/*[md-mini-fab] {
+    min-width: 0;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    padding: 0;
+}*/
+
+
+/*[md-mini-fab] md-icon {
+    font-family: 'Material Icons';
+    font-weight: 400;
+    font-style: normal;
+     font-size: 14px; 
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: 'liga';
+}*/
+
+[md-menu-item] md-icon {
+  margin-right: 12px;
+}
+
+[disabled] md-icon {
+  color: #c6c6c6;
+}
+
+[md-menu-item] {
+  font-family: "微软雅黑";
+  padding-right: 40px;
+}
+
+
+/*任务编号*/
+
+.project_name>span {
+  width: 100px;
+  height: 12px;
+  line-height: 12px;
+  background-color: #fff;
+  border: 1px solid #dadada;
+  margin-left: 10px;
+  padding: 0 5px;
+  font-size: 0.8rem;
+}
+
+
+/*任务时间*/
+
+.project_info {
+  float: left;
+  padding-left: 10px;
+  padding-top: 16px;
+  min-width: 260px;
+}
+
+.project_info ul {
+  float: left;
+}
+
+.project_info ul li {
+  list-style-type: none;
+  text-align: left;
+  font-size: 12px;
+  height: 18px;
+  line-height: 18px;
+}
+
+.project_info ul li>span {
+  font-size: 1.2rem;
+}
+
+
+/*计划完成日期
+.project_info ul li.title_date{
+	width:100px;
+	color:#117ecc;
+}
+
+计划用时
+.project_info ul li.title_day{
+	width:80px;
+	color:#00bfa8;
+}
+
+已超时
+.project_info ul li.title_overtime{
+	width:60px;
+	color:#d7481c;
+}
+*/
+
+
+/*任务展开按钮*/
+
+.open,
+.open:hover {
+  font-size: 1rem;
+  height: 68px;
+  line-height: 68px;
+  text-align: center;
+  color: #666666;
+  border-left: 1px solid #e3e3e5;
+  cursor: pointer;
+  min-width: 60px;
+}
+
+
+/*
+.open:hover{
+	color: #666666;
+	background-color: rgba(255,255,255,0.3);
+}*/
+
+
+/*任务详细内容展开*/
+
+.project_class {
+  width: 100%;
+  padding: 10px;
+  padding-left: 50px;
+}
+
+
+/*任务基本信息展开-图标*/
+
+.project_class_ic {
+  /*position: absolute;
+	font-family: FontAwesome;
+	left: 0px;
+	width: 50px;*/
+  text-align: center;
+}
+
+.project_class_ic div {
+  font-size: 1rem;
+  /*color:#bbbbbb;*/
+  /*line-height: 18px;*/
+}
+
+
+/*任务基本信息展开-详细内容*/
+
+.project_class_info ul {
+  width: 100%;
+  display: table;
+}
+
+.project_class_info ul li {
+  line-height: 22px;
+  width: auto;
+  list-style-type: none;
+  /*font-size: 0.9rem;*/
+}
+
+.project_class_info ul li.title {
+  height: 16px;
+  line-height: 16px;
+  color: #117ecc;
+  font-size: 0.5rem;
+}
+
+.project_class_info ul li p {
+  height: 16px;
+  line-height: 16px;
+  color: #afafaf;
+  font-size: 0.5rem;
+  margin: 0px;
+}
+
+
+/*任务动态*/
+
+.dynamic {
+  width: 100%;
+  max-height: 800px;
+  overflow-y: auto;
+  margin: 20px 0px;
+}
+
+
+/*对方*/
+
+.dynamic .other {
+  width: 100%;
+  float: left;
+  min-height: 50px;
+  margin-bottom: 15px;
+}
+
+.dynamic .other ul {
+  width: 80%;
+  float: left;
+}
+
+.dynamic .other ul.role {
+  width: 70px;
+  text-align: right;
+}
+
+.dynamic .other ul.role li {
+  height: 14px;
+  line-height: 14px;
+  font-size: 0.1rem;
+}
+
+.dynamic .other .message {
+  padding: 10px 15px;
+  margin-left: 15px;
+  margin-right: 30px;
+  border-radius: 0.25rem;
+  position: relative;
+  min-height: 30px;
+  line-height: 15px;
+  border: 1px solid #dddddd;
+  background-color: #fafafa;
+  font-size: 0.3rem;
+}
+
+.dynamic .other .message:before {
+  content: '';
+  border-top: 7px solid transparent;
+  /*方框上部分背景颜色为透明*/
+  border-bottom: 7px solid transparent;
+  /*方框下部分背景为透明*/
+  border-right: 7px solid #dddddd;
+  /*箭头背景颜色*/
+  position: absolute;
+  /*绝对定位1*/
+  top: 5px;
+  /*距离顶部位置偏移量2*/
+  left: -7px;
+  /*距离左边位置偏移量3*/
+  /*123都是控制显示位置的*/
+}
+
+.dynamic .other .message:after {
+  content: '';
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-right: 5px solid #fafafa;
+  /*箭头背景颜色，覆盖前面的#eee颜色，使其颜色与整体颜色一致*/
+  position: absolute;
+  top: 7px;
+  left: -5px;
+}
+
+.dynamic .other ul li.title {
+  height: 26px;
+  line-height: 26px;
+  color: #1584b1;
+  font-size: 0.5rem;
+  font-weight: 600;
+  padding-bottom: 5px;
+}
+
+
+/*我*/
+
+.dynamic .me {
+  width: 100%;
+  float: right;
+  margin-bottom: 15px;
+  min-height: 50px;
+}
+
+.dynamic .me ul {
+  width: 80%;
+  float: right;
+}
+
+.dynamic .me ul.role {
+  width: 70px;
+  text-align: left;
+}
+
+.dynamic .me ul.role li {
+  height: 14px;
+  line-height: 14px;
+  font-size: 0.5rem;
+}
+
+.dynamic .me .message {
+  padding: 10px 15px;
+  margin-left: 30px;
+  margin-right: 15px;
+  border-radius: 0.25rem;
+  position: relative;
+  min-height: 30px;
+  line-height: 15px;
+  border: 1px solid #92c6db;
+  background-color: #d9ebf3;
+  font-size: 0.3rem;
+}
+
+.dynamic .me .message:before {
+  content: '';
+  border-top: 7px solid transparent;
+  /*方框上部分背景颜色为透明*/
+  border-bottom: 7px solid transparent;
+  /*方框下部分背景为透明*/
+  border-left: 7px solid #92c6db;
+  /*箭头背景颜色*/
+  position: absolute;
+  /*绝对定位1*/
+  top: 5px;
+  /*距离顶部位置偏移量2*/
+  right: -7px;
+  /*距离左边位置偏移量3*/
+  /*123都是控制显示位置的*/
+}
+
+.dynamic .me .message:after {
+  content: '';
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 5px solid #d9ebf3;
+  /*箭头背景颜色，覆盖前面的#eee颜色，使其颜色与整体颜色一致*/
+  position: absolute;
+  top: 7px;
+  right: -5px;
+}
+
+.dynamic .me ul li.title {
+  height: 26px;
+  line-height: 26px;
+  color: #1584b1;
+  font-size: 0.5rem;
+  font-weight: 600;
+  padding-bottom: 5px;
+}
+
+button.down,
+button.up,
+button.menu {
+  width: 48px;
+  height: 48px;
+}
+
+button.down md-icon,
+button.up md-icon {
+  font-size: 48px;
+  width: 48px;
+  height: 48px;
+  line-height: 48px;
+}
+
+button.menu md-icon {
+  font-size: 36px;
+  width: 48px;
+  height: 48px;
+  line-height: 48px;
+}
+
+.badge {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  z-index: 1;
+  border-radius: 1rem;
+  background-color: #de5862;
+  border: 1px solid #FFFFFF;
+  margin-top: 26px;
+  right: 4px;
+}
+
+md-icon+.badge_m {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  z-index: 1;
+  border-radius: 1rem;
+  background-color: #de5862;
+  border: 1px solid #FFFFFF;
+  margin-top: 8px;
+  left: 32px;
+}

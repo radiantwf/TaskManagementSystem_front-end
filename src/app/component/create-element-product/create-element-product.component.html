@@ -36,19 +36,6 @@
         </div>
         <div class="product_class">
           <div class="product_class_ic">
-            <md-icon>account_box</md-icon>
-          </div>
-          <div class="product_title">商务信息</div>
-          <div class="product_class_info">
-            <ul>
-              <li>
-                <md-input [readonly] placeholder="日期填写demo" [value]="'2016-10-20T08:00:00+08:00'"></md-input>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div *ngIf="!isSeller" class="product_class">
-          <div class="product_class_ic">
             <md-icon>account_circle</md-icon>
           </div>
           <div class="product_title">执行信息</div>
@@ -100,7 +87,7 @@
               <li>
                 <div class="row" class="col-lg-10 col-md-10 col-xs-12 col-sm-12">
                   <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12">
-                    <md-input [(ngModel)]="newProduct.planningReleaseDate" placeholder="计划发布日期" #planningReleaseDate="ngModel" name="planningReleaseDate"></md-input>
+                    <md-input [(ngModel)]="newProduct.planningReleaseDate" placeholder="计划发布日期" #planningReleaseDate="ngModel" name="planningReleaseDate" [required]="true"></md-input>
                   </div>
                 </div>
               </li>

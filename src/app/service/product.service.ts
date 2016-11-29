@@ -51,47 +51,6 @@ export class ProductService {
       .then(() => product)
       .catch(this.handleError);
   }
-  refuse(product: Product): Promise<Product> {
-    const url = `${this.productsUrl}/${product.id}/refuse`;
-    return this.http
-      .put(url, JSON.stringify(product), { headers: this.httpHeaders() })
-      .toPromise()
-      .catch(this.handleError);
-  }
-
-  strat(product: Product): Promise<Product> {
-    const url = `${this.productsUrl}/${product.id}/start`;
-    return this.http
-      .put(url, JSON.stringify(product), { headers: this.httpHeaders() })
-      .toPromise()
-      .then(() => product)
-      .catch(this.handleError);
-  }
-  progress(product: Product): Promise<Product> {
-    const url = `${this.productsUrl}/${product.id}/progress`;
-    return this.http
-      .put(url, JSON.stringify(product), { headers: this.httpHeaders() })
-      .toPromise()
-      .then(() => product)
-      .catch(this.handleError);
-  }
-  finish(product: Product): Promise<Product> {
-    const url = `${this.productsUrl}/${product.id}/finish`;
-    return this.http
-      .put(url, JSON.stringify(product), { headers: this.httpHeaders() })
-      .toPromise()
-      .then(() => product)
-      .catch(this.handleError);
-  }
-  close(product: Product): Promise<Product> {
-    const url = `${this.productsUrl}/${product.id}/close`;
-    return this.http
-      .put(url, JSON.stringify(product), { headers: this.httpHeaders() })
-      .toPromise()
-      .then(() => product)
-      .catch(this.handleError);
-  }
-
   getProductCounts(): Observable<any> {
     return this.http.get(this.productsCountsUrl, { headers: this.httpHeaders() })
       .map(response => response.json().data as ProductCounts)

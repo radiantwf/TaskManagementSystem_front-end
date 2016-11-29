@@ -97,7 +97,44 @@ export class ElementListComponent implements OnInit {
   }
 
   getProjects() {
-
+    this.projectService.getProjectCounts()
+      .subscribe(counts => {
+        if (counts !== null) {
+          this.counts = counts;
+          AppGlobal.getInstance().lastPage = Math.ceil(counts.total / AppGlobal.getInstance().pageSize);
+          this.lastPage = AppGlobal.getInstance().lastPage;
+          let pages = new Array<string>();
+          for (let i = 1; i <= this.lastPage; i++) {
+            if (this.lastPage <= 8) {
+              pages.push(i.toString());
+              continue;
+            }
+            if (i <= 3) {
+              pages.push(i.toString());
+              continue;
+            }
+            if (i >= this.lastPage - 1) {
+              pages.push(i.toString());
+              continue;
+            }
+            if (i >= this.page - 1 && i <= this.page + 1) {
+              pages.push(i.toString());
+              continue;
+            }
+            if (i === this.page - 2 || i === this.page + 2) {
+              if (this.page === 6 || this.page === this.lastPage - 4) {
+                pages.push(i.toString());
+              } else {
+                pages.push('...');
+                continue;
+              }
+            }
+          }
+          this.displayPageNumbers = pages;
+        }
+      });
+    this.projectService.getProjects(this.page)
+      .then(projects => this.elements = projects);
   }
 
   getProducts() {

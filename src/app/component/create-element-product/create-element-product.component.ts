@@ -57,6 +57,6 @@ export class CreateElementProductComponent implements OnInit {
     this.newProduct.productManagerId = this.productManagerId;
     this.newProduct.marketingManagerId = this.marketingManagerId;
     this.newProduct.developmentManagerId = this.developmentManagerId;
-    this.productService.create(this.newProduct).then(() => this.router.navigate(['/product/1']));
+    this.productService.create(this.newProduct).then(() => this.router.navigate(['/product']));
   }
 }

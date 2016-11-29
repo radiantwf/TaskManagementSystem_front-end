@@ -1,25 +1,26 @@
-ul{
-    margin-bottom: 0px;
-}
-li{
-    padding:10px;
-}
-.task_class_ic{
-    line-height: 50px;
+ul {
+  margin-bottom: 0px;
 }
 
-.task_class{
-    padding: 0px;
+li {
+  padding: 10px;
 }
 
-md-icon{
-    color: rgba(0,0,0,0.54);
+.project_class_ic {
+  line-height: 50px;
 }
 
+.project_class {
+  padding: 0px;
+}
 
-.pdt10{
-    padding-top: 10px;
-    padding-bottom: 10px;
+md-icon {
+  color: rgba(0, 0, 0, 0.54);
+}
+
+.pdt10 {
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .errorDiv {
@@ -27,35 +28,39 @@ md-icon{
 }
 
 .alert {
-    height: 64px;
-    line-height: 64px;
-    padding: 0rem 1.25rem;
-    margin-bottom: 1rem;
-    border: 1px solid transparent;
-    border-radius: 0.25rem;
-}
-.alert-pop {    
-    background-color: #f2dede;
-    border-color: #ebcccc;
-    color: rgba(0,0,0,0.60);
+  height: 64px;
+  line-height: 64px;
+  padding: 0rem 1.25rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
 }
 
-[md-button].md-primary, [md-icon-button].md-primary {
-    color: #117ecc;
-	font-family: "微软雅黑";
-    font-size: 1.0rem;
-    margin-top: 12px;
-    float: right;
+.alert-pop {
+  background-color: #f2dede;
+  border-color: #ebcccc;
+  color: rgba(0, 0, 0, 0.60);
 }
+
+[md-button].md-primary,
+[md-icon-button].md-primary {
+  color: #117ecc;
+  font-family: "微软雅黑";
+  font-size: 1.0rem;
+  margin-top: 12px;
+  float: right;
+}
+
 [md-button] {
-    font-weight: 100; 
-    min-width: 0px; 
+  font-weight: 100;
+  min-width: 0px;
 }
 
-[md-button].md-refuse, [md-icon-button].md-refuse {
-    color: rgba(0,0,0,0.54);
-	font-family: "微软雅黑";
-    font-size: 1.0rem;
-    margin-top: 12px;
-    float: right;
+[md-button].md-refuse,
+[md-icon-button].md-refuse {
+  color: rgba(0, 0, 0, 0.54);
+  font-family: "微软雅黑";
+  font-size: 1.0rem;
+  margin-top: 12px;
+  float: right;
 }

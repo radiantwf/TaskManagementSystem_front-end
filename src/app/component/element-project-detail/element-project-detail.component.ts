@@ -35,5 +35,7 @@ export class ElementProjectDetailComponent implements OnInit {
     this.isSeller = user.permissions.findIndex(value => (value === 98)) >= 0;
     this.isProjectAdmin = user.permissions.findIndex(value => (value === 11 || value === 21)) >= 0;
     this.isProjectManager = user.permissions.findIndex(value => (value === 19 || value === 29)) >= 0;
+    this.projectService.getProject(this.projectId)
+      .then(project => this.projectRecord = project);
   }
 }

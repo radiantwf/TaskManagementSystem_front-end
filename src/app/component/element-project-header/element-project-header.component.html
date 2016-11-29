@@ -7,21 +7,6 @@
       <div class="project_name">{{projectRecord.name | null_or_empty:"无"}}<span>{{projectRecord.id | null_or_empty:"无"}}</span></div>
     </div>
     <div class="col-lg-4 col-md-10 col-xs-10 col-sm-10 right_line">
-      <div class="project_info" *ngIf="projectRecord.planningEndDate!=null">
-        <ul>
-          <li class="date" *ngIf="projectRecord.planningEndDate !== null"><span>{{projectRecord.planningEndDate | date:"MM"}}</span>月<span>{{projectRecord.planningEndDate | date:"dd"}}</span>日</li>
-          <li class="date" *ngIf="projectRecord.planningEndDate === null"></li>
-          <li>计划完成时间</li>
-        </ul>
-        <ul>
-          <li class="datespan"><span>120</span>天</li>
-          <li>计划用时</li>
-        </ul>
-        <ul>
-          <li class="status"><span>2</span>天</li>
-          <li>已超时</li>
-        </ul>
-      </div>
     </div>
     <div class="col-lg-1 col-md-2 col-xs-2 col-sm-2 right_line">
       <div class="open">
@@ -40,7 +25,7 @@
       <div class="project_name">{{projectRecord.name | null_or_empty:"无"}}</div>
     </div>
     <div class="col-lg-1 col-md-2 col-xs-2 col-sm-2 right_line">
-      <div class="open">
+      <!--<div class="open">
         <button class="menu" md-icon-button [md-menu-trigger-for]="menu" md-tooltip="操作" tooltip-position="below">
 							<md-icon>menu</md-icon>
 					<span [hidden]="!menuAlert" class="badge"></span>
@@ -53,7 +38,7 @@
           <button [disabled]="!editAble" md-menu-item [routerLink]="['/project',projectRecord.id,'edit']"><md-icon>mode_edit</md-icon>编辑</button>
           <button [hidden]="!deleteAble" md-menu-item (click)="openDelDialog()"><md-icon>delete</md-icon>删除</button>
         </md-menu>
-      </div>
+      </div>-->
     </div>
     <div class="col-lg-1 col-md-2 col-xs-2 col-sm-2 right_line">
       <div class="open">

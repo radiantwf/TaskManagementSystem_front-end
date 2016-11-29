@@ -15,17 +15,17 @@ export class CreateElementProjectComponent implements OnInit {
   employees: Array<Employee>;
   productManagers: Array<Employee>;
   projectManagers: Array<Employee>;
-  selllers: Array<Employee>;
-  devlopmentManagers: Array<Employee>;
+  sellers: Array<Employee>;
+  developmentManagers: Array<Employee>;
   productManagerId: string;
   projectManagerId: string;
   sellerId: string;
-  devlopmentManagerId: string;
+  developmentManagerId: string;
 
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private productService: ProjectService,
+    private projectService: ProjectService,
     private employeeService: EmployeeService) { }
 
   ngOnInit() {
@@ -34,11 +34,11 @@ export class CreateElementProjectComponent implements OnInit {
   ProcessEmployees() {
     this.productManagers = new Array<Employee>();
     this.projectManagers = new Array<Employee>();
-    this.devlopmentManagers = new Array<Employee>();
-    this.selllers = new Array<Employee>();
+    this.developmentManagers = new Array<Employee>();
+    this.sellers = new Array<Employee>();
     this.productManagerId = null;
     this.projectManagerId = null;
-    this.devlopmentManagerId = null;
+    this.developmentManagerId = null;
     this.sellerId = null;
     this.employees.forEach(value => {
       if (value.permissions.findIndex(p => (p === 11 || p === 19)) >= 0) {
@@ -51,12 +51,18 @@ export class CreateElementProjectComponent implements OnInit {
         }
       }
       if (value.permissions.findIndex(p => (p === 38 || p === 39)) >= 0) {
-        this.devlopmentManagers.push(value);
+        this.developmentManagers.push(value);
       }
       if (value.permissions.findIndex(p => (p === 98)) >= 0) {
-        this.selllers.push(value);
+        this.sellers.push(value);
       }
     });
   }
-  addProduct() { }
+  addProject() {
+    this.newProject.productManagerId = this.productManagerId;
+    this.newProject.primarySellerId = this.sellerId;
+    this.newProject.productManagerId = this.productManagerId;
+    this.newProject.developmentManagerId = this.developmentManagerId;
+    this.projectService.create(this.newProject).then(() => this.router.navigate(['/project']));
+  }
 }

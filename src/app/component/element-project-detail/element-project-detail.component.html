@@ -193,8 +193,8 @@
           <div class="project_class">
             <div class="project_class_info">
               <ul>
-                <li class="title">状态</li>
-                <li>{{projectRecord.refuseStatus | null_or_empty : (projectRecord.status | null_or_empty : "")}}</li>
+                <li class="title">项目状态</li>
+                <li>{{projectRecord.status | null_or_empty : ""}}</li>
               </ul>
             </div>
           </div>

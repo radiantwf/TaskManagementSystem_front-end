@@ -1,80 +1,64 @@
 <!---------------------------------------------------------------------------->
 <!---------------------------------------------------------------------------->
-<!--任务详情-->
+<!--项目详情-->
 <div class="row pdt10">
-  <div class="row" *ngIf="accessAlert">
-    <div class="errorDiv">
-      <div class="alert alert-pop">
-        是否接受当前任务？<button md-button color="refuse" (click)="onRefuseButtonClick()">拒&nbsp;绝</button><button md-button color="primary"
-          (click)="onAcceptButtonClick()">接&nbsp;受</button>
-      </div>
-    </div>
-  </div>
-  <div class="row" *ngIf="refuseAlert">
-    <div class="errorDiv">
-      <div class="alert alert-pop">
-        当前任务已被拒绝，是否重新激活该任务？<button md-button color="refuse" (click)="onCloseButtonClick()">关闭任务</button><button md-button
-          color="primary" (click)="onEditAndActiveButtonClick()">修改并激活</button><button md-button color="primary" (click)="onActiveButtonClick()">激&nbsp;活</button>
-      </div>
-    </div>
-  </div>
   <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
-    <!--任务编号-->
+    <!--项目编号-->
     <div class="row">
       <div class="col-lg-1 col-md-1 col-xs-1 col-sm-1">
-        <div class="task_class">
-          <div class="task_class_ic">
+        <div class="project_class">
+          <div class="project_class_ic">
             <md-icon>format_list_numbered</md-icon>
           </div>
         </div>
       </div>
       <div class="col-lg-11 col-md-11 col-xs-11 col-sm-11">
         <div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
-          <div class="task_class">
-            <div class="task_class_info">
+          <div class="project_class">
+            <div class="project_class_info">
               <ul>
                 <li class="title">项目编号</li>
-                <li>{{taskRecord.id | null_or_empty:"无"}}</li>
+                <li>{{projectRecord.id | null_or_empty:"无"}}</li>
               </ul>
             </div>
           </div>
         </div>
         <div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
-          <div class="task_class">
-            <div class="task_class_info">
+          <div class="project_class">
+            <div class="project_class_info">
               <ul>
                 <li class="title">项目名称</li>
-                <li>{{taskRecord.name | null_or_empty:"无"}}</li>
+                <li>{{projectRecord.name | null_or_empty:"无"}}</li>
               </ul>
             </div>
           </div>
         </div>
         <div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
-          <div class="task_class">
-            <div class="task_class_info">
+          <div class="project_class">
+            <div class="project_class_info">
               <ul>
                 <li class="title">创建人</li>
-                <li>{{taskRecord.creator | null_or_empty:"无"}}</li>
+                <li>{{projectRecord.creator | null_or_empty:"无"}}</li>
               </ul>
             </div>
           </div>
         </div>
         <div class="col-lg-8 col-md-12 col-xs-12 col-sm-12">
-          <div class="task_class">
-            <div class="task_class_info">
+          <div class="project_class">
+            <div class="project_class_info">
               <ul>
                 <li class="title">详细描述</li>
-                <li>{{taskRecord.description | null_or_empty:"无"}}</li>
+                <li>{{projectRecord.description | null_or_empty:"无"}}</li>
               </ul>
             </div>
           </div>
         </div>
         <div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
-          <div class="task_class">
-            <div class="task_class_info">
+          <div class="project_class">
+            <div class="project_class_info">
               <ul>
                 <li class="title">创建时间</li>
-                <li>{{taskRecord.createdTime | date:"yyyy年MM月dd日 HH:mm:ss" | null_or_empty:"无"}}</li>
+                <li>{{projectRecord.createdTime | date:"yyyy年MM月dd日 HH:mm:ss" | null_or_empty:"无"}}</li>
               </ul>
             </div>
           </div>
@@ -87,84 +71,83 @@
       </div>
       <div class="col-lg-11 col-md-11 col-xs-11 col-sm-11">
         <div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
-          <div class="task_class">
-            <div class="task_class_info">
+          <div class="project_class">
+            <div class="project_class_info">
               <ul>
                 <li class="title">销售负责人</li>
-                <li>{{taskRecord.primarySeller | null_or_empty:"无"}}</li>
+                <li>{{projectRecord.primarySeller | null_or_empty:"无"}}</li>
               </ul>
             </div>
           </div>
         </div>
         <div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
-          <div class="task_class">
-            <div class="task_class_info">
+          <div class="project_class">
+            <div class="project_class_info">
               <ul>
                 <li class="title">要求验收日期</li>
-                <li>{{taskRecord.requiringEndDate | date:"yyyy年MM月dd日" | null_or_empty:"无"}}</li>
+                <li>{{projectRecord.requiringAcceptanceDate | date:"yyyy年MM月dd日" | null_or_empty:"无"}}</li>
               </ul>
             </div>
           </div>
         </div>
         <div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
-          <div class="task_class">
-            <div class="task_class_info">
+          <div class="project_class">
+            <div class="project_class_info">
               <ul>
                 <li class="title">客户联系方式</li>
-                <li>{{taskRecord.customerContact | null_or_empty:"无"}}</li>
+                <li>{{projectRecord.customerContact | null_or_empty:"无"}}</li>
               </ul>
             </div>
           </div>
         </div>
       </div>
     </div>
-
     <!--OC负责人-->
     <div class="row">
       <div class="col-lg-1 col-md-1 col-xs-1 col-sm-1">
-        <div class="task_class">
-          <div class="task_class_ic">
+        <div class="project_class">
+          <div class="project_class_ic">
             <md-icon>account_box</md-icon>
           </div>
         </div>
       </div>
       <div class="col-lg-11 col-md-11 col-xs-11 col-sm-11">
         <div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
-          <div class="task_class">
-            <div class="task_class_info">
+          <div class="project_class">
+            <div class="project_class_info">
               <ul>
                 <li class="title">项目经理</li>
-                <li>{{taskRecord.primaryOC | null_or_empty:"无"}}</li>
+                <li>{{projectRecord.projectManager | null_or_empty:"无"}}</li>
               </ul>
             </div>
           </div>
         </div>
         <div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
-          <div class="task_class">
-            <div class="task_class_info">
+          <div class="project_class">
+            <div class="project_class_info">
               <ul>
                 <li class="title">产品经理</li>
-                <li>{{taskRecord.primaryExecutor | null_or_empty:"无"}}</li>
+                <li>{{projectRecord.productManager | null_or_empty:"无"}}</li>
               </ul>
             </div>
           </div>
         </div>
         <div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
-          <div class="task_class">
-            <div class="task_class_info">
+          <div class="project_class">
+            <div class="project_class_info">
               <ul>
                 <li class="title">研发经理</li>
-                <li>{{taskRecord.otherExecutors | null_or_empty:"无"}}</li>
+                <li>{{projectRecord.developmentManager | null_or_empty:"无"}}</li>
               </ul>
             </div>
           </div>
         </div>
         <div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
-          <div class="task_class">
-            <div class="task_class_info">
+          <div class="project_class">
+            <div class="project_class_info">
               <ul>
                 <li class="title">其他执行人</li>
-                <li>{{taskRecord.otherExecutors | null_or_empty:"无"}}</li>
+                <li>{{projectRecord.otherExecutors | null_or_empty:"无"}}</li>
               </ul>
             </div>
           </div>
@@ -177,66 +160,55 @@
       </div>
       <div class="col-lg-11 col-md-11 col-xs-11 col-sm-11">
         <div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
-          <div class="task_class">
-            <div class="task_class_info">
+          <div class="project_class">
+            <div class="project_class_info">
               <ul>
                 <li class="title">计划发布时间</li>
-                <li>{{taskRecord.planningBeginDate | date:"yyyy年MM月dd日" | null_or_empty:"无"}}</li>
+                <li>{{projectRecord.planningReleaseDate | date:"yyyy年MM月dd日" | null_or_empty:"无"}}</li>
               </ul>
             </div>
           </div>
         </div>
         <div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
-          <div class="task_class">
-            <div class="task_class_info">
+          <div class="project_class">
+            <div class="project_class_info">
               <ul>
                 <li class="title">实际发布时间</li>
-                <li>{{taskRecord.planningEndDate | date:"yyyy年MM月dd日" | null_or_empty:"无"}}</li>
+                <li>{{projectRecord.realReleaseDate | date:"yyyy年MM月dd日" | null_or_empty:"无"}}</li>
               </ul>
             </div>
           </div>
         </div>
         <div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
-          <div class="task_class">
-            <div class="task_class_info">
+          <div class="project_class">
+            <div class="project_class_info">
               <ul>
                 <li class="title">实际验收日期</li>
-                <li>{{taskRecord.planningEndDate | date:"yyyy年MM月dd日" | null_or_empty:"无"}}</li>
+                <li>{{projectRecord.realAcceptanceDate | date:"yyyy年MM月dd日" | null_or_empty:"无"}}</li>
               </ul>
             </div>
           </div>
         </div>
         <div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
-          <div class="task_class">
-            <div class="task_class_info">
+          <div class="project_class">
+            <div class="project_class_info">
               <ul>
                 <li class="title">状态</li>
-                <li>{{taskRecord.refuseStatus | null_or_empty : (taskRecord.status | null_or_empty : "")}}</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
-          <div *ngIf="taskRecord.status==='进行中' || taskRecord.status==='已完成' || taskRecord.status==='已关闭'" class="task_class">
-            <div class="task_class_info">
-              <ul>
-                <li class="title">当前进度</li>
-                <li>{{taskRecord.percent}}%</li>
+                <li>{{projectRecord.refuseStatus | null_or_empty : (projectRecord.status | null_or_empty : "")}}</li>
               </ul>
             </div>
           </div>
         </div>
       </div>
     </div>
-
-    <!--任务状态-->
+    <!--项目状态-->
     <div class="row">
       <div class="col-lg-1 col-md-1 col-xs-1 col-sm-1">
       </div>
       <div class="col-lg-11 col-md-11 col-xs-11 col-sm-11">
         <div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
-          <div class="task_class">
-            <div class="task_class_info">
+          <div class="project_class">
+            <div class="project_class_info">
               <ul>
                 <li class="title">关联产品</li>
                 <li>无</li>
@@ -246,23 +218,23 @@
         </div>
       </div>
     </div>
-    <!--任务动态-->
+    <!--项目动态-->
     <div class="row">
       <div class="col-lg-1 col-md-1 col-xs-1 col-sm-1">
-        <div class="task_class">
-          <div class="task_class_ic">
+        <div class="project_class">
+          <div class="project_class_ic">
             <md-icon>question_answer</md-icon>
           </div>
         </div>
       </div>
       <div class="col-lg-11 col-md-11 col-xs-11 col-sm-11">
         <div class="col-lg-8 col-md-12 col-xs-12 col-sm-12">
-          <div class="task_class">
-            <div class="task_class_info">
+          <div class="project_class">
+            <div class="project_class_info">
               <ul>
-                <li class="title">任务动态</li>
+                <li class="title">项目动态</li>
                 <li>
-                  <communications [id]="taskId"></communications>
+                  <communications [id]="projectId"></communications>
                 </li>
               </ul>
             </div>

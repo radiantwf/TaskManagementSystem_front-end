@@ -1,187 +1,173 @@
 <!---------------------------------------------------------------------------->
 <!---------------------------------------------------------------------------->
-<!--任务详情-->
+<!--产品详情-->
 <div class="row pdt10">
-  <div class="row" *ngIf="accessAlert">
-    <div class="errorDiv">
-      <div class="alert alert-pop">
-        是否接受当前任务？<button md-button color="refuse" (click)="onRefuseButtonClick()">拒&nbsp;绝</button><button md-button color="primary"
-          (click)="onAcceptButtonClick()">接&nbsp;受</button>
-      </div>
-    </div>
-  </div>
-  <div class="row" *ngIf="refuseAlert">
-    <div class="errorDiv">
-      <div class="alert alert-pop">
-        当前任务已被拒绝，是否重新激活该任务？<button md-button color="refuse" (click)="onCloseButtonClick()">关闭任务</button><button md-button
-          color="primary" (click)="onEditAndActiveButtonClick()">修改并激活</button><button md-button color="primary" (click)="onActiveButtonClick()">激&nbsp;活</button>
-      </div>
-    </div>
-  </div>
   <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
     <!--产品编号-->
     <div class="row">
       <div class="col-lg-1 col-md-1 col-xs-1 col-sm-1">
-        <div class="task_class">
-          <div class="task_class_ic">
+        <div class="product_class">
+          <div class="product_class_ic">
             <md-icon>format_list_numbered</md-icon>
           </div>
         </div>
       </div>
       <div class="col-lg-11 col-md-11 col-xs-11 col-sm-11">
         <div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
-          <div class="task_class">
-            <div class="task_class_info">
+          <div class="product_class">
+            <div class="product_class_info">
               <ul>
                 <li class="title">产品编号</li>
-                <li>{{taskRecord.id | null_or_empty:"无"}}</li>
+                <li>{{productRecord.id | null_or_empty:"无"}}</li>
               </ul>
             </div>
           </div>
         </div>
         <div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
-          <div class="task_class">
-            <div class="task_class_info">
+          <div class="product_class">
+            <div class="product_class_info">
               <ul>
                 <li class="title">产品名称</li>
-                <li>{{taskRecord.name | null_or_empty:"无"}}</li>
+                <li>{{productRecord.name | null_or_empty:"无"}}</li>
               </ul>
             </div>
           </div>
         </div>
         <div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
-          <div class="task_class">
-            <div class="task_class_info">
+          <div class="product_class">
+            <div class="product_class_info">
               <ul>
                 <li class="title">创建人</li>
-                <li>{{taskRecord.creator | null_or_empty:"无"}}</li>
+                <li>{{productRecord.creator | null_or_empty:"无"}}</li>
               </ul>
             </div>
           </div>
         </div>
         <div class="col-lg-8 col-md-12 col-xs-12 col-sm-12">
-          <div class="task_class">
-            <div class="task_class_info">
+          <div class="product_class">
+            <div class="product_class_info">
               <ul>
                 <li class="title">详细描述</li>
-                <li>{{taskRecord.description | null_or_empty:"无"}}</li>
+                <li>{{productRecord.description | null_or_empty:"无"}}</li>
               </ul>
             </div>
           </div>
         </div>
         <div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
-          <div class="task_class">
-            <div class="task_class_info">
+          <div class="product_class">
+            <div class="product_class_info">
               <ul>
                 <li class="title">创建时间</li>
-                <li>{{taskRecord.createdTime | date:"yyyy年MM月dd日 HH:mm:ss" | null_or_empty:"无"}}</li>
+                <li>{{productRecord.createdTime | date:"yyyy年MM月dd日 HH:mm:ss" | null_or_empty:"无"}}</li>
               </ul>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <!--销售负责人-->
-    <div class="row">
-      <div class="col-lg-1 col-md-1 col-xs-1 col-sm-1">
-      </div>
-
-    </div>
-
     <!--所属产品-->
     <div class="row">
       <div class="col-lg-1 col-md-1 col-xs-1 col-sm-1">
       </div>
       <div class="col-lg-11 col-md-11 col-xs-11 col-sm-11">
         <div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
-          <div class="task_class">
-            <div class="task_class_info">
+          <div class="product_class">
+            <div class="product_class_info">
               <ul>
                 <li class="title">产品经理</li>
-                <li>{{taskRecord.primarySeller | null_or_empty:"无"}}</li>
+                <li>{{productRecord.productManager | null_or_empty:"无"}}</li>
               </ul>
             </div>
           </div>
         </div>
         <div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
-          <div class="task_class">
-            <div class="task_class_info">
+          <div class="product_class">
+            <div class="product_class_info">
               <ul>
                 <li class="title">市场经理</li>
-                <li>{{taskRecord.requiringEndDate | date:"yyyy年MM月dd日" | null_or_empty:"无"}}</li>
+                <li>{{productRecord.marketingManager | null_or_empty:"无"}}</li>
               </ul>
             </div>
           </div>
         </div>
         <div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
-          <div class="task_class">
-            <div class="task_class_info">
+          <div class="product_class">
+            <div class="product_class_info">
               <ul>
                 <li class="title">研发经理</li>
-                <li>{{taskRecord.customerContact | null_or_empty:"无"}}</li>
+                <li>{{productRecord.developmentManager | null_or_empty:"无"}}</li>
               </ul>
             </div>
           </div>
         </div>
         <div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
-          <div class="task_class">
-            <div class="task_class_info">
+          <div class="product_class">
+            <div class="product_class_info">
               <ul>
                 <li class="title">其他执行人</li>
-                <li>{{taskRecord.primarySeller | null_or_empty:"无"}}</li>
+                <li>{{productRecord.otherExecutors | null_or_empty:"无"}}</li>
               </ul>
             </div>
           </div>
         </div>
-
       </div>
     </div>
     <!--计划时间-->
-    <div class="row" *ngIf="taskRecord.status==='未开始' || taskRecord.status==='进行中' || taskRecord.status==='已完成' || taskRecord.status==='已关闭'">
+    <div class="row" *ngIf="productRecord.status==='未开始' || productRecord.status==='进行中' || productRecord.status==='已完成' || productRecord.status==='已关闭'">
       <div class="col-lg-1 col-md-1 col-xs-1 col-sm-1">
       </div>
       <div class="col-lg-11 col-md-11 col-xs-11 col-sm-11">
         <div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
-          <div class="task_class">
-            <div class="task_class_info">
+          <div class="product_class">
+            <div class="product_class_info">
               <ul>
                 <li class="title">计划发布时间</li>
-                <li>{{taskRecord.planningBeginDate | date:"yyyy年MM月dd日" | null_or_empty:"无"}}</li>
+                <li>{{productRecord.planningReleaseDate | date:"yyyy年MM月dd日" | null_or_empty:"无"}}</li>
               </ul>
             </div>
           </div>
         </div>
         <div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
-          <div class="task_class">
-            <div class="task_class_info">
+          <div class="product_class">
+            <div class="product_class_info">
               <ul>
                 <li class="title">实际发布时间</li>
-                <li>{{taskRecord.planningEndDate | date:"yyyy年MM月dd日" | null_or_empty:"无"}}</li>
+                <li>{{productRecord.realReleaseDate | date:"yyyy年MM月dd日" | null_or_empty:"无"}}</li>
               </ul>
             </div>
           </div>
         </div>
         <div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
+        </div>
+        <div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
+          <div class="product_class">
+            <div class="product_class_info">
+              <ul>
+                <li class="title">产品状态</li>
+                <li>{{productRecord.status | null_or_empty:"无"}}</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <!--任务动态-->
+    <!--产品动态-->
     <div class="row">
       <div class="col-lg-1 col-md-1 col-xs-1 col-sm-1">
-        <div class="task_class">
-          <div class="task_class_ic">
+        <div class="product_class">
+          <div class="product_class_ic">
             <md-icon>question_answer</md-icon>
           </div>
         </div>
       </div>
       <div class="col-lg-11 col-md-11 col-xs-11 col-sm-11">
         <div class="col-lg-8 col-md-12 col-xs-12 col-sm-12">
-          <div class="task_class">
-            <div class="task_class_info">
+          <div class="product_class">
+            <div class="product_class_info">
               <ul>
-                <li class="title">任务动态</li>
+                <li class="title">产品动态</li>
                 <li>
-                  <communications [id]="taskId"></communications>
+                  <communications [id]="productId"></communications>
                 </li>
               </ul>
             </div>

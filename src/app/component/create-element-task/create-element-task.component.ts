@@ -29,7 +29,9 @@ export class CreateElementTaskComponent implements OnInit {
     isTaskManager: boolean = false;
 
     constructor(
-        private router: Router, private taskService: TaskService, private employeeService: EmployeeService) {
+        private router: Router,
+        private taskService: TaskService,
+        private employeeService: EmployeeService) {
     }
 
     ngOnInit() {
@@ -41,7 +43,6 @@ export class CreateElementTaskComponent implements OnInit {
             this.isTaskManager = user.permissions.findIndex(value => (value === 19 || value === 29)) >= 0;
         }
         this.employeeService.getEmployee().then(e => { this.employees = e; this.ProcessEmployees(); });
-
     }
     ProcessEmployees() {
         this.sellers = new Array<Employee>();

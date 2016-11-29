@@ -32,6 +32,8 @@ import { EditElementComponent } from './component/edit-element/edit-element.comp
 import { DialogDelElementComponent } from './component/dialog-del-element/dialog-del-element.component';
 
 import { TaskService } from './service/task.service';
+import { ProjectService } from './service/project.service';
+import { ProductService } from './service/product.service';
 import { CommunicationsService } from './service/communications.service';
 import { UserService } from './service/user.service';
 import { EmployeeService } from './service/employee.service';
@@ -112,7 +114,7 @@ import { ChangePasswordComponent } from './component/change-password/change-pass
     BrowserModule,
     FormsModule,
     // InMemoryWebApiModule.forRoot(InMemoryDataService),
-    HttpModule
+    HttpModule,
   ],
   entryComponents: [
     DialogDelElementComponent,
@@ -124,7 +126,15 @@ import { ChangePasswordComponent } from './component/change-password/change-pass
     DialogAssignTaskComponent,
     DialogRefuseTaskComponent,
   ],
-  providers: [TaskService, CommunicationsService, MainHeaderService, UserService, EmployeeService],
+  providers: [
+    TaskService,
+    ProductService,
+    ProjectService,
+    CommunicationsService,
+    MainHeaderService,
+    UserService,
+    EmployeeService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

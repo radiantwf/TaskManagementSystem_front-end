@@ -42,36 +42,7 @@
           <div class="product_class_info">
             <ul>
               <li>
-                请选择销售负责人<span>*</span>
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <select [(ngModel)]="sellerId" class="form-control" #sellerIdSelect="ngModel" name="sellerIdSelect" [required]="true">
-										<option *ngFor="let emp of sellers" [value] = "emp.empId">{{emp.name}}</option>
-									</select>
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <div class="row" class="col-lg-10 col-md-10 col-xs-12 col-sm-12">
-                  <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12">
-                    <md-input [(ngModel)]="newProduct.requiringEndDate" #requiringEndDate="ngModel" name="requiringEndDate" placeholder="要求完成日期"></md-input>
-                  </div>
-                  <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12">
-                  </div>
-                </div>
-              </li>
-            </ul>
-            <ul>
-              <li>
                 <md-input [readonly] placeholder="日期填写demo" [value]="'2016-10-20T08:00:00+08:00'"></md-input>
-              </li>
-            </ul>
-            <ul>
-              <li class="title">客户联络方式</li>
-              <li>
-                <textarea [(ngModel)]="newProduct.customerContact" #customerContact="ngModel" name="customerContact" rows="3" class="form-control textarea-counter"></textarea>
               </li>
             </ul>
           </div>
@@ -84,49 +55,57 @@
           <div class="product_class_info">
             <ul>
               <li>
-                请选择OC负责人 <span [hidden]="!(productManagerId != null || (isProductAdmin || isProductManager))">*</span>
+                请选择产品经理 <span>*</span>
               </li>
             </ul>
             <ul>
               <li>
-                <select [(ngModel)]="OCId" class="form-control" #OCIdSelect="ngModel" name="OCIdSelect" [required]="productManagerId != null || (isProductAdmin || isProductManager)">
-										<option *ngFor="let emp of OC" [value] = "emp.empId">{{emp.name}}</option>
-									</select>
-              </li>
-            </ul>
-            <ul>
-              <li>
-                请选择执行负责人 <span [hidden]="!(isProductAdmin || isProductManager)">*</span>
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <select [(ngModel)]="productManagerId" class="form-control" #productManagerIdSelect="ngModel" name="productManagerIdSelect"
-                  [required]="isProductAdmin || isProductManager">
+                <select [(ngModel)]="productManagerId" class="form-control" #productManagerSelect="ngModel" name="productManagerSelect" [required]="true">
 										<option *ngFor="let emp of productManagers" [value] = "emp.empId">{{emp.name}}</option>
 									</select>
               </li>
             </ul>
             <ul>
               <li>
-                <md-input [(ngModel)]="newProduct.otherExecutors" placeholder="其他相关负责人员" #otherExecutors="ngModel" name="otherExecutors"></md-input>
+                请选择市场经理 <span>*</span>
               </li>
             </ul>
-            <ul *ngIf="!isOC">
+            <ul>
+              <li>
+                <select [(ngModel)]="marketingManagerId" class="form-control" #marketingManagerSelect="ngModel" name="marketingManagerSelect"
+                  [required]="true">
+										<option *ngFor="let emp of marketingManagers" [value] = "emp.empId">{{emp.name}}</option>
+									</select>
+              </li>
+            </ul>
+            <ul>
+              <li>
+                请选择研发经理 <span>*</span>
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <select [(ngModel)]="devlopmentManagerId" class="form-control" #devlopmentManagerSelect="ngModel" name="devlopmentManagerSelect"
+                  [required]="true">
+										<option *ngFor="let emp of devlopmentManagers" [value] = "emp.empId">{{emp.name}}</option>
+									</select>
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <md-input [(ngModel)]="newProduct.otherExecutors" placeholder="其他执行人员" #otherExecutors="ngModel" name="otherExecutors"></md-input>
+              </li>
+            </ul>
+            <ul>
               <li>
                 <div class="row" class="col-lg-10 col-md-10 col-xs-12 col-sm-12">
                   <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12">
-                    <md-input [(ngModel)]="newProduct.planningBeginDate" placeholder="产品计划开始日期" #planningBeginDate="ngModel" name="planningBeginDate"
-                      [required]="(isProductManager && !isProductAdmin) || newProduct.planningEndDate != null"></md-input>
-                  </div>
-                  <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12">
-                    <md-input [(ngModel)]="newProduct.planningEndDate" placeholder="产品计划完成日期" #planningEndDate="ngModel" name="planningEndDate"
-                      [required]="(isProductManager && !isProductAdmin) || newProduct.planningBeginDate != null"></md-input>
+                    <md-input [(ngModel)]="newProduct.planningReleaseDate" placeholder="计划发布日期" #planningReleaseDate="ngModel" name="planningReleaseDate"></md-input>
                   </div>
                 </div>
               </li>
             </ul>
-            <ul *ngIf="!isOC">
+            <ul>
               <li>
                 <md-input [readonly] placeholder="日期填写demo" [value]="'2016-10-20T08:00:00+08:00'"></md-input>
               </li>

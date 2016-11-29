@@ -28,10 +28,13 @@ export class Task {
     // 任务实际执行周期
     public realBeginDate: Date;
     public realEndDate: Date;
-    // 任务状态
+    // 当前进度
     public percent: number;
+    // 任务状态
     public status: string;
+    // 拒绝状态
     public refuseStatus: string;
+    // 拒绝原因
     public refuseReason: string;
     // 所属产品
     public parentProductId: string;

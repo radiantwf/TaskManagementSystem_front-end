@@ -73,6 +73,43 @@
           <div class="task_class">
             <div class="task_class_info">
               <ul>
+                <li class="title">创建时间</li>
+                <li>{{taskRecord.createdTime | date:"yyyy年MM月dd日 HH:mm:ss" | null_or_empty:"无"}}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--销售负责人-->
+    <div class="row">
+      <div class="col-lg-1 col-md-1 col-xs-1 col-sm-1">
+      </div>
+      <div class="col-lg-11 col-md-11 col-xs-11 col-sm-11">
+        <div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
+          <div class="task_class">
+            <div class="task_class_info">
+              <ul>
+                <li class="title">销售负责人</li>
+                <li>{{taskRecord.primarySeller | null_or_empty:"无"}}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
+          <div class="task_class">
+            <div class="task_class_info">
+              <ul>
+                <li class="title">要求截止日期</li>
+                <li>{{taskRecord.requiringEndDate | date:"yyyy年MM月dd日" | null_or_empty:"无"}}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
+          <div class="task_class">
+            <div class="task_class_info">
+              <ul>
                 <li class="title">客户联系方式</li>
                 <li>{{taskRecord.customerContact | null_or_empty:"无"}}</li>
               </ul>
@@ -104,35 +141,6 @@
                 <li class="title">所属项目</li>
                 <li>
                   <p>{{taskRecord.parentProjectId | null_or_empty:"无"}}</p>{{taskRecord.parentProject | null_or_empty:""}}</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
-        </div>
-      </div>
-    </div>
-    <!--销售负责人-->
-    <div class="row">
-      <div class="col-lg-1 col-md-1 col-xs-1 col-sm-1">
-      </div>
-      <div class="col-lg-11 col-md-11 col-xs-11 col-sm-11">
-        <div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
-          <div class="task_class">
-            <div class="task_class_info">
-              <ul>
-                <li class="title">销售负责人</li>
-                <li>{{taskRecord.primarySeller | null_or_empty:"无"}}</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
-          <div class="task_class">
-            <div class="task_class_info">
-              <ul>
-                <li class="title">要求截止日期</li>
-                <li>{{taskRecord.requiringEndDate | date:"yyyy年MM月dd日" | null_or_empty:"无"}}</li>
               </ul>
             </div>
           </div>

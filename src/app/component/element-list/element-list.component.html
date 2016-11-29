@@ -1,8 +1,10 @@
-<div class="row rightDiv" *ngFor="let task of tasks">
-  <element-task [task]="task" (detailClicked)="onDetailClicked($event)" [detailFlag]="task.id==id"></element-task>
+<div class="row rightDiv" *ngFor="let element of elements">
+  <element-task *ngIf="elementType==='task'" [task]="element" (detailClicked)="onDetailClicked($event)" [detailFlag]="element.id==id"></element-task>
+  <!--<app-element-product *ngIf="elementType==='product'" [product]="element" (detailClicked)="onDetailClicked($event)" [detailFlag]="element.id==id"></app-element-product>-->
+  <!--<app-element-project *ngIf="elementType==='project'" [project]="element" (detailClicked)="onDetailClicked($event)" [detailFlag]="element.id==id"></app-element-project>-->
 </div>
 <!--页码-->
-<div *ngIf="tasks.length > 0" class="pages">
+<div *ngIf="elements.length > 0" class="pages">
   <div class="col-lg-2 col-md-3 col-xs-3 col-sm-3 "><a (click)="prevPage()" class="Previous"><i class="material-icons">arrow_back</i>&nbsp;上一页</a></div>
   <div class="col-lg-8 col-md-6 col-xs-6 col-sm-6">
     <ul>

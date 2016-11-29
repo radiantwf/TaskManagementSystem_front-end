@@ -3,7 +3,11 @@ import {
 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Task } from './../../model/task';
+import { Project } from './../../model/project';
+import { Product } from './../../model/product';
 import { TaskService } from './../../service/task.service';
+import { ProjectService } from './../../service/project.service';
+import { ProductService } from './../../service/product.service';
 import { AppGlobal } from '../../shared/app-global';
 
 @Component({
@@ -13,7 +17,7 @@ import { AppGlobal } from '../../shared/app-global';
 })
 
 export class ElementListComponent implements OnInit {
-  tasks: Task[] = [];
+  elements: any[] = [];
   id: string = '';
   page: number;
   lastPage: number;
@@ -24,6 +28,8 @@ export class ElementListComponent implements OnInit {
 
   constructor(
     private taskService: TaskService,
+    private projectService: ProjectService,
+    private productService: ProductService,
     private router: Router,
     private activatedRoute: ActivatedRoute) {
   }
@@ -31,54 +37,76 @@ export class ElementListComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.url.subscribe(value => {
       this.elementType = value[0].path.toLowerCase();
-    });
-
-    this.activatedRoute.params.subscribe(params => {
-      if (typeof (params['page']) === undefined) {
-        this.page = 1;
-      } else {
-        this.page = parseInt(params['page'], 1);
-      }
-      this.taskService.getTaskCounts()
-        .subscribe(counts => {
-          if (counts !== null) {
-            this.counts = counts;
-            AppGlobal.getInstance().lastPage = Math.ceil(counts.total / AppGlobal.getInstance().pageSize);
-            this.lastPage = AppGlobal.getInstance().lastPage;
-            let pages = new Array<string>();
-            for (let i = 1; i <= this.lastPage; i++) {
-              if (this.lastPage <= 8) {
-                pages.push(i.toString());
-                continue;
-              }
-              if (i <= 3) {
-                pages.push(i.toString());
-                continue;
-              }
-              if (i >= this.lastPage - 1) {
-                pages.push(i.toString());
-                continue;
-              }
-              if (i >= this.page - 1 && i <= this.page + 1) {
-                pages.push(i.toString());
-                continue;
-              }
-              if (i === this.page - 2 || i === this.page + 2) {
-                if (this.page === 6 || this.page === this.lastPage - 4) {
-                  pages.push(i.toString());
-                } else {
-                  pages.push('...');
-                  continue;
-                }
-              }
-            }
-            this.displayPageNumbers = pages;
-          }
-        });
-      this.taskService.getTasks(this.page)
-        .then(tasks => this.tasks = tasks);
+      this.activatedRoute.params.subscribe(params => {
+        if (typeof (params['page']) === undefined) {
+          this.page = 1;
+        } else {
+          this.page = parseInt(params['page'], 1);
+        }
+        switch (this.elementType) {
+          case 'project':
+            this.getProjects();
+            break;
+          case 'product':
+            this.getProducts();
+            break;
+          default:
+            this.getTasks();
+            break;
+        }
+      });
     });
   }
+
+  getTasks() {
+    this.taskService.getTaskCounts()
+      .subscribe(counts => {
+        if (counts !== null) {
+          this.counts = counts;
+          AppGlobal.getInstance().lastPage = Math.ceil(counts.total / AppGlobal.getInstance().pageSize);
+          this.lastPage = AppGlobal.getInstance().lastPage;
+          let pages = new Array<string>();
+          for (let i = 1; i <= this.lastPage; i++) {
+            if (this.lastPage <= 8) {
+              pages.push(i.toString());
+              continue;
+            }
+            if (i <= 3) {
+              pages.push(i.toString());
+              continue;
+            }
+            if (i >= this.lastPage - 1) {
+              pages.push(i.toString());
+              continue;
+            }
+            if (i >= this.page - 1 && i <= this.page + 1) {
+              pages.push(i.toString());
+              continue;
+            }
+            if (i === this.page - 2 || i === this.page + 2) {
+              if (this.page === 6 || this.page === this.lastPage - 4) {
+                pages.push(i.toString());
+              } else {
+                pages.push('...');
+                continue;
+              }
+            }
+          }
+          this.displayPageNumbers = pages;
+        }
+      });
+    this.taskService.getTasks(this.page)
+      .then(tasks => this.elements = tasks);
+  }
+
+  getProjects() {
+
+  }
+
+  getProducts() {
+
+  }
+
   onDetailClicked(event) {
     if (this.id === event) {
       this.id = '';

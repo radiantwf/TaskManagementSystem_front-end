@@ -1,14 +1,11 @@
 <div class="row overtime">
   <div class="row" *ngIf="!detailFlag">
     <div class="col-lg-7 col-md-12 col-xs-12 col-sm-12  bottom_line  right_line">
-      <!--任务图标-->
       <div class="task_ic">
         <md-icon>format_list_numbered</md-icon>
       </div>
-      <!--任务名称-->
       <div class="task_name">{{taskRecord.name | null_or_empty:"无"}}<span>{{taskRecord.id | null_or_empty:"无"}}</span></div>
     </div>
-    <!--任务时间-->
     <div class="col-lg-4 col-md-10 col-xs-10 col-sm-10 right_line">
       <div class="task_info" *ngIf="taskRecord.planningEndDate!=null">
         <ul>
@@ -66,6 +63,5 @@
       </div>
     </div>
   </div>
-  <!--任务状态色条-->
   <div class="row line"></div>
 </div>

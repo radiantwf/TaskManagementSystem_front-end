@@ -1,3 +1,2 @@
-<p>
-  element-project works!
-</p>
+<app-element-project-header [projectRecord]="project" (detailClicked)="onDetailClicked($event)" [detailFlag]="detailFlag"></app-element-project-header>
+<!--<app-element-project-detail *ngIf="detailFlag" [projectId]="project.id"></app-element-project-detail>-->

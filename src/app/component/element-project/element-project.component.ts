@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Project } from './../../model/project';
 
 @Component({
   selector: 'app-element-project',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ElementProjectComponent implements OnInit {
 
-  constructor() { }
+  @Input() detailFlag: boolean;
+  @Input() project: Project = new Project(null, null);
+  @Output() detailClicked = new EventEmitter();
+
+  constructor(private router: Router, private route: ActivatedRoute
+  ) { }
 
   ngOnInit() {
   }
 
+  onDetailClicked(event) {
+    this.detailClicked.emit(event);
+  }
 }

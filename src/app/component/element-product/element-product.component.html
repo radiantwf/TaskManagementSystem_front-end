@@ -1,3 +1,2 @@
-<p>
-  element-product works!
-</p>
+<app-element-product-header [productRecord]="product" (detailClicked)="onDetailClicked($event)" [detailFlag]="detailFlag"></app-element-product-header>
+<!--<app-element-product-detail *ngIf="detailFlag" [productId]="product.id"></app-element-product-detail>-->

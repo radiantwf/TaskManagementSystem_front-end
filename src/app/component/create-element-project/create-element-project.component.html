@@ -20,6 +20,14 @@
           <div class="project_class_info">
             <ul>
               <li>
+                <md-input [(ngModel)]="newProject.id" #projectId="ngModel" placeholder="项目编号" [required]="true" name="projectId"></md-input>
+                <div [hidden]="projectId.valid || projectId.pristine" class="error">
+                  项目编号不能为空
+                </div>
+              </li>
+            </ul>
+            <ul>
+              <li>
                 <md-input [(ngModel)]="newProject.name" #projectName="ngModel" placeholder="项目名称" [required]="true" name="projectName"></md-input>
                 <div [hidden]="projectName.valid || projectName.pristine" class="error">
                   项目名称不能为空

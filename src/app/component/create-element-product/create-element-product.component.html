@@ -20,6 +20,14 @@
           <div class="product_class_info">
             <ul>
               <li>
+                <md-input [(ngModel)]="newProduct.id" #projectId="ngModel" placeholder="产品编号" [required]="true" name="productId"></md-input>
+                <div [hidden]="productId.valid || productId.pristine" class="error">
+                  产品编号不能为空
+                </div>
+              </li>
+            </ul>
+            <ul>
+              <li>
                 <md-input [(ngModel)]="newProduct.name" #productName="ngModel" placeholder="产品名称" [required]="true" name="productName"></md-input>
                 <div [hidden]="productName.valid || productName.pristine" class="error">
                   产品名称不能为空
@@ -87,7 +95,8 @@
               <li>
                 <div class="row" class="col-lg-10 col-md-10 col-xs-12 col-sm-12">
                   <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12">
-                    <md-input [(ngModel)]="newProduct.planningReleaseDate" placeholder="计划发布日期" #planningReleaseDate="ngModel" name="planningReleaseDate" [required]="true"></md-input>
+                    <md-input [(ngModel)]="newProduct.planningReleaseDate" placeholder="计划发布日期" #planningReleaseDate="ngModel" name="planningReleaseDate"
+                      [required]="true"></md-input>
                   </div>
                 </div>
               </li>

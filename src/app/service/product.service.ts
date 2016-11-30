@@ -69,6 +69,8 @@ export class ProductService {
     if (token != null && token !== '') {
       headers.append('X-Auth-Token', token);
     }
+    headers.append('Cache-Control', 'no-cache');
+    headers.append('Pragma', 'no-cache');
     return headers;
   }
 }

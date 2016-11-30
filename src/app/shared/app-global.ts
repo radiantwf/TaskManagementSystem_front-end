@@ -51,8 +51,8 @@ export class AppGlobal {
     }
     // CurrentUser(http: Http): User {
     //     if (this._currentUser == null) {
-    //         var userService = new UserService(http);
-    //         var sub = userService.signin('', '')
+    //         let userService = new UserService(http);
+    //         let sub = userService.signin('', '')
     //             .subscribe(user => {
     //                 if (user != null) {
     //                     this._currentUser = user;

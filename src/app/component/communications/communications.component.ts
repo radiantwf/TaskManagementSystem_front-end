@@ -3,19 +3,17 @@ import { Communication } from '../../model/communication';
 import { AppGlobal } from '../../shared/app-global';
 
 import { CommunicationsService } from './../../service/communications.service';
-import { Http } from '@angular/http';
 
 @Component({
   selector: 'communications',
   templateUrl: './communications.component.html',
   styleUrls: ['./communications.component.css',
-    './../element-task-header/element-task-header.component.css'],
-  inputs: ['id']
+    './../element-task-header/element-task-header.component.css']
 })
 export class CommunicationsComponent implements OnInit {
   list: Communication[] = [];
   empId: string;
-  id: string;
+  @Input() id: string;
   content: string;
   constructor(private communicationsService: CommunicationsService) { }
 
@@ -27,7 +25,7 @@ export class CommunicationsComponent implements OnInit {
 
   addCommunication() {
     if (!this.content) { return; }
-    var communication = new Communication(this.id, AppGlobal.getInstance().currentUser.empId, null, new Date(Date.now()), this.content);
+    let communication = new Communication(this.id, AppGlobal.getInstance().currentUser.empId, null, new Date(Date.now()), this.content);
 
     this.communicationsService.create(communication).then(() => {
       this.communicationsService.getCommunicationsById(this.id)

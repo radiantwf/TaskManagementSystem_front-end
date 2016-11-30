@@ -29,13 +29,13 @@ export class ProgressChartComponent implements OnInit {
       return;
     }
     if (this.realEndDate === null) {
-      var endTime1 = (new Date(this.planningEndDate)).getTime();
-      var endTime2 = this.dateNow.getTime();
+      let endTime1 = (new Date(this.planningEndDate)).getTime();
+      let endTime2 = this.dateNow.getTime();
       this.endDateDifference = (endTime1 - endTime2) / 1000 / 3600 / 24;
     }
     else {
-      var endTime1 = (new Date(this.planningEndDate)).getTime();
-      var endTime2 = (new Date(this.realEndDate)).getTime();
+      let endTime1 = (new Date(this.planningEndDate)).getTime();
+      let endTime2 = (new Date(this.realEndDate)).getTime();
       this.endDateDifference = (endTime1 - endTime2) / 1000 / 3600 / 24;
     }
   }

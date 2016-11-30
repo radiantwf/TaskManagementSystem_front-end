@@ -12,5 +12,6 @@ COPY ./dist /front_end
 
 COPY server.conf /etc/nginx/conf.d/server.conf
 COPY nginx.conf /etc/nginx/nginx.conf
+ENV TZ=Asia/Shanghai
 
 EXPOSE 80

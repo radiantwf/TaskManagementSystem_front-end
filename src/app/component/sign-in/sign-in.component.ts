@@ -27,7 +27,7 @@ export class SignInComponent implements OnInit {
             AppGlobal.getInstance().clearToken();
             AppGlobal.getInstance().currentUser = user;
             AppGlobal.getInstance().setLocalToken(user.token);
-            this.router.navigate(['/task', '1']);
+            this.router.navigate(['/task']);
           } else {
             AppGlobal.getInstance().clearToken();
             this.isSignIn = false;
@@ -49,7 +49,7 @@ export class SignInComponent implements OnInit {
         if (user !== null) {
           AppGlobal.getInstance().currentUser = user;
           AppGlobal.getInstance().setLocalToken(user.token);
-          this.router.navigate(['/task', '1']);
+          this.router.navigate(['/task']);
         } else {
           AppGlobal.getInstance().clearToken();
           this.wrong_password = true;

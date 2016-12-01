@@ -1,4 +1,5 @@
 import { Routes, RouterModule } from '@angular/router';
+import { NgModule } from '@angular/core';
 
 import { SignInComponent } from './component/sign-in/sign-in.component';
 import { SignOutComponent } from './component/sign-out/sign-out.component';
@@ -7,6 +8,7 @@ import { ElementListComponent } from './component/element-list/element-list.comp
 import { CreateElementComponent } from './component/create-element/create-element.component';
 import { EditElementComponent } from './component/edit-element/edit-element.component';
 import { ChangePasswordComponent } from './component/change-password/change-password.component';
+import { HomeGuard } from './service/home-guard.service';
 
 const appRoutes: Routes = [
   {
@@ -29,6 +31,7 @@ const appRoutes: Routes = [
   {
     path: '',
     component: HomeComponent,
+    canActivate: [HomeGuard],
     children: [
       {
         path: 'task/new',
@@ -81,4 +84,15 @@ const appRoutes: Routes = [
     ]
   }
 ];
-export const routing = RouterModule.forRoot(appRoutes);
+@NgModule({
+  imports: [
+    RouterModule.forRoot(appRoutes)
+  ],
+  exports: [
+    RouterModule
+  ],
+  providers: [
+    HomeGuard,
+  ]
+})
+export class AppRoutingModule { }

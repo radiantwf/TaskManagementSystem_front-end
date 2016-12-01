@@ -6,7 +6,7 @@ import { MaterialModule } from '@angular/material';
 import { AlertModule, DatepickerModule, ModalModule } from 'ng2-bootstrap/ng2-bootstrap';
 
 // import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { routing } from './app.routing';
+import { AppRoutingModule } from './app.routing';
 import { AppComponent } from './app.component';
 import { SignInComponent } from './component/sign-in/sign-in.component';
 import { HomeComponent } from './component/home/home.component';
@@ -107,7 +107,7 @@ import { ChangePasswordComponent } from './component/change-password/change-pass
   ],
   imports: [
     MaterialModule.forRoot(),
-    routing,
+    AppRoutingModule,
     AlertModule,
     ModalModule,
     DatepickerModule,

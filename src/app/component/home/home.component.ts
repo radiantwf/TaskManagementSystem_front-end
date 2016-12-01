@@ -18,19 +18,6 @@ export class HomeComponent implements OnInit {
     private router: Router,
     private userService: UserService,
     private location: Location) {
-    if (AppGlobal.getInstance().currentUser == null) {
-      this.userService.signin('', '')
-        .subscribe(user => {
-          if (user != null) {
-            AppGlobal.getInstance().currentUser = user;
-            this.user = user;
-          } else {
-            this.router.navigate(['/signout']);
-          }
-        });
-    } else {
-      this.user = AppGlobal.getInstance().currentUser;
-    }
   }
 
   ngOnInit() {

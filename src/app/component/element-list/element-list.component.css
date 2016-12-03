@@ -12,7 +12,7 @@
 	height:24px;
 	line-height: 24px;
 	text-align: center;
-	font-size: 0.5rem;
+	font-size: 12px;
 	margin-bottom: 20px;
 }
 .pages div .Previous, .pages div .Previous：hover{
@@ -58,7 +58,7 @@
 	height:24px;
 	line-height: 24px;
 	text-align: center;
-	font-size: 0.9rem;
+	font-size: 12px;
 	margin: 0px;
 	padding:0 5px;
 	cursor: pointer;
@@ -97,5 +97,5 @@
 	margin: 0 5px;
 	padding: 0px;
 	line-height:24px;
-	font-size:12pxs;
+	font-size:12px;
 }

@@ -47,7 +47,7 @@
 
 /*进行中*/
 .ongoing div.row .project_ic md-icon{
-	font-size: 2rem;
+	font-size: 32px;
 	margin-top: 16px;
 	color: #64decf;
 }
@@ -77,7 +77,7 @@
 
 /*未开始*/
 .notstart div.row .project_ic md-icon{
-	font-size: 2rem;
+	font-size: 32px;
 	margin-top: 16px;
 	color: #cb93dd;
 

@@ -4,7 +4,7 @@
       <div class="task_ic">
         <md-icon>format_list_numbered</md-icon>
       </div>
-      <div class="task_name">{{taskRecord.name | null_or_empty:"无"}}<span>{{taskRecord.id | null_or_empty:"无"}}</span></div>
+      <div class="task_name over">{{taskRecord.name | null_or_empty:"无"}}<span>{{taskRecord.id | null_or_empty:"无"}}</span></div>
     </div>
     <div class="col-lg-4 col-md-10 col-xs-10 col-sm-10 right_line">
       <div class="task_info" *ngIf="taskRecord.planningEndDate!=null">

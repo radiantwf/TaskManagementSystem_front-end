@@ -29,10 +29,10 @@ md-icon{
 .alert {
     height: 64px;
     line-height: 64px;
-    padding: 0rem 1.25rem;
+    padding: 0 20px;
     margin-bottom: 1rem;
     border: 1px solid transparent;
-    border-radius: 0.25rem;
+    border-radius: 4px;
 }
 .alert-pop {    
     background-color: #f2dede;
@@ -43,7 +43,7 @@ md-icon{
 [md-button].md-primary, [md-icon-button].md-primary {
     color: #117ecc;
 	font-family: "微软雅黑";
-    font-size: 1.0rem;
+    font-size: 16px;
     margin-top: 12px;
     float: right;
 }
@@ -55,7 +55,7 @@ md-icon{
 [md-button].md-refuse, [md-icon-button].md-refuse {
     color: rgba(0,0,0,0.54);
 	font-family: "微软雅黑";
-    font-size: 1.0rem;
+    font-size: 16px;
     margin-top: 12px;
     float: right;
 }

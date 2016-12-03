@@ -17,8 +17,8 @@ export class MainNavigationBarComponent implements OnInit {
     let user = AppGlobal.getInstance().currentUser;
     if (user != null) {
       this.createTaskVisibility = user.permissions.findIndex(value => (value === 1
-        || value === 11 || value === 19 || value === 21 || value === 29
-        || value === 98 || value === 99)) >= 0;
+        || value === 11 || value === 17 || value === 18 || value === 19
+        || value === 21 || value === 29 || value === 98 || value === 99)) >= 0;
       this.createProductVisibility = user.permissions.findIndex(value => (value === 1
         || value === 11 || value === 19)) >= 0;
       this.createProjectVisibility = user.permissions.findIndex(value => (value === 1

@@ -39,7 +39,7 @@ export class ElementTaskDetailComponent implements OnInit {
     this.isOC = user.permissions.findIndex(value => (value === 99)) >= 0;
     this.isSeller = user.permissions.findIndex(value => (value === 98)) >= 0;
     this.isTaskAdmin = user.permissions.findIndex(value => (value === 11 || value === 21)) >= 0;
-    this.isTaskManager = user.permissions.findIndex(value => (value === 19 || value === 29)) >= 0;
+    this.isTaskManager = user.permissions.findIndex(value => (value === 17 || value === 18 || value === 19 || value === 29)) >= 0;
     this.taskService.getTask(this.taskId)
       .then(task => this.taskRecord = task)
       .then(() => {

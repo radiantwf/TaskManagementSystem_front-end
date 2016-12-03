@@ -1,7 +1,8 @@
-  <div class="row sch">
-    <input is="core-input" id="searchBox" placeholder="Search" flex="" aria-label="Search">
-    <button md-icon-button md-tooltip="检索" tooltip-position="below">
+<div class="row sch">
+  <input is="core-input" id="searchBox" (keypress)="search($event)" [(ngModel)]="searchCriteria" placeholder="Search" flex=""
+    aria-label="Search">
+  <button md-icon-button md-tooltip="检索" tooltip-position="below">
           <!--<md-icon>search</md-icon>-->
           <i class="material-icons">search</i>
     </button>
-  </div>
+</div>

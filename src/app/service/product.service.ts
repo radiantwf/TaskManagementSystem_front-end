@@ -11,9 +11,9 @@ export class ProductService {
   private productsCountsUrl = `${AppGlobal.getInstance().appURL}/product/counts`;
   constructor(private http: Http) { }
 
-  getProducts(pageNumber): Promise<Product[]> {
-    const url = `${this.productsUrl}/?pagesize=${AppGlobal.getInstance().pageSize}&page=${pageNumber}`;
-    console.log(url);
+  getProducts(searchCriteria, pageNumber): Promise<Product[]> {
+    let url = `${this.productsUrl}/?pagesize=${AppGlobal.getInstance().pageSize}&page=${pageNumber}`;
+    url += (searchCriteria == null ? '' : 'searchCriteria = ' + searchCriteria);
     return this.http.get(url, { headers: this.httpHeaders() })
       .toPromise()
       .then(response => response.json().data as Product[])

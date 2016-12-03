@@ -45,7 +45,7 @@ export class CreateElementProductComponent implements OnInit {
           this.productManagerId = value.empId;
         }
       }
-      if (value.permissions.findIndex(p => (p === 97)) >= 0) {
+      if (value.permissions.findIndex(p => (p === 17)) >= 0) {
         this.marketingManagers.push(value);
       }
       if (value.permissions.findIndex(p => (p === 38 || p === 39)) >= 0) {

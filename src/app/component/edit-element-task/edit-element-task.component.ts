@@ -48,7 +48,7 @@ export class EditElementTaskComponent implements OnInit {
             this.isOC = user.permissions.findIndex(value => (value === 99)) >= 0;
             this.isSeller = user.permissions.findIndex(value => (value === 98)) >= 0;
             this.isTaskAdmin = user.permissions.findIndex(value => (value === 11 || value === 21)) >= 0;
-            this.isTaskManager = user.permissions.findIndex(value => (value === 19 || value === 29)) >= 0;
+            this.isTaskManager = user.permissions.findIndex(value => (value === 17 || value === 18 || value === 19 || value === 29)) >= 0;
         }
         this.employeeService.getEmployee()
             .then(e => this.employees = e)
@@ -83,7 +83,7 @@ export class EditElementTaskComponent implements OnInit {
                 this.OC.push(employee);
             }
             if (employee.permissions.findIndex(value => (value === 1
-                || value === 11 || value === 19 || value === 21 || value === 29)) >= 0) {
+                || value === 11 || value === 17 || value === 18 || value === 19 || value === 21 || value === 29)) >= 0) {
                 this.taskManagers.push(employee);
             }
         });

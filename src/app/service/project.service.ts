@@ -11,9 +11,9 @@ export class ProjectService {
   private projectsCountsUrl = `${AppGlobal.getInstance().appURL}/project/counts`;
   constructor(private http: Http) { }
 
-  getProjects(pageNumber): Promise<Project[]> {
-    const url = `${this.projectsUrl}/?pagesize=${AppGlobal.getInstance().pageSize}&page=${pageNumber}`;
-    console.log(url);
+  getProjects(searchCriteria, pageNumber): Promise<Project[]> {
+    let url = `${this.projectsUrl}/?pagesize=${AppGlobal.getInstance().pageSize}&page=${pageNumber}`;
+    url += (searchCriteria == null ? '' : 'searchCriteria = ' + searchCriteria);
     return this.http.get(url, { headers: this.httpHeaders() })
       .toPromise()
       .then(response => response.json().data as Project[])

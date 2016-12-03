@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AppGlobal } from '../../shared/app-global';
-import { User } from '../../model/User';
 
 @Component({
   selector: 'app-sign-out',

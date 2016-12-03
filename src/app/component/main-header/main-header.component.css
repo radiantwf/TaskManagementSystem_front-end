@@ -30,14 +30,14 @@
 	width:52px;
 	height:52px;
 	line-height: 70px;
-	border-radius: 0.25rem;
+	border-radius: 4px;
 	text-align: center;
 	color:#fff;
 	margin-right:10px;
 }
 
 .head-task-state i{
-	font-size:2rem;
+	font-size:32px;
 }
 
 .head-task-content{
@@ -47,10 +47,11 @@
 
 .head-task-content p {
 	margin: 0px;
-	font-size:1.5rem;
+	font-size:14px;
+	font-family: "微软雅黑";
 }
 .head-task-content .title{
-	font-size:0.5rem;
+	font-size:12px;
 }
 
 .all{/*所有任务*/

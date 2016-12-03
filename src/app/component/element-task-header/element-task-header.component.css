@@ -18,7 +18,7 @@
 
 /*超时*/
 .overtime div.row .task_ic md-icon{
-	font-size: 2rem;
+	font-size: 32px;
 	margin-top: 16px;
 	color: #f69679;
 
@@ -47,7 +47,7 @@
 
 /*进行中*/
 .ongoing div.row .task_ic md-icon{
-	font-size: 2rem;
+	font-size: 32px;
 	margin-top: 16px;
 	color: #64decf;
 }
@@ -77,7 +77,7 @@
 
 /*未开始*/
 .notstart div.row .task_ic md-icon{
-	font-size: 2rem;
+	font-size: 32px;
 	margin-top: 16px;
 	color: #cb93dd;
 
@@ -122,7 +122,7 @@
 
 /*任务图标*/
 .task_ic{
-	font-size: 1rem; 
+	font-size: 16px; 
     width: 52px;
     height: 68px;
     line-height: 68px; 
@@ -137,8 +137,17 @@
 /*任务名称*/
 .task_name{
 	float: left;
-	font-size: 1.2rem;
+	font-size: 18px;
 }
+
+.over{
+	display:block;
+	white-space:nowrap; 
+	overflow:hidden; 
+	text-overflow:ellipsis;
+	max-width: 460px;
+}
+
 
 .right_line{
 	/*border-right: 1px solid #e3e3e5;*/
@@ -335,14 +344,14 @@
 	height:16px;
 	line-height: 16px;
 	color:#117ecc;
-	font-size: 0.5rem;
+	font-size: 12px;
 }
 
 .task_class_info ul li p{
 	height:16px;
 	line-height: 16px;
 	color:#afafaf;
-	font-size: 0.5rem;
+	font-size: 12px;
 	margin: 0px;
 }
 

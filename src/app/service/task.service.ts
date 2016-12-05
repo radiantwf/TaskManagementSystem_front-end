@@ -13,8 +13,7 @@ export class TaskService {
 
   getTasks(searchCriteria, pageNumber): Promise<Task[]> {
     let url = `${this.tasksUrl}/?pagesize=${AppGlobal.getInstance().pageSize}&page=${pageNumber}`;
-    url += (searchCriteria == null ? '' : 'searchCriteria = ' + searchCriteria);
-    console.log(url);
+    url += ((searchCriteria == null || searchCriteria === '') ? '' : '&searchCriteria=' + searchCriteria);
     return this.http.get(url, { headers: this.httpHeaders() })
       .toPromise()
       .then(response => response.json().data as Task[])

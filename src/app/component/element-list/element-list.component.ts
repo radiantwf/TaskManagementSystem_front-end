@@ -1,5 +1,5 @@
 import {
-  Component, OnInit, Input
+  Component, OnInit
 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TaskService } from './../../service/task.service';
@@ -48,6 +48,7 @@ export class ElementListComponent implements OnInit {
       if (typeof (params['searchCriteria']) !== undefined) {
         this.searchCriteria = params['searchCriteria'];
       }
+      this.elements = null;
       switch (this.elementType) {
         case 'project':
           this.getProjects();

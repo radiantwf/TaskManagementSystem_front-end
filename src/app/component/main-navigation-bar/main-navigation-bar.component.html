@@ -6,14 +6,14 @@
       首页
     </li>
   </ul>
-  <ul *ngIf="false" class="menu">
-    <li>
+  <ul *ngIf="elementType==='task'" class="menu">
+    <li [routerLink]="['/task',{searchCriteria2:'charging'}]">
       <md-icon class="material-icons">account_circle</md-icon>
-      与我有关的任务
+      我负责的任务
     </li>
-    <li>
+    <li [routerLink]="['/task',{searchCriteria2:'processing'}]">
       <md-icon class="material-icons">assignment_ind</md-icon>
-      我负责的任务<span class="badge badge-gray">3</span>
+      待我处理的任务
     </li>
   </ul>
   <ul class="menu">

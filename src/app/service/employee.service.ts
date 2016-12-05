@@ -25,7 +25,7 @@ export class EmployeeService {
     if (error instanceof Response) {
       const code = error.status;
       if (code === 401) {
-        return Observable.create()
+        return Observable.create();
       }
       const body = error.json() || '';
       const err = body.error || JSON.stringify(body);

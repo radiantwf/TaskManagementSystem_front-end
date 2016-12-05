@@ -11,9 +11,15 @@ export class TaskService {
   private tasksCountsUrl = `${AppGlobal.getInstance().appURL}/task/counts`;
   constructor(private http: Http) { }
 
-  getTasks(searchCriteria, pageNumber): Promise<Task[]> {
+  getTasks(searchCriteria, searchCriteria2, pageNumber): Promise<Task[]> {
     let url = `${this.tasksUrl}/?pagesize=${AppGlobal.getInstance().pageSize}&page=${pageNumber}`;
-    url += ((searchCriteria == null || searchCriteria === '') ? '' : '&searchCriteria=' + searchCriteria);
+    url += ((searchCriteria == null || searchCriteria === undefined || searchCriteria === '')
+      ? '' : '&searchCriteria=' + searchCriteria);
+    url += ((searchCriteria2 == null || searchCriteria2 === undefined || searchCriteria2 === '')
+      ? '' : '&searchCriteria2=' + searchCriteria2);
+    console.log(searchCriteria);
+    console.log(searchCriteria2);
+    console.log(url);
     return this.http.get(url, { headers: this.httpHeaders() })
       .toPromise()
       .then(response => response.json().data as Task[])

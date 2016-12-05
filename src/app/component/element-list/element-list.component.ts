@@ -17,6 +17,7 @@ export class ElementListComponent implements OnInit {
   elements: any[] = [];
   id: string = '';
   searchCriteria: string = null;
+  searchCriteria2: string = null;
   page: number;
   lastPage: number;
   displayPageNumbers: string[];
@@ -32,14 +33,17 @@ export class ElementListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    let reg = new RegExp('/[a-zA-Z0-9]+');
-    let r = reg.exec(this.router.url);
-    if (r != null) {
-      this.elementType = r[0].toString().substring(1).toLowerCase();
-    } else {
-      this.elementType = null;
-    }
     this.activatedRoute.params.subscribe(params => {
+      this.searchCriteria = null;
+      this.searchCriteria2 = null;
+      this.id = '';
+      let reg = new RegExp('/[a-zA-Z0-9]+');
+      let r = reg.exec(this.router.url);
+      if (r != null) {
+        this.elementType = r[0].toString().substring(1).toLowerCase();
+      } else {
+        this.elementType = null;
+      }
       if (typeof (params['page']) === undefined) {
         this.page = 1;
       } else {
@@ -47,6 +51,9 @@ export class ElementListComponent implements OnInit {
       }
       if (typeof (params['searchCriteria']) !== undefined) {
         this.searchCriteria = params['searchCriteria'];
+      }
+      if (typeof (params['searchCriteria']) !== undefined) {
+        this.searchCriteria2 = params['searchCriteria2'];
       }
       this.elements = null;
       switch (this.elementType) {
@@ -100,7 +107,7 @@ export class ElementListComponent implements OnInit {
           this.displayPageNumbers = pages;
         }
       });
-    this.taskService.getTasks(this.searchCriteria, this.page)
+    this.taskService.getTasks(this.searchCriteria, this.searchCriteria2, this.page)
       .then(tasks => this.elements = tasks);
   }
 
@@ -203,11 +210,8 @@ export class ElementListComponent implements OnInit {
     if (clickedPage >= this.lastPage) {
       clickedPage = this.lastPage;
     }
-    if (this.searchCriteria != null) {
-      this.router.navigate([this.elementType, clickedPage.toString(), { searchCriteria: this.searchCriteria }]);
-    } else {
-      this.router.navigate([this.elementType, clickedPage.toString()]);
-    }
+    this.router.navigate([this.elementType, clickedPage.toString(),
+    { searchCriteria: this.searchCriteria, searchCriteria2: this.searchCriteria2 }]);
   }
   prevPage() {
     let prevPage = 0;
@@ -216,11 +220,8 @@ export class ElementListComponent implements OnInit {
     } else {
       prevPage = this.page - 1;
     }
-    if (this.searchCriteria != null) {
-      this.router.navigate([this.elementType, prevPage.toString(), { searchCriteria: this.searchCriteria }]);
-    } else {
-      this.router.navigate([this.elementType, prevPage.toString()]);
-    }
+    this.router.navigate([this.elementType, prevPage.toString(),
+    { searchCriteria: this.searchCriteria, searchCriteria2: this.searchCriteria2 }]);
   }
   nextPage() {
     let nextPage = 0;
@@ -229,10 +230,7 @@ export class ElementListComponent implements OnInit {
     } else {
       nextPage = this.page + 1;
     }
-    if (this.searchCriteria != null) {
-      this.router.navigate([this.elementType, nextPage.toString(), { searchCriteria: this.searchCriteria }]);
-    } else {
-      this.router.navigate([this.elementType, nextPage.toString()]);
-    }
+    this.router.navigate([this.elementType, nextPage.toString(),
+    { searchCriteria: this.searchCriteria, searchCriteria2: this.searchCriteria2 }]);
   }
 }

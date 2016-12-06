@@ -8,18 +8,24 @@
     </div>
     <div class="col-lg-4 col-md-10 col-xs-10 col-sm-10 right_line">
       <div class="task_info">
-        <ul *ngIf="!info1HiddenFlag">
-          <li class="date"><span>{{info1Date | date:"MM"}}</span>月<span>{{info1Date | date:"dd"}}</span>日</li>
-          <li>{{info1Text}}</li>
-        </ul>
-        <ul *ngIf="!info2HiddenFlag">
-          <li class="datespan"><span>{{info2DateSpan}}</span>天</li>
-          <li>{{info2Text}}</li>
-        </ul>
-        <ul *ngIf="!info3HiddenFlag">
-          <li class="status" *ngIf="info3DateSpan>0"><span>{{info3DateSpan}}</span>天</li>
-          <li>{{info3Text}}</li>
-        </ul>
+        <div class="date">
+          <ul [hidden]="info1HiddenFlag">
+            <li class="date"><span>{{info1Date | date:"MM"}}</span>月<span>{{info1Date | date:"dd"}}</span>日</li>
+            <li>{{info1Text}}</li>
+          </ul>
+        </div>
+        <div class="datespan">
+          <ul [hidden]="info2HiddenFlag">
+            <li class="datespan"><span>{{info2DateSpan}}</span>天</li>
+            <li>{{info2Text}}</li>
+          </ul>
+        </div>
+        <div class="status">
+          <ul [hidden]="info3HiddenFlag">
+            <li class="status"><div *ngIf="info3DateSpan>0"><span>{{info3DateSpan}}</span>天</div></li>
+            <li class="statusname">{{info3Text}}</li>
+          </ul>
+        </div>
       </div>
     </div>
     <div class="col-lg-1 col-md-2 col-xs-2 col-sm-2 right_line">

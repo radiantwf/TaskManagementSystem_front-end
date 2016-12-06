@@ -16,6 +16,23 @@
 }
 /*任务状态*/
 
+.task_info div{
+    float: left;
+    height: 20px;
+}
+
+
+.task_info div.date{
+    width:100px;
+}
+
+.task_info div.datespan{
+    width:80px;
+}
+.task_info div.status{
+    width:60px;
+}
+
 /*超时*/
 .overtime div.row .task_ic md-icon{
 	font-size: 32px;
@@ -42,6 +59,10 @@
 .overtime div.row .task_info .status{
 	width:60px;
 	color:#d7481c;
+}
+
+.overtime div.row .task_info .statusname{
+	color: #00bfa8;
 }
 
 
@@ -71,6 +92,11 @@
 	width:60px;
 	color:#666666;
 }
+
+.ongoing div.row .task_info .statusname{
+	color: #117ecc;
+}
+
 
 
 
@@ -103,6 +129,11 @@
 	color:#666666;
 }
 
+.notstart div.row .task_info .statusname{
+	color: #cb93dd;
+}
+
+
 
 
 
@@ -133,6 +164,11 @@
 	width:60px;
 	color:#666666;
 }
+
+.finish div.row .task_info .statusname{
+	color: #666666;
+}
+
 
 
 

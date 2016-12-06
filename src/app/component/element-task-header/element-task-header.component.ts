@@ -86,11 +86,11 @@ export class ElementTaskHeaderComponent implements OnInit {
       this.info1Text = '计划完成时间';
 
       this.info2HiddenFlag = false;
-      this.info2DateSpan = Math.ceil((this.taskRecord.planningEndDate.getTime() - this.taskRecord.planningBeginDate.getTime()) / 86400000)
-        + 1;
+      this.info2DateSpan = Math.ceil(((new Date(this.taskRecord.planningEndDate)).getTime()
+        - (new Date(this.taskRecord.planningBeginDate)).getTime()) / 86400000) + 1;
       this.info2Text = '计划用时';
       if (this.today > this.taskRecord.planningEndDate) {
-        this.info3DateSpan = Math.floor((this.today.getTime() - this.taskRecord.planningEndDate.getTime()) / 86400000);
+        this.info3DateSpan = Math.floor((this.today.getTime() - (new Date(this.taskRecord.planningEndDate)).getTime()) / 86400000);
         this.info3Text = '超时';
       }
     }
@@ -100,14 +100,17 @@ export class ElementTaskHeaderComponent implements OnInit {
       } else if (this.taskRecord.realEndDate <= this.taskRecord.planningEndDate) {
         this.statusStyle = 'finish';
         this.info2HiddenFlag = false;
-        this.info2DateSpan = Math.ceil((this.taskRecord.realEndDate.getTime() - this.taskRecord.realBeginDate.getTime()) / 86400000) + 1;
+        this.info2DateSpan = Math.ceil(((new Date(this.taskRecord.realEndDate)).getTime()
+          - (new Date(this.taskRecord.realBeginDate)).getTime()) / 86400000) + 1;
         this.info2Text = '实际用时';
       } else {
         this.statusStyle = 'overtime';
         this.info2HiddenFlag = false;
-        this.info2DateSpan = Math.ceil((this.taskRecord.realEndDate.getTime() - this.taskRecord.realBeginDate.getTime()) / 86400000) + 1;
+        this.info2DateSpan = Math.ceil(((new Date(this.taskRecord.realEndDate)).getTime()
+          - (new Date(this.taskRecord.realBeginDate)).getTime()) / 86400000) + 1;
         this.info2Text = '实际用时';
-        this.info3DateSpan = Math.floor((this.taskRecord.realEndDate.getTime() - this.taskRecord.planningEndDate.getTime()) / 86400000);
+        this.info3DateSpan = Math.floor(((new Date(this.taskRecord.realEndDate)).getTime()
+          - (new Date(this.taskRecord.planningEndDate)).getTime()) / 86400000);
         this.info3Text = '超时';
       }
     }

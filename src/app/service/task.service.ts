@@ -17,9 +17,6 @@ export class TaskService {
       ? '' : '&searchCriteria=' + searchCriteria);
     url += ((searchCriteria2 == null || searchCriteria2 === undefined || searchCriteria2 === '')
       ? '' : '&searchCriteria2=' + searchCriteria2);
-    console.log(searchCriteria);
-    console.log(searchCriteria2);
-    console.log(url);
     return this.http.get(url, { headers: this.httpHeaders() })
       .toPromise()
       .then(response => response.json().data as Task[])

@@ -30,6 +30,7 @@ import { SignOutComponent } from './component/sign-out/sign-out.component';
 import { EditElementTaskComponent } from './component/edit-element-task/edit-element-task.component';
 import { EditElementComponent } from './component/edit-element/edit-element.component';
 import { DialogDelElementComponent } from './component/dialog-del-element/dialog-del-element.component';
+import { ElementStatusDirective } from './directive/element-status.directive';
 
 import { TaskService } from './service/task.service';
 import { ProjectService } from './service/project.service';
@@ -104,6 +105,7 @@ import { ChangePasswordComponent } from './component/change-password/change-pass
     ChangePasswordComponent,
     ElementProjectComponent,
     ElementProductComponent,
+    ElementStatusDirective,
   ],
   imports: [
     MaterialModule.forRoot(),

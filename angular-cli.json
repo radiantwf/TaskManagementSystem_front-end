@@ -1,7 +1,7 @@
 {
   "project": {
-    "version": "1.0.0-beta.20-4",
-    "name": "testtest"
+    "version": "1.0.0-beta.22-1",
+    "name": "front-end"
   },
   "apps": [
     {

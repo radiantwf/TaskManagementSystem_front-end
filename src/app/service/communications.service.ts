@@ -35,11 +35,11 @@ export class CommunicationsService {
   private httpHeaders(): Headers {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let token = AppGlobal.getInstance().getLocalToken();
-    if (token != null && token != "") {
+    if (token != null && token !== '') {
       headers.append('X-Auth-Token', token);
     }
     headers.append('Cache-Control', 'no-cache');
     headers.append('Pragma', 'no-cache');
-    return headers；
+    return headers;
   }
 }

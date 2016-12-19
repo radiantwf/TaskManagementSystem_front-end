@@ -13,13 +13,6 @@ export class CommunicationsService {
   constructor(private http: Http) { }
 
   getCommunicationsById(id: string): Promise<Communication[]> {
-    if (this.communicationsUrl === 'app/communication') {
-      return this.http.get(this.communicationsUrl, { headers: this.httpHeaders() })
-        .toPromise()
-        .then(response => response.json().data as Communication[])
-        .then(communications => communications.filter(value => value.relevantId === id))
-        .catch(this.handleError);
-    }
     const url = `${this.communicationsUrl}/${id}`;
     return this.http.get(url, { headers: this.httpHeaders() })
       .toPromise()
@@ -47,6 +40,6 @@ export class CommunicationsService {
     }
     headers.append('Cache-Control', 'no-cache');
     headers.append('Pragma', 'no-cache');
-    return headers
+    return headers；
   }
 }

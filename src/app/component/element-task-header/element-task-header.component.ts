@@ -143,6 +143,7 @@ export class ElementTaskHeaderComponent implements OnInit {
     }
     if (this.taskRecord.status === '进行中' && this.taskRecord.refuseStatus == null) {
       if (user.empId === this.taskRecord.primaryExecutorId) {
+        this.progessAble = true;
         this.finishAble = true;
       }
       if (this.isTaskAdmin) {

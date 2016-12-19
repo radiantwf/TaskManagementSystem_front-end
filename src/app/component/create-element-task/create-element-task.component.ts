@@ -65,7 +65,7 @@ export class CreateElementTaskComponent implements OnInit {
                 }
             }
             if (value.permissions.findIndex(p => (p === 1
-                || p === 11 || p === 19 || p === 21 || p === 29)) >= 0) {
+                || p === 11 || p === 17 || p === 18 || p === 19 || p === 21 || p === 29)) >= 0) {
                 this.taskManagers.push(value);
                 if (value.empId === AppGlobal.getInstance().currentUser.empId) {
                     this.taskManagerId = value.empId;

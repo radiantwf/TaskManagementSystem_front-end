@@ -39,10 +39,11 @@ export class TaskService {
       .catch(this.handleError);
   }
 
-  create(task: Task): Promise<Task> {
+  create(task: Task): Promise<void> {
     return this.http
       .post(this.tasksUrl, JSON.stringify(task), { headers: this.httpHeaders() })
       .toPromise()
+      .then(() => null)
       .catch(this.handleError);
   }
 
@@ -59,6 +60,7 @@ export class TaskService {
     return this.http
       .put(url, JSON.stringify(task), { headers: this.httpHeaders() })
       .toPromise()
+      .then(() => null)
       .catch(this.handleError);
   }
 

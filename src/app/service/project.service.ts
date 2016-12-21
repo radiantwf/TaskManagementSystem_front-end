@@ -40,6 +40,7 @@ export class ProjectService {
     return this.http
       .post(this.projectsUrl, JSON.stringify(project), { headers: this.httpHeaders() })
       .toPromise()
+      .then(() => null)
       .catch(this.handleError);
   }
 

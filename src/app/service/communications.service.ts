@@ -24,6 +24,7 @@ export class CommunicationsService {
     return this.http
       .post(this.communicationsUrl, JSON.stringify(communication), { headers: this.httpHeaders() })
       .toPromise()
+      .then(() => null)
       .catch(this.handleError);
   }
 

@@ -40,6 +40,7 @@ export class ProductService {
     return this.http
       .post(this.productsUrl, JSON.stringify(product), { headers: this.httpHeaders() })
       .toPromise()
+      .then(() => null)
       .catch(this.handleError);
   }
 

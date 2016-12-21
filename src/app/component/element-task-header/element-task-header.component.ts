@@ -150,7 +150,7 @@ export class ElementTaskHeaderComponent implements OnInit {
         this.finishAble = true;
       }
     }
-    if (this.taskRecord.status !== '已完成' && this.taskRecord.refuseStatus == null) {
+    if (this.taskRecord.status !== '已关闭') {
       if (this.isOC || this.isAdmin || this.isTaskAdmin) {
         this.closeAble = true;
       }

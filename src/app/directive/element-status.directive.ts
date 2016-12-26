@@ -9,5 +9,4 @@ export class ElementStatusDirective {
     this._status = statusName;
     this.renderer.setElementClass(this.el.nativeElement, statusName, true);
   }
-
 }

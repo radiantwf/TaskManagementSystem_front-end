@@ -40,10 +40,11 @@
               </li>
             </ul>
             <ul>
-              <li class="title">详细描述</li>
               <li>
-                <textarea [(ngModel)]="srcTask.description" (ngModelChange)="editingTask.description=$event" #description="ngModel" name="description"
-                  rows="3" class="form-control textarea-counter"></textarea>
+                <md-input-container>
+                  <textarea md-input md-autosize placeholder="详细描述" [(ngModel)]="srcTask.description" (ngModelChange)="editingTask.description=$event"
+                    #description="ngModel" name="description" rows="1"></textarea>
+                </md-input-container>
               </li>
             </ul>
           </div>
@@ -71,7 +72,7 @@
               <li>
                 <div class="row" class="col-lg-10 col-md-10 col-xs-12 col-sm-12">
                   <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12">
-                    <md-input [(ngModel)]="requiringEndDate" #requiringEndDateInput="ngModel" name="requiringEndDateInput" placeholder="要求任务完成日期"></md-input>
+                    <md-input type="date" [(ngModel)]="requiringEndDate" #requiringEndDateInput="ngModel" name="requiringEndDateInput" placeholder="要求任务完成日期"></md-input>
                   </div>
                   <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12">
                   </div>
@@ -80,14 +81,10 @@
             </ul>
             <ul>
               <li>
-                <md-input [readonly] placeholder="日期填写demo" [value]="'2016-10-20T00:00:00+08:00'"></md-input>
-              </li>
-            </ul>
-            <ul>
-              <li class="title">客户联络方式</li>
-              <li>
-                <textarea [(ngModel)]="srcTask.customerContact" (ngModelChange)="editingTask.customerContact=$event" #customerContact="ngModel"
-                  name="customerContact" rows="3" class="form-control textarea-counter"></textarea>
+                <md-input-container>
+                  <textarea md-input md-autosize placeholder="客户联络方式" [(ngModel)]="srcTask.customerContact" (ngModelChange)="editingTask.customerContact=$event"
+                    #customerContact="ngModel" name="customerContact" rows="1"></textarea>
+                </md-input-container>
               </li>
             </ul>
           </div>
@@ -134,12 +131,12 @@
               <li>
                 <div class="row" class="col-lg-10 col-md-10 col-xs-12 col-sm-12">
                   <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12">
-                    <md-input [readonly]="isSeller || isOC && !isTaskAdmin && !isTaskManager && !isAdmin" [(ngModel)]="planningBeginDate" placeholder="任务计划开始日期"
-                      #planningBeginDateInput="ngModel" name="planningBeginDateInput" [required]="planningEndDate != null || realBeginDate != null || realEndDate != null"></md-input>
+                    <md-input type="date" [readonly]="isSeller || isOC && !isTaskAdmin && !isTaskManager && !isAdmin" [(ngModel)]="planningBeginDate"
+                      placeholder="任务计划开始日期" #planningBeginDateInput="ngModel" name="planningBeginDateInput" [required]="planningEndDate != null || realBeginDate != null || realEndDate != null"></md-input>
                   </div>
                   <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12">
-                    <md-input [readonly]="isSeller || isOC && !isTaskAdmin && !isTaskManager && !isAdmin" [(ngModel)]="planningEndDate" placeholder="任务计划完成日期"
-                      #planningEndDateInput="ngModel" name="planningEndDateInput" [required]="planningBeginDate != null || realBeginDate != null || realEndDate != null"></md-input>
+                    <md-input type="date" [readonly]="isSeller || isOC && !isTaskAdmin && !isTaskManager && !isAdmin" [(ngModel)]="planningEndDate"
+                      placeholder="任务计划完成日期" #planningEndDateInput="ngModel" name="planningEndDateInput" [required]="planningBeginDate != null || realBeginDate != null || realEndDate != null"></md-input>
                   </div>
                 </div>
               </li>
@@ -148,12 +145,12 @@
               <li>
                 <div class="row" class="col-lg-10 col-md-10 col-xs-12 col-sm-12">
                   <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12">
-                    <md-input [readonly]="isSeller || isOC && !isTaskAdmin && !isTaskManager && !isAdmin" [(ngModel)]="realBeginDate" placeholder="任务实际开始日期"
-                      #realBeginDateInput="ngModel" name="realBeginDateInput" [required]="srcTask.percent >= 100 || realEndDate != null"></md-input>
+                    <md-input type="date" [readonly]="isSeller || isOC && !isTaskAdmin && !isTaskManager && !isAdmin" [(ngModel)]="realBeginDate"
+                      placeholder="任务实际开始日期" #realBeginDateInput="ngModel" name="realBeginDateInput" [required]="srcTask.percent >= 100 || realEndDate != null"></md-input>
                   </div>
                   <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12">
-                    <md-input [readonly]="isSeller || isOC && !isTaskAdmin && !isTaskManager && !isAdmin" [(ngModel)]="realEndDate" placeholder="任务实际完成日期"
-                      #realEndDateInput="ngModel" name="realEndDateInput" [required]="srcTask.percent >= 100"></md-input>
+                    <md-input type="date" [readonly]="isSeller || isOC && !isTaskAdmin && !isTaskManager && !isAdmin" [(ngModel)]="realEndDate"
+                      placeholder="任务实际完成日期" #realEndDateInput="ngModel" name="realEndDateInput" [required]="srcTask.percent >= 100"></md-input>
                   </div>
                 </div>
               </li>
@@ -162,11 +159,6 @@
               <li>
                 <md-input [readonly]="isSeller || isOC && !isTaskAdmin && !isTaskManager && !isAdmin" style="width:80px;" [(ngModel)]="srcTask.percent"
                   (ngModelChange)="editingTask.percent=$event" #percent="ngModel" placeholder="当前进度" name="percent" align="end"><span md-suffix>%</span></md-input>
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <md-input [readonly] placeholder="日期填写demo" [value]="'2016-10-20T00:00:00+08:00'"></md-input>
               </li>
             </ul>
           </div>

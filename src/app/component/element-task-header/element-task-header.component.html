@@ -22,7 +22,8 @@
         </div>
         <div class="status">
           <ul [hidden]="info3HiddenFlag">
-            <li class="status"><div *ngIf="info3DateSpan>0"><span>{{info3DateSpan}}</span>天</div></li>
+            <li class="status" *ngIf="info3DateSpan>0"><span>{{info3DateSpan}}</span>天</li>
+            <li class="status" *ngIf="info3DateSpan<=0"></li>
             <li class="statusname">{{info3Text}}</li>
           </ul>
         </div>

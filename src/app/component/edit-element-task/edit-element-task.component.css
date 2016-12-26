@@ -5,12 +5,9 @@
 }
 
 .task_class_info input,
-textarea {
+md-input-container {
   width: 80%;
-  padding: 0.5rem;
-  font-size: 0.5rem;
   margin-top: 10px;
-  float: left;
 }
 
 ul {

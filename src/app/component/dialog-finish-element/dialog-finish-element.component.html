@@ -5,11 +5,8 @@
       请选择当前任务的完成时间：
     </h6>
     <span>
-      <md-input [(ngModel)]="task.realEndDate"></md-input>
+      <md-input type="date" [(ngModel)]="task.realEndDate"></md-input>
     </span>
-    <p>
-      <md-input [readonly] placeholder="时间填写demo" [value]="'2016-10-20T00:00:00+08:00'"></md-input>
-    </p>
   </div>
 </div>
 <div class="md-dialog-actions">

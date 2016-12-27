@@ -4,8 +4,9 @@
   text-align: center;
 }
 
-.task_class_info input,
-md-input-container {
+.task_class_info md-input,
+md-input-container,
+md-select {
   width: 80%;
   margin-top: 10px;
 }
@@ -22,10 +23,6 @@ ul li{
     height:32px;
     line-height:32px;
  }*/
-
-ul li md-input {
-  width: 80%;
-}
 
 
 /*

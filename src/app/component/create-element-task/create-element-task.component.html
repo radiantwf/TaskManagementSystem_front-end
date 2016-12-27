@@ -44,14 +44,9 @@
           <div class="task_class_info">
             <ul>
               <li>
-                请选择销售负责人<span>*</span>
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <select [(ngModel)]="sellerId" class="form-control" #sellerIdSelect="ngModel" name="sellerIdSelect" [required]="true">
-										<option *ngFor="let emp of sellers" [value] = "emp.empId">{{emp.name}}</option>
-									</select>
+                <md-select placeholder="择销售负责人" [(ngModel)]="sellerId" #sellerIdSelect="ngModel" name="sellerIdSelect" [required]="true">
+                  <md-option *ngFor="let emp of sellers" [value]="emp.empId">{{emp.name}}</md-option>
+                </md-select>
               </li>
             </ul>
             <ul>
@@ -83,31 +78,24 @@
           <div class="task_class_info">
             <ul>
               <li>
-                请选择OC负责人 <span [hidden]="!(taskManagerId != null || (isTaskAdmin || isTaskManager))">*</span>
+                <md-select placeholder="OC负责人" [(ngModel)]="OCId" #OCIdSelect="ngModel" name="OCIdSelect" [required]="taskManagerId != null || (isTaskAdmin || isTaskManager)">
+                  <md-option *ngFor="let emp of OC" [value]="emp.empId">{{emp.name}}</md-option>
+                </md-select>
               </li>
             </ul>
             <ul>
               <li>
-                <select [(ngModel)]="OCId" class="form-control" #OCIdSelect="ngModel" name="OCIdSelect" [required]="taskManagerId != null || (isTaskAdmin || isTaskManager)">
-										<option *ngFor="let emp of OC" [value] = "emp.empId">{{emp.name}}</option>
-									</select>
+                <md-select placeholder="执行负责人" [(ngModel)]="taskManagerId" #taskManagerIdSelect="ngModel" name="taskManagerIdSelect" [required]="isTaskAdmin || isTaskManager">
+                  <md-option *ngFor="let emp of taskManagers" [value]="emp.empId">{{emp.name}}</md-option>
+                </md-select>
               </li>
             </ul>
             <ul>
               <li>
-                请选择执行负责人 <span [hidden]="!(isTaskAdmin || isTaskManager)">*</span>
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <select [(ngModel)]="taskManagerId" class="form-control" #taskManagerIdSelect="ngModel" name="taskManagerIdSelect" [required]="isTaskAdmin || isTaskManager">
-										<option *ngFor="let emp of taskManagers" [value] = "emp.empId">{{emp.name}}</option>
-									</select>
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <md-input [(ngModel)]="newTask.otherExecutors" placeholder="其他相关负责人员" #otherExecutors="ngModel" name="otherExecutors"></md-input>
+                <md-select placeholder="其他执行人员" multiple [(ngModel)]="newTask.otherExecutors" #otherExecutorsSelect="ngModel" name="otherExecutorsSelect"
+                  [required]="isTaskAdmin || isTaskManager">
+                  <md-option *ngFor="let emp of taskManagers" [value]="emp.empId">{{emp.name}}</md-option>
+                </md-select>
               </li>
             </ul>
             <ul *ngIf="!isOC">

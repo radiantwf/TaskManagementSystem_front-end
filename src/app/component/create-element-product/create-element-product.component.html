@@ -52,45 +52,33 @@
           <div class="product_class_info">
             <ul>
               <li>
-                请选择产品经理 <span>*</span>
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <select [(ngModel)]="productManagerId" class="form-control" #productManagerSelect="ngModel" name="productManagerSelect" [required]="true">
-										<option *ngFor="let emp of productManagers" [value] = "emp.empId">{{emp.name}}</option>
-									</select>
-              </li>
-            </ul>
-            <ul>
-              <li>
-                请选择市场经理 <span>*</span>
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <select [(ngModel)]="marketingManagerId" class="form-control" #marketingManagerSelect="ngModel" name="marketingManagerSelect"
+                <md-select placeholder="产品经理" [(ngModel)]="productManagerId" #productManagerSelect="ngModel" name="productManagerSelect"
                   [required]="true">
-										<option *ngFor="let emp of marketingManagers" [value] = "emp.empId">{{emp.name}}</option>
-									</select>
+                  <md-option *ngFor="let emp of productManagers" [value]="emp.empId">{{emp.name}}</md-option>
+                </md-select>
               </li>
             </ul>
             <ul>
               <li>
-                请选择研发经理 <span>*</span>
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <select [(ngModel)]="developmentManagerId" class="form-control" #developmentManagerSelect="ngModel" name="developmentManagerSelect"
+                <md-select placeholder="市场经理" [(ngModel)]="marketingManagerId" #marketingManagerSelect="ngModel" name="marketingManagerSelect"
                   [required]="true">
-										<option *ngFor="let emp of developmentManagers" [value] = "emp.empId">{{emp.name}}</option>
-									</select>
+                  <md-option *ngFor="let emp of marketingManagers" [value]="emp.empId">{{emp.name}}</md-option>
+                </md-select>
               </li>
             </ul>
             <ul>
               <li>
-                <md-input [(ngModel)]="newProduct.otherExecutors" placeholder="其他执行人员" #otherExecutors="ngModel" name="otherExecutors"></md-input>
+                <md-select placeholder="研发经理" [(ngModel)]="developmentManagerId" #developmentManagerSelect="ngModel" name="developmentManagerSelect"
+                  [required]="true">
+                  <md-option *ngFor="let emp of developmentManagers" [value]="emp.empId">{{emp.name}}</md-option>
+                </md-select>
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <md-select placeholder="其他执行人员" multiple [(ngModel)]="newProduct.otherExecutors" #otherExecutorsSelect="ngModel" name="otherExecutorsSelect">
+                  <md-option *ngFor="let emp of taskManagers" [value]="emp.empId">{{emp.name}}</md-option>
+                </md-select>
               </li>
             </ul>
             <ul>

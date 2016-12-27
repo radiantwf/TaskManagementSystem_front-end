@@ -62,10 +62,10 @@
             </ul>
             <ul>
               <li>
-                <select [(ngModel)]="srcTask.primarySellerId" (ngModelChange)="editingTask.primarySellerId=$event" class="form-control" #sellerIdSelect="ngModel"
+                <md-select [(ngModel)]="srcTask.primarySellerId" (ngModelChange)="editingTask.primarySellerId=$event" #sellerIdSelect="ngModel"
                   name="sellerIdSelect" [required]="true">
-										<option *ngFor="let emp of sellers" [value] = "emp.empId">{{emp.name}}</option>
-									</select>
+                  <md-option *ngFor="let emp of sellers" [value]="emp.empId">{{emp.name}}</md-option>
+                </md-select>
               </li>
             </ul>
             <ul>
@@ -102,29 +102,26 @@
             </ul>
             <ul>
               <li>
-                <select [(ngModel)]="srcTask.primaryOCId" (ngModelChange)="editingTask.primaryOCId=$event" class="form-control" #OCIdSelect="ngModel"
-                  name="OCIdSelect" [required]="srcTask.primarySellerId != null || (isTaskAdmin || isTaskManager)">
-										<option *ngFor="let emp of OC" [value] = "emp.empId">{{emp.name}}</option>
-									</select>
+                <md-select [(ngModel)]="srcTask.primaryOCId" (ngModelChange)="editingTask.primaryOCId=$event" #OCIdSelect="ngModel" name="OCIdSelect"
+                  [required]="srcTask.primarySellerId != null || (isTaskAdmin || isTaskManager)">
+                  <md-option *ngFor="let emp of OC" [value]="emp.empId">{{emp.name}}</md-option>
+                </md-select>
               </li>
             </ul>
             <ul>
               <li>
-                请选择执行负责人 <span [hidden]="!(isTaskAdmin || isTaskManager)">*</span>
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <select [(ngModel)]="srcTask.primaryExecutorId" (ngModelChange)="editingTask.primaryExecutorId=$event" class="form-control"
+                <md-select placeholder="执行负责人" [(ngModel)]="srcTask.primaryExecutorId" (ngModelChange)="editingTask.primaryExecutorId=$event"
                   #taskManagerIdSelect="ngModel" name="taskManagerIdSelect">
-										<option *ngFor="let emp of taskManagers" [value] = "emp.empId">{{emp.name}}</option>
-									</select>
+                  <md-option *ngFor="let emp of taskManagers" [value]="emp.empId">{{emp.name}}</md-option>
+                </md-select>
               </li>
             </ul>
             <ul>
               <li>
-                <md-input [readonly]="isSeller && !isOC && !isTaskAdmin && !isTaskManager && !isAdmin" [(ngModel)]="otherExecutors" placeholder="其他相关负责人员"
-                  #otherExecutorsInput="ngModel" name="otherExecutorsInput"></md-input>
+                <md-select placeholder="其他执行人员" multiple [(ngModel)]="srcTask.otherExecutors" (ngModelChange)="editingTask.otherExecutors=$event"
+                  #otherExecutorsSelect="ngModel" name="otherExecutorsSelect">
+                  <md-option *ngFor="let emp of taskManagers" [value]="emp.empId">{{emp.name}}</md-option>
+                </md-select>
               </li>
             </ul>
             <ul>

@@ -3,19 +3,19 @@
   <div class="md-dialog-content-body">
     <p>请选择对应负责人：</p>
     <div class="col-lg12 col-md-12 col-xs-12 col-sm-12">
-      <p>请选择OC负责人</p>
-      <select [(ngModel)]="primaryOCId" (ngModelChange)="desPrimaryOCId=$event" [required]="true" class="form-control">
-        <option *ngFor="let emp of OC" [value] = "emp.empId">{{emp.name}}</option>
-      </select>
-    </div>
-    <div class="col-lg12 col-md-12 col-xs-12 col-sm-12 mrb20">
-      <p>请选择任务负责人</p>
-      <select [(ngModel)]="primaryExecutorId" (ngModelChange)="desPrimaryExecutorId=$event" [required]="true" class="form-control">
-        <option *ngFor="let emp of taskExecutors" [value]="emp.empId">{{emp.name}}</option>
-      </select>
+      <md-select placeholder="OC负责人" [(ngModel)]="primaryOCId" (ngModelChange)="desPrimaryOCId=$event" [required]="true">
+        <md-option *ngFor="let emp of OC" [value]="emp.empId">{{emp.name}}</md-option>
+      </md-select>
     </div>
     <div class="col-lg12 col-md-12 col-xs-12 col-sm-12">
-      <md-input [(ngModel)]="otherExecutors" (ngModelChange)="desOtherExecutors=$event" placeholder="其他相关负责人员"></md-input>
+      <md-select placeholder="任务负责人" [(ngModel)]="primaryExecutorId" (ngModelChange)="desPrimaryExecutorId=$event" [required]="true">
+        <md-option *ngFor="let emp of taskExecutors" [value]="emp.empId">{{emp.name}}</md-option>
+      </md-select>
+    </div>
+    <div class="col-lg12 col-md-12 col-xs-12 col-sm-12">
+      <md-select multiple placeholder="其他责任人" [(ngModel)]="otherExecutors" (ngModelChange)="desOtherExecutors=$event">
+        <md-option *ngFor="let emp of taskExecutors" [value]="emp.empId">{{emp.name}}</md-option>
+      </md-select>
     </div>
   </div>
 </div>

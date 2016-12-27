@@ -4,7 +4,7 @@ import { ProductService } from './../../service/product.service';
 import { Router } from '@angular/router';
 import { AppGlobal } from '../../shared/app-global';
 import { MdDialogRef, MdDialog } from '@angular/material';
-import { DialogPlanComponent } from './../dialog-plan/dialog-plan.component';
+import { DialogPlanTaskComponent } from './../dialog-plan-task/dialog-plan-task.component';
 
 @Component({
   selector: 'app-element-product-detail',

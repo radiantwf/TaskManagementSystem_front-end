@@ -5,11 +5,11 @@
       请选择当前任务的完成时间：
     </h6>
     <span>
-      <md-input type="date" [(ngModel)]="task.realEndDate"></md-input>
+      <md-input type="date" [(ngModel)]="realEndDate"></md-input>
     </span>
   </div>
 </div>
 <div class="md-dialog-actions">
   <button md-button class="md-button button-line" type="button" (click)="dialogRef.close(null)">取&nbsp;&nbsp;消</button>
-  <button md-button class="md-button confirm-button" type="button" (click)="dialogRef.close(task)">确&nbsp;&nbsp;定</button>
+  <button md-button class="md-button confirm-button" type="button" (click)="comfirm()">确&nbsp;&nbsp;定</button>
 </div>

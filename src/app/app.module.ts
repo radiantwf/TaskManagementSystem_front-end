@@ -45,7 +45,7 @@ import { DialogStartElementComponent } from './component/dialog-start-element/di
 import { DialogFinishElementComponent } from './component/dialog-finish-element/dialog-finish-element.component';
 import { DialogProgressPercentageComponent } from './component/dialog-progress-percentage/dialog-progress-percentage.component';
 import { DialogCloseElementComponent } from './component/dialog-close-element/dialog-close-element.component';
-import { DialogPlanComponent } from './component/dialog-plan/dialog-plan.component';
+import { DialogPlanTaskComponent } from './component/dialog-plan-task/dialog-plan-task.component';
 import { DialogAssignTaskComponent } from './component/dialog-assign-task/dialog-assign-task.component';
 import { DialogRefuseTaskComponent } from './component/dialog-refuse-task/dialog-refuse-task.component';
 import { CreateElementProjectComponent } from './component/create-element-project/create-element-project.component';
@@ -91,7 +91,7 @@ import { ChangePasswordComponent } from './component/change-password/change-pass
     DialogFinishElementComponent,
     DialogProgressPercentageComponent,
     DialogCloseElementComponent,
-    DialogPlanComponent,
+    DialogPlanTaskComponent,
     DialogAssignTaskComponent,
     DialogRefuseTaskComponent,
     CreateElementProjectComponent,
@@ -124,7 +124,7 @@ import { ChangePasswordComponent } from './component/change-password/change-pass
     DialogFinishElementComponent,
     DialogProgressPercentageComponent,
     DialogCloseElementComponent,
-    DialogPlanComponent,
+    DialogPlanTaskComponent,
     DialogAssignTaskComponent,
     DialogRefuseTaskComponent,
   ],

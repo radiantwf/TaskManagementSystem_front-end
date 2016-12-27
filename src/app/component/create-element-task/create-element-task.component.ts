@@ -29,6 +29,7 @@ export class CreateElementTaskComponent implements OnInit {
     newRequiringEndDate: string;
     newPlanningBeginDate: string;
     newPlanningEndDate: string;
+    localOffset: number = new Date().getTimezoneOffset() * 60000;
 
     constructor(
         private router: Router,
@@ -80,14 +81,14 @@ export class CreateElementTaskComponent implements OnInit {
         this.newTask.primarySellerId = this.sellerId;
         this.newTask.primaryOCId = this.OCId;
         this.newTask.primaryExecutorId = this.taskManagerId;
-        if (this.newRequiringEndDate != null && this.newRequiringEndDate !== undefined) {
-            this.newTask.requiringEndDate = new Date(Date.parse(this.newRequiringEndDate + ' GMT+0800'));
+        if (this.newRequiringEndDate != null && this.newRequiringEndDate !== undefined && this.newRequiringEndDate !== '') {
+            this.newTask.requiringEndDate = new Date(new Date(Date.parse(this.newRequiringEndDate)).getTime() + this.localOffset);
         }
-        if (this.newPlanningBeginDate != null && this.newPlanningBeginDate !== undefined) {
-            this.newTask.planningBeginDate = new Date(Date.parse(this.newPlanningBeginDate + ' GMT+0800'));
+        if (this.newPlanningBeginDate != null && this.newPlanningBeginDate !== undefined && this.newPlanningBeginDate !== '') {
+            this.newTask.planningBeginDate = new Date(new Date(Date.parse(this.newPlanningBeginDate)).getTime() + this.localOffset);
         }
-        if (this.newPlanningEndDate != null && this.newPlanningEndDate !== undefined) {
-            this.newTask.planningEndDate = new Date(Date.parse(this.newPlanningEndDate + ' GMT+0800'));
+        if (this.newPlanningEndDate != null && this.newPlanningEndDate !== undefined && this.newPlanningEndDate !== '') {
+            this.newTask.planningEndDate = new Date(new Date(Date.parse(this.newPlanningEndDate)).getTime() + this.localOffset);
         }
         this.taskService.create(this.newTask).then(() => this.router.navigate(['/task/1'])
         );

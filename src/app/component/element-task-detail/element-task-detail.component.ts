@@ -4,7 +4,7 @@ import { TaskService } from './../../service/task.service';
 import { Router } from '@angular/router';
 import { AppGlobal } from '../../shared/app-global';
 import { MdDialogRef, MdDialog } from '@angular/material';
-import { DialogPlanComponent } from './../dialog-plan/dialog-plan.component';
+import { DialogPlanTaskComponent } from './../dialog-plan-task/dialog-plan-task.component';
 import { DialogAssignTaskComponent } from './../dialog-assign-task/dialog-assign-task.component';
 import { DialogRefuseTaskComponent } from './../dialog-refuse-task/dialog-refuse-task.component';
 
@@ -23,7 +23,7 @@ export class ElementTaskDetailComponent implements OnInit {
   isTaskManager: boolean = false;
   isAdmin: boolean = false;
 
-  dialogPlanRef: MdDialogRef<DialogPlanComponent>;
+  dialogPlanRef: MdDialogRef<DialogPlanTaskComponent>;
   dialogAssignRef: MdDialogRef<DialogAssignTaskComponent>;
   dialogRefuseRef: MdDialogRef<DialogRefuseTaskComponent>;
 
@@ -86,7 +86,7 @@ export class ElementTaskDetailComponent implements OnInit {
     }
   }
   openPlanDialog() {
-    this.dialogPlanRef = this.dialog.open(DialogPlanComponent, {
+    this.dialogPlanRef = this.dialog.open(DialogPlanTaskComponent, {
       disableClose: false
     });
     this.dialogPlanRef.componentInstance.planningBeginDate = this.taskRecord.planningBeginDate;

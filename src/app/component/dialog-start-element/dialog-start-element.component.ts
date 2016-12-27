@@ -8,11 +8,21 @@ import { Task } from './../../model/task';
   styleUrls: ['./dialog-start-element.component.css']
 })
 export class DialogStartElementComponent implements OnInit {
-  task: Task = new Task(null, null);
+  realBeginDate: string;
+  localOffset: number = new Date().getTimezoneOffset() * 60000;
 
   constructor( @Optional() public dialogRef: MdDialogRef<DialogStartElementComponent>) { }
 
   ngOnInit() {
   }
 
+  comfirm() {
+    if (this.realBeginDate == null || this.realBeginDate === '') {
+      alert('请填写实际完成日期！');
+      return;
+    }
+    let task = new Task(null, null);
+    task.realBeginDate = new Date(new Date(Date.parse(this.realBeginDate)).getTime() + this.localOffset);
+    this.dialogRef.close(task);
+  }
 }

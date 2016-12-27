@@ -57,12 +57,7 @@
           <div class="task_class_info">
             <ul>
               <li>
-                请选择销售负责人<span>*</span>
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <md-select [(ngModel)]="srcTask.primarySellerId" (ngModelChange)="editingTask.primarySellerId=$event" #sellerIdSelect="ngModel"
+                <md-select  placeholder="销售负责人" [(ngModel)]="primarySellerId" (ngModelChange)="editingTask.primarySellerId=$event" #sellerIdSelect="ngModel"
                   name="sellerIdSelect" [required]="true">
                   <md-option *ngFor="let emp of sellers" [value]="emp.empId">{{emp.name}}</md-option>
                 </md-select>
@@ -97,12 +92,7 @@
           <div class="task_class_info">
             <ul>
               <li>
-                请选择OC负责人 <span [hidden]="!(srcTask.primarySellerId != null || (isTaskAdmin || isTaskManager))">*</span>
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <md-select [(ngModel)]="srcTask.primaryOCId" (ngModelChange)="editingTask.primaryOCId=$event" #OCIdSelect="ngModel" name="OCIdSelect"
+                <md-select placeholder="OC负责人" [(ngModel)]="primaryOCId" (ngModelChange)="editingTask.primaryOCId=$event" #OCIdSelect="ngModel" name="OCIdSelect"
                   [required]="srcTask.primarySellerId != null || (isTaskAdmin || isTaskManager)">
                   <md-option *ngFor="let emp of OC" [value]="emp.empId">{{emp.name}}</md-option>
                 </md-select>
@@ -110,7 +100,7 @@
             </ul>
             <ul>
               <li>
-                <md-select placeholder="执行负责人" [(ngModel)]="srcTask.primaryExecutorId" (ngModelChange)="editingTask.primaryExecutorId=$event"
+                <md-select placeholder="执行负责人" [(ngModel)]="primaryExecutorId" (ngModelChange)="editingTask.primaryExecutorId=$event"
                   #taskManagerIdSelect="ngModel" name="taskManagerIdSelect">
                   <md-option *ngFor="let emp of taskManagers" [value]="emp.empId">{{emp.name}}</md-option>
                 </md-select>
@@ -118,7 +108,7 @@
             </ul>
             <ul>
               <li>
-                <md-select placeholder="其他执行人员" multiple [(ngModel)]="srcTask.otherExecutors" (ngModelChange)="editingTask.otherExecutors=$event"
+                <md-select placeholder="其他执行人员" multiple [(ngModel)]="otherExecutors" (ngModelChange)="editingTask.otherExecutors=$event"
                   #otherExecutorsSelect="ngModel" name="otherExecutorsSelect">
                   <md-option *ngFor="let emp of taskManagers" [value]="emp.empId">{{emp.name}}</md-option>
                 </md-select>
@@ -168,12 +158,18 @@
           <div class="task_class_info">
             <ul>
               <li>
-                <md-input placeholder="所属产品"></md-input>
+                <md-select placeholder="所属项目" [(ngModel)]="parentProjectId" (ngModelChange)="editingTask.parentProjectId=$event"
+                  #parentProjectIdSelect="ngModel" name="parentProjectIdSelect">
+                  <md-option *ngFor="let project of projects" [value]="project.id">{{project.id}} - {{project.name}}</md-option>
+                </md-select>
               </li>
             </ul>
             <ul>
               <li>
-                <md-input placeholder="所属项目"></md-input>
+                <md-select placeholder="所属产品" [(ngModel)]="parentProductId" (ngModelChange)="editingTask.parentProductId=$event"
+                  #parentProductIdSelect="ngModel" name="parentProductIdSelect">
+                  <md-option *ngFor="let product of products" [value]="product.id">{{product.id}} - {{product.name}}</md-option>
+                </md-select>
               </li>
             </ul>
           </div>

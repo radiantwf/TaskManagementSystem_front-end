@@ -32,8 +32,9 @@ export class Project {
     public realAcceptanceDate: Date;
     // 状态
     public status: string;
-    // 关联产品
-    public relevantProduct: any;
+    // 所属产品
+    public parentProductId: string;
+    public parentProduct: string;
     constructor(
         // 项目编号
         public id: string,

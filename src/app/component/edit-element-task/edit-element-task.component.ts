@@ -2,9 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { Task } from './../../model/task';
+import { Project } from './../../model/project';
+import { Product } from './../../model/product';
 import { Employee } from './../../model/employee';
 import { TaskService } from './../../service/task.service';
 import { EmployeeService } from './../../service/employee.service';
+import { ProjectService } from './../../service/project.service';
+import { ProductService } from './../../service/product.service';
 import { AppGlobal } from '../../shared/app-global';
 @Component({
     selector: 'app-edit-element-task',
@@ -12,13 +16,15 @@ import { AppGlobal } from '../../shared/app-global';
     styleUrls: ['./../element-task-header/element-task-header.component.css', './edit-element-task.component.css']
 })
 export class EditElementTaskComponent implements OnInit {
-    srcTask: Task = new Task('', '');
+    srcTask: Task = new Task(null, null);
     editingTask: Task = new Task('', null);
     refuseAlert: boolean = false;
     employees: Array<Employee>;
     sellers: Array<Employee>;
     OC: Array<Employee>;
     taskManagers: Array<Employee>;
+    projects: Array<Project>;
+    products: Array<Product>;
     operationType: string;
     isSeller: boolean = false;
     isOC: boolean = false;
@@ -36,11 +42,19 @@ export class EditElementTaskComponent implements OnInit {
     srcRealBeginDate: string = null;
     srcRealEndDate: string = null;
     localOffset: number = new Date().getTimezoneOffset() * 60000;
+    primarySellerId: string;
+    primaryOCId: string;
+    primaryExecutorId: string;
+    otherExecutors: string;
+    parentProjectId: string;
+    parentProductId: string;
     constructor(
         private router: Router,
         private activatedRoute: ActivatedRoute,
         private taskService: TaskService,
-        private employeeService: EmployeeService) {
+        private employeeService: EmployeeService,
+        private projectService: ProjectService,
+        private productService: ProductService) {
     }
 
     ngOnInit() {
@@ -52,10 +66,10 @@ export class EditElementTaskComponent implements OnInit {
             this.isTaskAdmin = user.permissions.findIndex(value => (value === 11 || value === 21)) >= 0;
             this.isTaskManager = user.permissions.findIndex(value => (value === 17 || value === 18 || value === 19 || value === 29)) >= 0;
         }
-        this.employeeService.getEmployee()
+        let p1 = this.employeeService.getEmployee()
             .then(e => this.employees = e)
             .then(() => this.ProcessEmployees());
-        this.activatedRoute.params.subscribe(params => {
+        let p2 = this.activatedRoute.params.subscribe(params => {
             if (typeof (params['tid']) !== 'undefined' && typeof (params['do']) !== 'undefined') {
                 this.operationType = params['do'];
                 this.taskService.getTask(params['tid'])
@@ -92,6 +106,17 @@ export class EditElementTaskComponent implements OnInit {
                     });
             }
         });
+        let p3 = this.projectService.getAllProjects().then(p => this.projects = p);
+        let p4 = this.productService.getAllProducts().then(p => this.products = p);
+        Promise.all([p1, p2, p3, p4]).then(() => {
+            this.primarySellerId = this.srcTask.primarySellerId;
+            this.primaryOCId = this.srcTask.primaryOCId;
+            this.primaryExecutorId = this.srcTask.primaryExecutorId;
+            this.otherExecutors = this.srcTask.otherExecutors;
+            this.parentProjectId = this.srcTask.parentProjectId;
+            this.parentProductId = this.srcTask.parentProductId;
+        });
+
     }
     ProcessEmployees() {
         this.sellers = new Array<Employee>();

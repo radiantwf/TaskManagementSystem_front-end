@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Project } from './../../model/project';
+import { Product } from './../../model/product';
 import { Employee } from './../../model/employee';
 import { ProjectService } from './../../service/project.service';
+import { ProductService } from './../../service/product.service';
 import { EmployeeService } from './../../service/employee.service';
 import { AppGlobal } from '../../shared/app-global';
 @Component({
@@ -17,6 +19,7 @@ export class CreateElementProjectComponent implements OnInit {
   projectManagers: Array<Employee>;
   sellers: Array<Employee>;
   developmentManagers: Array<Employee>;
+  products: Array<Product>;
   productManagerId: string;
   projectManagerId: string;
   sellerId: string;
@@ -29,10 +32,12 @@ export class CreateElementProjectComponent implements OnInit {
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private projectService: ProjectService,
-    private employeeService: EmployeeService) { }
+    private employeeService: EmployeeService,
+    private productService: ProductService) { }
 
   ngOnInit() {
     this.employeeService.getEmployee().then(e => { this.employees = e; this.ProcessEmployees(); });
+    this.productService.getAllProducts().then(p => this.products = p);
   }
   ProcessEmployees() {
     this.productManagers = new Array<Employee>();

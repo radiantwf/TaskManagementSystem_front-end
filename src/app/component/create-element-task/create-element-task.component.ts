@@ -2,8 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { Task } from './../../model/task';
+import { Project } from './../../model/project';
+import { Product } from './../../model/product';
 import { Employee } from './../../model/employee';
+
 import { TaskService } from './../../service/task.service';
+import { ProjectService } from './../../service/project.service';
+import { ProductService } from './../../service/product.service';
 import { EmployeeService } from './../../service/employee.service';
 import { AppGlobal } from '../../shared/app-global';
 
@@ -18,6 +23,8 @@ export class CreateElementTaskComponent implements OnInit {
     sellers: Array<Employee>;
     OC: Array<Employee>;
     taskManagers: Array<Employee>;
+    projects: Array<Project>;
+    products: Array<Product>;
     sellerId: string;
     OCId: string;
     taskManagerId: string;
@@ -34,7 +41,9 @@ export class CreateElementTaskComponent implements OnInit {
     constructor(
         private router: Router,
         private taskService: TaskService,
-        private employeeService: EmployeeService) {
+        private employeeService: EmployeeService,
+        private projectService: ProjectService,
+        private productService: ProductService) {
     }
 
     ngOnInit() {
@@ -46,6 +55,8 @@ export class CreateElementTaskComponent implements OnInit {
             this.isTaskManager = user.permissions.findIndex(value => (value === 17 || value === 18 || value === 19 || value === 29)) >= 0;
         }
         this.employeeService.getEmployee().then(e => { this.employees = e; this.ProcessEmployees(); });
+        this.projectService.getAllProjects().then(p => this.projects = p);
+        this.productService.getAllProducts().then(p => this.products = p);
     }
     ProcessEmployees() {
         this.sellers = new Array<Employee>();
@@ -81,6 +92,7 @@ export class CreateElementTaskComponent implements OnInit {
         this.newTask.primarySellerId = this.sellerId;
         this.newTask.primaryOCId = this.OCId;
         this.newTask.primaryExecutorId = this.taskManagerId;
+
         if (this.newRequiringEndDate != null && this.newRequiringEndDate !== undefined && this.newRequiringEndDate !== '') {
             this.newTask.requiringEndDate = new Date(new Date(Date.parse(this.newRequiringEndDate)).getTime() + this.localOffset);
         }

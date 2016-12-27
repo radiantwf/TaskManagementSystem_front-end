@@ -122,12 +122,16 @@
           <div class="task_class_info">
             <ul>
               <li>
-                <md-input placeholder="所属产品"></md-input>
+                <md-select placeholder="所属项目" [(ngModel)]="newTask.parentProjectId" #parentProjectIdSelect="ngModel" name="parentProjectIdSelect">
+                  <md-option *ngFor="let project of projects" [value]="project.id">{{project.id}} - {{project.name}}</md-option>
+                </md-select>
               </li>
             </ul>
             <ul>
               <li>
-                <md-input placeholder="所属项目"></md-input>
+                <md-select placeholder="所属产品" [(ngModel)]="newTask.parentProductId" #parentProductIdSelect="ngModel" name="parentProductIdSelect">
+                  <md-option *ngFor="let product of products" [value]="product.id">{{product.id}} - {{product.name}}</md-option>
+                </md-select>
               </li>
             </ul>
           </div>

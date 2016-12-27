@@ -134,9 +134,12 @@
           </div>
           <div class="project_title">产品</div>
           <div class="project_class_info">
+
             <ul>
               <li>
-                <md-input placeholder="关联产品"></md-input>
+                <md-select placeholder="所属产品" [(ngModel)]="newProject.parentProductId" #parentProductIdSelect="ngModel" name="parentProductIdSelect">
+                  <md-option *ngFor="let product of products" [value]="product.id">{{product.id}} - {{product.name}}</md-option>
+                </md-select>
               </li>
             </ul>
           </div>

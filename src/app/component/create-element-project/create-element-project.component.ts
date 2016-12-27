@@ -21,6 +21,9 @@ export class CreateElementProjectComponent implements OnInit {
   projectManagerId: string;
   sellerId: string;
   developmentManagerId: string;
+  requiringAcceptanceDate: string;
+  planningReleaseDate: string;
+  localOffset: number = new Date().getTimezoneOffset() * 60000;
 
   constructor(
     private router: Router,
@@ -63,6 +66,12 @@ export class CreateElementProjectComponent implements OnInit {
     this.newProject.primarySellerId = this.sellerId;
     this.newProject.productManagerId = this.productManagerId;
     this.newProject.developmentManagerId = this.developmentManagerId;
+    if (this.requiringAcceptanceDate != null && this.requiringAcceptanceDate !== undefined && this.requiringAcceptanceDate !== '') {
+      this.newProject.requiringAcceptanceDate = new Date(new Date(Date.parse(this.requiringAcceptanceDate)).getTime() + this.localOffset);
+    }
+    if (this.planningReleaseDate != null && this.planningReleaseDate !== undefined && this.planningReleaseDate !== '') {
+      this.newProject.planningReleaseDate = new Date(new Date(Date.parse(this.planningReleaseDate)).getTime() + this.localOffset);
+    }
     this.projectService.create(this.newProject).then(() => this.router.navigate(['/project']));
   }
 }

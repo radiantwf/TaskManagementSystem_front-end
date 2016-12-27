@@ -21,6 +21,8 @@ export class CreateElementProductComponent implements OnInit {
   productManagerId: string;
   marketingManagerId: string;
   developmentManagerId: string;
+  planningReleaseDate: string;
+  localOffset: number = new Date().getTimezoneOffset() * 60000;
 
   constructor(
     private router: Router,
@@ -57,6 +59,9 @@ export class CreateElementProductComponent implements OnInit {
     this.newProduct.productManagerId = this.productManagerId;
     this.newProduct.marketingManagerId = this.marketingManagerId;
     this.newProduct.developmentManagerId = this.developmentManagerId;
+    if (this.planningReleaseDate != null && this.planningReleaseDate !== undefined && this.planningReleaseDate !== '') {
+      this.newProduct.planningReleaseDate = new Date(new Date(Date.parse(this.planningReleaseDate)).getTime() + this.localOffset);
+    }
     this.productService.create(this.newProduct).then(() => this.router.navigate(['/product']));
   }
 }

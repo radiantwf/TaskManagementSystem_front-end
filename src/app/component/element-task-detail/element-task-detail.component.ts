@@ -29,6 +29,7 @@ export class ElementTaskDetailComponent implements OnInit {
 
   accessAlert: boolean = false;
   refuseAlert: boolean = false;
+  localOffset: number = new Date().getTimezoneOffset() * 60000;
 
   constructor(private taskService: TaskService, public dialog: MdDialog, private router: Router) { }
 
@@ -89,8 +90,14 @@ export class ElementTaskDetailComponent implements OnInit {
     this.dialogPlanRef = this.dialog.open(DialogPlanTaskComponent, {
       disableClose: false
     });
-    this.dialogPlanRef.componentInstance.planningBeginDate = this.taskRecord.planningBeginDate;
-    this.dialogPlanRef.componentInstance.planningEndDate = this.taskRecord.planningEndDate;
+    if (this.taskRecord.planningBeginDate != null && this.taskRecord.planningBeginDate !== undefined) {
+      this.dialogPlanRef.componentInstance.planningBeginDate = new Date(new Date(this.taskRecord.planningBeginDate).getTime()
+        - this.localOffset).toISOString().substring(0, 10);
+    }
+    if (this.taskRecord.planningEndDate != null && this.taskRecord.planningEndDate !== undefined) {
+      this.dialogPlanRef.componentInstance.planningEndDate = new Date(new Date(this.taskRecord.planningEndDate).getTime()
+        - this.localOffset).toISOString().substring(0, 10);
+    }
     this.dialogPlanRef.afterClosed().subscribe(result => {
       this.dialogPlanRef = null;
       if (result != null) {

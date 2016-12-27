@@ -66,7 +66,7 @@
               <li>
                 <div class="row" class="col-lg-10 col-md-10 col-xs-12 col-sm-12">
                   <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12">
-                    <md-input type="date" [(ngModel)]="newProject.requiringAcceptanceDate" #requiringEndDate="ngModel" name="requiringEndDate"
+                    <md-input type="date" [(ngModel)]="requiringAcceptanceDate" #requiringAcceptanceDateInput="ngModel" name="requiringAcceptanceDateInput"
                       placeholder="要求验收日期"></md-input>
                   </div>
                   <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12">
@@ -136,7 +136,7 @@
               <li>
                 <div class="row" class="col-lg-10 col-md-10 col-xs-12 col-sm-12">
                   <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12">
-                    <md-input type="date" [(ngModel)]="newProject.planningReleaseDate" placeholder="计划发布日期" #planningReleaseDate="ngModel" name="planningReleaseDate"
+                    <md-input type="date" [(ngModel)]="planningReleaseDate" placeholder="计划发布日期" #planningReleaseDateInput="ngModel" name="planningReleaseDateInput"
                       [required]="true"></md-input>
                   </div>
                 </div>
@@ -148,7 +148,7 @@
           <div class="project_class_ic">
             <md-icon>dashboard</md-icon>
           </div>
-          <div class="project_title">产品与项目</div>
+          <div class="project_title">产品</div>
           <div class="project_class_info">
             <ul>
               <li>

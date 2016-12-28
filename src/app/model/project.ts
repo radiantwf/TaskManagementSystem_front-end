@@ -23,6 +23,7 @@ export class Project {
     public developmentManagerId: string;
     public developmentManager: string;
     // 其他执行人
+    public otherExecutorIds: string[];
     public otherExecutors: string;
     // 计划发布日期
     public planningReleaseDate: Date;

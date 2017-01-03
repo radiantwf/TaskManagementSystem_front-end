@@ -102,7 +102,7 @@ export class ElementTaskHeaderComponent implements OnInit {
 
       this.info2HiddenFlag = false;
       this.info2DateSpan = Math.ceil((this.today.getTime()
-        - (new Date(this.taskRecord.planningBeginDate)).getTime()) / 86400000) + 1;
+        - (new Date(this.taskRecord.realBeginDate)).getTime()) / 86400000) + 1;
       this.info2Text = '实际用时';
       if (this.today > new Date(this.taskRecord.planningEndDate)) {
         this.info3DateSpan = Math.floor((this.today.getTime() - (new Date(this.taskRecord.planningEndDate)).getTime()) / 86400000);

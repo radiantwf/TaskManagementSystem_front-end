@@ -2,9 +2,110 @@
 <html lang="zh-CN">
 
 <head>
-  <meta charset="UTF-8">
   <title>任务管理系统APP下载</title>
-  <script type="text/javascript">
+  <meta content="width=device-width,user-scalable=no" name="viewport">
+  <meta name="format-detection" content="telephone=no" />
+  <style>
+    body {
+      background: #F8F7F5
+    }
+    
+    #guide {
+      width: 100%;
+      height: 400px;
+      background-size: 320px 400px;
+      background-position: center top;
+      background-repeat: no-repeat;
+    }
+    
+    .iosguide {
+      background-image: url("./iosopen.jpg");
+    }
+    
+    .androidguide {
+      background-image: url("./androidopen.jpg");
+    }
+    
+    .iosguidedownload {
+      background-image: url("./iosopen.jpg");
+    }
+    
+    .androidguidedownload {
+      background-image: url("./androidopen.jpg");
+    }
+    
+    .iosguideopen {
+      background-image: url("./iosopen.jpg");
+    }
+    
+    .androidguideopen {
+      background-image: url("./androidopen.jpg");
+    }
+
+  </style>
+</head>
+
+<body ontouchstart="">
+  <div id="guide" class="guide"></div>
+  <iframe id="iframe" style="display: none !important;"></iframe>
+  <script>
+    ;
+    (function (window, doc) {
+      function localParam(search, hash) {
+        search = search || window.location.search;
+        hash = hash || window.location.hash;
+        var fn = function (str, reg) {
+          if (str) {
+            var data = {};
+            str.replace(reg, function ($0, $1, $2, $3) {
+              data[$1] = $3;
+            });
+            return data;
+          }
+        }
+        return {
+          search: fn(search, new RegExp("([^?=&]+)(=([^&]*))?", "g")) || {},
+          hash: fn(hash, new RegExp("([^#=&]+)(=([^&]*))?", "g")) || {}
+        };
+      }
+      var isAndroid = navigator.userAgent.match(/android/ig),
+        isIos = navigator.userAgent.match(/iphone|ipod/ig),
+        isIpad = navigator.userAgent.match(/ipad/ig),
+        isWeixin = (/MicroMessenger/ig).test(navigator.userAgent),
+        params = localParam(),
+        uri = params.search.uri,
+        iframe = document.getElementById('iframe');
+      if (isIos || isIpad) {
+        document.getElementById("guide").classList.add('iosguideopen')
+      } else if (isAndroid) {
+        document.getElementById("guide").classList.add('androidguideopen')
+      }
+      if (!isWeixin) {
+        document.getElementById('iframe').src = uri;
+      }
+      // document.addEventListener('WeixinJSBridgeReady', function () {
+      //   // 分享到朋友圈;
+      //   WeixinJSBridge.on('menu:share:timeline', function (argv) {
+      //     WeixinJSBridge.invoke('shareTimeline', {
+      //       "img_url": 'http://task.hisign.top:6009/installer/mobile_client.jpg',
+      //       "img_width": "150",
+      //       "img_height": "150",
+      //       "link": 'http://task.hisign.top:6009/installer/index.html',
+      //       "desc": '海鑫科金公安信息化产品中心任务管理系统',
+      //       "title": '任务管理系统下载页面'
+      //     });
+      //   });
+      //   WeixinJSBridge.on('menu:share:appmessage', function (argv) {
+      //     WeixinJSBridge.invoke('sendAppMessage', {
+      //       "img_url": 'http://task.hisign.top:6009/installer/mobile_client.jpg',
+      //       "link": 'http://task.hisign.top:6009/installer/index.html',
+      //       "desc": '海鑫科金公安信息化产品中心任务管理系统，快来下载吧！',
+      //       "title": '任务管理系统下载页面'
+      //     });
+      //   });
+      // });
+    })(window, document);
+
     // 获取终端的相关信息
     var Terminal = {
       // 辨别移动终端类型
@@ -31,28 +132,25 @@
         'itms-services:///?action=download-manifest&url=https://raw.githubusercontent.com/radiantwf/plist/master/manifest.plist';
     } else {
       theUrl = 'http://task.hisign.top:6009/installer/TaskManagementSystem_Mobile.apk'
-        // // 还可以通过language，区分开多国语言版
-        // switch(Terminal.language){
-        //     case 'en-us':
-        //         theUrl = '你的 APP（英文版）对应下载地址';
-        //         break;
-        //     case 'ko-kr':
-        //         theUrl = '你的 APP（韩语版）对应下载地址';
-        //         break;
-        //     case 'ja-jp':
-        //         theUrl = '你的 APP（日文版）对应下载地址';
-        //         break;
-        //     default:
-        //         theUrl = '你的 APP（中文版-默认）对应下载地址';
-        // }
+      // // 还可以通过language，区分开多国语言版
+      // switch(Terminal.language){
+      //     case 'en-us':
+      //         theUrl = '你的 APP（英文版）对应下载地址';
+      //         break;
+      //     case 'ko-kr':
+      //         theUrl = '你的 APP（韩语版）对应下载地址';
+      //         break;
+      //     case 'ja-jp':
+      //         theUrl = '你的 APP（日文版）对应下载地址';
+      //         break;
+      //     default:
+      //         theUrl = '你的 APP（中文版-默认）对应下载地址';
+      // }
     }
 
     location.href = theUrl;
 
   </script>
-</head>
-
-<body>
   <!--
  
     -->

@@ -4,12 +4,13 @@ import { Product } from '../model/product';
 import { ProductCounts } from '../model/counts';
 import { Headers, Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
+import { UserService } from './user.service';
 
 @Injectable()
 export class ProductService {
   private productsUrl = `${AppGlobal.getInstance().appURL}/product`;  // URL to web api
   private productsCountsUrl = `${AppGlobal.getInstance().appURL}/product/counts`;
-  constructor(private http: Http) { }
+  constructor(private http: Http, private userService: UserService) { }
 
   getAllProducts(): Promise<Product[]> {
     let url = `${this.productsUrl}/all`;
@@ -74,7 +75,7 @@ export class ProductService {
 
   private httpHeaders(): Headers {
     let headers = new Headers({ 'Content-Type': 'application/json' });
-    let token = AppGlobal.getInstance().getLocalToken();
+    let token = this.userService.getLocalToken();
     if (token != null && token !== '') {
       headers.append('X-Auth-Token', token);
     }

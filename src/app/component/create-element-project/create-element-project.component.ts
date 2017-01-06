@@ -6,6 +6,7 @@ import { Employee } from './../../model/employee';
 import { ProjectService } from './../../service/project.service';
 import { ProductService } from './../../service/product.service';
 import { EmployeeService } from './../../service/employee.service';
+import { UserService } from './../../service/user.service';
 import { AppGlobal } from '../../shared/app-global';
 @Component({
   selector: 'app-create-element-project',
@@ -30,6 +31,7 @@ export class CreateElementProjectComponent implements OnInit {
 
   constructor(
     private router: Router,
+    private userService: UserService,
     private activatedRoute: ActivatedRoute,
     private projectService: ProjectService,
     private employeeService: EmployeeService,
@@ -54,7 +56,7 @@ export class CreateElementProjectComponent implements OnInit {
       }
       if (value.permissions.findIndex(p => (p === 21 || p === 29)) >= 0) {
         this.projectManagers.push(value);
-        if (value.empId === AppGlobal.getInstance().currentUser.empId) {
+        if (value.empId === this.userService.currentUser.empId) {
           this.projectManagerId = value.empId;
         }
       }

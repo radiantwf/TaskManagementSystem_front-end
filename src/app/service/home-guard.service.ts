@@ -15,11 +15,11 @@ export class HomeGuard implements CanActivate {
   constructor(private userService: UserService, private router: Router) { }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | boolean {
-    if (AppGlobal.getInstance().currentUser == null) {
+    if (this.userService.currentUser == null) {
       return this.userService.signin('', '')
         .map(user => {
           if (user != null) {
-            AppGlobal.getInstance().currentUser = user;
+            this.userService.currentUser = user;
             return true;
           } else {
             this.router.navigate(['/signout']);

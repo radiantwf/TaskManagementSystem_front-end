@@ -1,15 +1,26 @@
 import { Injectable } from '@angular/core';
 import { AppGlobal } from '../shared/app-global';
+import { CookiesService } from './cookies.service';
 import { Headers, Http, Response } from '@angular/http';
 import { User } from '../model/user';
 import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class UserService {
+  private static token: string;
+  private static currentUser: User = null;
+
   private signInUrl = `${AppGlobal.getInstance().appURL}/user/signin`;  // URL to web api
   private userUrl = `${AppGlobal.getInstance().appURL}/user`;  // URL to web api
+  constructor(private http: Http, private cookies: CookiesService) { }
 
-  constructor(private http: Http) { }
+  get currentUser(): User {
+    return UserService.currentUser;
+  }
+
+  set currentUser(user: User) {
+    UserService.currentUser = user;
+  }
 
   signin(uid: string, password: string): Observable<User> {
     return this.http
@@ -36,6 +47,27 @@ export class UserService {
       .catch(this.handleError);
   }
 
+  getLocalToken(): string {
+    if (UserService.token != null) {
+      return UserService.token;
+    }
+    return this.cookies.getCookie('token');
+  }
+
+  setLocalToken(token: string) {
+    UserService.token = token;
+    if (UserService.token != null) {
+      this.cookies.setCookie('token', UserService.token, 1);
+    } else {
+      this.cookies.clearCookie('token');
+    }
+  }
+
+  clearToken() {
+    UserService.token = null;
+    this.cookies.clearCookie('token');
+  }
+
   private handleError(error: Response | any) {
     // In a real world app, we might use a remote logging infrastructure
     let errMsg: string;
@@ -56,7 +88,7 @@ export class UserService {
 
   private httpHeaders(): Headers {
     let headers = new Headers({ 'Content-Type': 'application/json' });
-    let token = AppGlobal.getInstance().getLocalToken();
+    let token = this.getLocalToken();
     if (token != null && token !== '') {
       headers.append('X-Auth-Token', token);
     }

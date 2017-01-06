@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Product } from './../../model/product';
 import { ProductService } from './../../service/product.service';
+import { UserService } from './../../service/user.service';
 import { Router } from '@angular/router';
 import { AppGlobal } from '../../shared/app-global';
 import { MdDialogRef, MdDialog } from '@angular/material';
@@ -25,10 +26,10 @@ export class ElementProductDetailComponent implements OnInit {
   accessAlert: boolean = false;
   refuseAlert: boolean = false;
 
-  constructor(private productService: ProductService, public dialog: MdDialog, private router: Router) { }
+  constructor(private productService: ProductService, public dialog: MdDialog, private router: Router, private userService: UserService) { }
 
   ngOnInit() {
-    let user = AppGlobal.getInstance().currentUser;
+    let user = this.userService.currentUser;
 
     this.isAdmin = user.permissions.findIndex(value => (value === 1)) >= 0;
     this.isOC = user.permissions.findIndex(value => (value === 99)) >= 0;

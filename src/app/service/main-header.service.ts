@@ -3,6 +3,7 @@ import { AppGlobal } from '../shared/app-global';
 import { Headers, Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { TaskCounts } from '../model/counts';
+import { UserService } from './user.service';
 
 @Injectable()
 export class MainHeaderService {
@@ -10,7 +11,7 @@ export class MainHeaderService {
   private projectsUrl = `${AppGlobal.getInstance().appURL}/project/counts`;
   private productsUrl = `${AppGlobal.getInstance().appURL}/product/counts`;
 
-  constructor(private http: Http) { }
+  constructor(private http: Http, private userService: UserService) { }
 
   getTaskCounts(): Observable<any> {
     return this.http.get(this.tasksUrl, { headers: this.httpHeaders() })
@@ -25,7 +26,7 @@ export class MainHeaderService {
 
   private httpHeaders(): Headers {
     let headers = new Headers({ 'Content-Type': 'application/json' });
-    let token = AppGlobal.getInstance().getLocalToken();
+    let token = this.userService.getLocalToken();
     if (token != null && token != "") {
       headers.append('X-Auth-Token', token);
     }

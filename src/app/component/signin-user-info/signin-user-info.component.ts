@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Router } from '@angular/router';
 import { User } from '../../model/User';
+import { UserService } from './../../service/user.service';
 import { AppGlobal } from '../../shared/app-global';
 
 @Component({
@@ -11,9 +12,9 @@ import { AppGlobal } from '../../shared/app-global';
 })
 export class SigninUserInfoComponent implements OnInit {
   myInfo: User = null;
-  constructor() { }
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
-    this.myInfo = AppGlobal.getInstance().currentUser;
+    this.myInfo = this.userService.currentUser;
   }
 }

@@ -19,22 +19,22 @@ export class SignInComponent implements OnInit {
 
   ngOnInit() {
     this.isSignIn = true;
-    let savedToken = AppGlobal.getInstance().getLocalToken();
+    let savedToken = this.userService.getLocalToken();
     if (savedToken != null && savedToken !== '') {
       this.userService.signin(this.authorize.name, this.authorize.pwd)
         .subscribe(user => {
           if (user != null) {
-            AppGlobal.getInstance().clearToken();
-            AppGlobal.getInstance().currentUser = user;
-            AppGlobal.getInstance().setLocalToken(user.token);
+            this.userService.clearToken();
+            this.userService.currentUser = user;
+            this.userService.setLocalToken(user.token);
             this.router.navigate(['/task']);
           } else {
-            AppGlobal.getInstance().clearToken();
+            this.userService.clearToken();
             this.isSignIn = false;
           }
         });
     } else {
-      AppGlobal.getInstance().clearToken();
+      this.userService.clearToken();
       this.isSignIn = false;
     }
   }
@@ -42,16 +42,16 @@ export class SignInComponent implements OnInit {
     this.wrong_password = false;
   }
   onSubmit() {
-    AppGlobal.getInstance().clearToken();
+    this.userService.clearToken();
     let hash = sha1.hash(this.authorize.pwd);
     this.userService.signin(this.authorize.name, hash)
       .subscribe(user => {
         if (user !== null) {
-          AppGlobal.getInstance().currentUser = user;
-          AppGlobal.getInstance().setLocalToken(user.token);
+          this.userService.currentUser = user;
+          this.userService.setLocalToken(user.token);
           this.router.navigate(['/task']);
         } else {
-          AppGlobal.getInstance().clearToken();
+          this.userService.clearToken();
           this.wrong_password = true;
         }
       });

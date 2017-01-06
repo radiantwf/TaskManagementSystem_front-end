@@ -3,12 +3,13 @@ import { AppGlobal } from '../shared/app-global';
 import { Headers, Http, Response } from '@angular/http';
 import { Employee } from '../model/employee';
 import { Observable } from 'rxjs/Observable';
+import { UserService } from './user.service';
 
 @Injectable()
 export class EmployeeService {
   private employeeUrl = `${AppGlobal.getInstance().appURL}/employee`;  // URL to web api
 
-  constructor(private http: Http) { }
+  constructor(private http: Http, private userService: UserService) { }
 
   getEmployee(): Promise<Array<Employee>> {
     return this.http
@@ -39,7 +40,7 @@ export class EmployeeService {
 
   private httpHeaders(): Headers {
     let headers = new Headers({ 'Content-Type': 'application/json' });
-    let token = AppGlobal.getInstance().getLocalToken();
+    let token = this.userService.getLocalToken();
     if (token != null && token !== '') {
       headers.append('X-Auth-Token', token);
     }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppGlobal } from '../../shared/app-global';
 import { ActivatedRoute, Router } from '@angular/router';
+import { UserService } from './../../service/user.service';
 
 @Component({
   selector: 'main-navigation-bar',
@@ -13,10 +14,10 @@ export class MainNavigationBarComponent implements OnInit {
   createProjectVisibility: boolean;
   elementType: string = '';
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private userService: UserService) {
   }
   ngOnInit() {
-    let user = AppGlobal.getInstance().currentUser;
+    let user = this.userService.currentUser;
     if (user != null) {
       this.createTaskVisibility = user.permissions.findIndex(value => (value === 1
         || value === 11 || value === 17 || value === 18 || value === 19

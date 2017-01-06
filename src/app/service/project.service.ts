@@ -4,12 +4,13 @@ import { Project } from '../model/project';
 import { ProjectCounts } from '../model/counts';
 import { Headers, Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
+import { UserService } from './user.service';
 
 @Injectable()
 export class ProjectService {
   private projectsUrl = `${AppGlobal.getInstance().appURL}/project`;  // URL to web api
   private projectsCountsUrl = `${AppGlobal.getInstance().appURL}/project/counts`;
-  constructor(private http: Http) { }
+  constructor(private http: Http, private userService: UserService) { }
 
   getAllProjects(): Promise<Project[]> {
     let url = `${this.projectsUrl}/all`;
@@ -73,7 +74,7 @@ export class ProjectService {
 
   private httpHeaders(): Headers {
     let headers = new Headers({ 'Content-Type': 'application/json' });
-    let token = AppGlobal.getInstance().getLocalToken();
+    let token = this.userService.getLocalToken();
     if (token != null && token !== '') {
       headers.append('X-Auth-Token', token);
     }

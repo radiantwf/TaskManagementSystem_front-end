@@ -10,6 +10,7 @@ import { TaskService } from './../../service/task.service';
 import { ProjectService } from './../../service/project.service';
 import { ProductService } from './../../service/product.service';
 import { EmployeeService } from './../../service/employee.service';
+import { UserService } from './../../service/user.service';
 import { AppGlobal } from '../../shared/app-global';
 
 @Component({
@@ -40,6 +41,7 @@ export class CreateElementTaskComponent implements OnInit {
 
     constructor(
         private router: Router,
+        private userService: UserService,
         private taskService: TaskService,
         private employeeService: EmployeeService,
         private projectService: ProjectService,
@@ -47,7 +49,7 @@ export class CreateElementTaskComponent implements OnInit {
     }
 
     ngOnInit() {
-        let user = AppGlobal.getInstance().currentUser;
+        let user = this.userService.currentUser;
         if (user != null) {
             this.isOC = user.permissions.findIndex(value => (value === 99)) >= 0;
             this.isSeller = user.permissions.findIndex(value => (value === 98)) >= 0;
@@ -68,27 +70,27 @@ export class CreateElementTaskComponent implements OnInit {
         this.employees.forEach(value => {
             if (value.permissions.findIndex(p => (p === 98)) >= 0) {
                 this.sellers.push(value);
-                if (value.empId === AppGlobal.getInstance().currentUser.empId) {
+                if (value.empId === this.userService.currentUser.empId) {
                     this.sellerId = value.empId;
                 }
             }
             if (value.permissions.findIndex(p => (p === 99)) >= 0) {
                 this.OC.push(value);
-                if (value.empId === AppGlobal.getInstance().currentUser.empId) {
+                if (value.empId === this.userService.currentUser.empId) {
                     this.OCId = value.empId;
                 }
             }
             if (value.permissions.findIndex(p => (p === 1
                 || p === 11 || p === 17 || p === 18 || p === 19 || p === 21 || p === 29)) >= 0) {
                 this.taskManagers.push(value);
-                if (value.empId === AppGlobal.getInstance().currentUser.empId) {
+                if (value.empId === this.userService.currentUser.empId) {
                     this.taskManagerId = value.empId;
                 }
             }
         });
     }
     addTask() {
-        this.newTask.creatorId = AppGlobal.getInstance().currentUser.empId;
+        this.newTask.creatorId = this.userService.currentUser.empId;
         this.newTask.primarySellerId = this.sellerId;
         this.newTask.primaryOCId = this.OCId;
         this.newTask.primaryExecutorId = this.taskManagerId;

@@ -4,12 +4,13 @@ import { Task } from '../model/task';
 import { TaskCounts } from '../model/counts';
 import { Headers, Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
+import { UserService } from './user.service';
 
 @Injectable()
 export class TaskService {
   private tasksUrl = `${AppGlobal.getInstance().appURL}/task`;  // URL to web api
   private tasksCountsUrl = `${AppGlobal.getInstance().appURL}/task/counts`;
-  constructor(private http: Http) { }
+  constructor(private http: Http, private userService: UserService) { }
 
   getTasks(searchCriteria, searchCriteria2, pageNumber): Promise<Task[]> {
     let url = `${this.tasksUrl}/?pagesize=${AppGlobal.getInstance().pageSize}&page=${pageNumber}`;
@@ -111,7 +112,7 @@ export class TaskService {
 
   private httpHeaders(): Headers {
     let headers = new Headers({ 'Content-Type': 'application/json' });
-    let token = AppGlobal.getInstance().getLocalToken();
+    let token = this.userService.getLocalToken();
     if (token != null && token !== '') {
       headers.append('X-Auth-Token', token);
     }

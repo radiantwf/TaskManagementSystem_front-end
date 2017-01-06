@@ -2,6 +2,7 @@ import { Component, OnInit, Optional } from '@angular/core';
 import { MdDialogRef } from '@angular/material';
 import { Employee } from './../../model/employee';
 import { EmployeeService } from './../../service/employee.service';
+import { UserService } from './../../service/user.service';
 import { AppGlobal } from '../../shared/app-global';
 
 @Component({
@@ -20,7 +21,8 @@ export class DialogAssignTaskComponent implements OnInit {
   employees: Array<Employee>;
   OC: Array<Employee>;
   taskExecutors: Array<Employee>;
-  constructor( @Optional() public dialogRef: MdDialogRef<DialogAssignTaskComponent>, private employeeService: EmployeeService) {
+  constructor( @Optional() public dialogRef: MdDialogRef<DialogAssignTaskComponent>,
+    private employeeService: EmployeeService, private userService: UserService) {
     this.employeeService.getEmployee().then(e => { this.employees = e; this.ProcessEmployees(); });
   }
 
@@ -37,7 +39,7 @@ export class DialogAssignTaskComponent implements OnInit {
       if (value.permissions.findIndex(p => (p === 99)) >= 0) {
         this.OC.push(value);
         if (this.primaryOCId == null) {
-          if (value.empId === AppGlobal.getInstance().currentUser.empId) {
+          if (value.empId === this.userService.currentUser.empId) {
             this.primaryOCId = value.empId;
             this.desPrimaryOCId = value.empId;
           }
@@ -46,7 +48,7 @@ export class DialogAssignTaskComponent implements OnInit {
       if (value.permissions.findIndex(p => (p === 11 || p === 17 || p === 18 || p === 19 || p === 21 || p === 29)) >= 0) {
         this.taskExecutors.push(value);
         if (this.primaryExecutorId == null) {
-          if (value.empId === AppGlobal.getInstance().currentUser.empId) {
+          if (value.empId === this.userService.currentUser.empId) {
             this.primaryExecutorId = value.empId;
             this.desPrimaryExecutorId = value.empId;
           }

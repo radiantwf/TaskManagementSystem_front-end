@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Task } from './../../model/task';
 import { TaskService } from './../../service/task.service';
+import { UserService } from './../../service/user.service';
 import { Router } from '@angular/router';
 import { AppGlobal } from '../../shared/app-global';
 import { MdDialogRef, MdDialog } from '@angular/material';
@@ -31,10 +32,10 @@ export class ElementTaskDetailComponent implements OnInit {
   refuseAlert: boolean = false;
   localOffset: number = new Date().getTimezoneOffset() * 60000;
 
-  constructor(private taskService: TaskService, public dialog: MdDialog, private router: Router) { }
+  constructor(private taskService: TaskService, private userService: UserService, public dialog: MdDialog, private router: Router) { }
 
   ngOnInit() {
-    let user = AppGlobal.getInstance().currentUser;
+    let user = this.userService.currentUser;
 
     this.isAdmin = user.permissions.findIndex(value => (value === 1)) >= 0;
     this.isOC = user.permissions.findIndex(value => (value === 99)) >= 0;

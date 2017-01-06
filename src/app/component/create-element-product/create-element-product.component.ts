@@ -4,6 +4,7 @@ import { Product } from './../../model/product';
 import { Employee } from './../../model/employee';
 import { ProductService } from './../../service/product.service';
 import { EmployeeService } from './../../service/employee.service';
+import { UserService } from './../../service/user.service';
 import { AppGlobal } from '../../shared/app-global';
 
 @Component({
@@ -27,6 +28,7 @@ export class CreateElementProductComponent implements OnInit {
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
+    private userService: UserService,
     private productService: ProductService,
     private employeeService: EmployeeService) { }
 
@@ -43,7 +45,7 @@ export class CreateElementProductComponent implements OnInit {
     this.employees.forEach(value => {
       if (value.permissions.findIndex(p => (p === 11 || p === 19)) >= 0) {
         this.productManagers.push(value);
-        if (value.empId === AppGlobal.getInstance().currentUser.empId) {
+        if (value.empId === this.userService.currentUser.empId) {
           this.productManagerId = value.empId;
         }
       }

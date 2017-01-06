@@ -38,6 +38,7 @@ import { ProductService } from './service/product.service';
 import { CommunicationsService } from './service/communications.service';
 import { UserService } from './service/user.service';
 import { EmployeeService } from './service/employee.service';
+import { CookiesService } from './service/cookies.service';
 import { MainHeaderService } from './service/main-header.service';
 // import { InMemoryDataService } from './service/in-memory-data.service';
 import { NullOrEmptyPipe } from './pipe/null-or-empty.pipe';
@@ -136,6 +137,7 @@ import { ChangePasswordComponent } from './component/change-password/change-pass
     MainHeaderService,
     UserService,
     EmployeeService,
+    CookiesService,
   ],
   bootstrap: [AppComponent]
 })

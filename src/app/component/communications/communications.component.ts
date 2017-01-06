@@ -1,6 +1,7 @@
 import { Component, OnInit, Directive, ElementRef, Renderer, Input } from '@angular/core';
 import { Communication } from '../../model/communication';
 import { AppGlobal } from '../../shared/app-global';
+import { UserService } from './../../service/user.service';
 
 import { CommunicationsService } from './../../service/communications.service';
 
@@ -14,17 +15,18 @@ export class CommunicationsComponent implements OnInit {
   empId: string;
   @Input() id: string;
   content: string;
-  constructor(private communicationsService: CommunicationsService) { }
+  constructor(private communicationsService: CommunicationsService,
+    private userService: UserService) { }
 
   ngOnInit() {
-    this.empId = AppGlobal.getInstance().currentUser.empId;
+    this.empId = this.userService.currentUser.empId;
     this.communicationsService.getCommunicationsById(this.id)
       .then(list => this.list = list);
   }
 
   addCommunication() {
     if (!this.content) { return; }
-    let communication = new Communication(this.id, AppGlobal.getInstance().currentUser.empId, null, new Date(Date.now()), this.content);
+    let communication = new Communication(this.id, this.userService.currentUser.empId, null, new Date(Date.now()), this.content);
 
     this.communicationsService.create(communication).then(() => {
       this.communicationsService.getCommunicationsById(this.id)
@@ -39,14 +41,14 @@ export class CommunicationsDirective {
   @Input('personId') personId: string;
 
   @Input('personId') set myperson(personId: string) {
-    if (this.personId === AppGlobal.getInstance().currentUser.empId) {
+    if (this.personId === this.userService.currentUser.empId) {
       this.renderer.setElementAttribute(this.el.nativeElement, 'class', 'me');
     } else {
       this.renderer.setElementAttribute(this.el.nativeElement, 'class', 'other');
     }
   }
 
-  constructor(private el: ElementRef, private renderer: Renderer) {
+  constructor(private el: ElementRef, private renderer: Renderer, private userService: UserService) {
   }
 
 }

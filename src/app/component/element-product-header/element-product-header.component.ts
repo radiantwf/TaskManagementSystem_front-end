@@ -10,6 +10,7 @@ import { DialogProgressPercentageComponent } from './../dialog-progress-percenta
 import { DialogCloseElementComponent } from './../dialog-close-element/dialog-close-element.component';
 
 import { ProductService } from './../../service/product.service';
+import { UserService } from './../../service/user.service';
 
 @Component({
   selector: 'app-element-product-header',
@@ -40,10 +41,10 @@ export class ElementProductHeaderComponent implements OnInit {
   deleteAble: boolean = false;
 
 
-  constructor(private router: Router, public dialog: MdDialog, private productService: ProductService) { }
+  constructor(private router: Router, private userService: UserService, public dialog: MdDialog, private productService: ProductService) { }
 
   ngOnInit() {
-    let user = AppGlobal.getInstance().currentUser;
+    let user = this.userService.currentUser;
 
     this.isAdmin = user.permissions.findIndex(value => (value === 1)) >= 0;
     this.isOC = user.permissions.findIndex(value => (value === 99)) >= 0;

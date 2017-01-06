@@ -10,6 +10,7 @@ import { DialogProgressPercentageComponent } from './../dialog-progress-percenta
 import { DialogCloseElementComponent } from './../dialog-close-element/dialog-close-element.component';
 
 import { TaskService } from './../../service/task.service';
+import { UserService } from './../../service/user.service';
 
 @Component({
   selector: 'app-element-task-header',
@@ -53,10 +54,10 @@ export class ElementTaskHeaderComponent implements OnInit {
   info2Text: string;
   info3DateSpan: number = -1;
   info3Text: string;
-  constructor(private router: Router, public dialog: MdDialog, private taskService: TaskService) { }
+  constructor(private router: Router, private userService: UserService, public dialog: MdDialog, private taskService: TaskService) { }
 
   ngOnInit() {
-    let user = AppGlobal.getInstance().currentUser;
+    let user = this.userService.currentUser;
 
     this.isAdmin = user.permissions.findIndex(value => (value === 1)) >= 0;
     this.isOC = user.permissions.findIndex(value => (value === 99)) >= 0;

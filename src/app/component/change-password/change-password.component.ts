@@ -28,7 +28,7 @@ export class ChangePasswordComponent implements OnInit {
   }
 
   onSubmit() {
-    this.authorize.name = AppGlobal.getInstance().currentUser.uid;
+    this.authorize.name = this.userService.currentUser.uid;
     let hash = sha1.hash(this.authorize.pwd);
     let hashNewPassword = sha1.hash(this.authorize.newpwd);
     this.userService.changePassword(this.authorize.name, hash, hashNewPassword)

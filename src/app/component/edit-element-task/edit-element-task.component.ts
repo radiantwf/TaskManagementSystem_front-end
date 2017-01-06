@@ -9,6 +9,7 @@ import { TaskService } from './../../service/task.service';
 import { EmployeeService } from './../../service/employee.service';
 import { ProjectService } from './../../service/project.service';
 import { ProductService } from './../../service/product.service';
+import { UserService } from './../../service/user.service';
 import { AppGlobal } from '../../shared/app-global';
 @Component({
     selector: 'app-edit-element-task',
@@ -52,13 +53,14 @@ export class EditElementTaskComponent implements OnInit {
         private router: Router,
         private activatedRoute: ActivatedRoute,
         private taskService: TaskService,
+        private userService: UserService,
         private employeeService: EmployeeService,
-        private projectService: ProjectService,
+        private projectService: ProjectService, 
         private productService: ProductService) {
     }
 
     ngOnInit() {
-        let user = AppGlobal.getInstance().currentUser;
+        let user = this.userService.currentUser;
         if (user != null) {
             this.isAdmin = user.permissions.findIndex(value => (value === 1)) >= 0;
             this.isOC = user.permissions.findIndex(value => (value === 99)) >= 0;

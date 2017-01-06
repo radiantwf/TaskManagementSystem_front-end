@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserService } from './../../service/user.service';
 import { AppGlobal } from '../../shared/app-global';
 
 @Component({
@@ -9,11 +10,11 @@ import { AppGlobal } from '../../shared/app-global';
 })
 export class SignOutComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private userService: UserService) { }
 
   ngOnInit() {
-    AppGlobal.getInstance().clearToken();
-    AppGlobal.getInstance().currentUser = null;
+    this.userService.clearToken();
+    this.userService.currentUser = null;
     setTimeout(function (router) {
       router.navigate(['/']);
     }, 100, this.router);

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AppGlobal } from '../shared/app-global';
+import { UserService } from './user.service';
 
 import { Communication } from '../model/communication';
 import { Headers, Http } from '@angular/http';
@@ -10,7 +11,7 @@ export class CommunicationsService {
 
   private communicationsUrl = `${AppGlobal.getInstance().appURL}/communication`;  // URL to web api
 
-  constructor(private http: Http) { }
+  constructor(private http: Http, private userService: UserService) { }
 
   getCommunicationsById(id: string): Promise<Communication[]> {
     const url = `${this.communicationsUrl}/${id}`;
@@ -35,7 +36,7 @@ export class CommunicationsService {
 
   private httpHeaders(): Headers {
     let headers = new Headers({ 'Content-Type': 'application/json' });
-    let token = AppGlobal.getInstance().getLocalToken();
+    let token = this.userService.getLocalToken();
     if (token != null && token !== '') {
       headers.append('X-Auth-Token', token);
     }

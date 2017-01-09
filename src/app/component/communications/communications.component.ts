@@ -6,7 +6,7 @@ import { UserService } from './../../service/user.service';
 import { CommunicationsService } from './../../service/communications.service';
 
 @Component({
-  selector: 'communications',
+  selector: 'app-communications',
   templateUrl: './communications.component.html',
   styleUrls: ['./communications.component.css']
 })
@@ -38,17 +38,13 @@ export class CommunicationsComponent implements OnInit {
 
 @Directive({ selector: '[personId]' })
 export class CommunicationsDirective {
-  @Input('personId') personId: string;
-
-  @Input('personId') set myperson(personId: string) {
-    if (this.personId === this.userService.currentUser.empId) {
+  @Input('personId') set person(personId: string) {
+    if (personId === this.userService.currentUser.empId) {
       this.renderer.setElementAttribute(this.el.nativeElement, 'class', 'me');
     } else {
       this.renderer.setElementAttribute(this.el.nativeElement, 'class', 'other');
     }
   }
-
   constructor(private el: ElementRef, private renderer: Renderer, private userService: UserService) {
   }
-
 }

@@ -4,7 +4,8 @@ import { MdDialogRef } from '@angular/material';
 @Component({
   selector: 'app-dialog-plan-task',
   templateUrl: './dialog-plan-task.component.html',
-  styleUrls: ['./dialog-plan-task.component.css']
+  styleUrls: ['../dialog/dialog.component.css',
+    './dialog-plan-task.component.css']
 })
 export class DialogPlanTaskComponent implements OnInit {
   planningBeginDate: string;

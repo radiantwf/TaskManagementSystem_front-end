@@ -34,7 +34,7 @@ export class ElementProjectHeaderComponent implements OnInit {
   menuAlert: boolean = false;
 
   startAble: boolean = false;
-  progessAble: boolean = false;
+  progressAble: boolean = false;
   finishAble: boolean = false;
   closeAble: boolean = false;
   editAble: boolean = false;

@@ -34,7 +34,7 @@ export class ElementTaskHeaderComponent implements OnInit {
   startAlert: boolean = false;
   menuAlert: boolean = false;
   startAble: boolean = false;
-  progessAble: boolean = false;
+  progressAble: boolean = false;
   finishAble: boolean = false;
   closeAble: boolean = false;
   editAble: boolean = false;
@@ -159,7 +159,7 @@ export class ElementTaskHeaderComponent implements OnInit {
     }
     if (this.taskRecord.status === '进行中' && this.taskRecord.refuseStatus == null) {
       if (user.empId === this.taskRecord.primaryExecutorId) {
-        this.progessAble = true;
+        this.progressAble = true;
         this.finishAble = true;
       }
       if (this.isTaskAdmin) {

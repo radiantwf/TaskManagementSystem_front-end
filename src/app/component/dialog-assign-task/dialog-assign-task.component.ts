@@ -8,7 +8,7 @@ import { AppGlobal } from '../../shared/app-global';
 @Component({
   selector: 'app-dialog-assign-task',
   templateUrl: './dialog-assign-task.component.html',
-  styleUrls: ['./dialog-assign-task.component.css']
+  styleUrls: ['../dialog/dialog.component.css','./dialog-assign-task.component.css']
 })
 export class DialogAssignTaskComponent implements OnInit {
   primaryOCId: string;

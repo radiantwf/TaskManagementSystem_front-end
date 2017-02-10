@@ -5,7 +5,8 @@ import { Task } from './../../model/task';
 @Component({
   selector: 'app-dialog-start-element',
   templateUrl: './dialog-start-element.component.html',
-  styleUrls: ['./dialog-start-element.component.css']
+  styleUrls: ['../dialog/dialog.component.css',
+    './dialog-start-element.component.css']
 })
 export class DialogStartElementComponent implements OnInit {
   realBeginDate: string;

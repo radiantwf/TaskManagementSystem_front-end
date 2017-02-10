@@ -5,7 +5,8 @@ import { Task } from './../../model/task';
 @Component({
   selector: 'app-dialog-progress-percentage',
   templateUrl: './dialog-progress-percentage.component.html',
-  styleUrls: ['./dialog-progress-percentage.component.css']
+  styleUrls: ['../dialog/dialog.component.css',
+    './dialog-progress-percentage.component.css']
 })
 export class DialogProgressPercentageComponent implements OnInit {
   task: Task = new Task(null, null);

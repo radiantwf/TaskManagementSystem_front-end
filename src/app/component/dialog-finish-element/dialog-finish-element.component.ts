@@ -5,7 +5,8 @@ import { Task } from './../../model/task';
 @Component({
   selector: 'app-dialog-finish-element',
   templateUrl: './dialog-finish-element.component.html',
-  styleUrls: ['./dialog-finish-element.component.css']
+  styleUrls: ['../dialog/dialog.component.css',
+    './dialog-finish-element.component.css']
 })
 export class DialogFinishElementComponent implements OnInit {
   realEndDate: string;

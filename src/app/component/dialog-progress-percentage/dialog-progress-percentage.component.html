@@ -5,7 +5,7 @@
             请输入当前进度：
         </h6>
         <span>
-            <md-input [(ngModel)]="task.percent" align="end"><span md-suffix>%</span></md-input>
+            <md-input type="number" min="0" max ="100" [(ngModel)]="task.percent" align="end"><span md-suffix>%</span></md-input>
         </span>
     </div>
 </div>

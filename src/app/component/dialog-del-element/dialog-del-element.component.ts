@@ -4,7 +4,8 @@ import { MdDialogRef, MdDialog } from '@angular/material';
 @Component({
   selector: 'dialog-del-element',
   templateUrl: './dialog-del-element.component.html',
-  styleUrls: ['./dialog-del-element.component.css']
+  styleUrls: ['../dialog/dialog.component.css',
+    './dialog-del-element.component.css']
 })
 export class DialogDelElementComponent implements OnInit {
 

@@ -1,46 +1,46 @@
 <!--菜单-->
 <div class="leftDiv">
   <ul class="menu">
-    <li [routerLink]="['/']">
+    <li [routerLink]="['/']" (click)="onItemClick('task')">
       <md-icon class="material-icons">home</md-icon>
       首页
     </li>
   </ul>
   <ul *ngIf="elementType==='task'" class="menu">
-    <li [routerLink]="['/task',{searchCriteria2:'charging'}]">
+    <li #taskcharging [routerLink]="['/task',{searchCriteria2:'charging'}]" (click)="onItemClick('taskcharging')">
       <md-icon class="material-icons">account_circle</md-icon>
       我负责的任务
     </li>
-    <li [routerLink]="['/task',{searchCriteria2:'processing'}]">
+    <li #taskprocessing [routerLink]="['/task',{searchCriteria2:'processing'}]" (click)="onItemClick('taskprocessing')">
       <md-icon class="material-icons">assignment_ind</md-icon>
       待我处理的任务
     </li>
   </ul>
   <ul class="menu">
-    <li>
-      <div [routerLink]="['/task']">
+    <li #task>
+      <div [routerLink]="['/task']" (click)="onItemClick('task')">
         <md-icon class="material-icons">format_list_numbered</md-icon>
         任务列表
       </div>
-      <i *ngIf="createTaskVisibility" [routerLink]="['/task','new']" class="btn-add material-icons">add_circle</i>
+      <i *ngIf="createTaskVisibility" [routerLink]="['/task','new']" (click)="onItemClick('task')" class="btn-add material-icons">add_circle</i>
     </li>
-    <li>
-      <div [routerLink]="['/project']">
+    <li #project>
+      <div [routerLink]="['/project']" (click)="onItemClick('project')">
         <md-icon class="material-icons">link</md-icon>
         项目列表
       </div>
-      <i *ngIf="createProjectVisibility" [routerLink]="['/project','new']" class="pull-xs-right material-icons">add_circle</i>
+      <i *ngIf="createProjectVisibility" [routerLink]="['/project','new']" (click)="onItemClick('project')" class="pull-xs-right material-icons">add_circle</i>
     </li>
-    <li>
-      <div [routerLink]="['/product']">
+    <li id="product">
+      <div [routerLink]="['/product']" (click)="onItemClick('product')">
         <md-icon class="material-icons">widgets</md-icon>
         产品列表
       </div>
-      <i *ngIf="createProductVisibility" [routerLink]="['/product','new']" class="pull-xs-right material-icons">add_circle</i>
+      <i *ngIf="createProductVisibility" [routerLink]="['/product','new']" (click)="onItemClick('product')" class="pull-xs-right material-icons">add_circle</i>
     </li>
   </ul>
   <ul class="menu">
-    <li [routerLink]="['/password']">
+    <li [routerLink]="['/password']" (click)="onItemClick('changepassword')">
       <md-icon class="material-icons">keyboard</md-icon>
       修改密码
     </li>

@@ -52,7 +52,7 @@ export class ElementListComponent implements OnInit {
       if (typeof (params['searchCriteria']) !== undefined) {
         this.searchCriteria = params['searchCriteria'];
       }
-      if (typeof (params['searchCriteria']) !== undefined) {
+      if (typeof (params['searchCriteria2']) !== undefined) {
         this.searchCriteria2 = params['searchCriteria2'];
       }
       this.elements = null;

@@ -11,7 +11,7 @@
 }
 
 .menu li,
-.menu li:hover {
+.menu li:hover, .menu li.current {
   list-style-type: none;
   height: 52px;
   line-height: 52px;
@@ -34,12 +34,12 @@
   color: red;
 }
 
-.menu li:hover span {
+.menu li:hover span, .menu li.current span {
   background-color: #117ecc;
   color: #FFFFFF;
 }
 
-.menu li:hover {
+.menu li:hover, .menu li.current {
   color: #117ecc;
   background-color: rgba(0, 0, 0, 0.05);
   cursor: pointer;

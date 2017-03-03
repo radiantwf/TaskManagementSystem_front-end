@@ -89,12 +89,12 @@ md-input-container{
     width:58%;
 }
 
-md-input{
+input{
     width: 100%;
     color:#673ab7;
 }
 
-md-input span{
+input span{
     color:#000000;
     font-weight: 900;
 }

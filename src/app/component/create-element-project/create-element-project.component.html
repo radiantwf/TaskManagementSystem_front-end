@@ -20,7 +20,9 @@
           <div class="project_class_info">
             <ul>
               <li>
-                <md-input [(ngModel)]="newProject.id" #projectId="ngModel" placeholder="项目编号" [required]="true" name="projectId"></md-input>
+                <md-input-container>
+                  <input mdInput [(ngModel)]="newProject.id" #projectId="ngModel" placeholder="项目编号" [required]="true" name="projectId">
+                </md-input-container>
                 <div [hidden]="projectId.valid || projectId.pristine" class="error">
                   项目编号不能为空
                 </div>
@@ -28,7 +30,9 @@
             </ul>
             <ul>
               <li>
-                <md-input [(ngModel)]="newProject.name" #projectName="ngModel" placeholder="项目名称" [required]="true" name="projectName"></md-input>
+                <md-input-container>
+                  <input mdInput [(ngModel)]="newProject.name" #projectName="ngModel" placeholder="项目名称" [required]="true" name="projectName">
+                </md-input-container>
                 <div [hidden]="projectName.valid || projectName.pristine" class="error">
                   项目名称不能为空
                 </div>
@@ -37,7 +41,7 @@
             <ul>
               <li>
                 <md-input-container>
-                  <textarea md-input md-autosize placeholder="详细描述" [(ngModel)]="newProject.description" #description="ngModel" name="description"
+                  <textarea mdInput md-autosize placeholder="详细描述" [(ngModel)]="newProject.description" #description="ngModel" name="description"
                     rows="3"></textarea>
                 </md-input-container>
               </li>
@@ -61,8 +65,10 @@
               <li>
                 <div class="row" class="col-lg-10 col-md-10 col-xs-12 col-sm-12">
                   <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12">
-                    <md-input type="date" [(ngModel)]="requiringAcceptanceDate" #requiringAcceptanceDateInput="ngModel" name="requiringAcceptanceDateInput"
-                      placeholder="要求验收日期"></md-input>
+                    <md-input-container>
+                      <input mdInput type="date" [(ngModel)]="requiringAcceptanceDate" #requiringAcceptanceDateInput="ngModel" name="requiringAcceptanceDateInput"
+                        placeholder="要求验收日期">
+                    </md-input-container>
                   </div>
                   <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12">
                   </div>
@@ -72,7 +78,7 @@
             <ul>
               <li>
                 <md-input-container>
-                  <textarea md-input md-autosize placeholder="客户联络方式" [(ngModel)]="newProject.customerContact" #customerContact="ngModel" name="customerContact"
+                  <textarea mdInput md-autosize placeholder="客户联络方式" [(ngModel)]="newProject.customerContact" #customerContact="ngModel" name="customerContact"
                     rows="1"></textarea>
                 </md-input-container>
               </li>
@@ -120,8 +126,10 @@
               <li>
                 <div class="row" class="col-lg-10 col-md-10 col-xs-12 col-sm-12">
                   <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12">
-                    <md-input type="date" [(ngModel)]="planningReleaseDate" placeholder="计划发布日期" #planningReleaseDateInput="ngModel" name="planningReleaseDateInput"
-                      [required]="true"></md-input>
+                    <md-input-container>
+                      <input mdInput type="date" [(ngModel)]="planningReleaseDate" placeholder="计划发布日期" #planningReleaseDateInput="ngModel" name="planningReleaseDateInput"
+                        [required]="true">
+                    </md-input-container>
                   </div>
                 </div>
               </li>

@@ -27,13 +27,17 @@
           <div class="task_class_info">
             <ul>
               <li>
-                <md-input [readonly]="true" [(ngModel)]="srcTask.id" placeholder="任务编号" required name="taskId"></md-input>
+                <md-input-container>
+                  <input mdInput [readonly]="true" [(ngModel)]="srcTask.id" placeholder="任务编号" required name="taskId">
+                </md-input-container>
               </li>
             </ul>
             <ul>
               <li>
-                <md-input [(ngModel)]="srcTask.name" (ngModelChange)="editingTask.name=$event" #taskName="ngModel" placeholder="任务名称" [required]="true"
-                  name="taskName"></md-input>
+                <md-input-container>
+                  <input mdInput [(ngModel)]="srcTask.name" (ngModelChange)="editingTask.name=$event" #taskName="ngModel" placeholder="任务名称" [required]="true"
+                    name="taskName">
+                </md-input-container>
                 <div [hidden]="taskName.valid || taskName.pristine" class="error">
                   任务名称不能为空
                 </div>
@@ -42,7 +46,7 @@
             <ul>
               <li>
                 <md-input-container>
-                  <textarea md-input md-autosize placeholder="详细描述" [(ngModel)]="srcTask.description" (ngModelChange)="editingTask.description=$event"
+                  <textarea mdInput md-autosize placeholder="详细描述" [(ngModel)]="srcTask.description" (ngModelChange)="editingTask.description=$event"
                     #description="ngModel" name="description" rows="1"></textarea>
                 </md-input-container>
               </li>
@@ -57,7 +61,7 @@
           <div class="task_class_info">
             <ul>
               <li>
-                <md-select  placeholder="销售负责人" [(ngModel)]="primarySellerId" (ngModelChange)="editingTask.primarySellerId=$event" #sellerIdSelect="ngModel"
+                <md-select placeholder="销售负责人" [(ngModel)]="primarySellerId" (ngModelChange)="editingTask.primarySellerId=$event" #sellerIdSelect="ngModel"
                   name="sellerIdSelect" [required]="true">
                   <md-option *ngFor="let emp of sellers" [value]="emp.empId">{{emp.name}}</md-option>
                 </md-select>
@@ -67,7 +71,9 @@
               <li>
                 <div class="row" class="col-lg-10 col-md-10 col-xs-12 col-sm-12">
                   <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12">
-                    <md-input type="date" [(ngModel)]="requiringEndDate" #requiringEndDateInput="ngModel" name="requiringEndDateInput" placeholder="要求任务完成日期"></md-input>
+                    <md-input-container>
+                      <input mdInput type="date" [(ngModel)]="requiringEndDate" #requiringEndDateInput="ngModel" name="requiringEndDateInput" placeholder="要求任务完成日期">
+                    </md-input-container>
                   </div>
                   <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12">
                   </div>
@@ -77,7 +83,7 @@
             <ul>
               <li>
                 <md-input-container>
-                  <textarea md-input md-autosize placeholder="客户联络方式" [(ngModel)]="srcTask.customerContact" (ngModelChange)="editingTask.customerContact=$event"
+                  <textarea mdInput md-autosize placeholder="客户联络方式" [(ngModel)]="srcTask.customerContact" (ngModelChange)="editingTask.customerContact=$event"
                     #customerContact="ngModel" name="customerContact" rows="1"></textarea>
                 </md-input-container>
               </li>
@@ -92,16 +98,16 @@
           <div class="task_class_info">
             <ul>
               <li>
-                <md-select placeholder="OC负责人" [(ngModel)]="primaryOCId" (ngModelChange)="editingTask.primaryOCId=$event" #OCIdSelect="ngModel" name="OCIdSelect"
-                  [required]="srcTask.primarySellerId != null || (isTaskAdmin || isTaskManager)">
+                <md-select placeholder="OC负责人" [(ngModel)]="primaryOCId" (ngModelChange)="editingTask.primaryOCId=$event" #OCIdSelect="ngModel"
+                  name="OCIdSelect" [required]="srcTask.primarySellerId != null || (isTaskAdmin || isTaskManager)">
                   <md-option *ngFor="let emp of OC" [value]="emp.empId">{{emp.name}}</md-option>
                 </md-select>
               </li>
             </ul>
             <ul>
               <li>
-                <md-select placeholder="执行负责人" [(ngModel)]="primaryExecutorId" (ngModelChange)="editingTask.primaryExecutorId=$event"
-                  #taskManagerIdSelect="ngModel" name="taskManagerIdSelect">
+                <md-select placeholder="执行负责人" [(ngModel)]="primaryExecutorId" (ngModelChange)="editingTask.primaryExecutorId=$event" #taskManagerIdSelect="ngModel"
+                  name="taskManagerIdSelect">
                   <md-option *ngFor="let emp of taskManagers" [value]="emp.empId">{{emp.name}}</md-option>
                 </md-select>
               </li>
@@ -118,12 +124,16 @@
               <li>
                 <div class="row" class="col-lg-10 col-md-10 col-xs-12 col-sm-12">
                   <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12">
-                    <md-input type="date" [readonly]="isSeller || isOC && !isTaskAdmin && !isTaskManager && !isAdmin" [(ngModel)]="planningBeginDate"
-                      placeholder="任务计划开始日期" #planningBeginDateInput="ngModel" name="planningBeginDateInput" [required]="planningEndDate != null || realBeginDate != null || realEndDate != null"></md-input>
+                    <md-input-container>
+                      <input mdInput type="date" [readonly]="isSeller || isOC && !isTaskAdmin && !isTaskManager && !isAdmin" [(ngModel)]="planningBeginDate"
+                        placeholder="任务计划开始日期" #planningBeginDateInput="ngModel" name="planningBeginDateInput" [required]="planningEndDate != null || realBeginDate != null || realEndDate != null">
+                    </md-input-container>
                   </div>
                   <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12">
-                    <md-input type="date" [readonly]="isSeller || isOC && !isTaskAdmin && !isTaskManager && !isAdmin" [(ngModel)]="planningEndDate"
-                      placeholder="任务计划完成日期" #planningEndDateInput="ngModel" name="planningEndDateInput" [required]="planningBeginDate != null || realBeginDate != null || realEndDate != null"></md-input>
+                    <md-input-container>
+                      <input mdInput type="date" [readonly]="isSeller || isOC && !isTaskAdmin && !isTaskManager && !isAdmin" [(ngModel)]="planningEndDate"
+                        placeholder="任务计划完成日期" #planningEndDateInput="ngModel" name="planningEndDateInput" [required]="planningBeginDate != null || realBeginDate != null || realEndDate != null">
+                    </md-input-container>
                   </div>
                 </div>
               </li>
@@ -132,20 +142,28 @@
               <li>
                 <div class="row" class="col-lg-10 col-md-10 col-xs-12 col-sm-12">
                   <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12">
-                    <md-input type="date" [readonly]="isSeller || isOC && !isTaskAdmin && !isTaskManager && !isAdmin" [(ngModel)]="realBeginDate"
-                      placeholder="任务实际开始日期" #realBeginDateInput="ngModel" name="realBeginDateInput" [required]="srcTask.percent >= 100 || realEndDate != null"></md-input>
+                    <md-input-container>
+                      <input mdInput type="date" [readonly]="isSeller || isOC && !isTaskAdmin && !isTaskManager && !isAdmin" [(ngModel)]="realBeginDate"
+                        placeholder="任务实际开始日期" #realBeginDateInput="ngModel" name="realBeginDateInput" [required]="srcTask.percent >= 100 || realEndDate != null">
+                    </md-input-container>
                   </div>
                   <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12">
-                    <md-input type="date" [readonly]="isSeller || isOC && !isTaskAdmin && !isTaskManager && !isAdmin" [(ngModel)]="realEndDate"
-                      placeholder="任务实际完成日期" #realEndDateInput="ngModel" name="realEndDateInput" [required]="srcTask.percent >= 100"></md-input>
+                    <md-input-container>
+                      <input mdInput type="date" [readonly]="isSeller || isOC && !isTaskAdmin && !isTaskManager && !isAdmin" [(ngModel)]="realEndDate"
+                        placeholder="任务实际完成日期" #realEndDateInput="ngModel" name="realEndDateInput" [required]="srcTask.percent >= 100">
+                    </md-input-container>
                   </div>
                 </div>
               </li>
             </ul>
             <ul>
               <li>
-                <md-input [readonly]="isSeller || isOC && !isTaskAdmin && !isTaskManager && !isAdmin" style="width:80px;" [(ngModel)]="srcTask.percent"
-                  (ngModelChange)="editingTask.percent=$event" #percent="ngModel" placeholder="当前进度" name="percent" align="end"><span md-suffix>%</span></md-input>
+                <md-input-container>
+                  <input mdInput [readonly]="isSeller || isOC && !isTaskAdmin && !isTaskManager && !isAdmin" style="width:80px;" [(ngModel)]="srcTask.percent"
+                    (ngModelChange)="editingTask.percent=$event" #percent="ngModel" placeholder="当前进度" name="percent" align="end">
+                  <span
+                    md-suffix>%</span>
+                </md-input-container>
               </li>
             </ul>
           </div>
@@ -158,16 +176,16 @@
           <div class="task_class_info">
             <ul>
               <li>
-                <md-select placeholder="所属项目" [(ngModel)]="parentProjectId" (ngModelChange)="editingTask.parentProjectId=$event"
-                  #parentProjectIdSelect="ngModel" name="parentProjectIdSelect">
+                <md-select placeholder="所属项目" [(ngModel)]="parentProjectId" (ngModelChange)="editingTask.parentProjectId=$event" #parentProjectIdSelect="ngModel"
+                  name="parentProjectIdSelect">
                   <md-option *ngFor="let project of projects" [value]="project.id">{{project.id}} - {{project.name}}</md-option>
                 </md-select>
               </li>
             </ul>
             <ul>
               <li>
-                <md-select placeholder="所属产品" [(ngModel)]="parentProductId" (ngModelChange)="editingTask.parentProductId=$event"
-                  #parentProductIdSelect="ngModel" name="parentProductIdSelect">
+                <md-select placeholder="所属产品" [(ngModel)]="parentProductId" (ngModelChange)="editingTask.parentProductId=$event" #parentProductIdSelect="ngModel"
+                  name="parentProductIdSelect">
                   <md-option *ngFor="let product of products" [value]="product.id">{{product.id}} - {{product.name}}</md-option>
                 </md-select>
               </li>

@@ -5,7 +5,9 @@
       请选择当前任务的完成时间：
     </h6>
     <span>
-      <md-input type="date" [(ngModel)]="realEndDate"></md-input>
+      <md-input-container>
+        <input mdInput type="date" [(ngModel)]="realEndDate">
+      </md-input-container>
     </span>
   </div>
 </div>

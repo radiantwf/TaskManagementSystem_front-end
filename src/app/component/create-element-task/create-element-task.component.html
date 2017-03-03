@@ -20,7 +20,9 @@
           <div class="task_class_info">
             <ul>
               <li>
-                <md-input [(ngModel)]="newTask.name" #taskName="ngModel" placeholder="任务名称" [required]="true" name="taskName"></md-input>
+                <md-input-container>
+                  <input mdInput [(ngModel)]="newTask.name" #taskName="ngModel" placeholder="任务名称" [required]="true" name="taskName">
+                </md-input-container>
                 <div [hidden]="taskName.valid || taskName.pristine" class="error">
                   任务名称不能为空
                 </div>
@@ -29,7 +31,7 @@
             <ul>
               <li>
                 <md-input-container>
-                  <textarea md-input md-autosize placeholder="详细描述" [(ngModel)]="newTask.description" #description="ngModel" name="description"
+                  <textarea mdInput md-autosize placeholder="详细描述" [(ngModel)]="newTask.description" #description="ngModel" name="description"
                     rows="1"></textarea>
                 </md-input-container>
               </li>
@@ -53,7 +55,9 @@
               <li>
                 <div class="row" class="col-lg-10 col-md-10 col-xs-12 col-sm-12">
                   <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12">
-                    <md-input type="date" [(ngModel)]="newRequiringEndDate" #requiringEndDate="ngModel" name="requiringEndDate" placeholder="要求完成日期"></md-input>
+                    <md-input-container>
+                      <input mdInput type="date" [(ngModel)]="newRequiringEndDate" #requiringEndDate="ngModel" name="requiringEndDate" placeholder="要求完成日期">
+                    </md-input-container>
                   </div>
                   <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12">
                   </div>
@@ -63,7 +67,7 @@
             <ul>
               <li>
                 <md-input-container>
-                  <textarea md-input md-autosize placeholder="客户联络方式" [(ngModel)]="newTask.customerContact" #customerContact="ngModel" name="customerContact"
+                  <textarea mdInput md-autosize placeholder="客户联络方式" [(ngModel)]="newTask.customerContact" #customerContact="ngModel" name="customerContact"
                     rows="1"></textarea>
                 </md-input-container>
               </li>
@@ -102,12 +106,16 @@
               <li>
                 <div class="row" class="col-lg-10 col-md-10 col-xs-12 col-sm-12">
                   <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12">
-                    <md-input type="date" [(ngModel)]="newPlanningBeginDate" placeholder="任务计划开始日期" #planningBeginDate="ngModel" name="planningBeginDate"
-                      [required]="(isTaskManager && !isTaskAdmin) || newPlanningEndDate != null"></md-input>
+                    <md-input-container>
+                      <input mdInput type="date" [(ngModel)]="newPlanningBeginDate" placeholder="任务计划开始日期" #planningBeginDate="ngModel" name="planningBeginDate"
+                        [required]="(isTaskManager && !isTaskAdmin) || newPlanningEndDate != null">
+                    </md-input-container>
                   </div>
                   <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12">
-                    <md-input type="date" [(ngModel)]="newPlanningEndDate" placeholder="任务计划完成日期" #planningEndDate="ngModel" name="planningEndDate"
-                      [required]="(isTaskManager && !isTaskAdmin) || newPlanningBeginDate != null"></md-input>
+                    <md-input-container>
+                      <input mdInput type="date" [(ngModel)]="newPlanningEndDate" placeholder="任务计划完成日期" #planningEndDate="ngModel" name="planningEndDate"
+                        [required]="(isTaskManager && !isTaskAdmin) || newPlanningBeginDate != null">
+                    </md-input-container>
                   </div>
                 </div>
               </li>

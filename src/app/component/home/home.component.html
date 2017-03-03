@@ -24,7 +24,7 @@
       <div class="row">
         <!---------------------------------------------------------------------------->
         <!--左侧菜单区域-->
-        <md-sidenav-layout>
+        <md-sidenav-container>
           <md-sidenav #sidenav mode="side" [opened]="true" class="app-sidenav">
             <main-navigation-bar></main-navigation-bar>
           </md-sidenav>
@@ -37,7 +37,7 @@
           </button>-->
             <router-outlet></router-outlet>
           </div>
-        </md-sidenav-layout>
+        </md-sidenav-container>
       </div>
     </div>
   </div>

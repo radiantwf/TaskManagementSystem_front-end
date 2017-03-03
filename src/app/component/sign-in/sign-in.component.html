@@ -11,9 +11,10 @@
           <div class="col-lg-8 col-md-8 col-xs-10 col-sm-10">
             <div class="form-group">
               <md-icon role="img" class="material-icons" aria-label="用户名">perm_identity</md-icon>
-              <md-input placeholder="" (input)="onInput()" required [(ngModel)]="authorize.name" name="username" #username="ngModel" [myAutocomplete]="'txt_username'"
-                [emptyTextAutocomplete]="'off'">
-              </md-input>
+              <md-input-container>
+              <input mdInput placeholder="" (input)="onInput()" required [(ngModel)]="authorize.name" name="username" #username="ngModel" [myAutocomplete]="'txt_username'"
+                [emptyTextAutocomplete]="'off'" >
+              </md-input-container>
               <!--用户名不能为空-->
               <div [hidden]="username.valid || username.pristine" class="error">
                 用户名不能为空
@@ -22,8 +23,9 @@
             <!--密码-->
             <div class="form-group">
               <md-icon role="img" class="material-icons" aria-label="密码">lock_outline</md-icon>
-              <md-input placeholder="" (input)="onInput()" type="password" required [(ngModel)]="authorize.pwd" name="pwd" #pwd="ngModel">
-              </md-input>
+              <md-input-container>
+              <input mdInput placeholder="" (input)="onInput()" type="password" required [(ngModel)]="authorize.pwd" name="pwd" #pwd="ngModel">
+              </md-input-container>
               <!--密码不能为空-->
               <div [hidden]="pwd.valid || pwd.pristine" class="error">
                 密码不能为空

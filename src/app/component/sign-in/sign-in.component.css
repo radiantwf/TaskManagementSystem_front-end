@@ -38,8 +38,9 @@ md-icon {
   right: auto
 }
 
-md-input {
-  width: auto;
+md-input-container,
+input {
+  width: 100%;
   display: block;
 }
 

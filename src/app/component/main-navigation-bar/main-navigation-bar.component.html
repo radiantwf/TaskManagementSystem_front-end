@@ -31,7 +31,7 @@
       </div>
       <i *ngIf="createProjectVisibility" [routerLink]="['/project','new']" (click)="onItemClick('project')" class="pull-xs-right material-icons">add_circle</i>
     </li>
-    <li id="product">
+    <li #product>
       <div [routerLink]="['/product']" (click)="onItemClick('product')">
         <md-icon class="material-icons">widgets</md-icon>
         产品列表

@@ -1,5 +1,4 @@
 /* You can add global styles to this file, and also import other style files */
-/*@import 'https://cdn.bootcss.com/material-design-icons/3.0.1/iconfont/material-icons.min.css';*/
 @import 'http://cdn.bootcss.com/material-design-icons/3.0.1/iconfont/material-icons.min.css';
 @import '~@angular/material/core/theming/prebuilt/deeppurple-amber.css';
 @import '~bootstrap/dist/css/bootstrap.css';
@@ -33,4 +32,15 @@ body{
 .md-dialog-container{
     padding:0px;
 	border-radius: 4px;
+}
+
+md-button,
+md-icon,
+md-sidenav,
+md-sidenav-container,
+md-input-container,
+.width100persent,
+.row
+{
+  width: 100%;
 }

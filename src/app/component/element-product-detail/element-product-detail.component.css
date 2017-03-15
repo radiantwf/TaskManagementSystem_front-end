@@ -40,19 +40,19 @@ md-icon{
     color: rgba(0,0,0,0.60);
 }
 
-[mat-button].mat-primary, [mat-icon-button].mat-primary {
+.mat-button.mat-primary, .mat-icon-button.ma-primary {
     color: #117ecc;
 	font-family: "微软雅黑";
     font-size: 16px;
     margin-top: 12px;
     float: right;
 }
-[mat-button] {
+.mat-button {
     font-weight: 100; 
     min-width: 0px; 
 }
 
-[mat-button].mat-refuse, [mat-icon-button].mat-refuse {
+.mat-button.mat-refuse, .mat-icon-button.md-refuse {
     color: rgba(0,0,0,0.54);
 	font-family: "微软雅黑";
     font-size: 16px;

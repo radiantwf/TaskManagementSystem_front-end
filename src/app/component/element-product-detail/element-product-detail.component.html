@@ -13,53 +13,55 @@
         </div>
       </div>
       <div class="col-lg-11 col-md-11 col-xs-11 col-sm-11">
-        <div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
-          <div class="element_class">
-            <div class="element_class_info">
-              <ul>
-                <li class="title">产品编号</li>
-                <li>{{productRecord.id | null_or_empty:"无"}}</li>
-              </ul>
+        <div class="row">
+          <div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
+            <div class="element_class">
+              <div class="element_class_info">
+                <ul>
+                  <li class="title">产品编号</li>
+                  <li>{{productRecord.id | null_or_empty:"无"}}</li>
+                </ul>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
-          <div class="element_class">
-            <div class="element_class_info">
-              <ul>
-                <li class="title">产品名称</li>
-                <li>{{productRecord.name | null_or_empty:"无"}}</li>
-              </ul>
+          <div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
+            <div class="element_class">
+              <div class="element_class_info">
+                <ul>
+                  <li class="title">产品名称</li>
+                  <li>{{productRecord.name | null_or_empty:"无"}}</li>
+                </ul>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
-          <div class="element_class">
-            <div class="element_class_info">
-              <ul>
-                <li class="title">创建人</li>
-                <li>{{productRecord.creator | null_or_empty:"无"}}</li>
-              </ul>
+          <div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
+            <div class="element_class">
+              <div class="element_class_info">
+                <ul>
+                  <li class="title">创建人</li>
+                  <li>{{productRecord.creator | null_or_empty:"无"}}</li>
+                </ul>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col-lg-8 col-md-12 col-xs-12 col-sm-12">
-          <div class="element_class">
-            <div class="element_class_info">
-              <ul>
-                <li class="title">详细描述</li>
-                <li>{{productRecord.description | null_or_empty:"无"}}</li>
-              </ul>
+          <div class="col-lg-8 col-md-12 col-xs-12 col-sm-12">
+            <div class="element_class">
+              <div class="element_class_info">
+                <ul>
+                  <li class="title">详细描述</li>
+                  <li>{{productRecord.description | null_or_empty:"无"}}</li>
+                </ul>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
-          <div class="element_class">
-            <div class="element_class_info">
-              <ul>
-                <li class="title">创建时间</li>
-                <li>{{productRecord.createdTime | date:"yyyy年MM月dd日 HH:mm:ss" | null_or_empty:"无"}}</li>
-              </ul>
+          <div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
+            <div class="element_class">
+              <div class="element_class_info">
+                <ul>
+                  <li class="title">创建时间</li>
+                  <li>{{productRecord.createdTime | date:"yyyy年MM月dd日 HH:mm:ss" | null_or_empty:"无"}}</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -70,43 +72,45 @@
       <div class="col-lg-1 col-md-1 col-xs-1 col-sm-1">
       </div>
       <div class="col-lg-11 col-md-11 col-xs-11 col-sm-11">
-        <div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
-          <div class="element_class">
-            <div class="element_class_info">
-              <ul>
-                <li class="title">产品经理</li>
-                <li>{{productRecord.productManager | null_or_empty:"无"}}</li>
-              </ul>
+        <div class="row">
+          <div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
+            <div class="element_class">
+              <div class="element_class_info">
+                <ul>
+                  <li class="title">产品经理</li>
+                  <li>{{productRecord.productManager | null_or_empty:"无"}}</li>
+                </ul>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
-          <div class="element_class">
-            <div class="element_class_info">
-              <ul>
-                <li class="title">市场经理</li>
-                <li>{{productRecord.marketingManager | null_or_empty:"无"}}</li>
-              </ul>
+          <div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
+            <div class="element_class">
+              <div class="element_class_info">
+                <ul>
+                  <li class="title">市场经理</li>
+                  <li>{{productRecord.marketingManager | null_or_empty:"无"}}</li>
+                </ul>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
-          <div class="element_class">
-            <div class="element_class_info">
-              <ul>
-                <li class="title">研发经理</li>
-                <li>{{productRecord.developmentManager | null_or_empty:"无"}}</li>
-              </ul>
+          <div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
+            <div class="element_class">
+              <div class="element_class_info">
+                <ul>
+                  <li class="title">研发经理</li>
+                  <li>{{productRecord.developmentManager | null_or_empty:"无"}}</li>
+                </ul>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
-          <div class="element_class">
-            <div class="element_class_info">
-              <ul>
-                <li class="title">其他执行人</li>
-                <li>{{productRecord.otherExecutors | null_or_empty:"无"}}</li>
-              </ul>
+          <div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
+            <div class="element_class">
+              <div class="element_class_info">
+                <ul>
+                  <li class="title">其他执行人</li>
+                  <li>{{productRecord.otherExecutors | null_or_empty:"无"}}</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -117,35 +121,47 @@
       <div class="col-lg-1 col-md-1 col-xs-1 col-sm-1">
       </div>
       <div class="col-lg-11 col-md-11 col-xs-11 col-sm-11">
-        <div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
-          <div class="element_class">
-            <div class="element_class_info">
-              <ul>
-                <li class="title">计划发布时间</li>
-                <li>{{productRecord.planningReleaseDate | date:"yyyy年MM月dd日" | null_or_empty:"无"}}</li>
-              </ul>
+        <div class="row">
+          <div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
+            <div class="element_class">
+              <div class="element_class_info">
+                <ul>
+                  <li class="title">计划发布时间</li>
+                  <li>{{productRecord.planningReleaseDate | date:"yyyy年MM月dd日" | null_or_empty:"无"}}</li>
+                </ul>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col-lg-4 col-md-12 col-xs-12 col-sm-12" >
-          <div class="element_class">
-            <div class="element_class_info">
-              <ul>
-                <li class="title">实际发布时间</li>
-                <li>{{productRecord.realReleaseDate | date:"yyyy年MM月dd日" | null_or_empty:"无"}}</li>
-              </ul>
+          <div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
+            <div class="element_class">
+              <div class="element_class_info">
+                <ul>
+                  <li class="title">实际发布时间</li>
+                  <li>{{productRecord.realReleaseDate | date:"yyyy年MM月dd日" | null_or_empty:"无"}}</li>
+                </ul>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
-        </div>
-        <div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
-          <div class="element_class">
-            <div class="element_class_info">
-              <ul>
-                <li class="title">产品状态</li>
-                <li>{{productRecord.status | null_or_empty:"无"}}</li>
-              </ul>
+          <div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
+          </div>
+          <div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
+            <div class="element_class">
+              <div class="element_class_info">
+                <ul>
+                  <li class="title">产品状态</li>
+                  <li>{{productRecord.status | null_or_empty:"无"}}</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
+            <div class="element_class">
+              <div class="element_class_info">
+                <ul>
+                  <li class="title">当前进度</li>
+                  <li>{{productRecord.percent | null_or_empty:0}}%</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -161,19 +177,21 @@
         </div>
       </div>
       <div class="col-lg-11 col-md-11 col-xs-11 col-sm-11">
-        <div class="col-lg-8 col-md-12 col-xs-12 col-sm-12">
-          <div class="element_class">
-            <div class="element_class_info">
-              <ul>
-                <li class="title">产品动态</li>
-                <li>
-                  <app-communications class="width100persent" [id]="productId"></app-communications>
-                </li>
-              </ul>
+        <div class="row">
+          <div class="col-lg-8 col-md-12 col-xs-12 col-sm-12">
+            <div class="element_class">
+              <div class="element_class_info">
+                <ul>
+                  <li class="title">产品动态</li>
+                  <li>
+                    <app-communications class="width100percent" [id]="productId"></app-communications>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
+          <div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
+          </div>
         </div>
       </div>
     </div>

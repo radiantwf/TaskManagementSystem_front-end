@@ -33,6 +33,8 @@ export class Project {
     public realAcceptanceDate: Date;
     // 状态
     public status: string;
+    // 进度
+    public percent: number;
     // 所属产品
     public parentProductId: string;
     public parentProduct: string;

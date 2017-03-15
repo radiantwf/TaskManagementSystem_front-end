@@ -450,6 +450,7 @@ button.menu md-icon{
 	border: 1px solid #FFFFFF;
 	margin-top: 26px;
 	right:4px;
+	display: inherit;
 }
 
 md-icon + .badge_m{

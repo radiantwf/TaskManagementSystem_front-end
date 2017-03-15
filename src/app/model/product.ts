@@ -24,6 +24,8 @@ export class Product {
     public realReleaseDate: Date;
     // 状态
     public status: string;
+    // 进度
+    public percent: number;
     constructor(
         // 产品编号
         public id: string,

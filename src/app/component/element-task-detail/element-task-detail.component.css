@@ -1,25 +1,26 @@
-ul{
-    margin-bottom: 0px;
-}
-li{
-    padding:10px;
-}
-.element_class_ic{
-    line-height: 50px;
+ul {
+  margin-bottom: 0px;
 }
 
-.element_class{
-    padding: 0px;
+li {
+  padding: 10px;
 }
 
-md-icon{
-    color: rgba(0,0,0,0.54);
+.element_class_ic {
+  line-height: 50px;
 }
 
+.element_class {
+  padding: 0px;
+}
 
-.pdt10{
-    padding-top: 10px;
-    padding-bottom: 10px;
+md-icon {
+  color: rgba(0, 0, 0, 0.54);
+}
+
+.pdt10 {
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .errorDiv {
@@ -27,35 +28,72 @@ md-icon{
 }
 
 .alert {
-    height: 64px;
-    line-height: 64px;
-    padding: 0 20px;
-    margin-bottom: 1rem;
-    border: 1px solid transparent;
-    border-radius: 4px;
-}
-.alert-pop {    
-    background-color: #f2dede;
-    border-color: #ebcccc;
-    color: rgba(0,0,0,0.60);
+  height: 64px;
+  line-height: 64px;
+  padding: 0 20px;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-radius: 4px;
 }
 
-.mat-button.mat-primary, .mat-icon-button.ma-primary {
-    color: #117ecc;
-	font-family: "微软雅黑";
-    font-size: 16px;
-    margin-top: 12px;
-    float: right;
+.alert-pop {
+  background-color: #f2dede;
+  border-color: #ebcccc;
+  color: rgba(0, 0, 0, 0.60);
 }
+
+.mat-button.mat-primary,
+.mat-icon-button.ma-primary {
+  color: #117ecc;
+  font-family: "微软雅黑";
+  font-size: 16px;
+  margin-top: 12px;
+  float: right;
+}
+
 .mat-button {
-    font-weight: 100; 
-    min-width: 0px; 
+  font-weight: 100;
+  min-width: 0px;
 }
 
-.mat-button.mat-refuse, .mat-icon-button.md-refuse {
-    color: rgba(0,0,0,0.54);
-	font-family: "微软雅黑";
-    font-size: 16px;
-    margin-top: 12px;
-    float: right;
+.mat-button.mat-refuse,
+.mat-icon-button.md-refuse {
+  color: rgba(0, 0, 0, 0.54);
+  font-family: "微软雅黑";
+  font-size: 16px;
+  margin-top: 12px;
+  float: right;
+}
+
+.attachment ul li {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+  color: rgba(0, 0, 0, .54);
+  cursor: pointer;
+}
+
+.attachment ul li:hover {
+  color: rgba(0, 0, 0, 1);
+  text-decoration: underline;
+}
+
+.del ul li {
+  color: rgba(0, 0, 0, 0.34);
+  cursor: pointer;
+}
+
+.del ul li:hover {
+  color: #117ecc;
+}
+
+.add-attachment ul li {
+  color: rgba(0, 0, 0, 0.34);
+  cursor: pointer;
+}
+
+.add-attachment ul li:hover {
+  color: #117ecc;
 }

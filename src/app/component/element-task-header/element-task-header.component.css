@@ -16,25 +16,25 @@
 }
 /*任务状态*/
 
-.task_info div{
+.element_info div{
     float: left;
     height: 20px;
 }
 
 
-.task_info div.date{
+.element_info div.date{
     width:100px;
 }
 
-.task_info div.datespan{
+.element_info div.datespan{
     width:80px;
 }
-.task_info div.status{
+.element_info div.status{
     width:60px;
 }
 
 /*超时*/
-.overtime div.row .task_ic md-icon{
+.overtime div.row .element_ic md-icon{
 	font-size: 32px;
 	margin-top: 16px;
 	color: #f69679;
@@ -46,28 +46,28 @@
 	margin:0px;
 }
 
-.overtime div.row .task_info .date{
+.overtime div.row .element_info .date{
 	width:100px;
 	color:#117ecc;
 }
 
-.overtime div.row .task_info .datespan{
+.overtime div.row .element_info .datespan{
 	width:80px;
 	color:#00bfa8;
 }
 
-.overtime div.row .task_info .status{
+.overtime div.row .element_info .status{
 	width:60px;
 	color:#d7481c;
 }
 
-.overtime div.row .task_info .statusname{
+.overtime div.row .element_info .statusname{
 	color: #00bfa8;
 }
 
 
 /*进行中*/
-.ongoing div.row .task_ic md-icon{
+.ongoing div.row .element_ic md-icon{
 	font-size: 32px;
 	margin-top: 16px;
 	color: #64decf;
@@ -78,22 +78,22 @@
 	margin:0px;
 }
 
-.ongoing div.row .task_info .date{
+.ongoing div.row .element_info .date{
 	width:100px;
 	color:#117ecc;
 }
 
-.ongoing div.row .task_info .datespan{
+.ongoing div.row .element_info .datespan{
 	width:80px;
 	color:#666666;
 }
 
-.ongoing div.row .task_info .status{
+.ongoing div.row .element_info .status{
 	width:60px;
 	color:#666666;
 }
 
-.ongoing div.row .task_info .statusname{
+.ongoing div.row .element_info .statusname{
 	color: #117ecc;
 }
 
@@ -102,7 +102,7 @@
 
 
 /*未开始*/
-.notstart div.row .task_ic md-icon{
+.notstart div.row .element_ic md-icon{
 	font-size: 32px;
 	margin-top: 16px;
 	color: #cb93dd;
@@ -114,22 +114,22 @@
 	margin:0px;
 }
 
-.notstart div.row .task_info .date{
+.notstart div.row .element_info .date{
 	width:100px;
 	color:#117ecc;
 }
 
-.notstart div.row .task_info .datespan{
+.notstart div.row .element_info .datespan{
 	width:80px;
 	color:#666666;
 }
 
-.notstart div.row .task_info .status{
+.notstart div.row .element_info .status{
 	width:60px;
 	color:#666666;
 }
 
-.notstart div.row .task_info .statusname{
+.notstart div.row .element_info .statusname{
 	color: #cb93dd;
 }
 
@@ -138,7 +138,7 @@
 
 
 /*已完成*/
-.finish div.row .task_ic md-icon{
+.finish div.row .element_ic md-icon{
 	font-size: 32px;
 	margin-top: 16px;
 	color: #cccccc;
@@ -150,22 +150,22 @@
 	margin:0px;
 }
 
-.finish div.row .task_info .date{
+.finish div.row .element_info .date{
 	width:100px;
 	color:#117ecc;
 }
 
-.finish div.row .task_info .datespan{
+.finish div.row .element_info .datespan{
 	width:80px;
 	color:#666666;
 }
 
-.finish div.row .task_info .status{
+.finish div.row .element_info .status{
 	width:60px;
 	color:#666666;
 }
 
-.finish div.row .task_info .statusname{
+.finish div.row .element_info .statusname{
 	color: #666666;
 }
 
@@ -173,13 +173,13 @@
 
 
 /*标题*/
-.task_head{
+.element_head{
 	float: left;
 	font-size: 1.6rem;
 	padding-left: 20px;
 }
 
-.task_title{
+.element_title{
 	float: left;
 	font-size: 1.2rem;
 	line-height: 56px;
@@ -188,7 +188,7 @@
 
 
 /*任务图标*/
-.task_ic{
+.element_ic{
 	font-size: 16px; 
     width: 52px;
     height: 68px;
@@ -202,7 +202,7 @@
 
 
 /*任务名称*/
-.task_name{
+.element_name{
 	float: left;
 	font-size: 18px;
 }
@@ -297,7 +297,7 @@
 
 
 /*任务编号*/
-.task_name>span{
+.element_name>span{
 	width:100px;
 	height:12px;
 	line-height: 12px;
@@ -309,18 +309,18 @@
 }
 
 /*任务时间*/
-.task_info{
+.element_info{
 	float:left;
 	padding-left: 10px;
 	padding-top:16px;
 	min-width:260px ;
 }
 
-.task_info ul{
+.element_info ul{
 	float: left;
 }
 
-.task_info ul li{
+.element_info ul li{
 	list-style-type:none ;
 	text-align: left;
 	font-size: 12px;
@@ -328,25 +328,25 @@
 	line-height:18px;
 }
 
-.task_info ul li>span{
+.element_info ul li>span{
 	font-size: 1.2rem;
 }
 
 
 /*计划完成日期
-.task_info ul li.title_date{
+.element_info ul li.title_date{
 	width:100px;
 	color:#117ecc;
 }
 
 计划用时
-.task_info ul li.title_day{
+.element_info ul li.title_day{
 	width:80px;
 	color:#00bfa8;
 }
 
 已超时
-.task_info ul li.title_overtime{
+.element_info ul li.title_overtime{
 	width:60px;
 	color:#d7481c;
 }
@@ -373,14 +373,14 @@
 
 
 /*任务详细内容展开*/
-.task_class{
+.element_class{
 	width:100%;
 	padding:10px;
 	padding-left:50px;
 }
 
 /*任务基本信息展开-图标*/
-.task_class_ic{
+.element_class_ic{
 	/*position: absolute;
 	font-family: FontAwesome;
 	left: 0px;
@@ -388,33 +388,33 @@
 	text-align: center;
 }
 
-.task_class_ic div{
+.element_class_ic div{
 	font-size: 1rem;
 	/*color:#bbbbbb;*/
 	/*line-height: 18px;*/
 }
 
 /*任务基本信息展开-详细内容*/
-.task_class_info ul{
+.element_class_info ul{
 	width: 100%;
 	display: table;
 }
 
-.task_class_info ul li{
+.element_class_info ul li{
 	line-height: 22px;
 	width: auto;
 	list-style-type: none;
 	/*font-size: 0.9rem;*/
 }
 
-.task_class_info ul li.title{
+.element_class_info ul li.title{
 	height:16px;
 	line-height: 16px;
 	color:#117ecc;
 	font-size: 12px;
 }
 
-.task_class_info ul li p{
+.element_class_info ul li p{
 	height:16px;
 	line-height: 16px;
 	color:#afafaf;

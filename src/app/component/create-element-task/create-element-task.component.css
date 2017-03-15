@@ -1,14 +1,17 @@
-.task_btn {
+.element_btn {
   height: 68px;
   line-height: 68px;
   text-align: center;
 }
 
-.task_class_info input,
-md-input-container,
-md-select {
+.element_class_info {
   width: 80%;
   margin-top: 10px;
+}
+
+md-select {
+  width: 100%;
+  margin: 10px 0 14px 0;
 }
 
 ul {
@@ -26,7 +29,7 @@ ul li{
 
 
 /*
-.task_class_info span{
+.element_class_info span{
     display: inline-table;
     color: #e80202;
     padding: 0.5rem;
@@ -131,7 +134,7 @@ md-checkbox {
   line-height: 60px;
 }
 
-.task_class_ic {
+.element_class_ic {
   text-align: center;
   width: 50px;
   position: absolute;

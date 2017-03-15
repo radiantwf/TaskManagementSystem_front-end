@@ -1,10 +1,10 @@
 <div class="row overtime">
   <div class="row" *ngIf="!detailFlag">
     <div class="col-lg-7 col-md-12 col-xs-12 col-sm-12  bottom_line  right_line">
-      <div class="product_ic">
+      <div class="element_ic">
         <md-icon>format_list_numbered</md-icon>
       </div>
-      <div class="product_name">{{productRecord.name | null_or_empty:"无"}}<span>{{productRecord.id | null_or_empty:"无"}}</span></div>
+      <div class="element_name">{{productRecord.name | null_or_empty:"无"}}<span>{{productRecord.id | null_or_empty:"无"}}</span></div>
     </div>
     <div class="col-lg-4 col-md-10 col-xs-10 col-sm-10 right_line">
     </div>
@@ -19,10 +19,10 @@
   </div>
   <div class="row" *ngIf="detailFlag">
     <div class="col-lg-10 col-md-8 col-xs-8 col-sm-8 right_line">
-      <div class="product_ic">
+      <div class="element_ic">
         <md-icon class="overtime">format_list_numbered</md-icon>
       </div>
-      <div class="product_name">{{productRecord.name | null_or_empty:"无"}}</div>
+      <div class="element_name">{{productRecord.name | null_or_empty:"无"}}</div>
     </div>
     <div class="col-lg-1 col-md-2 col-xs-2 col-sm-2 right_line">
       <!--<div class="open">

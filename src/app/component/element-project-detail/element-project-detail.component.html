@@ -6,16 +6,16 @@
     <!--项目编号-->
     <div class="row">
       <div class="col-lg-1 col-md-1 col-xs-1 col-sm-1">
-        <div class="project_class">
-          <div class="project_class_ic">
+        <div class="element_class">
+          <div class="element_class_ic">
             <md-icon>format_list_numbered</md-icon>
           </div>
         </div>
       </div>
       <div class="col-lg-11 col-md-11 col-xs-11 col-sm-11">
         <div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
-          <div class="project_class">
-            <div class="project_class_info">
+          <div class="element_class">
+            <div class="element_class_info">
               <ul>
                 <li class="title">项目编号</li>
                 <li>{{projectRecord.id | null_or_empty:"无"}}</li>
@@ -24,8 +24,8 @@
           </div>
         </div>
         <div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
-          <div class="project_class">
-            <div class="project_class_info">
+          <div class="element_class">
+            <div class="element_class_info">
               <ul>
                 <li class="title">项目名称</li>
                 <li>{{projectRecord.name | null_or_empty:"无"}}</li>
@@ -34,8 +34,8 @@
           </div>
         </div>
         <div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
-          <div class="project_class">
-            <div class="project_class_info">
+          <div class="element_class">
+            <div class="element_class_info">
               <ul>
                 <li class="title">创建人</li>
                 <li>{{projectRecord.creator | null_or_empty:"无"}}</li>
@@ -44,8 +44,8 @@
           </div>
         </div>
         <div class="col-lg-8 col-md-12 col-xs-12 col-sm-12">
-          <div class="project_class">
-            <div class="project_class_info">
+          <div class="element_class">
+            <div class="element_class_info">
               <ul>
                 <li class="title">详细描述</li>
                 <li>{{projectRecord.description | null_or_empty:"无"}}</li>
@@ -54,8 +54,8 @@
           </div>
         </div>
         <div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
-          <div class="project_class">
-            <div class="project_class_info">
+          <div class="element_class">
+            <div class="element_class_info">
               <ul>
                 <li class="title">创建时间</li>
                 <li>{{projectRecord.createdTime | date:"yyyy年MM月dd日 HH:mm:ss" | null_or_empty:"无"}}</li>
@@ -71,8 +71,8 @@
       </div>
       <div class="col-lg-11 col-md-11 col-xs-11 col-sm-11">
         <div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
-          <div class="project_class">
-            <div class="project_class_info">
+          <div class="element_class">
+            <div class="element_class_info">
               <ul>
                 <li class="title">销售负责人</li>
                 <li>{{projectRecord.primarySeller | null_or_empty:"无"}}</li>
@@ -81,8 +81,8 @@
           </div>
         </div>
         <div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
-          <div class="project_class">
-            <div class="project_class_info">
+          <div class="element_class">
+            <div class="element_class_info">
               <ul>
                 <li class="title">要求验收日期</li>
                 <li>{{projectRecord.requiringAcceptanceDate | date:"yyyy年MM月dd日" | null_or_empty:"无"}}</li>
@@ -91,8 +91,8 @@
           </div>
         </div>
         <div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
-          <div class="project_class">
-            <div class="project_class_info">
+          <div class="element_class">
+            <div class="element_class_info">
               <ul>
                 <li class="title">客户联系方式</li>
                 <li>{{projectRecord.customerContact | null_or_empty:"无"}}</li>
@@ -105,16 +105,16 @@
     <!--OC负责人-->
     <div class="row">
       <div class="col-lg-1 col-md-1 col-xs-1 col-sm-1">
-        <div class="project_class">
-          <div class="project_class_ic">
+        <div class="element_class">
+          <div class="element_class_ic">
             <md-icon>account_box</md-icon>
           </div>
         </div>
       </div>
       <div class="col-lg-11 col-md-11 col-xs-11 col-sm-11">
         <div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
-          <div class="project_class">
-            <div class="project_class_info">
+          <div class="element_class">
+            <div class="element_class_info">
               <ul>
                 <li class="title">项目经理</li>
                 <li>{{projectRecord.projectManager | null_or_empty:"无"}}</li>
@@ -123,8 +123,8 @@
           </div>
         </div>
         <div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
-          <div class="project_class">
-            <div class="project_class_info">
+          <div class="element_class">
+            <div class="element_class_info">
               <ul>
                 <li class="title">产品经理</li>
                 <li>{{projectRecord.productManager | null_or_empty:"无"}}</li>
@@ -133,8 +133,8 @@
           </div>
         </div>
         <div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
-          <div class="project_class">
-            <div class="project_class_info">
+          <div class="element_class">
+            <div class="element_class_info">
               <ul>
                 <li class="title">研发经理</li>
                 <li>{{projectRecord.developmentManager | null_or_empty:"无"}}</li>
@@ -143,8 +143,8 @@
           </div>
         </div>
         <div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
-          <div class="project_class">
-            <div class="project_class_info">
+          <div class="element_class">
+            <div class="element_class_info">
               <ul>
                 <li class="title">其他执行人</li>
                 <li>{{projectRecord.otherExecutors | null_or_empty:"无"}}</li>
@@ -160,8 +160,8 @@
       </div>
       <div class="col-lg-11 col-md-11 col-xs-11 col-sm-11">
         <div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
-          <div class="project_class">
-            <div class="project_class_info">
+          <div class="element_class">
+            <div class="element_class_info">
               <ul>
                 <li class="title">计划发布时间</li>
                 <li>{{projectRecord.planningReleaseDate | date:"yyyy年MM月dd日" | null_or_empty:"无"}}</li>
@@ -170,8 +170,8 @@
           </div>
         </div>
         <div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
-          <div class="project_class">
-            <div class="project_class_info">
+          <div class="element_class">
+            <div class="element_class_info">
               <ul>
                 <li class="title">实际发布时间</li>
                 <li>{{projectRecord.realReleaseDate | date:"yyyy年MM月dd日" | null_or_empty:"无"}}</li>
@@ -180,8 +180,8 @@
           </div>
         </div>
         <div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
-          <div class="project_class">
-            <div class="project_class_info">
+          <div class="element_class">
+            <div class="element_class_info">
               <ul>
                 <li class="title">实际验收日期</li>
                 <li>{{projectRecord.realAcceptanceDate | date:"yyyy年MM月dd日" | null_or_empty:"无"}}</li>
@@ -190,8 +190,8 @@
           </div>
         </div>
         <div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
-          <div class="project_class">
-            <div class="project_class_info">
+          <div class="element_class">
+            <div class="element_class_info">
               <ul>
                 <li class="title">项目状态</li>
                 <li>{{projectRecord.status | null_or_empty : ""}}</li>
@@ -207,8 +207,8 @@
       </div>
       <div class="col-lg-11 col-md-11 col-xs-11 col-sm-11">
         <div class="col-lg-4 col-md-12 col-xs-12 col-sm-12">
-          <div class="project_class">
-            <div class="project_class_info">
+          <div class="element_class">
+            <div class="element_class_info">
               <ul>
                 <li class="title">关联产品</li>
                 <li>无</li>
@@ -221,16 +221,16 @@
     <!--项目动态-->
     <div class="row">
       <div class="col-lg-1 col-md-1 col-xs-1 col-sm-1">
-        <div class="project_class">
-          <div class="project_class_ic">
+        <div class="element_class">
+          <div class="element_class_ic">
             <md-icon>question_answer</md-icon>
           </div>
         </div>
       </div>
       <div class="col-lg-11 col-md-11 col-xs-11 col-sm-11">
         <div class="col-lg-8 col-md-12 col-xs-12 col-sm-12">
-          <div class="project_class">
-            <div class="project_class_info">
+          <div class="element_class">
+            <div class="element_class_info">
               <ul>
                 <li class="title">项目动态</li>
                 <li>

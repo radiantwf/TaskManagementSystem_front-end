@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
       <div class="row">
-        <div class="task_head">修改任务</div>
+        <div class="element_head">修改任务</div>
         <div class="fix">
           <button type="submit" [disabled]="!taskForm.form.valid" md-mini-fab color="primary" md-tooltip="确定" tooltip-position="below">
 					<md-icon>done</md-icon>
@@ -19,12 +19,12 @@
             </div>
           </div>
         </div>
-        <div class="task_class">
-          <div class="task_class_ic">
+        <div class="element_class">
+          <div class="element_class_ic">
             <md-icon>library_books</md-icon>
           </div>
-          <div class="task_title">基本信息</div>
-          <div class="task_class_info">
+          <div class="element_title">基本信息</div>
+          <div class="element_class_info">
             <ul>
               <li>
                 <md-input-container>
@@ -53,12 +53,12 @@
             </ul>
           </div>
         </div>
-        <div class="task_class">
-          <div class="task_class_ic">
+        <div class="element_class">
+          <div class="element_class_ic">
             <md-icon>account_box</md-icon>
           </div>
-          <div class="task_title">商务信息</div>
-          <div class="task_class_info">
+          <div class="element_title">商务信息</div>
+          <div class="element_class_info">
             <ul>
               <li>
                 <md-select placeholder="销售负责人" [(ngModel)]="primarySellerId" (ngModelChange)="editingTask.primarySellerId=$event" #sellerIdSelect="ngModel"
@@ -90,12 +90,12 @@
             </ul>
           </div>
         </div>
-        <div class="task_class">
-          <div class="task_class_ic">
+        <div class="element_class">
+          <div class="element_class_ic">
             <md-icon>account_circle</md-icon>
           </div>
-          <div class="task_title">执行信息</div>
-          <div class="task_class_info">
+          <div class="element_title">执行信息</div>
+          <div class="element_class_info">
             <ul>
               <li>
                 <md-select placeholder="OC负责人" [(ngModel)]="primaryOCId" (ngModelChange)="editingTask.primaryOCId=$event" #OCIdSelect="ngModel"
@@ -168,12 +168,12 @@
             </ul>
           </div>
         </div>
-        <div class="task_class">
-          <div class="task_class_ic">
+        <div class="element_class">
+          <div class="element_class_ic">
             <md-icon>dashboard</md-icon>
           </div>
-          <div class="task_title">产品与项目</div>
-          <div class="task_class_info">
+          <div class="element_title">产品与项目</div>
+          <div class="element_class_info">
             <ul>
               <li>
                 <md-select placeholder="所属项目" [(ngModel)]="parentProjectId" (ngModelChange)="editingTask.parentProjectId=$event" #parentProjectIdSelect="ngModel"

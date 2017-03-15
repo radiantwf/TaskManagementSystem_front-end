@@ -29,16 +29,16 @@ body{
 
 }
 
-.md-dialog-container{
-    padding:0px;
+.md-dialog-container,
+.mat-dialog-container {
+    padding: 0;
 	border-radius: 4px;
 }
 
-md-button,
-md-icon,
-md-sidenav,
-md-sidenav-container,
-md-input-container,
+.md-sidenav-container,
+.md-input-container,
+.mat-sidenav-container,
+.mat-input-container,
 .width100persent,
 .row
 {

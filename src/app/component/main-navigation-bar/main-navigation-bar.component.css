@@ -10,6 +10,10 @@
   border-bottom: 1px solid #fff;
 }
 
+ul {
+    margin-bottom: 0.2rem;
+}
+
 .menu li,
 .menu li:hover, .menu li.current {
   list-style-type: none;

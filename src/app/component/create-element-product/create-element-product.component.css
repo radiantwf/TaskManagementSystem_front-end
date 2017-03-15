@@ -1,10 +1,10 @@
-.product_btn {
+.element_btn {
   height: 68px;
   line-height: 68px;
   text-align: center;
 }
 
-.product_class_info input,
+.element_class_info input,
 md-input-container,
 md-select {
   width: 80%;
@@ -25,7 +25,7 @@ ul li{
  }*/
 
 /*
-.product_class_info span{
+.element_class_info span{
     display: inline-table;
     color: #e80202;
     padding: 0.5rem;
@@ -130,7 +130,7 @@ md-checkbox {
   line-height: 60px;
 }
 
-.product_class_ic {
+.element_class_ic {
   text-align: center;
   width: 50px;
   position: absolute;
@@ -219,7 +219,7 @@ md-checkbox {
 
 /*超时*/
 
-.overtime div.row .product_ic md-icon {
+.overtime div.row .element_ic md-icon {
   font-size: 2rem;
   margin-top: 16px;
   color: #f69679;
@@ -230,17 +230,17 @@ md-checkbox {
   margin: 0px;
 }
 
-.overtime div.row .product_info .date {
+.overtime div.row .element_info .date {
   width: 100px;
   color: #117ecc;
 }
 
-.overtime div.row .product_info .datespan {
+.overtime div.row .element_info .datespan {
   width: 80px;
   color: #00bfa8;
 }
 
-.overtime div.row .product_info .status {
+.overtime div.row .element_info .status {
   width: 60px;
   color: #d7481c;
 }
@@ -248,7 +248,7 @@ md-checkbox {
 
 /*进行中*/
 
-.ongoing div.row .product_ic md-icon {
+.ongoing div.row .element_ic md-icon {
   font-size: 2rem;
   margin-top: 16px;
   color: #64decf;
@@ -259,17 +259,17 @@ md-checkbox {
   margin: 0px;
 }
 
-.ongoing div.row .product_info .date {
+.ongoing div.row .element_info .date {
   width: 100px;
   color: #117ecc;
 }
 
-.ongoing div.row .product_info .datespan {
+.ongoing div.row .element_info .datespan {
   width: 80px;
   color: #666666;
 }
 
-.ongoing div.row .product_info .status {
+.ongoing div.row .element_info .status {
   width: 60px;
   color: #666666;
 }
@@ -277,7 +277,7 @@ md-checkbox {
 
 /*未开始*/
 
-.notstart div.row .product_ic md-icon {
+.notstart div.row .element_ic md-icon {
   font-size: 2rem;
   margin-top: 16px;
   color: #cb93dd;
@@ -288,17 +288,17 @@ md-checkbox {
   margin: 0px;
 }
 
-.notstart div.row .product_info .date {
+.notstart div.row .element_info .date {
   width: 100px;
   color: #117ecc;
 }
 
-.notstart div.row .product_info .datespan {
+.notstart div.row .element_info .datespan {
   width: 80px;
   color: #666666;
 }
 
-.notstart div.row .product_info .status {
+.notstart div.row .element_info .status {
   width: 60px;
   color: #666666;
 }
@@ -306,13 +306,13 @@ md-checkbox {
 
 /*标题*/
 
-.product_head {
+.element_head {
   float: left;
   font-size: 1.6rem;
   padding-left: 20px;
 }
 
-.product_title {
+.element_title {
   float: left;
   font-size: 1.2rem;
   line-height: 56px;
@@ -321,7 +321,7 @@ md-checkbox {
 
 /*任务图标*/
 
-.product_ic {
+.element_ic {
   font-size: 1rem;
   width: 52px;
   height: 68px;
@@ -334,7 +334,7 @@ md-checkbox {
 
 /*任务名称*/
 
-.product_name {
+.element_name {
   float: left;
   font-size: 1.2rem;
 }
@@ -408,7 +408,7 @@ md-checkbox {
 
 /*任务编号*/
 
-.product_name>span {
+.element_name>span {
   width: 100px;
   height: 12px;
   line-height: 12px;
@@ -422,18 +422,18 @@ md-checkbox {
 
 /*任务时间*/
 
-.product_info {
+.element_info {
   float: left;
   padding-left: 10px;
   padding-top: 16px;
   min-width: 260px;
 }
 
-.product_info ul {
+.element_info ul {
   float: left;
 }
 
-.product_info ul li {
+.element_info ul li {
   list-style-type: none;
   text-align: left;
   font-size: 12px;
@@ -441,25 +441,25 @@ md-checkbox {
   line-height: 18px;
 }
 
-.product_info ul li>span {
+.element_info ul li>span {
   font-size: 1.2rem;
 }
 
 
 /*计划完成日期
-.product_info ul li.title_date{
+.element_info ul li.title_date{
 	width:100px;
 	color:#117ecc;
 }
 
 计划用时
-.product_info ul li.title_day{
+.element_info ul li.title_day{
 	width:80px;
 	color:#00bfa8;
 }
 
 已超时
-.product_info ul li.title_overtime{
+.element_info ul li.title_overtime{
 	width:60px;
 	color:#d7481c;
 }
@@ -490,7 +490,7 @@ md-checkbox {
 
 /*任务详细内容展开*/
 
-.product_class {
+.element_class {
   width: 100%;
   padding: 10px;
   padding-left: 50px;
@@ -499,7 +499,7 @@ md-checkbox {
 
 /*任务基本信息展开-图标*/
 
-.product_class_ic {
+.element_class_ic {
   /*position: absolute;
 	font-family: FontAwesome;
 	left: 0px;
@@ -507,7 +507,7 @@ md-checkbox {
   text-align: center;
 }
 
-.product_class_ic div {
+.element_class_ic div {
   font-size: 1rem;
   /*color:#bbbbbb;*/
   /*line-height: 18px;*/
@@ -516,26 +516,26 @@ md-checkbox {
 
 /*任务基本信息展开-详细内容*/
 
-.product_class_info ul {
+.element_class_info ul {
   width: 100%;
   display: table;
 }
 
-.product_class_info ul li {
+.element_class_info ul li {
   line-height: 22px;
   width: auto;
   list-style-type: none;
   /*font-size: 0.9rem;*/
 }
 
-.product_class_info ul li.title {
+.element_class_info ul li.title {
   height: 16px;
   line-height: 16px;
   color: #117ecc;
   font-size: 0.5rem;
 }
 
-.product_class_info ul li p {
+.element_class_info ul li p {
   height: 16px;
   line-height: 16px;
   color: #afafaf;

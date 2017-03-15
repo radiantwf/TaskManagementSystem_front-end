@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
       <div class="row">
-        <div class="task_head">新建任务</div>
+        <div class="element_head">新建任务</div>
         <div class="fix">
           <button type="submit" [disabled]="!taskForm.form.valid" md-mini-fab color="primary" md-tooltip="确定" tooltip-position="below">
 					<md-icon>done</md-icon>
@@ -12,12 +12,12 @@
     </div>
     <div class="row">
       <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
-        <div class="task_class">
-          <div class="task_class_ic">
+        <div class="element_class">
+          <div class="element_class_ic">
             <md-icon>library_books</md-icon>
           </div>
-          <div class="task_title">基本信息</div>
-          <div class="task_class_info">
+          <div class="element_title">基本信息</div>
+          <div class="element_class_info">
             <ul>
               <li>
                 <md-input-container>
@@ -38,12 +38,12 @@
             </ul>
           </div>
         </div>
-        <div class="task_class">
-          <div class="task_class_ic">
+        <div class="element_class">
+          <div class="element_class_ic">
             <md-icon>account_box</md-icon>
           </div>
-          <div class="task_title">商务信息</div>
-          <div class="task_class_info">
+          <div class="element_title">商务信息</div>
+          <div class="element_class_info">
             <ul>
               <li>
                 <md-select placeholder="择销售负责人" [(ngModel)]="sellerId" #sellerIdSelect="ngModel" name="sellerIdSelect" [required]="true">
@@ -53,14 +53,10 @@
             </ul>
             <ul>
               <li>
-                <div class="row" class="col-lg-10 col-md-10 col-xs-12 col-sm-12">
-                  <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12">
-                    <md-input-container>
-                      <input mdInput type="date" [(ngModel)]="newRequiringEndDate" #requiringEndDate="ngModel" name="requiringEndDate" placeholder="要求完成日期">
-                    </md-input-container>
-                  </div>
-                  <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12">
-                  </div>
+                <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12">
+                  <md-input-container>
+                    <input mdInput type="date" [(ngModel)]="newRequiringEndDate" #requiringEndDate="ngModel" name="requiringEndDate" placeholder="要求完成日期">
+                  </md-input-container>
                 </div>
               </li>
             </ul>
@@ -74,12 +70,12 @@
             </ul>
           </div>
         </div>
-        <div *ngIf="!isSeller" class="task_class">
-          <div class="task_class_ic">
+        <div *ngIf="!isSeller" class="element_class">
+          <div class="element_class_ic">
             <md-icon>account_circle</md-icon>
           </div>
-          <div class="task_title">执行信息</div>
-          <div class="task_class_info">
+          <div class="element_title">执行信息</div>
+          <div class="element_class_info">
             <ul>
               <li>
                 <md-select placeholder="OC负责人" [(ngModel)]="OCId" #OCIdSelect="ngModel" name="OCIdSelect" [required]="taskManagerId != null || (isTaskAdmin || isTaskManager)">
@@ -122,12 +118,12 @@
             </ul>
           </div>
         </div>
-        <div class="task_class">
-          <div class="task_class_ic">
+        <div class="element_class">
+          <div class="element_class_ic">
             <md-icon>dashboard</md-icon>
           </div>
-          <div class="task_title">产品与项目</div>
-          <div class="task_class_info">
+          <div class="element_title">产品与项目</div>
+          <div class="element_class_info">
             <ul>
               <li>
                 <md-select placeholder="所属项目" [(ngModel)]="newTask.parentProjectId" #parentProjectIdSelect="ngModel" name="parentProjectIdSelect">

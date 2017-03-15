@@ -4,11 +4,11 @@ ul{
 li{
     padding:10px;
 }
-.product_class_ic{
+.element_class_ic{
     line-height: 50px;
 }
 
-.product_class{
+.element_class{
     padding: 0px;
 }
 
@@ -40,19 +40,19 @@ md-icon{
     color: rgba(0,0,0,0.60);
 }
 
-[md-button].md-primary, [md-icon-button].md-primary {
+[mat-button].mat-primary, [mat-icon-button].mat-primary {
     color: #117ecc;
 	font-family: "微软雅黑";
     font-size: 16px;
     margin-top: 12px;
     float: right;
 }
-[md-button] {
+[mat-button] {
     font-weight: 100; 
     min-width: 0px; 
 }
 
-[md-button].md-refuse, [md-icon-button].md-refuse {
+[mat-button].mat-refuse, [mat-icon-button].mat-refuse {
     color: rgba(0,0,0,0.54);
 	font-family: "微软雅黑";
     font-size: 16px;

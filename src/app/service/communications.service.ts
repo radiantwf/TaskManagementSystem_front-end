@@ -35,8 +35,8 @@ export class CommunicationsService {
   }
 
   private httpHeaders(): Headers {
-    let headers = new Headers({ 'Content-Type': 'application/json' });
-    let token = this.userService.getLocalToken();
+    const headers = new Headers({ 'Content-Type': 'application/json' });
+    const token = this.userService.getLocalToken();
     if (token != null && token !== '') {
       headers.append('X-Auth-Token', token);
     }

@@ -17,7 +17,6 @@ import { DialogRefuseTaskComponent } from './../dialog-refuse-task/dialog-refuse
 export class ElementTaskDetailComponent implements OnInit {
   @Input() taskId: string;
   taskRecord: Task = new Task('', '');
-
   isSeller: boolean = false;
   isOC: boolean = false;
   isTaskAdmin: boolean = false;
@@ -32,7 +31,10 @@ export class ElementTaskDetailComponent implements OnInit {
   refuseAlert: boolean = false;
   localOffset: number = new Date().getTimezoneOffset() * 60000;
 
-  constructor(private taskService: TaskService, private userService: UserService, public dialog: MdDialog, private router: Router) { }
+  constructor(private taskService: TaskService,
+    private userService: UserService,
+    public dialog: MdDialog,
+    private router: Router) { }
 
   ngOnInit() {
     let user = this.userService.currentUser;

@@ -40,6 +40,7 @@ import { UserService } from './service/user.service';
 import { EmployeeService } from './service/employee.service';
 import { CookiesService } from './service/cookies.service';
 import { MainHeaderService } from './service/main-header.service';
+import { AttachmentService } from './service/attachment.service';
 // import { InMemoryDataService } from './service/in-memory-data.service';
 import { NullOrEmptyPipe } from './pipe/null-or-empty.pipe';
 import { DialogStartElementComponent } from './component/dialog-start-element/dialog-start-element.component';
@@ -60,6 +61,7 @@ import { ElementProductDetailComponent } from './component/element-product-detai
 import { ElementProjectComponent } from './component/element-project/element-project.component';
 import { ElementProductComponent } from './component/element-product/element-product.component';
 import { ChangePasswordComponent } from './component/change-password/change-password.component';
+import { AttachmentsComponent } from './component/attachments/attachments.component';
 
 @NgModule({
   declarations: [
@@ -107,6 +109,7 @@ import { ChangePasswordComponent } from './component/change-password/change-pass
     ElementProjectComponent,
     ElementProductComponent,
     ElementStatusDirective,
+    AttachmentsComponent,
   ],
   imports: [
     MaterialModule.forRoot(),
@@ -138,6 +141,7 @@ import { ChangePasswordComponent } from './component/change-password/change-pass
     UserService,
     EmployeeService,
     CookiesService,
+    AttachmentService,
   ],
   bootstrap: [AppComponent]
 })

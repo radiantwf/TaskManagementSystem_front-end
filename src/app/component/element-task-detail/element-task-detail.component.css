@@ -64,36 +64,3 @@ md-icon {
   margin-top: 12px;
   float: right;
 }
-
-.attachment ul li {
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  position: absolute;
-  width: 100%;
-  color: rgba(0, 0, 0, .54);
-  cursor: pointer;
-}
-
-.attachment ul li:hover {
-  color: rgba(0, 0, 0, 1);
-  text-decoration: underline;
-}
-
-.del ul li {
-  color: rgba(0, 0, 0, 0.34);
-  cursor: pointer;
-}
-
-.del ul li:hover {
-  color: #117ecc;
-}
-
-.add-attachment ul li {
-  color: rgba(0, 0, 0, 0.34);
-  cursor: pointer;
-}
-
-.add-attachment ul li:hover {
-  color: #117ecc;
-}

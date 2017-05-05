@@ -1,7 +1,7 @@
 <ul>
 	<li>
 		<div class="dynamic">
-			<template ngFor let-record [ngForOf]="list">
+			<ng-template ngFor let-record [ngForOf]="list">
 				<div [personId]="record.personId">
 					<ul class="role">
 						<li *ngIf="record.personId !== empId" class="title">{{record.personName}}</li>
@@ -14,7 +14,7 @@
 						</li>
 					</ul>
 				</div>
-			</template>
+			</ng-template>
 		</div>
 	</li>
 	<li class="text-center">

@@ -1,5 +1,5 @@
 <div class="row">
-  <template ngFor let-record [ngForOf]="list">
+  <ng-template ngFor let-record [ngForOf]="list">
     <div class="col-lg-3 col-md-11 col-xs-11 col-sm-11 attachment">
       <ul>
         <li [md-tooltip]="record.fileName" tooltip-position="below"><a [href]="attachmentUrl + '/' + record.fileObjectId" target="_blank">{{record.fileName}}</a></li>
@@ -10,7 +10,7 @@
         <li><i class="material-icons" md-tooltip="删除" tooltip-position="below" (click)="del(record.fileObjectId)">cancel</i></li>
       </ul>
     </div>
-  </template>
+  </ng-template>
   <div class="col-lg-4 col-md-12 col-xs-12 col-sm-12 add-attachment">
     <ul>
       <li>

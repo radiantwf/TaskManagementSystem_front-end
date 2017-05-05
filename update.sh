@@ -4,7 +4,7 @@ npm i --registry https://registry.npm.taobao.org --save \
  @angular/platform-browser-dynamic  @angular/router \
  @angular/upgrade angular-in-memory-web-api \
  @angular/material angular2-highcharts rxjs \
- core-js bootstrap ng2-bootstrap angular2-highcharts \
+ core-js bootstrap ngx-bootstrap angular2-highcharts \
  bootstrap core-js "zone.js"
 
 npm i --registry https://registry.npm.taobao.org --save-dev \

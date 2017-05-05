@@ -118,7 +118,7 @@
             <ul>
               <li>
                 <md-select placeholder="其他执行人员" multiple [(ngModel)]="newProject.otherExecutors" #otherExecutorsSelect="ngModel" name="otherExecutorsSelect">
-                  <md-option *ngFor="let emp of taskManagers" [value]="emp.empId">{{emp.name}}</md-option>
+                  <md-option *ngFor="let emp of developmentManagers" [value]="emp.empId">{{emp.name}}</md-option>
                 </md-select>
               </li>
             </ul>

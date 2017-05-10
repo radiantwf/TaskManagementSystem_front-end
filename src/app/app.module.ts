@@ -3,7 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
-import { AlertModule, DatepickerModule, ModalModule } from 'ngx-bootstrap';
+import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations'
+// import { AlertModule, DatepickerModule, ModalModule } from 'ngx-bootstrap';
 
 // import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { AppRoutingModule } from './app.routing';
@@ -20,8 +21,6 @@ import { MainHeaderComponent } from './component/main-header/main-header.compone
 import { MainNavigationBarComponent } from './component/main-navigation-bar/main-navigation-bar.component';
 import { CreateElementComponent } from './component/create-element/create-element.component';
 import { CreateElementTaskComponent } from './component/create-element-task/create-element-task.component';
-import { ModalHomeComponent } from './component/modal-home/modal-home.component';
-import { ModalEmployeesChoiceComponent } from './component/modal-employees-choice/modal-employees-choice.component';
 import { ProgressChartComponent } from './component/progress-chart/progress-chart.component';
 import { ProgressChart2Component } from './component/progress-chart-2/progress-chart-2.component';
 import { CommunicationsComponent, CommunicationsDirective } from './component/communications/communications.component';
@@ -80,8 +79,6 @@ import { AttachmentsComponent } from './component/attachments/attachments.compon
     MainNavigationBarComponent,
     CreateElementComponent,
     CreateElementTaskComponent,
-    ModalHomeComponent,
-    ModalEmployeesChoiceComponent,
     ProgressChartComponent,
     ProgressChart2Component,
     CommunicationsComponent,
@@ -114,9 +111,11 @@ import { AttachmentsComponent } from './component/attachments/attachments.compon
   imports: [
     MaterialModule.forRoot(),
     AppRoutingModule,
-    AlertModule,
-    ModalModule,
-    DatepickerModule,
+    // AlertModule,
+    // ModalModule,
+    // DatepickerModule,
+    BrowserAnimationsModule,
+    NoopAnimationsModule,
     BrowserModule,
     FormsModule,
     // InMemoryWebApiModule.forRoot(InMemoryDataService),

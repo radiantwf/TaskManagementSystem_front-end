@@ -29,7 +29,8 @@ export class AppGlobal {
         AppGlobal.instance = this;
 
         if (environment.production) {
-            this.appURL = 'http://task.hisign.top:6001/v1';
+            this.appURL = 'http://127.0.0.1:8888/v1';
+            // this.appURL = 'http://task.hisign.top:6001/v1';
         } else {
             this.appURL = 'http://127.0.0.1:8888/v1';
         }

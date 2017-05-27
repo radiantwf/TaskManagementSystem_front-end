@@ -109,7 +109,7 @@ import { AttachmentsComponent } from './component/attachments/attachments.compon
     AttachmentsComponent,
   ],
   imports: [
-    MaterialModule.forRoot(),
+    MaterialModule,
     AppRoutingModule,
     // AlertModule,
     // ModalModule,
